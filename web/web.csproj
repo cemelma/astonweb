@@ -2413,6 +2413,7 @@
     <Content Include="Content\Images\adim_tasi.jpg" />
     <Content Include="Content\Images\agac_dibi_izgara.png" />
     <Content Include="Content\Images\agac_dibi_izgara_cizim.png" />
+    <Content Include="Content\Images\aktiv.png" />
     <Content Include="Content\Images\alacati_tasi.jpg" />
     <Content Include="Content\Images\andezit.jpg" />
     <Content Include="Content\Images\arrow.png" />
@@ -2421,6 +2422,7 @@
     <Content Include="Content\Images\bazalt.jpg" />
     <Content Include="Content\Images\beton_boru.JPG" />
     <Content Include="Content\Images\blank.gif" />
+    <Content Include="Content\Images\blue.png" />
     <Content Include="Content\Images\bodyBg.jpg" />
     <Content Include="Content\Images\bx_loader.gif" />
     <Content Include="Content\Images\celik_yapilar.png" />
@@ -2463,6 +2465,7 @@
     <Content Include="Content\Images\icons\portfolio-nav.png" />
     <Content Include="Content\Images\icons\portfolio-overlay.png" />
     <Content Include="Content\Images\icons\trash.gif" />
+    <Content Include="Content\Images\inaktiv.png" />
     <Content Include="Content\Images\Instagram-icon.png" />
     <Content Include="Content\Images\isikli_tas.jpg" />
     <Content Include="Content\Images\ithal_granit.jpg" />
@@ -2574,6 +2577,9 @@
     <Content Include="Content\Images\sentetik-cim.png" />
     <Content Include="Content\Images\sentetik_cim.png" />
     <Content Include="Content\Images\slide01.png" />
+    <Content Include="Content\Images\slide1.png" />
+    <Content Include="Content\Images\slide2.png" />
+    <Content Include="Content\Images\slide3.png" />
     <Content Include="Content\Images\spor_sahalari.jpg" />
     <Content Include="Content\Images\spor_sahalari.png" />
     <Content Include="Content\Images\super_dekor.png" />
@@ -2650,6 +2656,7 @@
     <Content Include="Content\Scripts\custom.js" />
     <Content Include="Content\Scripts\watermark.min.js" />
     <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\jquery.bxslider.css" />
     <Content Include="Content\Styles\jquery.fancybox.css" />
     <Content Include="Content\Styles\jquery.gritter.css" />
@@ -2660,9 +2667,12 @@
     <Content Include="Content\Styles\reset.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Styles\validationEngine.jquery.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bxslider.css" />
     <Content Include="css\colorbox.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\jquery.bxslider.css" />
+    <Content Include="css\jquery.fancybox.css" />
     <Content Include="css\main.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\style.css" />
@@ -3171,6 +3181,8 @@
     <Content Include="Views\FProduct\Index.cshtml" />
     <Content Include="Views\FProduct\Prices.cshtml" />
     <Content Include="Views\FProduct\UserLogin.cshtml" />
+    <Content Include="Views\Shared\Partial\_footernew.cshtml" />
+    <Content Include="Views\Shared\Partial\_topmenuold.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

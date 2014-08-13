@@ -1,9 +1,10 @@
 ﻿<style>
-    .search input[type="submit"] { background: #fff url(/Content/images/search.png) center center no-repeat; border: none; width: 28px; height: 28px; float: left; }
+    .search input[type="submit"] { background: #fff url(/Content/images/search.png) center center no-repeat; border: none; width: 28px; height: 28px; float: left; margin-left: -30px; margin-top: 1px; }
 </style>
+
 <form action="/arama" class="searchForm" method="post"> 
-    <div class="col-md-3 search">
-      <input type="text" name="SearchText"  placeholder="Arama" value="Arama" onfocus="if (this.value==this.defaultValue) this.value='';" onblur="if (this.value=='') this.value=this.defaultValue;"/>
+    <div class="search">
+        <input type="text" name="SearchText"  placeholder="Arama" value="Arama" onfocus="if (this.value==this.defaultValue) this.value='';" onblur="if (this.value=='') this.value=this.defaultValue;"/>
       <input id="srcbtn" name="submit" type="submit" value="">
     </div>
 </form>

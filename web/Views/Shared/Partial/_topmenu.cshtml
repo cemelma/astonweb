@@ -1,52 +1,27 @@
 ﻿@model web.Models.VMProductGroupModel
  
-<div class="col-md-12 noPadding section menu">
+<div class="col-md-12 col-md-pull-0 menu noPadding">
     <ul class="nav nav-pills">
-      <li class="active home"><a href="/">ANASAYFA</a></li>
-      
-      <li><a href="/kurumsal">KURUMSAL</a></li>
-
-
-        
-
-
-      <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">ÜRÜNLER <span class="caret"></span></a>
-        <ul class="dropdown-menu  multi-level" role="menu" aria-labelledby="dropdownMenu">
-
-            @{Html.RenderPartial("_submenu", Model);}
-
-
-          
-
-        </ul>
-      </li>
-      
-
-
-      <li class="dropdown"> 
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">HİZMETLER <span class="caret"></span></a>
-        @if (ViewBag.Services!=null)
-        {
-          <ul class="dropdown-menu">
-               @foreach (var item in ViewBag.Services)
-              {
-                   <li><a href="/hizmetler/@item.ServiceId/@item.PageSlug">@item.Name</a></li>
-              }
-        </ul>
-        }
-      </li>
-      <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">FİYAT LİSTESİ <span class="caret"></span></a>
+        <li><a href="/kurumsal">Kurumsal</a></li>
+        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ürünler/Hizmetler</a>
+            <ul class="dropdown-menu  multi-level" role="menu" aria-labelledby="dropdownMenu">
+                @{Html.RenderPartial("_submenu", Model);}
+            </ul>
+        </li>
+        <li><a href="/haberler">Haberler</a></li>
+        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Fiyat Listesi</a>
         <ul class="dropdown-menu">
             @foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
             {
                 <li><a href="/fiyatlar/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
             }
         </ul>
-      </li>
-     
-      <li><a href="/haberler">HABERLER</a></li>
-      <li><a href="/referanslar">REFERANSLAR</a></li>
-      <li><a href="/insankaynaklari">İNSAN KAYNAKLARI</a></li>
-      <li class="last"><a href="/iletisim">İLETİŞİM</a></li>
+        </li>
+        <li><a href="makine-ve-arac-parkuru.html">Makine ve Araç Parkuru</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+
+        <li><a href="/referanslar">Referanslar</a></li>
+        <li class="last"><a href="/iletisim">İletişim</a></li>
+
     </ul>
-  </div>
+</div>

@@ -15,7 +15,7 @@
 ===================================*/
 
 .bx-wrapper { position: relative; margin: 0 auto ; padding: 0;  *zoom: 1;
-width: 1100px !important; }
+width: 100% !important; }
 .news .bx-wrapper { position: relative; margin: 0 auto 40px; padding: 7px;  *zoom: 1;
 width: auto !important; }
 .references .bx-wrapper { position: relative; margin: 0 auto 40px; padding: 7px;  *zoom: 1;
@@ -24,16 +24,17 @@ width: auto !important; }
 /** THEME
 ===================================*/
 
-.bx-wrapper .bx-viewport { -moz-box-shadow: 0 0 5px #ccc; -webkit-box-shadow: 0 0 5px #ccc; box-shadow: 0 0 5px #ccc; border: 5px solid #fff; left: 0; background: #fff; /*fix other elements on the page moving (on Chrome)*/
+.bx-wrapper .bx-viewport { 
+ left: 0;  /*fix other elements on the page moving (on Chrome)*/
 -webkit-transform: translatez(0); -moz-transform: translatez(0); -ms-transform: translatez(0); -o-transform: translatez(0); transform: translatez(0); }
-.news .bx-wrapper .bx-viewport { -moz-box-shadow: 0 0 0 #ccc; -webkit-box-shadow: 0 0 0 #ccc; box-shadow: 0 0 0 #ccc; border: 0px solid #fff; left: 0; background: #fff; /*fix other elements on the page moving (on Chrome)*/
+.newsbox .bx-wrapper .bx-viewport {  border: 0px solid #fff; left: 0; background: #fff; /*fix other elements on the page moving (on Chrome)*/
 -webkit-transform: translatez(0); -moz-transform: translatez(0); -ms-transform: translatez(0); -o-transform: translatez(0); transform: translatez(0); }
 .references .bx-wrapper .bx-viewport { -moz-box-shadow: 0 0 0 #ccc; -webkit-box-shadow: 0 0 0 #ccc; box-shadow: 0 0 0 #ccc; border: 0px solid #fff; left: 0; background: #fff; /*fix other elements on the page moving (on Chrome)*/
 -webkit-transform: translatez(0); -moz-transform: translatez(0); -ms-transform: translatez(0); -o-transform: translatez(0); transform: translatez(0); }
 .bx-wrapper .bx-pager, 
 .bx-wrapper .bx-controls-auto { position: absolute; bottom: 30px; width: 100%; }
-.news .bx-wrapper .bx-pager, 
-.news .bx-wrapper .bx-controls-auto { position: absolute; bottom: -30px; width: 100%; }
+#newsbox .bx-wrapper .bx-pager, 
+#newsbox .bx-wrapper .bx-controls-auto { position: absolute; bottom: -20px; width: 100%; }
 .references .bx-wrapper .bx-pager, 
 .references .bx-wrapper .bx-controls-auto { position: absolute; bottom: -30px; width: 100%; }
 /* LOADER */

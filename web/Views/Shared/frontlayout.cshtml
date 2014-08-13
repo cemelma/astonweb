@@ -6,41 +6,15 @@
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext">
 <link rel="stylesheet" type="text/css" href="/Content/Styles/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/Content/Styles/style.css">
-<link rel="stylesheet" type="text/css" href="/Content/Styles/jquery.bxslider.css" />
+<link rel="stylesheet" type="text/css" href="/Content/Styles/font-awesome.min.css" />
 <link rel="shortcut icon" href="/favicon.ico">
 <!--[if lt IE 9]>
 	<script src="~/Content/Scripts/html5shiv.js"></script>
 	<![endif]-->
 <script src="~/Content/Scripts/jquery-1.8.3.min.js"></script>
 <script src="~/Content/Scripts/bootstrap.min.js"></script>
-<script src="~/Content/Scripts/jquery.bxslider.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-
-        $('.slider').bxSlider({
-            auto: true,
-            controls: true
-        });
-        $('.newsSlider').bxSlider({
-            auto: true,
-            slideWidth: 295,
-            minSlides: 3,
-            maxSlides: 3,
-            slideMargin: 15,
-            pause: 8000,
-            speed: 1500,
-            controls: false
-        });
-        $('.referenceSlider').bxSlider({
-            auto: true,
-            slideWidth: 295,
-            minSlides: 5,
-            maxSlides: 5,
-            slideMargin: 15,
-            pause: 8000,
-            speed: 1500,
-            controls: false
-        });
         $('.tab a').click(function (e) {
             e.preventDefault()
             $(this).tab('show')
@@ -52,56 +26,41 @@
 <body>
 <div id="header" class="container">
   <div class="col-md-12 noPadding">
-    <div class="col-md-4 noPadding"> <a href="/" class="logo"><img src="/Content/Images/logo.png" border="0" /></a> </div>
-    <div class="col-md-8 noPadding">
-      <div class="col-md-12 col-md-pull-0 noPadding">
-        <ul class="nav nav-pills topMenu">
-          <li class="first"><a href="/iletisim">Bize Ulaşın</a></li>
-          <li class="last"><a href="/siteharita">Site Haritası</a></li>
-        </ul> 
-        <ul class="nav nav-pills socialMenu">
-          <li class="first"><a href="https://www.facebook.com/pages/Zeynel-Yayla/263271070526040?ref=hl"><img src="/Content/Images/Facebook-icon.png" border="0"/></a></li>
-          <li><a href="https://twitter.com/zeynelyayla1"><img src="/Content/Images/Twitter-icon.png" border="0"/></a></li>
-          <li><a href="https://plus.google.com/108451368646665594619/about"><img src="/Content/Images/Google-Plus-icon.png" border="0"/></a></li>
-          <li class="last"><a href="http://instagram.com/zeynelyayla"><img src="/Content/Images/Instagram-icon.png" border="0"/></a></li>
-        </ul>
-      </div>
-      <div class="col-md-12 col-md-pull-0 phoneLine noPadding">
-        <p>Müşteri Bilgi Hattı: <span>0216 499 42 42 </span></p>
+    <div class="col-md-3 noPadding"> <a href="/" class="logo"><img src="/Content/Images/logo.png" border="0" /></a> </div>
+    <div class="col-md-9 noPadding">
+      <div class="col-md-12 col-md-pull-0 noPadding headerTop">
+          
           @if (Session["userlogin"] != null)
           { 
-            <p><a href="/guvenlicikis">Güvenli Çıkış</a></p>
+              <span style="float: right;position: absolute;right: 441px;top: 4px;"><a href="/guvenlicikis">Güvenli Çıkış</a></span>
           }
+          
+          @{ Html.RenderAction("_search", "FSearch"); }
+
+            <ul class="nav nav-pills topMenu">
+              <li class="first"><a href="index.html">TR</a></li>
+              <li><a href="#">EN</a></li>
+              <li class="last"><a href="#">العربية</a></li>
+            </ul>
+
       </div>
+
+        @{Html.RenderAction("GetTopMenu", "FHome");}
+
     </div>
   </div>
-    @*@{Html.RenderPartial("Partial/_topmenu");}*@
-    @{Html.RenderAction("GetTopMenu","FHome");}
-    <div class="col-md-12 noPadding sectionforPage">
-    @RenderSection("breadcrumb",false)
-
-        @{ Html.RenderAction("_search", "FSearch"); }
-
-    
-  </div>
 </div>
-<div class="contentBody">
+    
+<div class="col-md-12 noPadding breadcrumbOut">
+    @RenderSection("breadcrumb", false)
+</div>
+
+<div id="container" class="container">
      @RenderBody()
 </div>
 
-   
-
-       @{Html.RenderAction("GetAddress","FHome");}
-  
-<div id="footerCopyright">
-  <div class="container">
-    <div class="col-md-6  copyright"> © Copyright ZEYNELYAYLA 2014 </div>
-    <div class="col-md-6  wortec"> Design and Development <a href="http://www.wortec.net">WORTEC</a> </div>
-  </div>
-</div>
-
-    @Html.Raw(BLL.AccountBL.AnalyticManager.GetAnalytic().Code)
-
+@Html.Partial("Partial/_footernew");
+@Html.Raw(BLL.AccountBL.AnalyticManager.GetAnalytic().Code)
 </body>
 </html>
 
