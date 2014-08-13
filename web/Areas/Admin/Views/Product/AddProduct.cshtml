@@ -1,0 +1,235 @@
+﻿@model web.Areas.Admin.Models.ProductAddModel
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>
+<link href="~/Areas/Admin/Content/styles/nestedsortable.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/colpick.css" rel="stylesheet" />
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>ÜRÜN BİLGİLERİ</h2>
+    </div>
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @Html.Hidden("hdsaveResult", (object)@ViewBag.SaveResult)
+        @Html.Hidden("hdProductId", (object)@ViewBag.ProductId)
+
+
+        @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+           
+            @Html.Hidden("hdfieldcategory")
+            @Html.Hidden("hdfieldtaglist")
+            @Html.ValidationSummary(true)
+         
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Ürün Bilgileri</a></li>
+                    @*<li><a href="#tabs-2">Ürün Özellikleri/Detayları</a></li>
+                    <li><a href="#tabs-3">Ürün Kategorisi</a></li>*@
+                </ul>
+                <div id="tabs-1">
+                    @*  <p>
+                        @Html.Label("Ürün Grubu")
+                        @Html.DropDownListFor(m => m.ProductGroupId, (IEnumerable<SelectListItem>)ViewBag.grouplist, "Ürün Grubu Seçiniz...", new { @class = "required" })
+                        @Html.ValidationMessageFor(m => m.ProductGroupId)
+                        <img src="/Areas/Admin/Content/images/icons/16/loader.gif" id="imgloader" class="imgloader" />
+                    </p>
+                  *@
+                    <p>
+                        <label>Ürün Kategorisi</label>
+                        <select id="ddl_group" class="required" required="required" name="ddl_group">
+                            <option></option>
+                            @Html.Partial("_ProductGroupDropDownadd",Model.VMProductGroupModel)
+                        </select>
+                    </p>
+                    <br />
+                    <p>
+                        @Html.LabelFor(m => m.Product.Name)
+                        @Html.TextBoxFor(m => m.Product.Name, new { @class = "textwidth50", Rows = "5" })
+                        @Html.ValidationMessageFor(m => m.Product.Name)
+                    </p>
+                    <p>
+                        @Html.TextAreaFor(m => m.Product.Content, new { id = "txtcontent", @class = "required" })
+                        @Html.ValidationMessageFor(m => m.Product.Content)
+                    </p>
+
+                    <p style="float: left; margin-right: 4px !important;">
+                        <label>Ürün Fotoğrafları</label>
+                    </p>
+                    <div style="width: 249px; width: 25%; float: left">
+                        <input type="file" style="width: 99%" name="prd1" />
+                        <input type="file" style="width: 99%" name="prd2" />
+                    </div>
+                    <div style="height: 40px; clear: both;"></div>
+
+                    <p style="float: left; margin-right: 4px !important;">
+                        <label>Uygulama Fotoğrafları</label>
+                    </p>
+                    <div style="width: 249px; width: 25%; float: left">
+                        <input type="file" style="width: 99%" name="attachments" id="fileproductdetail" class="multi" />
+                    </div>
+                     <p>
+                        @Html.Label("Ana sayfada Göster")
+                        @Html.CheckBoxFor(x=>x.Product.IsShownMain)
+                    </p>
+                    <div style="height: 40px; clear: both;"></div>
+                    <input type="submit" value="Kaydet" id="btnsave" />
+                </div>
+
+             @*   <div id="tabs-2">*@
+                   @* <p>
+                        @Html.Label("Kod")
+                        <input type="text" name="txtcode" id="txtcode" style="width:100px"/>
+                    </p>
+                    <p>
+                        @Html.Label("Malzeme")
+                        <input type="text" name="txtmalzeme" id="txtmalzeme" style="width:250px"/>
+                    </p>
+                    <p>
+                        @Html.Label("Birim")
+                        <input type="text" name="txtbirim" id="txtbirim" style="width:100px"/>
+                    </p>
+                    <p>
+                        @Html.Label("Ebat")
+                        <input type="text" name="txtebat" id="txtebat" style="width:100px"/>
+                    </p>
+                    <p>
+                        @Html.Label("Ağırlık")
+                        <input type="text" name="txtagirlik" id="txtagirlik" style="width:100px" />
+                    </p>
+                    <p>
+                        @Html.Label("Araç/Ton")
+                        <input type="text" name="txtton" id="txtton" style="width:100px"/>
+                    </p>
+                    <p>
+                        @Html.Label("Renk")
+                         
+                        <input type="text" name="txtrenk" id="txtrenk" style="width:80px;"/>
+                    </p>
+                    <p>
+                        @Html.Label("Fiyat")
+                        <input type="text" name="txtfiyat" id="txtfiyat" style="width:60px"/>
+                    </p>
+                  
+                    <p>
+                        <input type="button" value="Temizle" id="btnclear" />
+                        <input type="button" value="Kaydet" id="btnsaveProp" />
+                    </p>*@
+                 @*   <div id="resultTable">
+                      
+                    </div>
+                </div>*@
+               @* <div id="tabs-3">
+                    <div class="box-header" style="width: 668px;">
+                        <h1>Grup Listesi</h1>
+                        <menu id="nestable-menu">
+                             <button type="button" data-action="expand-all">Grupları Aç</button>
+                            <button type="button" data-action="collapse-all">Tümünü Grupla</button>
+                            <button type="button" id="btnsavecategory">Kategoriyi Kaydet</button>
+                        </menu>
+                    </div>
+                    <div class="dd" id="nestable">
+                        <ol class="dd-list">
+                            @{Html.RenderPartial("_categorychoise", Model.VMProductGroupModel);}
+                        </ol>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>*@
+            </div>
+        
+        }
+
+    </section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.ui.all.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/numeric.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/product/addProduct.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.nestable.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/colpick.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/blockui.js"></script>
+
+    <script  type="text/javascript">
+        $(document).ready(function () {
+
+          
+            //$('#txtrenk').colpick({
+            //    colorScheme: 'dark',
+            //    layout: 'rgbhex',
+            //    color: 'ff8800',
+            //    onSubmit: function (hsb, hex, rgb, el) {
+            //        $(el).css('background-color', '#' + hex);
+            //        $(el).colpickHide();
+            //    }
+            //})
+
+            var updateOutput = function (e) {
+                var list = e.length ? e : $(e.target),
+                    output = list.data('output');
+                if (window.JSON) {
+                    $('#nestable-output').val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+                    SortOrder();
+                } else {
+                    $('#nestable-output').val('JSON browser support required for this demo.');
+                }
+            };
+            $('#nestable').nestable({ group: 1 }).on('change', updateOutput);
+            $('.dd').nestable('collapseAll'); //Başlangıçta tüm grupları kapat
+
+            $('#nestable-menu').on('click', function (e) {
+                var target = $(e.target),
+                    action = target.data('action');
+                if (action === 'expand-all') {
+                    $('.dd').nestable('expandAll');
+                }
+                if (action === 'collapse-all') {
+                    $('.dd').nestable('collapseAll');
+                }
+            });
+
+            $("#btnsavecategory").click(function () {
+                var prId = $("#hdProductId").val();
+                var id = $("input[type='radio']:checked").attr("id");
+                if (id != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Product/SaveCategory',
+                        data: '{id:"' + id + '",prdId:"'+prId+'"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        success: function (result) {
+                            alert("Kategori Başarıyla Kaydedildi");
+                        },
+                        error: function () {
+                            alert("Kategori Kaydedilemedi");
+                        }
+                    });
+
+                }
+                else {
+                    alert("Lütfen Kategori Seçiniz");
+                }
+            });
+
+        });
+
+    </script>
+}
+
+

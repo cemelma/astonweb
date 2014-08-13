@@ -1,0 +1,128 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+    string groupid = "";
+    if (Request.QueryString["groupId"] != null)
+    {
+        groupid = Request.QueryString["groupId"].ToString();
+    }
+    
+}
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("product_leftbar")
+
+<input type="hidden" id="h_groupid" value="@groupid" />
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>ÜRÜN BİLGİLERİ</h2>
+    </div>  
+    <section class="grid_12 form">
+    <div class="box-header" ><h1>Ürün Listesi | Kategori Seçiniz:
+        <select id="ddl_group">
+            <option value="0">Tümü</option>
+            @Html.Partial("_ProductGroupDropDown",Model)
+        </select>
+    </h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="center width5">Sırala</th>
+                 <th class="center width5">Resim</th>
+                <th class="width35">Ürün Adı</th>
+                 <th class="center witdh35">Ana Kategori</th>
+                <th class="center witdh35">Alt Grubu</th>
+                <th class="center witdh10">Durum</th>
+                 <th class="center witdh5">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model.Products)
+            {
+                <tr id="listItem_@item.ProductId"  class="handle">
+                    <td class="center">
+                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                    </td>  
+                    <td>
+                        <center>
+                            <a href="@item.Image1" onclick="return false;"
+                                class="preview">
+                                <img src="@item.Image1" alt="image" with="48" height="48" /></a></center>
+                    </td>
+
+                    <td>
+                        <span id="spanitem_@item.ProductId">@item.Name</span>
+                        <input type="text" id="textitem_@item.ProductId" value="" class="displaynone textwidth90"/>
+                    </td>
+                    <td>
+                        <span><b></b> ></span>
+                    </td>
+                      <td>
+                        <span><b></b> ></span>
+                    </td>
+                    <td class="center">
+                        @if (item.Online == true)
+                        {<img   id="img_online_@item.ProductId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/Product/EditStatus',@item.ProductId)" />}
+                        else{<img id="img_online_@item.ProductId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/Product/EditStatus',@item.ProductId)" />}
+                    </td>
+                  
+                    <td class="center">
+                       <a href="/yonetim/urunduzenle/@item.ProductId">
+                        <img id="btn_update_@item.ProductId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                        </a>
+                       <img id="DeleteImage_@item.ProductId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Product/DeleteProduct',@item.ProductId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/main.js"></script>
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrderByCategory.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/product/productlist.js"></script>
+
+
+<script>
+    $(function () {
+        //$("#ddl_group option:last").remove();
+
+        var groupid = $("#h_groupid").val();
+        if (groupid!=null)
+            $("#ddl_group").val(groupid);
+
+        if ($("#ddl_group").val() == 0)
+        {
+            $(".sortimg").hide();
+        }
+
+        $("#ddl_group").change(function () {
+            if ($("#ddl_group").val() != 0)
+                window.location = "/yonetim/urunlistesi?groupId=" + $("#ddl_group").val();
+            else window.location = "/yonetim/urunlistesi";
+        });
+
+    });
+</script>

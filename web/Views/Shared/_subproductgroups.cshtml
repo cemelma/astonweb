@@ -1,0 +1,10 @@
+﻿@model web.Models.ProductSubWrapperModel
+
+@foreach (var sub in Model.productsubgroups)
+{
+    <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_products/@Model.productgroup.PageSlug/@sub.PageSlug/@sub.ProductSubGroupId">@sub.GroupName</a>
+        <ul>
+             @{Html.RenderAction("subbestproductgroups", "FProducts", new { id = sub.ProductSubGroupId });}
+        </ul>
+    </li>
+}

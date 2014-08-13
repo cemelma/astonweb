@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutus" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="bankaccounts" xml:space="preserve">
+    <value>Bank Accounts</value>
+  </data>
+  <data name="brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="certificates" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="contactdetails" xml:space="preserve">
+    <value>Contact Details</value>
+  </data>
+  <data name="contactform" xml:space="preserve">
+    <value>Contact Form</value>
+  </data>
+  <data name="culture" xml:space="preserve">
+    <value>tr</value>
+  </data>
+  <data name="culturename" xml:space="preserve">
+    <value>Türkçe</value>
+  </data>
+  <data name="documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="equipments" xml:space="preserve">
+    <value>Equipments</value>
+  </data>
+  <data name="fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="goback" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="homepage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="humanresources" xml:space="preserve">
+    <value>Human Resources</value>
+  </data>
+  <data name="institutional" xml:space="preserve">
+    <value>INSTITUTIONAL</value>
+  </data>
+  <data name="links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="map" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="menu_aboutus" xml:space="preserve">
+    <value>aboutus</value>
+  </data>
+  <data name="menu_allnews" xml:space="preserve">
+    <value>all-news</value>
+  </data>
+  <data name="menu_application" xml:space="preserve">
+    <value>application</value>
+  </data>
+  <data name="menu_bankaccounts" xml:space="preserve">
+    <value>bank-accounts</value>
+  </data>
+  <data name="menu_career" xml:space="preserve">
+    <value>career</value>
+  </data>
+  <data name="menu_certificates" xml:space="preserve">
+    <value>certificates</value>
+  </data>
+  <data name="menu_contactdetails" xml:space="preserve">
+    <value>contact-details</value>
+  </data>
+  <data name="menu_contactform" xml:space="preserve">
+    <value>contact-form</value>
+  </data>
+  <data name="menu_culture" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="menu_documents" xml:space="preserve">
+    <value>documents</value>
+  </data>
+  <data name="menu_equipments" xml:space="preserve">
+    <value>equipments</value>
+  </data>
+  <data name="menu_homepage" xml:space="preserve">
+    <value>homepage</value>
+  </data>
+  <data name="menu_humanresources" xml:space="preserve">
+    <value>human-resources</value>
+  </data>
+  <data name="menu_institutional" xml:space="preserve">
+    <value>aboutus</value>
+  </data>
+  <data name="menu_links" xml:space="preserve">
+    <value>links</value>
+  </data>
+  <data name="menu_news" xml:space="preserve">
+    <value>news</value>
+  </data>
+  <data name="menu_offer" xml:space="preserve">
+    <value>offer</value>
+  </data>
+  <data name="menu_productdetail" xml:space="preserve">
+    <value>product-detail</value>
+  </data>
+  <data name="menu_products" xml:space="preserve">
+    <value>products</value>
+  </data>
+  <data name="menu_projects" xml:space="preserve">
+    <value>projects</value>
+  </data>
+  <data name="menu_references" xml:space="preserve">
+    <value>references</value>
+  </data>
+  <data name="menu_sectors" xml:space="preserve">
+    <value>Sectors</value>
+  </data>
+  <data name="menu_services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="menu_solutionpartners" xml:space="preserve">
+    <value>solution-partners</value>
+  </data>
+  <data name="menu_visionmision" xml:space="preserve">
+    <value>vision-mision</value>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>more...</value>
+  </data>
+  <data name="myofferlist" xml:space="preserve">
+    <value>Offer List</value>
+  </data>
+  <data name="our" xml:space="preserve">
+    <value>Our</value>
+  </data>
+  <data name="pagetitle" xml:space="preserve">
+    <value>KONTROLMATİK</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="product_code" xml:space="preserve">
+    <value>Product Code</value>
+  </data>
+  <data name="references" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="requiredfields" xml:space="preserve">
+    <value>Please fill the form completely</value>
+  </data>
+  <data name="searchinsite" xml:space="preserve">
+    <value>Search in site</value>
+  </data>
+  <data name="sectors" xml:space="preserve">
+    <value>Sectors</value>
+  </data>
+  <data name="services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="solutionpartners" xml:space="preserve">
+    <value>Solution Partners</value>
+  </data>
+  <data name="taxoffice" xml:space="preserve">
+    <value>Tax Off.</value>
+  </data>
+  <data name="visionmision" xml:space="preserve">
+    <value>Our Vision and Mission</value>
+  </data>
+  <data name="morebig" xml:space="preserve">
+    <value>Show big map</value>
+  </data>
+  <data name="projectedetail" xml:space="preserve">
+    <value>Project Detail</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>Our Projects</value>
+  </data>
+  <data name="newsdetail" xml:space="preserve">
+    <value>News Detail</value>
+  </data>
+  <data name="searchresult" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="menu_openpositions" xml:space="preserve">
+    <value>open-positions</value>
+  </data>
+  <data name="openpositions" xml:space="preserve">
+    <value>Open Positions</value>
+  </data>
+  <data name="menu_completedprojects" xml:space="preserve">
+    <value>completed-projects</value>
+  </data>
+  <data name="menu_ongoingprojects" xml:space="preserve">
+    <value>ongoing-projects</value>
+  </data>
+  <data name="completedprojects" xml:space="preserve">
+    <value>Completed Projects</value>
+  </data>
+  <data name="ongoingprojects" xml:space="preserve">
+    <value>Ongoing Projects</value>
+  </data>
+  <data name="ournews" xml:space="preserve">
+    <value>NEWS FROM US</value>
+  </data>
+  <data name="addressandgooglemap" xml:space="preserve">
+    <value>Address and Google Map</value>
+  </data>
+  <data name="advancedsearch" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="careeropportunities" xml:space="preserve">
+    <value>Career Opportunities</value>
+  </data>
+  <data name="contactus" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="copyright" xml:space="preserve">
+    <value>All rights reserved, Copyright 2014.</value>
+  </data>
+  <data name="featuredproperties" xml:space="preserve">
+    <value>Featured Properties</value>
+  </data>
+  <data name="firmsandbrands" xml:space="preserve">
+    <value>Firms and Brands</value>
+  </data>
+  <data name="leaveyourbrief" xml:space="preserve">
+    <value>Leave Your Brief</value>
+  </data>
+  <data name="marketnews" xml:space="preserve">
+    <value>Sector News</value>
+  </data>
+  <data name="news" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="onpress" xml:space="preserve">
+    <value>Venue İstanbul on Press</value>
+  </data>
+  <data name="otheroperations" xml:space="preserve">
+    <value>Other Operations</value>
+  </data>
+  <data name="ourservices" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="ourteam" xml:space="preserve">
+    <value>Our Team</value>
+  </data>
+  <data name="searchestate" xml:space="preserve">
+    <value>Property Search</value>
+  </data>
+  <data name="whyus" xml:space="preserve">
+    <value>Why Us?</value>
+  </data>
+  <data name="mision" xml:space="preserve">
+    <value>Our Mission</value>
+  </data>
+  <data name="vision" xml:space="preserve">
+    <value>Our Vision</value>
+  </data>
+  <data name="menu_ourteam" xml:space="preserve">
+    <value>ourteam</value>
+  </data>
+  <data name="advisors" xml:space="preserve">
+    <value>Our Advisors</value>
+  </data>
+  <data name="expertise" xml:space="preserve">
+    <value>Our Fields Of Expertise</value>
+  </data>
+  <data name="founders" xml:space="preserve">
+    <value>Founders and Management</value>
+  </data>
+  <data name="menu_ourservices" xml:space="preserve">
+    <value>ourservices</value>
+  </data>
+  <data name="menu_whyus" xml:space="preserve">
+    <value>why-us</value>
+  </data>
+  <data name="ourcustomers" xml:space="preserve">
+    <value>Our Customers</value>
+  </data>
+  <data name="referencestext" xml:space="preserve">
+    <value>Some of the firms and brands that our founders/partners have provided services to during their long career life are as follows...</value>
+  </data>
+  <data name="centeroffice" xml:space="preserve">
+    <value>Center Office</value>
+  </data>
+  <data name="menupopularestates" xml:space="preserve">
+    <value>featured-properties</value>
+  </data>
+  <data name="popularestates" xml:space="preserve">
+    <value>Featured Properties</value>
+  </data>
+  <data name="menu_searchestate" xml:space="preserve">
+    <value>detailed-search</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="buildingage" xml:space="preserve">
+    <value>Age of the Building</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="hired" xml:space="preserve">
+    <value>For Rent</value>
+  </data>
+  <data name="housing" xml:space="preserve">
+    <value>House</value>
+  </data>
+  <data name="land" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="locality" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="menu_advancedsearch" xml:space="preserve">
+    <value>advanced-search</value>
+  </data>
+  <data name="pleaseselect" xml:space="preserve">
+    <value>Please Select</value>
+  </data>
+  <data name="pricerange" xml:space="preserve">
+    <value>Price Interval</value>
+  </data>
+  <data name="roomcount" xml:space="preserve">
+    <value>Rooms/Sections</value>
+  </data>
+  <data name="searchbykeyword" xml:space="preserve">
+    <value>Search of Key Word</value>
+  </data>
+  <data name="searchestate1" xml:space="preserve">
+    <value>Property Search</value>
+  </data>
+  <data name="squaremeters" xml:space="preserve">
+    <value>Square Meter</value>
+  </data>
+  <data name="transactiontype" xml:space="preserve">
+    <value>Portfolio Type</value>
+  </data>
+  <data name="unit" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="workplace" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="menu_onpress" xml:space="preserve">
+    <value>onpress</value>
+  </data>
+  <data name="brifing" xml:space="preserve">
+    <value>briefs</value>
+  </data>
+  <data name="aboutusvenue" xml:space="preserve">
+    <value>About Venue İstanbul</value>
+  </data>
+  <data name="menu_sitemap" xml:space="preserve">
+    <value>sitemap</value>
+  </data>
+  <data name="sitemap" xml:space="preserve">
+    <value>Site Map</value>
+  </data>
+  <data name="detail" xml:space="preserve">
+    <value>detail</value>
+  </data>
+  <data name="digerlukskonut" xml:space="preserve">
+    <value>Other (Luxury property)</value>
+  </data>
+  <data name="otelveagirlama" xml:space="preserve">
+    <value>Hotel and Entertainment</value>
+  </data>
+  <data name="perakende" xml:space="preserve">
+    <value>Retail</value>
+  </data>
+  <data name="sanayivelojistik" xml:space="preserve">
+    <value>Industrial and Logistics</value>
+  </data>
+  <data name="clickonimages" xml:space="preserve">
+    <value>Click to see the property details</value>
+  </data>
+  <data name="searchresultstring" xml:space="preserve">
+    <value>Unfortunately there is no record matching your search. If you wish you can fill in the below document and send to us. We will return to you as soon as possible.</value>
+  </data>
+  <data name="plazaofiskati" xml:space="preserve">
+    <value>Plaza Office Floor</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="aciklama" xml:space="preserve">
+    <value>Explanation</value>
+  </data>
+  <data name="aidatyonetim" xml:space="preserve">
+    <value>Revenues/Management</value>
+  </data>
+  <data name="alan" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="arsa" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="banyowc" xml:space="preserve">
+    <value>Bathroom/WC</value>
+  </data>
+  <data name="baslik" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="binadakikatsayisi" xml:space="preserve">
+    <value>Number of floors</value>
+  </data>
+  <data name="binaninyasi" xml:space="preserve">
+    <value>Age of the building</value>
+  </data>
+  <data name="binatamanalani" xml:space="preserve">
+    <value>Project m2</value>
+  </data>
+  <data name="brutalan" xml:space="preserve">
+    <value>Gross Area</value>
+  </data>
+  <data name="bulunduguarsa" xml:space="preserve">
+    <value>Land m2</value>
+  </data>
+  <data name="bulundugukat" xml:space="preserve">
+    <value>The property is at floor</value>
+  </data>
+  <data name="cepheyon" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="contactBtn" xml:space="preserve">
+    <value>Click for contact</value>
+  </data>
+  <data name="depozito" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="devren" xml:space="preserve">
+    <value>by Session</value>
+  </data>
+  <data name="femail" xml:space="preserve">
+    <value>E-mail Address*</value>
+  </data>
+  <data name="fiyat" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="fname" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="friend" xml:space="preserve">
+    <value>Your Friend's</value>
+  </data>
+  <data name="fsurname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="ilanno" xml:space="preserve">
+    <value>Portfolio no</value>
+  </data>
+  <data name="isinmatipi" xml:space="preserve">
+    <value>Heating Type</value>
+  </data>
+  <data name="isyeri" xml:space="preserve">
+    <value>Office in Plaza</value>
+  </data>
+  <data name="kiragetirisi" xml:space="preserve">
+    <value>Imputed Rent</value>
+  </data>
+  <data name="kiralik" xml:space="preserve">
+    <value>For rental</value>
+  </data>
+  <data name="konut" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="krediyeuygunluk" xml:space="preserve">
+    <value>State of Credit</value>
+  </data>
+  <data name="kullanimdurumu" xml:space="preserve">
+    <value>State of Usage</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="netalan" xml:space="preserve">
+    <value>m2</value>
+  </data>
+  <data name="oda" xml:space="preserve">
+    <value>Number of independent section</value>
+  </data>
+  <data name="otopark" xml:space="preserve">
+    <value>Parking</value>
+  </data>
+  <data name="parakende" xml:space="preserve">
+    <value>Retail</value>
+  </data>
+  <data name="print" xml:space="preserve">
+    <value>Click to print</value>
+  </data>
+  <data name="satilik" xml:space="preserve">
+    <value>For sale</value>
+  </data>
+  <data name="send1" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="sendingother" xml:space="preserve">
+    <value>Click to send to your contacts</value>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="takas" xml:space="preserve">
+    <value>Swap</value>
+  </data>
+  <data name="tapudurumu" xml:space="preserve">
+    <value>State of Deed</value>
+  </data>
+  <data name="tarih" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="tavsiyeet" xml:space="preserve">
+    <value>Recommend to friend</value>
+  </data>
+  <data name="tip" xml:space="preserve">
+    <value>Portfolio Type</value>
+  </data>
+  <data name="tipemlak" xml:space="preserve">
+    <value>Real Estate Type</value>
+  </data>
+  <data name="yakittipi" xml:space="preserve">
+    <value>Fuel Oil Type</value>
+  </data>
+  <data name="yapinindurumu" xml:space="preserve">
+    <value>Status of the building</value>
+  </data>
+  <data name="your" xml:space="preserve">
+    <value>Your</value>
+  </data>
+  <data name="clickforlinkedin" xml:space="preserve">
+    <value>Click for Linkedin profile</value>
+  </data>
+  <data name="hotelentertainmenttext" xml:space="preserve">
+    <value>Our experienced teammates in our network, specialized in the sector of hotels and entertainment offer intermediary services relating to the purchase and sale of these touristic establishments.</value>
+  </data>
+  <data name="hotelluxrytext" xml:space="preserve">
+    <value>Our company professionally meets the needs of both our domestic and foreign customers in a customer-oriented and customized manner, rapidly and reliably, for property renting, sale and purchase in the special districts of Istanbul whose importance is growing everyday in the world property sector.</value>
+  </data>
+  <data name="industrylogistictext" xml:space="preserve">
+    <value>Our experienced industrial and logistics network team who knows the reality of the commercial world very well, is able to understand the necessities of our customers very well and to provide high quality services to them.</value>
+  </data>
+  <data name="landtext" xml:space="preserve">
+    <value>The experienced consultants in our network are able to offer a high quality professional service to our customers in finding the land that they require and valuing their current land.</value>
+  </data>
+  <data name="officetext" xml:space="preserve">
+    <value>We offer consultancy services with our experienced team and network in purchasing, renting, sales or valuation of offices throughout Istanbul.</value>
+  </data>
+  <data name="retailtext" xml:space="preserve">
+    <value>Our experienced network team who is acquainted with the rapid and unstable retail sector and who monitor the developments continuously, has the authority to provide high quality and rapid services to the property owners, retailers and developers at Istanbul’s main streets and shopping malls.</value>
+  </data>
+  <data name="sold" xml:space="preserve">
+    <value>For Sale</value>
+  </data>
+  <data name="district" xml:space="preserve">
+    <value>Town</value>
+  </data>
+  <data name="estateconsultant" xml:space="preserve">
+    <value>Real Estate Consultant</value>
+  </data>
+  <data name="estatetype" xml:space="preserve">
+    <value>Property Type</value>
+  </data>
+  <data name="resetbtn" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="searchbtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="plazakati" xml:space="preserve">
+    <value>Plaza office floor</value>
+  </data>
+  <data name="referenceno" xml:space="preserve">
+    <value>Portfolio Number</value>
+  </data>
+  <data name="fileDown" xml:space="preserve">
+    <value>Click for brochure/presentation</value>
+  </data>
+  <data name="acikotopark" xml:space="preserve">
+    <value>Parking lot</value>
+  </data>
+  <data name="kapaliotopark" xml:space="preserve">
+    <value>Parging garage</value>
+  </data>
+  <data name="yok" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="isyerikonut" xml:space="preserve">
+    <value>Commercial/Residential</value>
+  </data>
+</root>

@@ -1,0 +1,57 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+    string formdisplay = (Request.QueryString["topProductGroupId"] != null ? "block" : "none");
+}
+@*css dosyaları*@
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/nestedsortable.css" rel="stylesheet" />
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+  <div id="page-header"><h1>ÜRÜN GRUBU BİLGİLERİ </h1></div>
+   <section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("Index", "ProductGroup", FormMethod.Post, new { style ="display:" + formdisplay}))
+    {
+    <fieldset>
+        <legend>Grup Ekle</legend>
+        <p>
+         <label for="txtname">Grup Adı</label>
+         <input type="text" class="textwidth50 required" id="txtname" name="txtname" />
+            @Html.Hidden("topProductGroupId",Request.QueryString["topProductGroupId"])
+        </p>
+        <p>
+            <label></label>
+           <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+    }
+    <div class="box-header" style="width:668px;" >
+        <h1>Grup Listesi</h1>
+        <menu id="nestable-menu">
+            <button type="button" data-action="expand-all">Grupları Aç</button>
+            <button type="button" data-action="collapse-all">Tümünü Grupla</button>
+        </menu>
+    </div>
+    <div class="dd" id="nestable">
+        <ol class="dd-list">
+            @{Html.RenderPartial("_submenu", Model);}
+        </ol>
+    </div>
+    <textarea id="nestable-output" style="display:block"></textarea>
+    </section>
+    <br class="cl" />
+<div id="info"></div>
+</div>
+<script src="~/Areas/Admin/Content/scripts/myscripts/main.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.nestable.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/product/ProductCategory.js"></script>
+@System.Web.Optimization.Scripts.Render("~/admin/validationscripts") 
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+@*<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>*@

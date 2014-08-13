@@ -1,0 +1,320 @@
+﻿@model web.Areas.Admin.Models.PropertyModel
+
+@Html.Hidden("prId", (object)@ViewBag.PrId)
+@Html.Hidden("catId", (object)@ViewBag.CatId)
+@if (Model.header != null)
+{
+    if (!string.IsNullOrEmpty(@Model.header.Header1))
+    {
+    <p>
+        <label>@Model.header.Header1</label>
+        <input type="text" id="inputtext1" />
+    </p>
+    }
+    if (!string.IsNullOrEmpty(@Model.header.Header2))
+    {
+    <p>
+        <label>@Model.header.Header2</label>
+        <input type="text" id="inputtext2" />
+    </p>
+    }
+
+    if (!string.IsNullOrEmpty(@Model.header.Header3))
+    {
+    <p>
+        <label>@Model.header.Header3</label>
+        <input type="text" id="inputtext3" />
+    </p>
+    }
+
+    if (!string.IsNullOrEmpty(@Model.header.Header4))
+    {
+    <p>
+        <label>@Model.header.Header4</label>
+        <input type="text" id="inputtext4" />
+    </p>
+    }
+
+    if (!string.IsNullOrEmpty(@Model.header.Header5))
+    {
+    <p>
+        <label>@Model.header.Header5</label>
+        <input type="text" id="inputtext5" />
+    </p>
+    }
+
+    if (!string.IsNullOrEmpty(@Model.header.Header6))
+    {
+    <p>
+        <label>@Model.header.Header6</label>
+        <input type="text" id="inputtext6" />
+    </p>
+    }
+
+    if (!string.IsNullOrEmpty(@Model.header.Header7))
+    {
+    <p>
+        <label>@Model.header.Header7</label>
+        <input type="text" id="inputtext7" />
+    </p>
+    }
+
+    if (!string.IsNullOrEmpty(@Model.header.Header8))
+    {
+    <p>
+        <label>@Model.header.Header8</label>
+        <input type="text" id="inputtext8" />
+    </p>
+    }
+    
+    <p>
+        <input type="button" value="Temizle" id="btnclear" />
+        <input type="button" value="Kaydet" id="btnsaveProp" />
+    </p>
+    
+    <p></p>
+    
+    <table class="table no-border tablesorter">
+        <thead>
+            <tr>
+                @if (!string.IsNullOrEmpty(@Model.header.Header1))
+                {
+                   
+                    <th>@Model.header.Header1</th>
+                       
+                   
+                }
+                @if (!string.IsNullOrEmpty(@Model.header.Header2))
+                {
+                    
+                    <th>@Model.header.Header2</th>
+                      
+                   
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header3))
+                {
+                   
+                    <th>@Model.header.Header3</th>
+                       
+                   
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header4))
+                {
+                    
+                    <th>@Model.header.Header4</th>
+                      
+                    
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header5))
+                {
+                   
+                    <th>@Model.header.Header5</th>
+                     
+                   
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header6))
+                {
+                  
+                    <th>@Model.header.Header6</th>
+                       
+                    
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header7))
+                {
+               
+                    <th>@Model.header.Header7</th>
+                      
+              
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header8))
+                {
+              
+                    <th>@Model.header.Header8</th>
+                      
+             
+                }
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ProductInfo != null)
+            {
+                foreach (var item in Model.ProductInfo)
+                {
+               <tr id="listItem_@item.ProductInformationId"  class="handle">
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header1))
+                    {
+                        //if (@item.Field1 != null)
+                        //{
+<td>@item.Field1</td>
+                        //}
+                    }
+                    @if (!string.IsNullOrEmpty(Model.header.Header2))
+                    {
+                        //if (@item.Field2 != null)
+                        //{
+<td>@item.Field2</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header3))
+                    {
+
+                        //if (@item.Field3 != null)
+                        //{
+<td>@item.Field3</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header4))
+                    {
+                        //if (@item.Field4 != null)
+                        //{
+<td>@item.Field4</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header5))
+                    {
+                        //if (@item.Field5 != null)
+                        //{
+<td>@item.Field5</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header6))
+                    {
+                        //if (@item.Field6 != null)
+                        //{
+<td>@item.Field6</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header7))
+                    {
+                        //if (@item.Field7 != null)
+                        //{
+<td>@item.Field7</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.header.Header8))
+                    {
+                        //if (@item.Field8 != null)
+                        //{
+<td>@item.Field8</td>
+                        //}
+                    }
+                    <td>
+                        <img id="DeleteImage_@item.ProductInformationId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Product/DeleteDetail',@item.ProductInformationId)">
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+    
+    
+}
+
+<script type="text/javascript">
+    $("#btnclear").click(function () {
+        $("#inputtext1").val("");
+        $("#inputtext2").val("");
+        $("#inputtext3").val("");
+        $("#inputtext4").val("");
+        $("#inputtext5").val("");
+        $("#inputtext6").val("");
+        $("#inputtext7").val("");
+        $("#inputtext8").val("");
+        $("#inputtext1").focus();
+
+    });
+    $("#btnsaveProp").click(function () {
+        var prid = $("#prId").val();
+        var catid = $("#catId").val();
+        var input1 = $("#inputtext1").val();
+        var input2 = $("#inputtext2").val();
+        var input3 = $("#inputtext3").val();
+        var input4 = $("#inputtext4").val();
+        var input5 = $("#inputtext5").val();
+        var input6 = $("#inputtext6").val();
+        var input7 = $("#inputtext7").val();
+        var input8 = $("#inputtext8").val();
+//        alert(input1 + ";" + input2 + ";" + input3 + ";" + input4 + ";" + input5 + ";" + input6 + ";" + input7 + ";" + input8);
+
+        $.ajax({
+            type: 'POST',
+            url: '/Product/SaveProductDetail',
+            data: '{prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'html',
+            success: function (result) {
+                $.unblockUI();
+                $("#resultTable").html(result);
+
+                //$("#ProductSubGroupId").empty().append($("<option></option>").val("").html("Ürün Alt Grubunu Seçiniz..."));
+                //$("#g1").css("display", "block");
+                //$.each(result, function (i, item) {
+                //    $("#ProductSubGroupId").append($("<option></option>").val(item.Value).html(item.Text));
+                //});
+                //$("#ProductSubGroupId").removeAttr("disabled");
+                //$("#imgloader2").css("display", "none");
+            },
+            error: function () {
+                $.unblockUI();
+            }
+        });
+
+
+    });
+
+</script>
+
+
+
+@*<table class="table no-border tablesorter">
+    <thead>
+        <tr>
+            <th>Kod</th>
+            <th>Malzeme</th>
+            <th>Birim</th>
+            <th>Ebat</th>
+            <th>Ağırlık</th>
+         
+            <th>Fiyat</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.Details != null)
+        {
+            foreach (var item in ViewBag.Details)
+            {
+             <tr id="listItem_@item.DetailId"  class="handle">
+                <td>@item.Code</td>
+                <td>@item.Material</td>
+                <td>@item.Unit</td>
+                <td>@item.Dimension</td>
+                <td>@item.Weight</td>
+                
+                 <td>@item.Price</td>
+                 <td class="center">
+                      <img id="DeleteImage_@item.DetailId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Product/DeleteDetail',@item.DetailId)" />
+                    </td>
+            </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6">Kayıt Bulunamadı</td></tr>
+        }
+    </tbody>
+</table>*@

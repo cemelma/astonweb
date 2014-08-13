@@ -1,0 +1,73 @@
+﻿@model DAL.Entities.MailSetting
+@{
+    ViewBag.Title = "MailSetting";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("mail_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>MAİL SERVER AYARLARI</h2>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @Html.Hidden("nullsetting",(object)@ViewBag.nullsetting) 
+    @using(Html.BeginForm("MailSetting", "Mail"))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+      
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Mail Server Ayarları</legend>
+       
+        <p>
+            @Html.LabelFor(m=>m.ServerHost)
+            @Html.TextBoxFor(m=>m.ServerHost, new { @class="textwidth50"})
+              @Html.ValidationMessageFor(m=>m.ServerHost)
+        </p>
+        
+        <p>
+            @Html.LabelFor(m=>m.ServerMail)
+            @Html.TextBoxFor(m=>m.ServerMail, new { @class="textwidth50",Rows="5"})
+            @Html.ValidationMessageFor(m => m.ServerMail)
+        </p>
+         <p>
+            @Html.LabelFor(m=>m.Port)
+            @Html.TextBoxFor(m=>m.Port, new { @class="textwidth50",Rows="5"})
+            @Html.ValidationMessageFor(m => m.Port)
+        </p>
+         <p>
+            @Html.LabelFor(m=>m.Password)
+            @Html.TextBox("txtpassword",null, new { @class="textwidth50"})
+        </p>
+        <p>
+            @Html.LabelFor(m=>m.Security)
+            @Html.CheckBoxFor(d=>d.Security)
+        </p>
+        
+        <br />
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+       </p>
+    </fieldset>
+
+
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/Mail/settings.js"></script>
+}

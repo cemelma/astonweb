@@ -1,0 +1,27 @@
+﻿@model DAL.Entities.Institutional
+@{
+    ViewBag.Title = "Kurumsal";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Kurumsal</li>
+        </ul>
+    </div>
+}
+
+<div id="pageHeader">
+    <div class="pageHeaderImg">
+        <img src="/Content/images/pageHeader.jpg" />
+    </div>
+</div>
+<div id="container" class="container">
+    <div class="col-md-12 shadow section noPadding">
+        <div class="col-md-12 sectionContent page">
+            <h2 class="pageTitle">KURUMSAL</h2>
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+</div>

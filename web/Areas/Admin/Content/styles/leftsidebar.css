@@ -1,0 +1,185 @@
+﻿/*//// 
+
+    Date Created    : 7.9.2012
+    Author          : Saadettin Ördekçi
+
+    --- leftsidebar için css dosyası
+ 
+////*/
+div.lbox {margin-bottom:15px; margin-left:15px; margin-top:10px; background-color:#efefef}
+div.lbox-container {background-color:#fff; padding:10px;}
+div.lbox-container h5 {color:#333; padding-left:20px; border-bottom:1px solid #d7d9d9; font-weight:bold; padding-bottom:7px; margin-bottom:1px; padding-top: 1px;}
+div.lbox-container h5 span {font-weight:normal; font-size:0.9em;}
+div.lbox h4 {background:#3a4043; text-transform:uppercase; font-weight:bold; padding:10px; margin-bottom:0px;color: #fff}
+/** list links **/
+ul.list-links, div#to-do-list ul {width:100%; margin-left:-10px; margin-top:-5px;}
+ul.list-links li {border-bottom:1px dotted #d6d8d9; list-style:none}
+ul.list-links li a {padding:8px 3px 6px 20px; display:block; background:url(/areas/admin/content/images/link-arrow-regular.gif) no-repeat 10px 10px #fff; color:#5c6467; text-decoration:none;}
+ul.list-links li a:hover, ul.list-links li.selected a:hover {background:url(/areas/admin/content/images/link-arrow-hover.gif) no-repeat 10px 10px #fafae9; color:#000;}
+ul.list-links li ul {background:#fcfbf2 !important; padding-left:10px; padding-top:10px; width:213px; font-size:0.9em;}
+ul.list-links li ul li {border-bottom:none;}
+ul.list-links li ul li a {background:none; padding:5px 3px 5px 20px !important;}
+ul.list-links li ul li a:hover {background-color:#fcfbf2; background-position:8px 10px}
+ul.list-links li a.ui-state-active {font-weight:bold;}
+/** CALENDAR & DATE **/
+div#date-container {background-color:#f3f6f7; margin:-10px -10px 15px -10px; padding:10px; }
+div#date-container img {float:left; margin-right:10px;}
+div#date-container span.hour, div#date-container span.date {display:block; float:left;}
+div#date-container span.hour {font-size:220%; font-weight:bold; color:#d8a416; padding-top:2px;margin-right:10px;}
+div#date-container span.date {color:#666; font-size:0.8em; padding-top:4px;}
+	
+div#calendar-container {width:100%;}
+div#calendar-container h5 {background-image:url(images/icon-calendar.gif); background-repeat:no-repeat; display:block;}
+div#calendar-container div.ui-datepicker-header {background:#a1b1b3; padding:0px; text-align:center;
+position:relative; color:#fff; font-weight:bold; margin-bottom:1px;}
+span.ui-icon {position:absolute; top:10px; cursor:pointer;}
+.ui-icon-circle-triangle-e {right:10px;}
+.ui-icon-circle-triangle-w {left:10px;}
+a.ui-state-highlight {background:#fff;color:#ac0000; font-weight:bold;}
+a.ui-datepicker-next-hover span, a.ui-datepicker-prev-hover span {color:#000 !important;}
+
+/*table.ui-datepicker-calendar {width:203px; padding:5px; background:#f2f2f2; font-size:0.9em;}
+table.ui-datepicker-calendar th,table.ui-datepicker-calendar td {
+text-align:center; font-weight:bold; padding:2px;}
+table.ui-datepicker-calendar a {text-decoration:none; display:block; text-align:center;
+color:#666; padding:3px; border:1px solid #f2f2f2;}
+table.ui-datepicker-calendar a:hover {border:1px solid #ccc;}
+table.ui-datepicker-calendar a.ui-state-active {color:#ac0000 !important; border:1px solid #ccc; background:#fff;}
+td.ui-datepicker-week-end a {color:#999;}*/
+#havadurumuil {font-size: 220%;font-weight: bold;color: #d8a416;padding-top: 2px; line-height:1em; margin-left:5px;}
+/*************************/
+/** button stylings **/
+div.inner-nav {clear:both; margin:10px 0;}
+div.inner-nav a, a.button {display:inline-block; background:url(/areas/admin/content/images/bg-buttons-left.gif) no-repeat; text-decoration:none; height:21px; padding:0 0 0 15px; color:#fff; font-weight:bold;
+font-size:9pt;}
+div.inner-nav a:hover, a.button:hover {color:#333;}
+div.inner-nav a span, a.button span {display:block; background:url(/areas/admin/content/images/bg-buttons-right.gif) no-repeat right; padding:0 15px 0 0; line-height:21px;}
+.align-left {float:left;}
+.align-right {float:right;}
+aside {
+	padding:20px;
+	width:220px;
+	position:relative;
+}
+body.sidebar-left aside {
+	left:0;
+	position:absolute;
+	top:0;
+	margin-right:40px;
+}
+body.sidebar-right aside {
+	right:0;
+	position:absolute;
+	top:0;
+	margin-left:40px;
+}
+aside.right {
+	float:right;
+}
+aside.left {
+	float:left;
+}
+section.sidebar-off aside {
+	display:none;
+}
+aside.sidebar-off {
+	display:none;
+}
+aside .block {
+	background: url(/Areas/Admin/Content/images/sidebar-div.gif) repeat-x bottom;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+#sidebar-nav, #sidebar-nav uFtl {
+	margin:0;
+	list-style:none;
+}
+#sidebar-nav li {
+        list-style-type:none;
+}
+#sidebar-nav li a {
+	padding:12px 5px;
+	border-bottom:1px solid #CCCCCC;
+	display:block;
+	text-decoration:none;
+	font-size:108%;
+	color:#262626;
+	font-weight:bold;
+	outline:none;
+}
+#sidebar-nav li ul {
+	display:none;
+}
+#sidebar-nav .drop a {
+	border-bottom:1px solid #d9d9d9;
+	margin-left:0;
+	font-size:100%;
+	font-weight:normal;
+	padding: 12px 10px;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+#sidebar-nav .drop a:hover {
+	background: url(../images/sidebar-nav-h.gif) repeat-x bottom;
+}
+#sidebar-nav .drop a img {
+	vertical-align: -2px;
+	margin-right:10px;
+}
+#formtabs .box {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px solid #CCCCCC;
+}
+
+/** sidebar icons **/
+#sidebar ul li a.icn_manage_image {
+	background: url('../images/icons/small/image_manage.png') no-repeat left;
+}
+#sidebar ul li a.icn_add_image {
+	background: url('../images/icons/small/image_add.png') no-repeat left;
+}
+#sidebar ul li a.icn_edit_image {
+	background: url('../images/icons/small/image_edit.png') no-repeat left;
+}
+#sidebar ul li a.icn_delete_image {
+	background: url('../images/icons/small/image_delete.png') no-repeat left;
+}
+#sidebar ul li a.icn_manage_users {
+	background: url('../images/icons/small/user.png') no-repeat left;
+}
+#sidebar ul li a.icn_add_users {
+	background: url('../images/icons/small/user_add.png') no-repeat left;
+}
+#sidebar ul li a.icn_edit_users {
+	background: url('../images/icons/small/user_edit.png') no-repeat left;
+}
+#sidebar ul li a.icn_delete_users {
+	background: url('../images/icons/small/user_delete.png') no-repeat left;
+}
+#sidebar ul li a.icn_manage_pages {
+	background: url('../images/icons/small/page.png') no-repeat left;
+}
+#sidebar ul li a.icn_add_pages {
+	background: url('../images/icons/small/page_add.png') no-repeat left;
+}
+#sidebar ul li a.icn_edit_pages {
+	background: url('../images/icons/small/page_edit.png') no-repeat left;
+}
+#sidebar ul li a.icn_delete_pages {
+	background: url('../images/icons/small/page_delete.png') no-repeat left;
+}
+#sidebar ul li a.icn_manage_comments {
+	background: url('../images/icons/small/comment.png') no-repeat left;
+}
+#sidebar ul li a.icn_add_comments {
+	background: url('../images/icons/small/comment_add.png') no-repeat left;
+}
+#sidebar ul li a.icn_edit_comments {
+	background: url('../images/icons/small/comment_edit.png') no-repeat left;
+}
+#sidebar ul li a.icn_delete_comments {
+	background: url('../images/icons/small/comment_delete.png') no-repeat left;
+}

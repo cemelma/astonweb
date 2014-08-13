@@ -1,0 +1,55 @@
+﻿@model DAL.Entities.Page
+
+@{
+    ViewBag.Title = "Yeni Sayfa";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+@*sayfa css leri*@
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+
+@Html.Partial("Instituional_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>YENİ SAYFA</h2>
+    </div>  
+  <section class="grid_12 form">
+  
+  @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage)
+    @using(Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.PageId);
+        <fieldset>
+            <legend>Sayfa Bilgileri</legend>
+            <p>
+                @Html.Label("Dil Seçimi")
+                @Html.DropDownList("ddllanguage", (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+            </p>
+            <p>
+                @Html.Label("Başlık")
+                @Html.TextBoxFor(m => m.Header, new { @class="required"})
+                @Html.ValidationMessageFor(m=>m.Content)
+            </p>
+            <p>
+                @Html.TextAreaFor(m => m.Content, new { id="txtcontent",@class="required"})
+                @Html.ValidationMessageFor(m=>m.Content)
+            </p>
+            <br />
+            <p>
+                <input type="submit" value="Kaydet" id="btnsave" />
+            </p>
+        </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+}

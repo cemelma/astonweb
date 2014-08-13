@@ -1,0 +1,60 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+
+@{
+    ViewBag.Title = "Site Haritası";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Site Haritası</li>
+        </ul>
+    </div>
+}
+
+<div id="container" class="container">
+  <div class="col-md-12 shadow section noPadding noMarginTop">
+    <div class="col-md-12 sectionContent page sitemapPage">
+      <h2 class="pageTitle">SİTE HARİTASI</h2>
+      <div class="col-md-3 noPadding">
+        <h3>Zeynel Yayla</h3>
+        <ul>
+          <li><a href="/kurumsal">Kurumsal</a></li>
+          <li><a href="/haberler">Haberler</a></li>
+          <li><a href="/refeanslar">Referanslar</a></li>
+          <li><a href="/insankaynaklari">İnsan Kaynakları</a></li>
+          <li><a href="/iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 noPadding">
+        <h3>Hizmetler</h3>
+        <ul>
+          <li><a href="/hizmetler/6/projelendirme">Projelendirme</a></li>
+          <li><a href="/hizmetler/9/uygulama">Nakliye</a></li>
+          <li><a href="/hizmetler/9/uygulama">Uygulama</a> </li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 noPadding">
+        <h3>Fiyat Listesi</h3>
+		<ul>
+            @foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
+            {
+                <li><a href="/fiyatlar/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
+            }
+        </ul>
+      </div>
+
+
+      <div class="col-md-12 noPadding">
+
+          <div class="col-md-12 noPadding"><h4>Ürünler</h4></div>
+          @{Html.RenderPartial("_submenusitemap", Model);}
+
+
+
+    </div>
+    </div>
+  </div>
+</div>

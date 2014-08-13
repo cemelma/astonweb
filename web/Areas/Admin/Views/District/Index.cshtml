@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DAL.Entities.District>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("location_leftbar")
+
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>SEMTLER</h2>
+    </div>  
+    <section class="grid_12 form">
+    <div class="box-header" >
+        <h1>Semt Listesi
+         &nbsp;&nbsp;|&nbsp;&nbsp;
+             @Html.DropDownList("Countries")
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+            @Html.DropDownList("Towns")
+
+        </h1>
+    </div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+            @*    <th class="width5">Sırala</th>*@
+                <th class="width80">Semt Adı</th>
+                <th class="center witdh15">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.Id"  class="handle">
+                  @*  <td class="center">
+                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                    </td>*@
+                    <td>
+                        <span id="spanitem_@item.Id">@item.Name</span>
+                        <input type="text" id="textitem_@item.Id" value="" class="displaynone textwidth90"/>
+                    </td>
+                    <td class="center">
+                       <a href="/yonetim/semtiduzenle/@item.Id">
+                        <img id="btn_update_@item.Id"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                       </a>
+                        
+                       <img id="DeleteImage_@item.Id"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Admin/District/Delete',@item.Id)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script>
+    $(function () {
+
+
+        $("#Countries").change(function () {
+            var id = $("#Countries option:selected").val();
+            //var tid = $("#Towns option:selected").val();
+            window.location.href = "/yonetim/semtler/" + id;
+        });
+
+        $("#Towns").change(function () {
+            var id = $("#Countries option:selected").val();
+            var tid = $("#Towns option:selected").val();
+            window.location.href = "/yonetim/semtler/" + id + "/" + tid;
+        });
+
+        SortOrder("/Town/SortRecords");
+    });
+</script>

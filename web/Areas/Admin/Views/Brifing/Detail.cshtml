@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DAL.Entities.Brifing>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("_leftbrifing")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>BRİFİNGLER</h1>
+   </div>
+   <section class="grid_12 form">
+
+       <div class="box-header" ><h1>Brifing Listesi
+     
+    </h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                  <th class="width10">Brifing No</th>
+                <th class="width40">Ad Soyad</th>
+                <th class="center witdh15">E-Mail</th>
+               <th class="center witdh10">Telefon</th>
+                <th class="center witdh10">Tarih</th>
+                 <th class="center witdh10">İşlemler</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.Id"  class="handle">
+                       <td>
+                        <span id="spanitem_@item.Id">@item.Id</span>
+                    </td>
+                    <td>
+                        <span id="spanitem_@item.Id">@item.Ad</span>
+                    </td>
+                    <td class="center">
+                        <span id="spanitem_@item.Id">@item.Email</span>
+                    </td>
+                    <td class="center">
+                        <span id="spanitem_@item.Id">@item.Tel</span>
+                    </td>
+                     <td class="center">
+                        <span id="spanitem_@item.Id">@item.Tarih</span>
+                    </td>
+                     <td class="center">
+                         <a href="/yonetim/detaylibrifingler/detay/@item.Id">
+                        <img id="btn_detail_@item.Id"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Detay Bilgisi" class="cursorpointer" >
+                        </a>
+                          <img id="DeleteImage_@item.Id"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Brifing/Delete',@item.Id)">
+                    </td>
+                    
+                    
+                 
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+   <//section>
+</div>
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/bank/banklist.js"></script>

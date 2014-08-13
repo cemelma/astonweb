@@ -1,0 +1,77 @@
+﻿@model DAL.Entities.Contact
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+
+@Html.Partial("contactleftbar")
+
+<div id="page-content" class="container_12">
+ @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage)
+       <div id="page-header">
+       <h2>İLETİŞİM BİLGİLERİ</h2>
+    </div>  
+  <section class="grid_12 form">
+  
+    @using(Html.BeginForm())
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>İletişim Bilgileri</legend>
+        @*<p>
+            @Html.Label("Dil Seçimi")
+            @Html.DropDownListFor(m=>m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+            @Html.ValidationMessageFor(m=>m.Language)
+        </p>*@
+         <p>
+            @Html.LabelFor(m=>m.Address)
+            @Html.TextAreaFor(m=>m.Address,2,0, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Address,"", new { @class="verticalaligntop2"})
+        </p>
+       <p>
+           @Html.LabelFor(m=>m.Phone)
+            @Html.TextBoxFor(m => m.Phone,  new { @class="textwidth15"})
+         </p>
+        <p>
+            @Html.LabelFor(m=>m.Fax)
+            @Html.TextBoxFor(m => m.Fax, new { @class="textwidth15"})
+         </p>
+        <p>
+            @Html.LabelFor(m=>m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Email)
+        </p>
+       @* <p>
+            @Html.LabelFor(m=>m.Taxoffice)
+            @Html.TextBoxFor(m => m.Taxoffice, new { @class="textwidth50"})
+        </p>
+        <p>
+            @Html.LabelFor(m=>m.Taxnumber)
+            @Html.TextBoxFor(m => m.Taxnumber,  new { @class="textwidth15"})
+        </p>*@
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+
+
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/contact/contact.js"></script>
+}

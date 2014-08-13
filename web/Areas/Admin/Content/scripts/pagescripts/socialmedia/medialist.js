@@ -1,0 +1,3 @@
+﻿$(function () {
+    SortOrder("/SocialMedia/SortRecords");
+});

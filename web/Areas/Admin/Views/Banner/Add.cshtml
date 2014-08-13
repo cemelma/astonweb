@@ -1,0 +1,69 @@
+﻿@model DAL.Entities.Photo
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>
+@Html.Partial("leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>BANNER FOTOĞRAFLARI</h2>
+    </div>
+ @*   @if (TempData["ImageSizeError"] != null)
+    {
+        <div class="notification error">@TempData["ImageSizeError"].ToString()</div>
+    }*@
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @using (Html.BeginForm("Add", "Banner", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Hidden("hdfieldcategory")
+            @Html.Hidden("hdfieldtaglist")
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Banner Ekle</legend>
+              @*  <p>
+                    @Html.LabelFor(m => m.Language)
+                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList, "Dil Seçiniz...")
+                    @Html.ValidationMessageFor(m => m.Language)
+
+                </p>*@
+               <p>
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "textwidth50" })
+                    @Html.ValidationMessageFor(m => m.Title)
+                </p>
+                 <p>
+                    @Html.LabelFor(m => m.Link)
+                    @Html.TextBoxFor(m => m.Link, new { @class = "textwidth50" })
+                </p>
+                <fieldset>
+                    <legend>Fotoğraf</legend>
+                    <div id="uploadPartial">
+                        @Html.Partial("_imageUploadAndCropGallery")
+                    </div>
+                </fieldset>
+                <p>
+                    <label></label>
+                    <input type="submit" value="Kaydet" id="btnsave" />
+                </p>
+
+            </fieldset>
+        }
+    </section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/banner/addbanner.js"></script>
+}
+

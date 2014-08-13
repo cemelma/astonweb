@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DAL.Entities.ProjectReferences>
+<div>
+    @{ int sg = 0; }
+    @foreach (var reference in Model)
+    {
+        sg++;
+        if (sg % 4 == 1)
+        {
+        @(new HtmlString("<ul>"));
+        @(new HtmlString("<li><a href=/" + @SharedRess.SharedStrings.menu_culture + "/" + @SharedRess.SharedStrings.menu_references + "/" + @reference.ProjectReferenceGroupId + "/" + @reference.PageSlug + "/" + @reference.ProjectReferenceId + ">" + reference.Name + "</a></li>"));
+        }
+        else
+        {
+        @(new HtmlString("<li><a href=/" + @SharedRess.SharedStrings.menu_culture + "/" + @SharedRess.SharedStrings.menu_references + "/" + @reference.ProjectReferenceGroupId + "/" + @reference.PageSlug + "/" + @reference.ProjectReferenceId + ">" + reference.Name + "</a></li>"));
+        }
+
+        if (sg % 4 == 0 || sg == Model.Count())
+        {
+        @(new HtmlString("</ul>"));
+        }
+    }
+    <a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_references" 
+        style="position:absolute !important; right:5px !important; top: 128px;border: 1px solid #888;padding: 3px;background-color: red;">
+        Tüm referanslar
+    </a>
+</div>

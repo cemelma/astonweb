@@ -1,0 +1,238 @@
+﻿@model web.Areas.Admin.Models.ProductAddModel
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>
+<link href="~/Areas/Admin/Content/styles/nestedsortable.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/colpick.css" rel="stylesheet" />
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>ÜRÜN BİLGİLERİ</h2>
+    </div>
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @Html.Hidden("hdsaveResult", (object)@ViewBag.SaveResult)
+        
+
+
+        @using (Html.BeginForm("EditProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+           @Html.Hidden("hdProductId", (object)@ViewBag.ProductId)
+            @Html.Hidden("hdCategoryId", (object)@ViewBag.CategoryId)
+            @Html.Hidden("hdfieldcategory")
+            @Html.Hidden("hdfieldtaglist")
+            @Html.ValidationSummary(true)
+         
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Ürün Bilgileri</a></li>
+                    <li><a href="#tabs-2">Ürün Özellikleri/Detayları</a></li>
+                    <li><a href="#tabs-3">Ürün Renkleri</a></li>
+                </ul>
+                <div id="tabs-1">
+                 
+                    <p>
+                        @Html.LabelFor(m => m.Product.Name)
+                        @Html.TextBoxFor(m => m.Product.Name, new { @class = "textwidth50", Rows = "5" })
+                        @Html.ValidationMessageFor(m => m.Product.Name)
+                    </p>
+                    <p>
+                        @Html.TextAreaFor(m => m.Product.Content, new { id = "txtcontent", @class = "required" })
+                        @Html.ValidationMessageFor(m => m.Product.Content)
+                    </p>
+
+                     <p>
+                        @Html.Label("Ana sayfada Göster")
+                        @Html.CheckBoxFor(x=>x.Product.IsShownMain)
+                    </p>
+
+                    <p style="float: left; margin-right: 4px !important;">
+                        <label>Ürün Fotoğrafları</label>
+                    </p>
+                    <div style="width: 249px; width: 25%; float: left">
+                        <input type="file" style="width: 99%" name="prd1" />
+                        <input type="file" style="width: 99%" name="prd2" />
+                    </div>
+                    <div style="height: 40px; clear: both;"></div>
+
+                    <p style="float: left; margin-right: 4px !important;">
+                        <label>Uygulama Fotoğrafları</label>
+                    </p>
+                    <div style="width: 249px; width: 25%; float: left">
+                        <input type="file" style="width: 99%" name="attachments" id="fileproductdetail" class="multi" />
+                    </div>
+                    <div style="height: 40px; clear: both;"></div>
+
+                    <div>
+                         <div class="box-header" >
+        <h1>Mevcut Resimler
+        </h1>
+
+    </div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+               
+                <th class="width5 center">Resim</th>
+                <th class="width60">Başlık</th>
+               
+                <th class="center witdh10">Eklenme Tarihi</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in ViewBag.Photos)
+            {
+                <tr id="listItem_@item.PhotoId"  class="handle">
+                  @*  <td class="center">
+                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                    </td>*@
+                    <td>
+                        <center>
+                            <a href="@item.Path" onclick="return false;"
+                                class="preview">
+                                <img src="@item.Path" alt="image" with="48" height="48" /></a></center>
+                    </td>
+                    <td>
+                        <span id="spanitem_@item.PhotoId">@item.Title</span>
+                    </td>
+                  @*  <td class="center">
+                        @if (item.Online == true)
+                        {<img   id="img_online_@item.PhotoId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/Banner/PhotoEditStatus',@item.PhotoId)" />}
+                        else{<img id="img_online_@item.PhotoId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/Banner/PhotoEditStatus',@item.PhotoId)" />}
+                    </td>*@
+                    <td class="center">@item.TimeCreated</td>
+                    <td class="center">
+                     @*  <a href="/yonetim/bannerduzenle/@item.PhotoId">
+                        <img id="btn_update_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                       </a>
+                        <img id="btn_save_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.PhotoId)">
+                        <img id="btn_cancel_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/error.png"  title="İptal" class="displaynone cursorpointer" onclick="CancelRecord(@item.PhotoId)">*@
+                       <img id="DeleteImage_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Product/DeletePhoto',@item.PhotoId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+                    </div>
+
+
+
+                    <input type="submit" value="Kaydet" id="btnsave" />
+                </div>
+
+                <div id="tabs-2">
+                
+                   
+                    <div id="resultTable">
+                      
+                    </div>
+                </div>
+                <div id="tabs-3">
+                    <div id="resultColor">
+                      
+                    </div>
+                </div>
+            </div>
+        
+        }
+
+    </section>
+</div>
+
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.ui.all.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/numeric.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/product/editProduct.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.nestable.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/colpick.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/blockui.js"></script>
+
+    <script  type="text/javascript">
+        $(document).ready(function () {
+            var value = "@Model.Product.ProductGroupId";
+            if(value!=null && value!="")
+                $("#" + "@Model.Product.ProductGroupId").prop("checked", true);
+            
+            //$('#txtrenk').colpick({
+            //    colorScheme: 'dark',
+            //    layout: 'rgbhex',
+            //    color: 'ff8800',
+            //    onSubmit: function (hsb, hex, rgb, el) {
+            //        $(el).css('background-color', '#' + hex);
+            //        $(el).colpickHide();
+            //    }
+            //})
+
+            //var updateOutput = function (e) {
+            //    var list = e.length ? e : $(e.target),
+            //        output = list.data('output');
+            //    if (window.JSON) {
+            //        $('#nestable-output').val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            //        SortOrder();
+            //    } else {
+            //        $('#nestable-output').val('JSON browser support required for this demo.');
+            //    }
+            //};
+            //$('#nestable').nestable({ group: 1 }).on('change', updateOutput);
+            //$('.dd').nestable('collapseAll'); //Başlangıçta tüm grupları kapat
+
+            //$('#nestable-menu').on('click', function (e) {
+            //    var target = $(e.target),
+            //        action = target.data('action');
+            //    if (action === 'expand-all') {
+            //        $('.dd').nestable('expandAll');
+            //    }
+            //    if (action === 'collapse-all') {
+            //        $('.dd').nestable('collapseAll');
+            //    }
+            //});
+
+            $("#btnsavecategory").click(function () {
+                var prId = $("#hdProductId").val();
+                var id = $("input[type='radio']:checked").attr("id");
+                if (id != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Product/SaveCategory',
+                        data: '{id:"' + id + '",prdId:"' + prId + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        success: function (result) {
+                            alert("Kategori Başarıyla Kaydedildi");
+                        },
+                        error: function () {
+                            alert("Kategori Kaydedilemedi");
+                        }
+                    });
+
+                }
+                else {
+                    alert("Lütfen Kategori Seçiniz");
+                }
+            });
+
+        });
+
+    </script>
+}
+
+

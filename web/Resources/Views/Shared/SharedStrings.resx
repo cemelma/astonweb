@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutus" xml:space="preserve">
+    <value>Hakkımızda</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="bankaccounts" xml:space="preserve">
+    <value>Banka Bilgileri</value>
+  </data>
+  <data name="brand" xml:space="preserve">
+    <value>Marka</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="certificates" xml:space="preserve">
+    <value>Sertifikalarımız</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>İletişim</value>
+  </data>
+  <data name="contactdetails" xml:space="preserve">
+    <value>İletişim Bilgileri</value>
+  </data>
+  <data name="contactform" xml:space="preserve">
+    <value>İletişim Formu</value>
+  </data>
+  <data name="culture" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="culturename" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="documents" xml:space="preserve">
+    <value>DÖKÜMANLAR</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="equipments" xml:space="preserve">
+    <value>Ekipmanlarımız</value>
+  </data>
+  <data name="fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="goback" xml:space="preserve">
+    <value>Geri Dön</value>
+  </data>
+  <data name="homepage" xml:space="preserve">
+    <value>ANASAYFA</value>
+  </data>
+  <data name="humanresources" xml:space="preserve">
+    <value>İnsan Kaynakları</value>
+  </data>
+  <data name="institutional" xml:space="preserve">
+    <value>KURUMSAL</value>
+  </data>
+  <data name="links" xml:space="preserve">
+    <value>BAĞLANTILAR</value>
+  </data>
+  <data name="map" xml:space="preserve">
+    <value>Harita</value>
+  </data>
+  <data name="menu_aboutus" xml:space="preserve">
+    <value>hakkimizda</value>
+  </data>
+  <data name="menu_allnews" xml:space="preserve">
+    <value>tum-haberler</value>
+  </data>
+  <data name="menu_application" xml:space="preserve">
+    <value>basvuru</value>
+  </data>
+  <data name="menu_bankaccounts" xml:space="preserve">
+    <value>banka-hesaplari</value>
+  </data>
+  <data name="menu_career" xml:space="preserve">
+    <value>kariyer</value>
+  </data>
+  <data name="menu_certificates" xml:space="preserve">
+    <value>sertifikalar</value>
+  </data>
+  <data name="menu_contactdetails" xml:space="preserve">
+    <value>iletisim-bilgileri</value>
+  </data>
+  <data name="menu_contactform" xml:space="preserve">
+    <value>iletisim-formu</value>
+  </data>
+  <data name="menu_culture" xml:space="preserve">
+    <value>tr</value>
+  </data>
+  <data name="menu_documents" xml:space="preserve">
+    <value>dokumanlar</value>
+  </data>
+  <data name="menu_equipments" xml:space="preserve">
+    <value>ekipmanlar</value>
+  </data>
+  <data name="menu_homepage" xml:space="preserve">
+    <value>anasayfa</value>
+  </data>
+  <data name="menu_humanresources" xml:space="preserve">
+    <value>insan-kaynaklari</value>
+  </data>
+  <data name="menu_institutional" xml:space="preserve">
+    <value>hakkimizda</value>
+  </data>
+  <data name="menu_links" xml:space="preserve">
+    <value>linkler</value>
+  </data>
+  <data name="menu_news" xml:space="preserve">
+    <value>haberler</value>
+  </data>
+  <data name="menu_offer" xml:space="preserve">
+    <value>teklif</value>
+  </data>
+  <data name="menu_productdetail" xml:space="preserve">
+    <value>urun-detay</value>
+  </data>
+  <data name="menu_products" xml:space="preserve">
+    <value>urunler</value>
+  </data>
+  <data name="menu_projects" xml:space="preserve">
+    <value>projeler</value>
+  </data>
+  <data name="menu_references" xml:space="preserve">
+    <value>referanslar</value>
+  </data>
+  <data name="menu_sectors" xml:space="preserve">
+    <value>sektorler</value>
+  </data>
+  <data name="menu_services" xml:space="preserve">
+    <value>hizmetler</value>
+  </data>
+  <data name="menu_solutionpartners" xml:space="preserve">
+    <value>cozum-ortaklari</value>
+  </data>
+  <data name="menu_visionmision" xml:space="preserve">
+    <value>vizyon-misyon</value>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>daha fazlası...</value>
+  </data>
+  <data name="myofferlist" xml:space="preserve">
+    <value>Teklif Listem</value>
+  </data>
+  <data name="our" xml:space="preserve">
+    <value>Biz</value>
+  </data>
+  <data name="pagetitle" xml:space="preserve">
+    <value>KONTROLMATİK</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="products" xml:space="preserve">
+    <value>Ürünler</value>
+  </data>
+  <data name="product_code" xml:space="preserve">
+    <value>Ürün Kodu</value>
+  </data>
+  <data name="references" xml:space="preserve">
+    <value>Referanslar</value>
+  </data>
+  <data name="requiredfields" xml:space="preserve">
+    <value>Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz</value>
+  </data>
+  <data name="searchinsite" xml:space="preserve">
+    <value>Site içi arama</value>
+  </data>
+  <data name="sectors" xml:space="preserve">
+    <value>Sektörler</value>
+  </data>
+  <data name="services" xml:space="preserve">
+    <value>Hizmetler</value>
+  </data>
+  <data name="solutionpartners" xml:space="preserve">
+    <value>Çözüm Ortaklarımız</value>
+  </data>
+  <data name="taxoffice" xml:space="preserve">
+    <value>Vergi D.</value>
+  </data>
+  <data name="visionmision" xml:space="preserve">
+    <value>Vizyonumuz ve Misyonumuz</value>
+  </data>
+  <data name="morebig" xml:space="preserve">
+    <value>Daha büyük görüntüle</value>
+  </data>
+  <data name="projectedetail" xml:space="preserve">
+    <value>Proje Detayı</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>Projelerimiz</value>
+  </data>
+  <data name="newsdetail" xml:space="preserve">
+    <value>Haber Detayı</value>
+  </data>
+  <data name="searchresult" xml:space="preserve">
+    <value>Arama Sonuçları</value>
+  </data>
+  <data name="menu_openpositions" xml:space="preserve">
+    <value>acik-pozisyonlar</value>
+  </data>
+  <data name="openpositions" xml:space="preserve">
+    <value>Açık Pozisyonlar</value>
+  </data>
+  <data name="menu_completedprojects" xml:space="preserve">
+    <value>tamamlanan-projeler</value>
+  </data>
+  <data name="menu_ongoingprojects" xml:space="preserve">
+    <value>devam-eden-projeler</value>
+  </data>
+  <data name="completedprojects" xml:space="preserve">
+    <value>Tamamlanmış Projeler</value>
+  </data>
+  <data name="ongoingprojects" xml:space="preserve">
+    <value>Devam Eden Projeler</value>
+  </data>
+  <data name="ournews" xml:space="preserve">
+    <value>BİZDEN HABERLER</value>
+  </data>
+  <data name="addressandgooglemap" xml:space="preserve">
+    <value>Adres Bilgileri ve Google Map</value>
+  </data>
+  <data name="advancedsearch" xml:space="preserve">
+    <value>Detaylı Arama</value>
+  </data>
+  <data name="careeropportunities" xml:space="preserve">
+    <value>Kariyer Olanakları</value>
+  </data>
+  <data name="contactus" xml:space="preserve">
+    <value>Bize Ulaşın</value>
+  </data>
+  <data name="copyright" xml:space="preserve">
+    <value>Tüm hakları saklıdır, Copyright 2014.</value>
+  </data>
+  <data name="featuredproperties" xml:space="preserve">
+    <value>Öne Çıkan Gayrimenkuller</value>
+  </data>
+  <data name="firmsandbrands" xml:space="preserve">
+    <value>Firmalar ve Markalar</value>
+  </data>
+  <data name="leaveyourbrief" xml:space="preserve">
+    <value>Mesaj Bırakın, Geri Dönelim</value>
+  </data>
+  <data name="marketnews" xml:space="preserve">
+    <value>Sektörden Haberler</value>
+  </data>
+  <data name="news" xml:space="preserve">
+    <value>Haberler</value>
+  </data>
+  <data name="onpress" xml:space="preserve">
+    <value>Basında Venue İstanbul</value>
+  </data>
+  <data name="otheroperations" xml:space="preserve">
+    <value>Diğer Faaliyetlerimiz</value>
+  </data>
+  <data name="ourservices" xml:space="preserve">
+    <value>Hizmetlerimiz</value>
+  </data>
+  <data name="ourteam" xml:space="preserve">
+    <value>Ekibimiz</value>
+  </data>
+  <data name="searchestate" xml:space="preserve">
+    <value>Gayrimenkul Arama</value>
+  </data>
+  <data name="whyus" xml:space="preserve">
+    <value>Neden Biz?</value>
+  </data>
+  <data name="mision" xml:space="preserve">
+    <value>Misyonumuz</value>
+  </data>
+  <data name="vision" xml:space="preserve">
+    <value>Vizyonumuz</value>
+  </data>
+  <data name="menu_ourteam" xml:space="preserve">
+    <value>ekibimiz</value>
+  </data>
+  <data name="advisors" xml:space="preserve">
+    <value>Danışmanlarımız</value>
+  </data>
+  <data name="expertise" xml:space="preserve">
+    <value>Uzmanlık Alanlarımız</value>
+  </data>
+  <data name="founders" xml:space="preserve">
+    <value>Kurucular ve Yönetim</value>
+  </data>
+  <data name="menu_ourservices" xml:space="preserve">
+    <value>hizmetlerimiz</value>
+  </data>
+  <data name="menu_whyus" xml:space="preserve">
+    <value>neden-biz</value>
+  </data>
+  <data name="ourcustomers" xml:space="preserve">
+    <value>Müşterilerimiz</value>
+  </data>
+  <data name="referencestext" xml:space="preserve">
+    <value>Kurucularımızın uzun iş hayatı boyunca hizmet verdiği firma ve markalardan bazıları....</value>
+  </data>
+  <data name="centeroffice" xml:space="preserve">
+    <value>Merkez Ofis</value>
+  </data>
+  <data name="menupopularestates" xml:space="preserve">
+    <value>one-cikan-gayrimenkuller</value>
+  </data>
+  <data name="popularestates" xml:space="preserve">
+    <value>Öne Çıkan Gayrimenkuller</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
+  <data name="buildingage" xml:space="preserve">
+    <value>Bina Yaşı</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>İl</value>
+  </data>
+  <data name="district" xml:space="preserve">
+    <value>İlçe</value>
+  </data>
+  <data name="estateconsultant" xml:space="preserve">
+    <value>Gayrimenkul Danışmanı</value>
+  </data>
+  <data name="estatetype" xml:space="preserve">
+    <value>Emlak Tipi</value>
+  </data>
+  <data name="hired" xml:space="preserve">
+    <value>Kiralık</value>
+  </data>
+  <data name="housing" xml:space="preserve">
+    <value>Konut</value>
+  </data>
+  <data name="land" xml:space="preserve">
+    <value>Arsa</value>
+  </data>
+  <data name="locality" xml:space="preserve">
+    <value>Semt</value>
+  </data>
+  <data name="menu_searchestate" xml:space="preserve">
+    <value>detayli-arama</value>
+  </data>
+  <data name="pleaseselect" xml:space="preserve">
+    <value>Lütfen Seçiniz</value>
+  </data>
+  <data name="pricerange" xml:space="preserve">
+    <value>Fiyat Aralığı</value>
+  </data>
+  <data name="referenceno" xml:space="preserve">
+    <value>Referans No</value>
+  </data>
+  <data name="roomcount" xml:space="preserve">
+    <value>Bölüm/Oda</value>
+  </data>
+  <data name="searchbykeyword" xml:space="preserve">
+    <value>Anahtar kelimeye göre ara</value>
+  </data>
+  <data name="sold" xml:space="preserve">
+    <value>Satılık</value>
+  </data>
+  <data name="squaremeters" xml:space="preserve">
+    <value>Metrekare</value>
+  </data>
+  <data name="transactiontype" xml:space="preserve">
+    <value>Portföy Tipi</value>
+  </data>
+  <data name="unit" xml:space="preserve">
+    <value>Birim</value>
+  </data>
+  <data name="workplace" xml:space="preserve">
+    <value>Ofis</value>
+  </data>
+  <data name="menu_advancedsearch" xml:space="preserve">
+    <value>detayli-arama</value>
+  </data>
+  <data name="menu_onpress" xml:space="preserve">
+    <value>basinda-biz</value>
+  </data>
+  <data name="brifing" xml:space="preserve">
+    <value>mesajlar</value>
+  </data>
+  <data name="aboutusvenue" xml:space="preserve">
+    <value>Venue İstanbul Hakkında</value>
+  </data>
+  <data name="menu_sitemap" xml:space="preserve">
+    <value>siteharitasi</value>
+  </data>
+  <data name="sitemap" xml:space="preserve">
+    <value>Site Haritası</value>
+  </data>
+  <data name="detail" xml:space="preserve">
+    <value>detay</value>
+  </data>
+  <data name="digerlukskonut" xml:space="preserve">
+    <value>Diğer (Lüks konut)</value>
+  </data>
+  <data name="otelveagirlama" xml:space="preserve">
+    <value>Otel ve Ağırlama</value>
+  </data>
+  <data name="perakende" xml:space="preserve">
+    <value>Perakende</value>
+  </data>
+  <data name="sanayivelojistik" xml:space="preserve">
+    <value>Sanayi ve Lojistik</value>
+  </data>
+  <data name="clickonimages" xml:space="preserve">
+    <value>Portföy detayı için resimlerin üstüne tıklayınız</value>
+  </data>
+  <data name="searchresultstring" xml:space="preserve">
+    <value>Üzülerek aradığınız kriterde bir kaydımız olmadığını belirtmek zorundayız.&lt;br&gt;Dilerseniz aşağıdaki formu doldurun, size en kısa sürede geri dönelim.</value>
+  </data>
+  <data name="plazaofiskati" xml:space="preserve">
+    <value>Plaza Ofis Katı</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="aciklama" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="aidatyonetim" xml:space="preserve">
+    <value>Aidat/Yönetim</value>
+  </data>
+  <data name="alan" xml:space="preserve">
+    <value>Alan</value>
+  </data>
+  <data name="arsa" xml:space="preserve">
+    <value>Arsa</value>
+  </data>
+  <data name="banyowc" xml:space="preserve">
+    <value>Banyo/WC</value>
+  </data>
+  <data name="baslik" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="binadakikatsayisi" xml:space="preserve">
+    <value>Binadaki Kat Sayısı</value>
+  </data>
+  <data name="binaninyasi" xml:space="preserve">
+    <value>Binanın Yaşı</value>
+  </data>
+  <data name="binatamanalani" xml:space="preserve">
+    <value>Proje m²</value>
+  </data>
+  <data name="brutalan" xml:space="preserve">
+    <value>Brüt Alan</value>
+  </data>
+  <data name="bulunduguarsa" xml:space="preserve">
+    <value>Arsa m²</value>
+  </data>
+  <data name="bulundugukat" xml:space="preserve">
+    <value>Bulunduğu Kat</value>
+  </data>
+  <data name="cepheyon" xml:space="preserve">
+    <value>Cephe/Yön</value>
+  </data>
+  <data name="contactBtn" xml:space="preserve">
+    <value>İletişim için tıklayın</value>
+  </data>
+  <data name="depozito" xml:space="preserve">
+    <value>Depozito</value>
+  </data>
+  <data name="devren" xml:space="preserve">
+    <value>Devren</value>
+  </data>
+  <data name="femail" xml:space="preserve">
+    <value>E-mail Adresi*</value>
+  </data>
+  <data name="fiyat" xml:space="preserve">
+    <value>Fiyat</value>
+  </data>
+  <data name="fname" xml:space="preserve">
+    <value>Adı</value>
+  </data>
+  <data name="friend" xml:space="preserve">
+    <value>Arkadaşınızın</value>
+  </data>
+  <data name="fsurname" xml:space="preserve">
+    <value>Soyadı</value>
+  </data>
+  <data name="ilanno" xml:space="preserve">
+    <value>İlan no</value>
+  </data>
+  <data name="isinmatipi" xml:space="preserve">
+    <value>Isınma Tipi</value>
+  </data>
+  <data name="isyeri" xml:space="preserve">
+    <value>Ofis</value>
+  </data>
+  <data name="kiragetirisi" xml:space="preserve">
+    <value>Kira Getirisi</value>
+  </data>
+  <data name="kiralik" xml:space="preserve">
+    <value>Kiralık</value>
+  </data>
+  <data name="konut" xml:space="preserve">
+    <value>Konut</value>
+  </data>
+  <data name="krediyeuygunluk" xml:space="preserve">
+    <value>Krediye Uygunluk</value>
+  </data>
+  <data name="kullanimdurumu" xml:space="preserve">
+    <value>Kullanım Durumu</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Mesaj</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Adınız</value>
+  </data>
+  <data name="netalan" xml:space="preserve">
+    <value>m²</value>
+  </data>
+  <data name="oda" xml:space="preserve">
+    <value>Bölüm/Oda Sayısı</value>
+  </data>
+  <data name="otopark" xml:space="preserve">
+    <value>Otopark</value>
+  </data>
+  <data name="parakende" xml:space="preserve">
+    <value>Parakende</value>
+  </data>
+  <data name="print" xml:space="preserve">
+    <value>Yazdırmak için tıklayın...</value>
+  </data>
+  <data name="satilik" xml:space="preserve">
+    <value>Satılık</value>
+  </data>
+  <data name="send1" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="sendingother" xml:space="preserve">
+    <value>Başka birine yollamak isterseniz tıklayın</value>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Soyadınız</value>
+  </data>
+  <data name="takas" xml:space="preserve">
+    <value>Takas</value>
+  </data>
+  <data name="tapudurumu" xml:space="preserve">
+    <value>Tapu Durumu</value>
+  </data>
+  <data name="tarih" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="tavsiyeet" xml:space="preserve">
+    <value>Arkadaşına Tavsiye Et</value>
+  </data>
+  <data name="tip" xml:space="preserve">
+    <value>Portföy Tipi</value>
+  </data>
+  <data name="tipemlak" xml:space="preserve">
+    <value>Emlak Tipi</value>
+  </data>
+  <data name="yakittipi" xml:space="preserve">
+    <value>Yakıt Tipi</value>
+  </data>
+  <data name="yapinindurumu" xml:space="preserve">
+    <value>Yapının Durumu</value>
+  </data>
+  <data name="your" xml:space="preserve">
+    <value>Sizin</value>
+  </data>
+  <data name="clickforlinkedin" xml:space="preserve">
+    <value>Linkedin profili için tıklayınız</value>
+  </data>
+  <data name="hotelentertainmenttext" xml:space="preserve">
+    <value>Otel ve ağırlama sektöründe uzmanlaşmış networkümüzdeki deneyimli ekip arkadaşlarımız bu turistik işletmelerinin alım-satımına yönelik aracılık hizmetleri sunmaktadır.</value>
+  </data>
+  <data name="hotelluxrytext" xml:space="preserve">
+    <value>Firmamız gerek yerli gerekse yabancı müşterilerinin dünya konut sektöründeki önemi her geçen gün daha artan İstanbul’un özellikli bölgelerindeki konut kiralama, satış veya satınalma ihtiyaçlarını müşteri odaklı ve kişiye özel bir yaklaşımla profesyonel, hızlı ve güvenilir bir şekilde karşılamaktadır.</value>
+  </data>
+  <data name="industrylogistictext" xml:space="preserve">
+    <value>Ticari dünyanın realitesini çok iyi bilen tecrübeli endüstriyel ve lojistik network ekibimiz müşterilerimizin gereksinimlerini çok iyi anlayabilmekte ve kendilerine yüksek kalitede profesyonel hizmet sunabilmektedir.</value>
+  </data>
+  <data name="landtext" xml:space="preserve">
+    <value>Network’ümüzdeki deneyimli danışmanlar müşterilerimizin ihtiyacı olan arsaları bulmada ve mevcut arsalarını değerlendirmede yüksek kalitede profesyonel hizmet sunabilmektedir.</value>
+  </data>
+  <data name="officetext" xml:space="preserve">
+    <value>Deneyimli ekip ve networkumüzle İstanbul’un her noktasında, ofis satın alma, kiralama, satış veya değerleme konularında danışmanlık hizmeti sunmaktayız.</value>
+  </data>
+  <data name="retailtext" xml:space="preserve">
+    <value>Hızlı ve değişken parakende sektörünü çok iyi bilen ve bu sektörün gelişmelerini devamlı izleyen deneyimli network kadromuz İstanbul’un ana cadde ve alışveriş merkezlerindeki mal sahipleri, perakendeci ve geliştiricilerine kaliteli ve hızlı hizmet verme yetisine sahiptir.</value>
+  </data>
+  <data name="resetbtn" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="searchbtn" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="plazakati" xml:space="preserve">
+    <value>Ofis</value>
+  </data>
+  <data name="fileDown" xml:space="preserve">
+    <value>Mülkün broşürü / sunumu için tıklayınız</value>
+  </data>
+  <data name="acikotopark" xml:space="preserve">
+    <value>Açık otopark</value>
+  </data>
+  <data name="kapaliotopark" xml:space="preserve">
+    <value>Kapalı otopark</value>
+  </data>
+  <data name="yok" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="isyerikonut" xml:space="preserve">
+    <value>İşyeri/Konut</value>
+  </data>
+</root>

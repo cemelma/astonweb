@@ -1,0 +1,46 @@
+﻿@model web.Models.ServiceModel
+@{
+    ViewBag.Title = "Hizmetler";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Hizmetler</li>
+            <li>@Model.services.Name</li>
+        </ul>
+    </div>
+}
+<link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
+<div id="container" class="container">
+  <div class="col-md-12 shadow section noPadding noMarginTop">
+    <div class="col-md-12 sectionContent page newsPage">
+    
+      <h2 class="pageTitle">@Model.services.Name</h2>
+      <div class="pageContent">
+        @Html.Raw(Model.services.Content)
+      </div>
+      
+      <div class="col-md-12 noPadding products">
+        
+          @foreach (var item in Model.Photos)
+          {
+              <div class="col-md-3 "><a href="@item.Path" class="fancybox" rel="gallery"><img src="@item.Thumbnail" /></a></div>
+          }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="~/Content/Scripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".fancybox").fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none'
+        });
+    });
+
+</script>

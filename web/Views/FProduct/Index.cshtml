@@ -1,0 +1,301 @@
+﻿@model web.Models.ProductFrontModel
+@{
+    ViewBag.Title = Model.product.Name;
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+    List < DAL.Entities.References > referanslar = ViewData["referanslar"] as List < DAL.Entities.References > ;
+        
+}
+<link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            @*<li><a href="/urunler/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>*@
+              <li><a href="#">@ViewBag.ProductGroup</a></li>
+            <li>Ürünler </li>
+        </ul>
+    </div>
+}
+
+<div id="container" class="container">
+    <div class="col-md-12 shadow section noPadding noMarginTop">
+    <div class="col-md-12 sectionContent page newsPage">
+    
+      <h2 class="pageTitle">@Model.product.Name</h2>
+      <div class="pageContent">
+        @Html.Raw(Model.product.Content)
+    </div>
+      <div class="col-md-12 noPadding colors">
+        <div class="col-md-3">
+            @foreach (var item in Model.Colors)
+            {
+                <div class="col-md-6"><div style="background-color: @item.RenkKodu;padding: 13px;display: block;margin-top: 10px;"></div>@item.Adi</div>
+            }
+ 
+        </div>
+        <div class="col-md-9">
+        <div class="col-md-1 "></div>
+        @if (!string.IsNullOrEmpty(Model.product.Image1) && Model.product.Image1 != "/Content/images/front/noimage.jpeg")
+        {
+            <div class="col-md-5 ">
+
+                <a href="@Model.product.Image1.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery"><img src="@Model.product.Image1"/></a>
+
+            </div>
+        }
+         @if (!string.IsNullOrEmpty(Model.product.Image2) && Model.product.Image2 != "/Content/images/front/noimage.jpeg")
+         {
+            <div class="col-md-5 ">
+
+                <a href="@Model.product.Image2.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery"><img src="@Model.product.Image2"/></a>
+            </div>
+         }
+        <div class="col-md-1 "></div> 
+        <div class="col-md-12 fiyatBilgi"><a href="#">Fiyat Bilgisi İçin Tıklayınız</a></div>  
+        </div>
+      </div>
+      <div class="col-md-12 noPadding fiyatBilgisiIcerik">
+
+          <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
+       
+          <tr>
+            <td colspan="8" class="urunAd">@Model.product.Name</td>
+          </tr>
+              @if(Model.headers!=null)
+              {
+          <tr class="fiyatTabloTitle">
+            @if (!string.IsNullOrEmpty(@Model.headers.Header1))
+            {
+                   
+                    <td>@Model.headers.Header1</td>
+                       
+                   
+            }
+                @if (!string.IsNullOrEmpty(@Model.headers.Header2))
+                {
+                    
+                    <td>@Model.headers.Header2</td>
+                      
+                   
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.headers.Header3))
+                {
+                   
+                    <td>@Model.headers.Header3</td>
+                       
+                   
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.headers.Header4))
+                {
+                    
+                    <td>@Model.headers.Header4</td>
+                      
+                    
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.headers.Header5))
+                {
+                   
+                    <td>@Model.headers.Header5</td>
+                     
+                   
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.headers.Header6))
+                {
+                  
+                    <td>@Model.headers.Header6</td>
+                       
+                    
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.headers.Header7))
+                {
+               
+                    <td>@Model.headers.Header7</td>
+                      
+              
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.headers.Header8))
+                {
+              
+                    <td>@Model.headers.Header8</td>
+                      
+             
+                }
+              
+            </tr>
+        }
+       
+            @if (Model.ProductInfo != null)
+            {
+                foreach (var item in Model.ProductInfo)
+                {
+               <tr id="listItem_@item.ProductInformationId"  class="handle">
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header1))
+                    {
+                        //if (@item.Field1 != null)
+                        //{
+<td>@item.Field1</td>
+                        //}
+                    }
+                    @if (!string.IsNullOrEmpty(Model.headers.Header2))
+                    {
+                        //if (@item.Field2 != null)
+                        //{
+<td>@item.Field2</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header3))
+                    {
+
+                        //if (@item.Field3 != null)
+                        //{
+<td>@item.Field3</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header4))
+                    {
+                        //if (@item.Field4 != null)
+                        //{
+<td>@item.Field4</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header5))
+                    {
+                        //if (@item.Field5 != null)
+                        //{
+<td>@item.Field5</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header6))
+                    {
+                        //if (@item.Field6 != null)
+                        //{
+<td>@item.Field6</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header7))
+                    {
+                        //if (@item.Field7 != null)
+                        //{
+<td>@item.Field7</td>
+                        //}
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.headers.Header8))
+                    {
+                        //if (@item.Field8 != null)
+                        //{
+<td>@item.Field8</td>
+                        //}
+                    }
+                   
+                </tr>
+                }
+            }
+       
+    </table>
+
+
+    @*  <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
+       
+          <tr>
+            <td colspan="8" class="urunAd">@Model.Name</td>
+          </tr>
+          <tr class="fiyatTabloTitle">
+            <td>KOD</td>
+            <td>MALZEME</td>
+            <td>BİRİM</td>
+            <td>EBAT</td>
+            <td>AĞIRLIK (KG)</td>
+            <td>ARAÇ (20 TON)</td>
+            <td>RENGİ</td>
+            <td>FİYATI</td>
+          </tr>
+            @foreach (var item in ViewBag.Details)
+          {
+               <tr>
+                 <td>@item.Code</td>
+                 <td>@item.Material</td>
+                 <td>@item.Unit</td>
+                 <td>@item.Dimension</td>
+                 <td>@item.Weight</td>
+                 <td>@item.VehicleTon</td>
+                 <td>@item.ColorWhite</td>
+                 <td>@item.Price</td>
+               </tr>
+             
+          }
+         
+
+        </table>*@
+      </div>
+      
+      <div class="col-md-12 noPadding products">
+      <h2 class="pageTitle">UYGULAMA FOTOĞRAFLARI</h2>
+          @foreach (var item in ViewBag.Photos)
+          {
+               <div class="col-md-3 "><a href="@item.Path" class="fancybox" rel="galleryi"><img src="@item.Thumbnail" style="width:210px;height:125px;"/></a></div>
+             
+          }
+      </div>
+    </div>
+  </div>
+
+     
+
+
+
+    <div class="col-md-12 shadow references section noPadding">
+        <div class="col-md-12 sectionTitle">
+            <div class="col-md-6">
+                <h5>REFERANSLAR</h5>
+            </div>
+            <div class="col-md-6 allContent"><a href="/referanslar">[ TÜM REFERANSLAR ]</a> </div>
+        </div>
+        <div class="col-md-12 sectionContent">
+            <ul class="referenceSlider">
+                @foreach (var item in referanslar)
+                {
+                    if (item.Logo != null)
+                    {
+                    <li><img src="@item.Logo" style="width:169px;height:62px;" /></li>
+                    }
+                    else
+                    {
+                        <li><img src="/Content/Images/Front/noimage.jpeg" style="width:169px;height:62px;" /></li>
+                    }
+                }
+        
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="~/Content/Scripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".fancybox").fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none'
+        });
+
+        $('.fiyatBilgi a').click(function (e) {
+            e.preventDefault()
+            $('.fiyatBilgisiIcerik').css('display', 'block').fadeIn('slow');
+        })
+    });
+
+</script>

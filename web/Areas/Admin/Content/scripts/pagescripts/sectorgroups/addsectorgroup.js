@@ -1,0 +1,9 @@
+﻿$(function () {
+    var status = $("#ProcessMessage").val();
+    $("#imgloader").css("display", "none");
+    if (status == "True" || status == "true")
+        MessageBox("İşlem Başarıyla Tamamlandı", "info");
+    else if (status == "False" || status == "false")
+        MessageBox("İşlem Sırasında Bir Hata Oluştu.", "alert");
+
+});

@@ -1,0 +1,62 @@
+﻿@model DAL.Entities.ProductSubGroup
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+@*css dosyaları*@
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>ÜRÜN ALT GRUP BİLGİLERİ</h1>
+   </div>
+   <section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+     @using (Html.BeginForm("EdtiGroup", "ProductSubGroup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <fieldset>
+        <legend>Grup Düzenle</legend>
+        <p>
+         <label for="drplanguage">Dil</label>
+         @Html.DropDownListFor(m=>m.Language,(IEnumerable<SelectListItem>)ViewBag.LanguageList,"Dil Seçiniz...")
+        </p>
+        <p>
+         <label for="txtname">Ana Grup</label>
+          @Html.DropDownListFor(m=>m.ProductGroupId,(IEnumerable<SelectListItem>)ViewBag.MainGroup,"Ürün Ana Grubu Seçiniz...")
+        </p>
+        <p>
+         <label for="txtname">Grup Adı</label>
+          @Html.TextBoxFor(m=>m.GroupName, new { @class="textwidth50"})
+          @Html.ValidationMessageFor(m => m.GroupName)
+        </p>
+         <p>
+            <label for="txtname">Grup Resmi</label>
+            
+            <input type="file" name="uploadfile" id="uploadfile"  />
+        </p>
+        <p>
+            <label></label>
+           <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+    }
+   </section>
+</div>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+@System.Web.Optimization.Scripts.Render("~/admin/validationscripts") 
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/product/productsubgroup.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>

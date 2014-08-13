@@ -1,0 +1,79 @@
+﻿@model IEnumerable<DAL.Entities.Page>
+@{
+    
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("Instituional_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>EK SAYFLAR</h2>
+    </div>
+  @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage)
+    <section class="grid_12 form">
+        <div class="box-header">
+            <h1>Sayfa Listesi&nbsp;&nbsp;|&nbsp;&nbsp;
+             @Html.DropDownList("LanguageList")
+            </h1>
+        </div>
+        <table id="tblcategory" class="table no-border tablesorter">
+            <thead>
+                <tr>
+                    <th class="width5">Sırala</th>
+                    <th style="width:85%;">Başlık</th>
+                    <th class="center witdh10">İşlem</th>
+                </tr>
+            </thead>
+            <tbody id="item-list">
+                @foreach (var item in Model)
+                {
+                    <tr id="listItem_@item.PageId"  class="handle">
+                        <td class="center">
+                            <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                        </td>
+                        <td>
+                            <span id="spanitem_@item.PageId">@item.Header</span>
+                            <input type="text" id="textitem_@item.PageId" value="" class="displaynone textwidth90"/>
+                        </td>
+                        <td class="center">
+                            <a href="/yonetim/kurumsal/edit/@item.PageId">
+                                <img id="btn_update_@item.PageId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                            </a>
+                            <img id="DeleteImage_@item.PageId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Institutional/DeletePage',@item.PageId)">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+    <br class="cl" />
+    <div id="info"></div>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+
+    <script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/instituional/mision.js"></script>
+    <script>
+        $(function () {
+            $("#LanguageList").change(function () {
+                var lang = $("#LanguageList option:selected").val();
+                window.location.href = "/yonetim/kurumsal/" + lang;
+            });
+            SortOrder("/Institutional/SortRecords");
+        });
+    </script>
+}
+
+

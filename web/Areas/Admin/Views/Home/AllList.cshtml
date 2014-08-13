@@ -1,0 +1,90 @@
+﻿@model IEnumerable<deneysan_DAL.Entities.Teklif>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("home_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>TÜM TEKLİFLER</h2>
+    </div>  
+    <section class="grid_12 form">
+    <div class="box-header" >
+        <h1>Teklif Listesi</h1>
+    </div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="center width10">Detay</th>
+                <th class="center width10">Durum</th>
+                <th class="center width10">Teklif No</th>
+                <th class="witdh40">Kurum</th>
+                <th class="witdh30">Ünvan</th>
+               
+                <th class="center witdh10">Geliş Tarihi</th>
+                <th class="center witdh10">Tutar</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.TeklifId"  class="handle">
+                    <td class="center">
+                        <a href="/yonetim/teklifdetay/@item.TeklifId">
+                            <img src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Detay Gör" class="cursorpointer" />
+                        </a>
+                    </td>
+                    <td class="center">
+                        @if(@item.Durum == 0){
+                            <span style="font-weight:bold;color:green;">Onaylandi</span>}
+                         @if(@item.Durum == 1){
+                            <span style="font-weight:bold;color:blue;">Onaylanmadi</span>}
+                         @if(@item.Durum == 2){
+                            <span style="font-weight:bold;color:red;">İptal</span>}
+
+                    </td>
+                    <td class="center">
+                       @item.TeklifId
+                    </td>
+                    <td>
+                       @item.Kurum
+                    </td>
+                     <td>
+                       @item.Unvan
+                    </td>
+                    <td class="center">@item.TeklifTarihi</td>
+                    <td class="center">@item.FaturaTutar  @item.ParaBirimi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/documents/documentlist.js"></script>
+
+
+

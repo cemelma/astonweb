@@ -1,0 +1,219 @@
+﻿/* Table */
+.table {
+	border: 1px solid #CCCCCC !important;
+	width: 100%;
+}
+.table.no-border {
+	border: medium none;
+}
+.table thead th, .table thead td {
+	background: url("../images/boxheader.gif") repeat-x scroll center top #E2E2E2;
+	border-bottom: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	color: #333333;
+	font-weight: 700;
+	padding: 6px 10px;
+}
+.table thead th.last, .table thead td.last {
+	border-right: 0 none;
+}
+.table thead th.checkbox, .table thead td.checkbox {
+	width: 25px;
+}
+.table tbody th, .table tbody td {
+	border-right: 1px dotted #CCCCCC;
+	font-size: 93%;
+	padding: 10px;
+	vertical-align: middle;
+}
+.table tbody tr.alt td {
+	background: none repeat scroll 0 0 #F2F2F2;
+}
+.table tbody th.last, .table tbody td.last {
+	border-right: 0 none;
+}
+.table tbody tr.last td {
+	border-bottom: 0 none;
+}
+.table tbody tr:hover th, .table tbody tr:hover td {
+	background: none repeat scroll 0 0 #D3ECF9;
+}
+
+/* table sorter styles */
+table.tablesorter {
+	/*font-family:arial;*/
+	background-color: #E6E6E6; /*#CDCDCD;*/
+	/*margin:10px 0pt 15px;*/
+	/*font-size: 8pt;*/
+	width: 100%;
+	text-align: left;
+	border-collapse:separate;
+	border-spacing:0px;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #E6E6E6;
+	border-left:1px solid #CCCCCC;
+	/*color:#616161;*/
+	padding:8px;
+	
+}
+table.tablesorter thead tr .header {
+	background-image: url('/Areas/Yonetim/images/icons/tablesorter/bg.gif');
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	padding:10px 15px;
+	
+}
+table.tablesorter tbody td {
+	/*color: #3D3D3D;*/
+	padding: 8px;
+	background-color: #FFF;
+	vertical-align: middle;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F2F2F2;
+    
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url('/Areas/Yonetim/images/icons/tablesorter/asc.gif');
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url('/Areas/Yonetim/images/icons/tablesorter/desc.gif');
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+    background-color: #b3b2b2;
+    color:#000;
+}
+
+.table.tablesorter tbody tr:hover th, .table tbody tr:hover td {
+	background: none repeat scroll 0 0 #D3ECF9;
+}
+
+.table.tablesorter tbody tr.odd:hover th, .table tbody tr.odd:hover td {
+	background: none repeat scroll 0 0 #D3ECF9;
+}
+
+.pagesize
+{
+    width:50px !important;
+}
+.pagedisplay
+{
+    width:80px !important;
+}
+
+.width50 {
+    width: 50%;
+}
+.width40 {
+    width: 40%;
+}
+.width35 {
+    width: 35%;
+}
+.width30 {
+    width: 30%;
+}
+.width20 {
+    width: 20%;
+}
+.width15 {
+    width: 15%;
+}
+.width10 {
+    width: 10%;
+}
+.width5 {
+    width: 5%;
+}
+.width25
+{
+    width:25%;
+}
+.center {
+    text-align: center;
+}
+.pointer {
+    cursor: pointer;
+}
+.textalignleft {
+    text-align: left;
+}
+.valignmiddle {
+    vertical-align: middle;
+}
+.displaynone
+{
+    display:none;
+}
+.cursorpointer
+{
+    cursor:pointer;
+}
+
+.bgcolorforedit
+{
+    background-color:#66ff66 !important;
+}
+
+/*kullanıcı rol ekleme sayfası için kullanılan tablo stilleri*/
+.tablemainmenu
+{
+    border:none;
+}
+.tablemainmenu td{border:none !important;padding:0 0 0 20px;width:26%;}
+.tablemainmenu tr:nth-child(2) .mainheader {
+    border-bottom: solid 1px #CCC !important;
+    padding: 30px 0 0 0;
+    font-weight:bold;
+}
+.mainheader
+{
+    border-bottom: solid 1px #CCC !important;
+    padding: 0px;
+    font-weight:bold;
+}
+.menusubheader
+{
+    padding:3px;
+}
+.menusubheader label
+{
+   width:120px !important;
+}
+.lblchkmainmenu
+{
+    padding: 0px 0 0 5px !important;
+}
+.tablesubmenu
+{
+    border:none;
+    margin-top:5px;
+}
+.selectalldiv
+{
+    padding-left:20px;
+}
+
+.dark
+{
+    background-color: gray !important
+}
+
+.box-header select
+{
+    height:28px !important;
+    outline:none;
+}
+
+.addrecord
+{
+    border:none !important;
+}
+
+.specialtablemenuuser
+{
+    width:450px !important;
+    margin-left:165px;
+}

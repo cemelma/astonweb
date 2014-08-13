@@ -1,0 +1,179 @@
+﻿@model web.Models.HomePageWrapperModel
+@{
+    ViewBag.Title = "Kent Mobilyaları, Altyapı Elemanları, Çevre Güvenlik Sistemleri, Doğal Taşlar";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+
+<style>
+    .col-md-3 {
+        text-align:center;
+    }
+</style>
+
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+        </ul>
+    </div>
+}
+
+<div id="slider">
+    <ul class="slider">
+        @foreach (var item in Model.photos)
+        {
+            <li><a href="@item.Link" target="_blank">
+                <img src="@item.Path" style="width:1090px;height:347px;" /></a></li>
+        }
+    </ul>
+
+</div>
+<div id="container" class="container">
+    <div class="col-md-12 shadow services section noPadding">
+        <div class="col-md-12 sectionTitle">
+            <div class="col-md-12">
+                <h5>ÜRÜNLER</h5>
+            </div>
+        </div>
+        <div class="col-md-12 sectionContent">
+            <ul class="nav nav-tabs" id="productpositions">
+                 @foreach (var item in Model.prodgroups)
+                 {
+                            <li class=""><a href="#prd_@item.ProductGroupId" data-toggle="tab" data-id="@item.ProductGroupId" class="positiontabclick">@item.GroupName</a></li>
+                 }
+            </ul>
+            <div class="tab-content" id="productcontent">
+                  @foreach (var item in Model.prodgroups)
+                  {
+                      <div class="tab-pane" id="prd_@item.ProductGroupId">
+                             <div class="col-md-12 noPadding">
+
+                      @foreach (var itemproduct in Model.Products.OrderBy(d=>d.SortNumber))
+                      {
+                          if (item.ProductGroupId == itemproduct.TopProductGroupId)
+                          { 
+                            
+                              if (!string.IsNullOrEmpty(itemproduct.Image1) && itemproduct.Image1 != "/Content/images/front/noimage.jpeg")
+                              {
+                                <div class="col-md-3 ">
+                                    <img src="@itemproduct.Image1" /><a href="/urunler/@itemproduct.ProductId/@itemproduct.PageSlug">@itemproduct.Name</a>
+                                </div>
+                              }
+                            
+                          }
+                      }
+                                  </div>
+                        </div>
+                  }
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 shadow products section noPadding">
+        <div class="col-md-12 sectionTitle">
+            <div class="col-md-12">
+                <h5>HİZMETLER</h5>
+            </div>
+        </div>
+
+        <div class="col-md-12 sectionContent">
+            <ul class="nav nav-tabs" id="servicepositions">
+                @foreach (var item in Model.servicegroups)
+                {
+                    <li><a href="#service_@item.Name" data-toggle="tab">@item.Name</a></li>
+                }
+            </ul>
+            <div class="tab-content" id="servicecontent">
+                @foreach (var item in Model.servicegroups)
+                {
+                   if (item.ShowInMenu==true)
+                   {
+                    <div class="tab-pane" id="service_@item.Name">
+                        <div class="col-md-12">
+                            @Html.Raw(item.Content)
+                        </div>
+                        <div class="col-md-12 noPadding">
+                            @if(item.ShowContentHome)
+                            {
+                                foreach (var itemsub in Model.servicesphotos.Where(d=>d.ItemId == item.ServiceId))
+                                {
+                                    <div class="col-md-3 "><a href="@itemsub.Path" class="fancybox" rel="galleryservice"><img src="@itemsub.Thumbnail" /></a></div>                                
+                                }
+                            }
+                        </div>
+                    </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 shadow news section noPadding">
+        <div class="col-md-12 sectionTitle">
+            <div class="col-md-6">
+                <h5>HABERLER</h5>
+            </div>
+            <div class="col-md-6 allContent"><a href="/haberler">[ TÜM HABERLER ]</a> </div>
+        </div>
+        <div class="col-md-12 sectionContent">
+            <ul class="newsSlider">
+                @foreach (var item in Model.news)
+                {
+                    <li><a href="/haberler">
+                        <h5>@item.Header</h5>
+                        <p>@item.Spot</p>
+                        <div>@item.TimeCreated.Value.ToShortDateString()</div>
+                    </a>
+
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <!-- REFERANLAR BÖLÜMÜ -->
+    <div class="col-md-12 shadow references section noPadding">
+        <div class="col-md-12 sectionTitle">
+            <div class="col-md-6">
+                <h5>REFERANSLAR</h5>
+            </div>
+            <div class="col-md-6 allContent"><a href="/referanslar">[ TÜM REFERANSLAR ]</a> </div>
+        </div>
+        <div class="col-md-12 sectionContent">
+            <ul class="referenceSlider">
+                @foreach (var item in Model.references)
+                {
+                    if (item.Logo != null)
+                    {
+                    <li><img src="@item.Logo"/></li>
+                    }
+                    else
+                    {
+                        <li><img src="/Content/Images/Front/noimage.jpeg"/></li>
+                    }
+                }
+        
+            </ul>
+        </div>
+
+    </div>
+    <!-- /REFERANLAR BÖLÜMÜ -->
+</div>
+
+<link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
+<script src="~/Content/Scripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#servicepositions li:first").addClass("active");
+        $("#servicecontent .tab-pane:first").addClass("active");
+        $("#productpositions li:first").addClass("active");
+        $("#productcontent .tab-pane:first").addClass("active");
+        
+        $(".fancybox").fancybox({
+            openEffect: 'none',
+            closeEffect: 'none'
+        });
+
+    });
+
+</script>

@@ -1,0 +1,78 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+@{
+    int productGroupId = 0;
+}
+
+@if(Model.SelectedProductGroup!=null)
+{
+    productGroupId = Model.SelectedProductGroup.ProductGroupId;
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == productGroupId))
+    {
+        <text><li class="dd-item dd3-item" data-id="@item.ProductGroupId"></text>
+            <div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">
+                @item.GroupName
+                <a href="?topProductGroupId=@item.ProductGroupId"><img src="~/Areas/Admin/Content/images/add.png" class="submenubtnnew" /></a>
+                @if(item.Online==true)
+                {
+                    <img src="~/Areas/Admin/Content/images/icons/online.png" class="submenubtnonline" title="Offline Yap" id="img_online_@item.ProductGroupId" onclick="SetOnlineStatus('/ProductGroup/GroupEditStatus',@item.ProductGroupId)" />
+                }
+                else
+                {
+                    <img src="~/Areas/Admin/Content/images/icons/offline.png" class="submenubtnonline" title="Online Yap" id="img_online_@item.ProductGroupId" onclick="SetOnlineStatus('/ProductGroup/GroupEditStatus',@item.ProductGroupId)" />
+                }
+                <img src="~/Areas/Admin/Content/images/icons/16/delete.png" class="submenubtndelete" id="DeleteImage_@item.ProductGroupId" onclick="DeleteRecord('/ProductGroup/DeleteRecord',@item.ProductGroupId)" />
+                <a href="/yonetim/urungruplari/basliklar/@item.ProductGroupId">
+                    <img src="~/Areas/Admin/Content/images/icons/16/edit.png" class="submenubtnedit" />
+                </a>
+            </div> 
+            if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+            { 
+                <ol class="dd-list">
+                    @{
+                        Model.SelectedProductGroup = item;
+                        Html.RenderPartial("_submenu", Model);
+                    }
+                </ol>
+            }
+        <text><li /></text>
+    }
+}
+else
+{
+    foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
+    {
+        <text><li class="dd-item dd3-item" data-id="@item.ProductGroupId"></text>
+            <div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">
+                @item.GroupName 
+                <a href="?topProductGroupId=@item.ProductGroupId"><img src="~/Areas/Admin/Content/images/add.png" class="submenubtnnew" /></a>
+                @if(item.Online==true)
+                {
+                    <img src="~/Areas/Admin/Content/images/icons/online.png" class="submenubtnonline" title="Offline Yap" id="img_online_@item.ProductGroupId" onclick="SetOnlineStatus('/ProductGroup/GroupEditStatus',@item.ProductGroupId)" />
+                }
+                else
+                {
+                    <img src="~/Areas/Admin/Content/images/icons/offline.png" class="submenubtnonline" title="Online Yap" id="img_online_@item.ProductGroupId" onclick="SetOnlineStatus('/ProductGroup/GroupEditStatus',@item.ProductGroupId)" />
+                }
+                <img src="~/Areas/Admin/Content/images/icons/16/delete.png" class="submenubtndelete" id="DeleteImage_@item.ProductGroupId" onclick="DeleteRecord('/ProductGroup/DeleteRecord',@item.ProductGroupId)" />
+
+                 @if (!Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+                { 
+                <a href="/yonetim/urungruplari/basliklar/@item.ProductGroupId">
+                    <img src="~/Areas/Admin/Content/images/icons/16/edit.png" class="submenubtnedit" />
+                </a>
+                }
+            </div> 
+            if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+            { 
+                
+                <ol class="dd-list">
+                    @{
+                        Model.SelectedProductGroup = item;
+                        Html.RenderPartial("_submenu", Model);
+                    }
+                </ol>
+            }
+            
+        <text><li /></text>
+    }
+}

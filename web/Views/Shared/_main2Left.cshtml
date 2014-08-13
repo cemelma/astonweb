@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DAL.Entities.Page>
+
+<div class="main2Left">
+    <div class="urunler leftMenu">
+        <h2 class="sectionTitle"><span>@SharedRess.SharedStrings.aboutus</span></h2>
+        <ul>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_aboutus">@SharedRess.SharedStrings.aboutus</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_solutionpartners">@SharedRess.SharedStrings.solutionpartners</a></li>
+       @* <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_certificates">@SharedRess.SharedStrings.certificates</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_equipments">@SharedRess.SharedStrings.equipments</a></li>*@
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_humanresources">@SharedRess.SharedStrings.humanresources</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_references">@SharedRess.SharedStrings.references</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_contactdetails">@SharedRess.SharedStrings.contact</a></li>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_aboutus/@item.PageSlug/@item.PageId">@item.Header</a>
+            </li>
+        }
+        </ul>
+    </div>
+</div>

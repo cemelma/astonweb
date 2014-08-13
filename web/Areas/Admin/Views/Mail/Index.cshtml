@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DAL.Entities.MailUsers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("mail_leftbar")
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>KULLANICI MAİL BİLGİLERİ</h2>
+    </div>  
+    <section class="grid_12 form">
+    <div class="box-header" ><h1>Kullanıcı Mail Listesi&nbsp;&nbsp;|&nbsp;&nbsp;
+        @Html.DropDownList("ddltype", new[] {
+                    new SelectListItem{ Text="Bilgi Maili", Value="0" },
+                    new SelectListItem{ Text= "Teklif Maili", Value="1" },
+                    new SelectListItem{ Text= "CV Maili", Value="2" },
+                 }, new { @class = "textwidth20"})
+     </h1></div>
+    @Html.Hidden("selval")
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width40">Ad Soyad</th>
+                <th class="witdh40">Mail Adresi</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.MailUserId"  class="handle">
+                    <td >@item.MailUser</td>
+                    <td>@item.MailAddress</td>
+                    <td class="center">
+                       <a href="/yonetim/duzenle/@item.MailUserId">
+                        <img id="btn_update_@item.MailUserId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                        </a>
+                      <img id="DeleteImage_@item.MailUserId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Mail/DeleteRecord',@item.MailUserId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/mail/maillist.js"></script>
+
+
+
+    

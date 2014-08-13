@@ -1,0 +1,50 @@
+﻿@model DAL.Entities.Institutional
+
+@{
+    ViewBag.Title = "Vizyon";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+@*sayfa css leri*@
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+@Html.Partial("Instituional_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>KURUMSAL</h2>
+    </div>  
+  <section class="grid_12 form">
+  
+  @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+    @using (Html.BeginForm("Hakkimizda", "Institutional", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Hakkımızda</legend>
+        <p>
+            @Html.TextAreaFor(m => m.Content, new { id = "txtcontent", @class = "required" })
+            @Html.ValidationMessageFor(m => m.Content)
+        </p>
+           <p>
+            
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/instituional/about.js"></script>
+
+}

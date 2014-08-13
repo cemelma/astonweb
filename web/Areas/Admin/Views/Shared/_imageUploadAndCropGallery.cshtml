@@ -1,0 +1,345 @@
+﻿<div style="position: relative;" id="pnlUpload">
+    <input type="button" id="btnUpload" value="Resim Yükle" />
+    <div style="position: absolute; top: 4px; left: 3px;">
+        <input id="fuFileUploader" name="file_upload" type="file" />
+    </div>
+</div>
+<div>
+    <div id="pnlUploadedImage" style="display: none">
+        <input type="button" style="width:150px;" id="btnCrop" onclick="javascript: cropImage();" value="Resmi Kırp" />
+        <input type="button" style="width:150px;" name="name" id="btnResimGuncelle" style="display:none" value="Resmi Güncelle" />
+        <input type="button" style="width:150px;" id="btnIptal" value="İptal" />
+        @* <input type="button" id="btnResize" onclick="javascript: resizeImage();" value="Resmi Boyutlandır" />*@
+        <label id="lblMethodError" style="display: none"></label>
+        <br />
+
+        <div id="main-pane" style="margin-top: 35px;">
+            <img src="" id="imgUploadedImage" alt="Uploaded Image" />
+        </div>
+    </div>
+    
+    <input type="hidden" id="currenPhotoId" value="" />
+    
+    <div id="preview-pane">
+        <div class="preview-container">
+            @if (Convert.ToInt32(Session["_minwidth"]) > 1100)
+            {
+                <img src="/Content/Images/Front/noimage.jpeg" width="280" height="87.5" id="imgNewImage" alt="Image" />
+            }
+            else
+            { 
+                <img src="/Content/Images/Front/noimage.jpeg" width="100%" height="100%" id="imgNewImage" alt="Image" />
+            }
+            @*<img src="demo_files/sago.jpg" class="jcrop-preview" alt="Preview" />*@
+        </div>
+    </div>
+
+    @*<div id="pnlNewImage" style="display: none">
+        <h2>Kırpılmış Resim</h2>
+        <img src="" id="imgNewImage" alt="Image" />
+    </div>*@
+</div>
+
+<link href="~/Content/Styles/jquery.Jcrop.css" rel="stylesheet" />
+<script src="~/Uploadify/swfobject.js"></script>
+<script src="~/Uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script src="~/Content/Scripts/jquery.Jcrop.min.js"></script>
+<style type="text/css">
+    #preview-pane {
+        display: none;
+    }
+
+    .jcrop-holder #preview-pane {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        right: -420px;
+        padding: 6px;
+        border: 1px rgba(0,0,0,.4) solid;
+        background-color: white;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    /*#main-pane { padding: 6px;border: 1px rgba(0,0,0,.4) solid;background-color: white;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;-webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);-moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);}*/
+    #preview-pane .preview-container {
+        width: 250px;
+        height: 170px;
+        overflow: hidden;
+    }
+</style>
+<script type="text/javascript">
+    var x = 0, y = 0, w = 0, h = 0;
+    var imageHandler = '@Url.Content("~/ImageHandler.ashx?id=")';
+    $(function () {
+        
+        if (parseInt(@Session["_minwidth"]) > 1100) {
+            
+            $("#preview-pane").css("width","280");
+            $("#preview-pane").css("height","87.5");
+            $(".preview-container").css("width","280");
+            $(".preview-container").css("height","87.5");
+            $("#main-pane").css("height","190");
+        }else{
+            $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
+            $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
+            $(".preview-container").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
+            $(".preview-container").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
+            $("#main-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
+            $("#main-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");    
+        }
+        
+        var jcrop_api,
+        boundx,
+        boundy,
+
+        // Grab some information about the preview pane
+        $preview = $('#preview-pane'),
+        $pcnt = $('#preview-pane .preview-container'),
+        $pimg = $('#preview-pane .preview-container img'),
+
+        xsize = $pcnt.width(),
+        ysize = $pcnt.height();
+    
+        console.log('init',[xsize,ysize]);
+
+        // Uploadify File Upload System
+        // SessionSync data is sent in scriptData for security reasons, see UploadifySessionSync() in global.asax
+        var UploadifyAuthCookie = '@(Request.Cookies[FormsAuthentication.FormsCookieName] == null ? string.Empty : Request.Cookies[FormsAuthentication.FormsCookieName].Value)';
+        var UploadifySessionId = '@Session.SessionID';
+
+        $("#fuFileUploader").uploadify({
+            'hideButton': true,       // We use a trick below to overlay a fake html upload button with this hidden flash button                         
+            'wmode': 'transparent',
+            'uploader': '@Url.Content("~/Uploadify/uploadify.swf")',
+            'cancelImg': '@Url.Content("~/Uploadify/cancel.png")',
+            'buttonText': 'Resim Yükle',
+            'script': '@Url.Action("FileUpload", "Media")',
+            'multi': true,
+            'auto': true,
+            'fileExt': '*.jpg;*.gif;*.png;*.jpeg',
+            'fileDesc': 'Resim Dosyaları',
+            'scriptData': { RequireUploadifySessionSync: true, SecurityToken: UploadifyAuthCookie, SessionId: UploadifySessionId },
+            'onComplete': function (event, ID, fileObj, response, data) {
+                response = $.parseJSON(response);
+                if (response.Status == 'OK') {
+                    $("#pnlUpload").hide();
+                    $("#pnlUploadedImage").show();
+                    $("#imgUploadedImage").attr("src", imageHandler + response.Id);
+                    $("#btnResimGuncelle").css("display","none");
+                    if (parseInt(@Session["_minwidth"]) > 1100) {
+                        $('#imgUploadedImage').Jcrop({
+                            onChange: setCoords,
+                            onSelect: setCoords,
+                            //trueSize: [300, 225],
+                            //aspectRatio: 1,
+                            minSize: [280, 87.5],
+                            maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],
+                            @*boxWidth: @TempData["minwidth"],*@
+                            keySupport: false,
+                            boxWidth: 280,
+                            aspectRatio: 280 / 87.5, //keep aspect ratio
+                            setSelect: [0, 0, 280, 87.5]
+                        },function(){
+                            // Use the API to get the real image size
+                            var bounds = this.getBounds();
+                            boundx = bounds[0];
+                            boundy = bounds[1];
+                            // Store the API in the jcrop_api variable
+                            jcrop_api = this;
+                            // Move the preview into the jcrop container for css positioning
+                            $preview.appendTo(jcrop_api.ui.holder);
+                            //$("#main-pane").css("display","block");
+                            $("#preview-pane").css("display","block");
+                        
+                        });
+                    }else {
+                        $('#imgUploadedImage').Jcrop({
+                            onChange: setCoords,
+                            onSelect: setCoords,
+
+                            //trueSize: [300, 225],
+                            //aspectRatio: 1,
+                            //minSize: [@Session["_minwidth"], @Session["_minheight"]],
+                            maxSize: [@(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))],
+                            @*boxWidth: @TempData["minwidth"],*@
+                            keySupport: false,
+                            boxWidth: @(Convert.ToInt32(Session["_minwidth"])/2),
+                            aspectRatio: parseInt(@Session["_minwidth"]) / parseInt(@Session["_minheight"]), //keep aspect ratio
+                            setSelect: [0, 0, @(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))]
+                        },function(){
+                            // Use the API to get the real image size
+                            var bounds = this.getBounds();
+                            boundx = bounds[0];
+                            boundy = bounds[1];
+                            // Store the API in the jcrop_api variable
+                            jcrop_api = this;
+                            // Move the preview into the jcrop container for css positioning
+                            $preview.appendTo(jcrop_api.ui.holder);
+                            //$("#main-pane").css("display","block");
+                            $("#preview-pane").css("display","block");
+                        
+                        });
+                    }
+
+                    if (parseInt(@Session["_minwidth"]) > 1100) {
+            
+                        $("#preview-pane").css("width","280");
+                        $("#preview-pane").css("height","87.5");
+                        $(".preview-container").css("width","280");
+                        $(".preview-container").css("height","87.5");
+                        $("#main-pane").css("height","190");
+                    }else{
+                        $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
+                        $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
+                        $(".preview-container").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
+                        $(".preview-container").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
+                        $("#main-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
+                        $("#main-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");    
+                    }
+
+                }
+            }
+        });
+        
+        Array.prototype.filename = function() {
+            var tmp = this.split('/');
+            return tmp[tmp.length-1].match(/(.*)\.[\w]+$/)[1];
+        };
+
+        $(".imgMultiPhoto").unbind("click").click(function(){
+            
+            $("#btnResimGuncelle").attr("disabled","disabled");
+            $("#btnResimGuncelle").css("background-color","#eee");
+            $("#pnlUpload").hide();
+            $("#pnlUploadedImage").show();
+            
+            var tmp = $(this).attr('title').split('/');
+            var fileeextension = tmp[tmp.length-1].split('.')[1];
+            
+            
+            //var naame = tmp[tmp.length-1];
+
+            var kirpilmisFotoId = $(this).attr('id').split('_')[1] + "." + fileeextension;
+
+            $("#currenPhotoId").val(kirpilmisFotoId);
+            $.ajax({
+                url: '@Url.Action("ReadImageFromPath", "Media")',
+                type: "POST",
+                data: { path: $(this).attr('title') },
+                success: function (data) {
+                    $('#lblMethodError').hide();
+                    //$("#pnlNewImage").show();
+                    //$("#imgNewImage").attr("src", imageHandler + data);
+                    //alert(data);
+                    $("#imgUploadedImage").attr("src", imageHandler + data);
+                    
+                    $("#btnResimGuncelle").unbind().bind("click", rg_click_handler);
+                        $('#imgUploadedImage').Jcrop({
+                            onChange: setCoords,
+                            onSelect: setCoords,
+                            
+                            //trueSize: [300, 225],
+                            //aspectRatio: 1,
+                            //maxSize: [@Session["_minwidth2"], @Session["_minheight2"]],
+                            @*boxWidth: @TempData["minwidth"],*@
+                            boxHeight: 209,
+                            keySupport: false,
+                            aspectRatio: parseInt(@Session["_minwidth2"]) / parseInt(@Session["_minheight2"]), //keep aspect ratio
+                            setSelect: [0, 0, @(Convert.ToInt32(Session["_minwidth2"])/2.5), @(Convert.ToInt32(Session["_minheight2"])/2.5)]
+                        },function(){
+                            // Use the API to get the real image size
+                            var bounds = this.getBounds();
+                            boundx = bounds[0];
+                            boundy = bounds[1];
+                            
+                            // Store the API in the jcrop_api variable
+                            jcrop_api = this;
+                            // Move the preview into the jcrop container for css positioning
+                            $preview.appendTo(jcrop_api.ui.holder);
+                            //$("#main-pane").css("display","block");
+                            $("#preview-pane").css("display","block");
+                        
+                        });
+                    
+
+                    $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth2"])/2)");
+                    $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight2"])/2)");
+                    $(".preview-container").css("width","@(Convert.ToInt32(Session["_minwidth2"])/2)");
+                    $(".preview-container").css("height","@(Convert.ToInt32(Session["_minheight2"])/2)");
+                    $("#main-pane").css("height","500");    
+                },
+                error: function (xhr, status, error) {
+                    // Show the error
+                    $('#lblMethodError').text(xhr.responseText);
+                    $('#lblMethodError').show();
+                }
+            });
+
+            $("#btnResimGuncelle").css("display","inline-block");
+            
+        });
+
+        
+
+        $("#btnIptal").unbind("click").click(function(){
+           
+            $('#uploadPartial').empty();
+            $('#uploadPartial').load('@Url.Action("imageUploadAndCrop", "Media")');
+            $("#btnResimGuncelle").css("display","none");
+            $("#btnResimGuncelle").bind("click", rg_click_handler);
+            //$(".imgMultiPhoto").unbind("click");
+        });
+
+    });
+
+    function setCoords(c) {
+        x = c.x;
+        y = c.y;
+        w = c.w;
+        h = c.h;
+    };
+
+    function cropImage() {
+        $("#btnResimGuncelle").removeAttr("disabled");
+        $("#btnResimGuncelle").css("background-color","#fefefe");
+
+        $.ajax({
+            url: '@Url.Action("CropImage", "Media")',
+            type: "POST",
+            data: { x: x, y: y, w: w, h: h },
+            success: function (data) {
+                $('#lblMethodError').hide();
+                //$("#pnlNewImage").show();
+                $("#imgNewImage").attr("src", imageHandler + data);
+            },
+            error: function (xhr, status, error) {
+                // Show the error
+                $('#lblMethodError').text(xhr.responseText);
+                $('#lblMethodError').show();
+            }
+        });
+
+    }
+    function resizeImage() {
+        // Call the server side function to resize the image
+
+        $.ajax({
+            url: '@Url.Action("ResizeImage", "Media")',
+            type: "POST",
+            success: function (data) {
+                $('#lblMethodError').hide();
+                //$("#pnlNewImage").show();
+                $("#imgNewImage").attr("src", imageHandler + data);
+            },
+            error: function (xhr, status, error) {
+                // Show the error
+                $('#lblMethodError').text(xhr.responseText);
+                $('#lblMethodError').show();
+            }
+        });
+    }
+</script>

@@ -1,0 +1,53 @@
+﻿@model DAL.Entities.Contact
+@{
+    List<DAL.Entities.ProductGroup> pglst = ViewData["pgList"] as List<DAL.Entities.ProductGroup>;
+}
+
+<div id="footer">
+  <div class="container">
+    <div class="col-md-12 noPadding">
+      <div class="col-md-9">
+        <div class="col-md-3"> 
+        <a href="/" class="footerLogo"><img src="/Content/Images/logo-2.png" border="0"/></a>
+        <a href="http://www.safakavize.com/" class="safakLogo" target="_blank"><img src="/Content/Images/safak-avize.png" border="0"/></a> 
+        </div>
+        <div class="col-md-3">
+          <h6>ANASAYFA</h6>
+          <ul>
+            <li><a href="/kurumsal">Kurumsal</a></li>
+            <li><a href="/haberler">Haberler</a></li>
+            <li><a href="/referanslar">Referanslar</a></li>
+            <li><a href="/insankaynaklari">İnsan Kaynakları</a></li>
+            <li><a href="/iletisim">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>ÜRÜNLER</h6>
+          <ul>
+            @foreach (var item in pglst.Where(d=>d.TopProductId == 1).Take(5))
+            {
+                <li><a href="/fiyatlar/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
+            }
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>HİZMETLER</h6>
+          <ul>
+              @foreach (var item in ViewBag.Services)
+              {
+                   <li><a href="/hizmetler/@item.ServiceId/@item.PageSlug">@item.Name</a></li>
+              }
+          </ul>
+        </div>
+      </div>
+       @if(Model!=null)
+{
+<div class="col-md-3 contactInfo">
+    <p><strong>ADRES:</strong> @Model.Address</p>
+    <p><strong>TEL:</strong> @Model.Phone</p>
+    <p><strong>FAX: </strong> @Model.Fax</p>
+</div>
+}
+    </div>
+  </div>
+</div>

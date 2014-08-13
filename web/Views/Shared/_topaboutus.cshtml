@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DAL.Entities.Page>
+
+<div>
+    <ul>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_aboutus">@SharedRess.SharedStrings.aboutus</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_solutionpartners">@SharedRess.SharedStrings.solutionpartners</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_humanresources">@SharedRess.SharedStrings.humanresources</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_references">@SharedRess.SharedStrings.references</a></li>
+        <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_contactdetails">@SharedRess.SharedStrings.contact</a></li>
+    </ul>
+    <ul>
+         @foreach (var item in Model)
+        {
+            <li>
+                <a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_aboutus/@item.PageSlug/@item.PageId">@item.Header</a>
+            </li>
+        }
+    </ul>
+</div>
+
+        

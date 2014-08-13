@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DAL.Entities.News>
+@{
+    ViewBag.Title = "Haberler";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Haberler</li>
+        </ul>
+    </div>
+}
+
+<style>
+.fancybox-next {
+right: 20px !important;
+}
+.fancybox-nav {
+width:8% !important;
+}
+</style>
+
+<div id="container" class="container">
+    <div class="col-md-12 shadow section noPadding noMarginTop">
+        <div class="col-md-12 sectionContent page newsPage">
+            <h2 class="pageTitle">HABERLER</h2>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 noPadding">
+                    <div class="col-md-12">
+                        <h3>@item.Header</h3>
+                    </div>
+                    <div class="col-md-5">
+                        <a href="#content-div_@item.NewsId" class="fancybox" rel="galleryservice"><img src="@item.NewsImage" width="168" height="125" /></a> 
+                    </div>
+                    <div class="col-md-7">
+                           <p>@Html.Raw(item.Spot)</p>
+                     </div>
+                </div>
+            
+                <div style="display: none">
+                    <div id="content-div_@item.NewsId" style="width:650px;position:relative; height:auto">
+                        <div style="width:100%;text-align:center; margin-bottom:10px;">
+                            <h3>@item.Header</h3>
+                        </div>
+                        <div style="width:100%;text-align:center;margin-bottom:10px;"><img src="@item.NewsImage"/></div>
+                        @Html.Raw(item.Content)
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
+<script src="~/Content/Scripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#servicepositions li:first").addClass("active");
+        $("#servicecontent .tab-pane:first").addClass("active");
+        $("#productpositions li:first").addClass("active");
+        $("#productcontent .tab-pane:first").addClass("active");
+        
+        $(".fancybox").fancybox({
+            openEffect: 'none',
+            closeEffect: 'none'
+        });
+
+    });
+
+</script>

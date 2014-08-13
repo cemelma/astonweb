@@ -1,0 +1,132 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+    DAL.Entities.Contact contact = ViewData["contact"] as DAL.Entities.Contact;
+}
+<script src="~/Content/Scripts/jquery.validationEngine-tr.js"></script>
+<script src="~/Content/Scripts/jquery.maskedinput-1.3.min.js"></script>
+<script src="~/Content/Scripts/jquery.validationEngine.js"></script>
+<link href="~/Content/Styles/validationEngine.jquery.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        jQuery("#contactform").validationEngine();
+    });
+</script>
+<style>
+    /* -- Notification -- */
+.notification.error {background:#fccac3 url('/Content/images/Front/error.png') no-repeat 10px 50%;border-color:#ea5338;}
+.notification {border-width:1px;border-style:solid;padding:17px 17px 17px 55px;margin-bottom:15px;-moz-border-radius:3px;-webkit-border:3px;border-radius:3px;}
+.notification.success {background:#effeb9 url('/Content/images/Front/success.png') no-repeat 10px 50%;border-color:#98c700;background-size: 38px;}
+.notification.info { background:#d4e7f5 url('/Content/images/Front/information.png') no-repeat 10px 14px;border-color:#589ad7;}
+.notification.info span.strong {color:#152433;}
+</style>
+
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>İletişim</li>
+        </ul>
+    </div>
+}
+<div id="container" class="container">
+
+            <p>@Html.ValidationMessage("_FORM")</p>
+            @if (TempData["captchaError"] != null)
+            {
+                <div class="notification error">@TempData["captchaError"].ToString()</div>
+            }
+            @if (TempData["required"] != null)
+            {
+                if (TempData["required"].ToString().Equals("true"))
+                {
+                    <div class="notification error">Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz</div>
+                }
+            }
+            @if (TempData["sent"] != null)
+            {
+                if (TempData["sent"].ToString().Equals("true"))
+                {
+                        <div class="notification success">Mesajınız başarıyla iletilmiştir.</div>
+                }
+                else if (TempData["sent"].ToString().Equals("false"))
+                {
+                        <div class="notification error">Mesajınız şuan iletilmemektedir. Lütfen hatayı bize bildiriniz.</div>
+                }
+            }
+    
+    <div class="col-md-12 shadow section noPadding noMarginTop">
+        <div class="col-md-12 sectionContent page contactPage">
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contactform" }))
+            {
+            <h2 class="pageTitle">İLETİŞİM</h2>
+            <div class="col-md-6 noPadding">
+                <h3>İletişim Formu</h3>
+                <div class="col-md-6">
+                    <input type="text" placeholder="Ad Soyad" id="namesurname" name="namesurname" class="text-input"/>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" placeholder="Telefon" id="phone" name="phone" class="text-input"/>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" placeholder="E-Posta" id="email" name="email" class="validate[required,custom[email]] text-input"/>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" placeholder="Şehir" id="city" name="city" class="text-input"/>
+                </div>
+                <div class="col-md-12">
+                    <input type="text" placeholder="Mesaj Konusu" id="subject" name="subject" class="validate[required] text-input"/>
+                </div>
+                <div class="col-md-12">
+                    <textarea placeholder="Mesaj İçeriği" id="body" name="body" class="validate[required] text-input"></textarea>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("Index")">
+                        <img alt="Captcha" src="@Url.Action("CaptchaImage")" style="" />
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" placeholder="Güvenlik Kodu" id="captcha" name="captcha" class="validate[required] text-input"/>
+                </div>
+                <div class="col-md-12" style="margin-top:15px;">
+                    <input type="submit" class="btn btn-warning" value="GÖNDER" />
+                </div>
+            </div>
+            }
+
+            <div class="col-md-5 col-md-offset-1 noPadding">
+                <h3>İletişim Bilgileri</h3>
+                <div class="col-md-12 noPadding">
+                    <ul class="noPadding">
+                        <li>
+                            <span class="red col-xs-4 noPadding">[ Telefon ]
+              <span class="colon">:</span></span>@contact.Phone
+
+                        </li>
+                        <li>
+                            <span class="red col-xs-4 noPadding">[ Faks ]
+              <span class="colon">:</span></span>@contact.Fax
+
+                        </li>
+                        <li>
+
+                            <span class="red col-xs-4 noPadding">[ E-Posta ] 
+              <span class="colon">:</span></span><a href="mailto:info@zeynelyayla.com">@contact.Email</a></li>
+                        <li>
+                            <span class="red col-xs-4 noPadding">[ Adres ]
+              <span class="colon">:</span></span><span>@contact.Address</span></li>
+
+                    </ul>
+
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

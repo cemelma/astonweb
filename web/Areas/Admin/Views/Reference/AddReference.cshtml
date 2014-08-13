@@ -1,0 +1,84 @@
+﻿@model DAL.Entities.References
+@{
+    ViewBag.Title = "AddReference";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>>
+
+@Html.Partial("reference_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>FİRMA VE MARKALAR</h2>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("AddReference", "Reference", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Firma/Marka Ekle</legend>
+        
+        <p>
+            <label>Firma/Marka Adı</label>
+            @Html.TextBoxFor(m=>m.ReferenceName, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m => m.ReferenceName)
+        </p>
+        
+       
+           
+            <fieldset>
+                    <legend>Logo</legend>
+                    <div id="uploadPartial">
+                        @Html.Partial("_imageUploadAndCropRefeance")
+                    </div>
+                </fieldset>
+        
+        <p>
+            @Html.LabelFor(m=>m.Link)
+            @Html.TextBoxFor(m=>m.Link, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Link)
+        </p>
+        <p>
+            @Html.LabelFor(m=>m.Content)
+            @Html.TextAreaFor(m=>m.Content, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Content)
+        </p>
+
+         <p style="float: left; margin-right: 4px !important;">
+                    <label>Fotoğraflar</label>
+                </p>
+
+                <div style="width: 249px; width: 25%; float: left">
+                    <input type="file" style="width: 99%" name="attachments" class="multi" />
+                </div>
+                <div style="height: 40px; clear: both;"></div>
+
+
+
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+}
+

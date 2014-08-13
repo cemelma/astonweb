@@ -1,0 +1,90 @@
+﻿@model DAL.Entities.Gallery
+@{
+    ViewBag.Title = "AddImage";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+@*css dosyaları*@
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("gallery_leftbar")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>GALERİ RESİMLERİ</h1>
+   </div>
+
+    <section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("AddImage", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Döküman Ekle</legend>
+        <p>
+            @Html.Label("Dil")
+            @Html.DropDownListFor(d=>d.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList, "Dil Seçiniz...", new {@class="required" })
+            @Html.ValidationMessageFor(m=>m.Language)
+        </p>
+        <p>
+            @Html.Label("Galeri Grubu")
+            @Html.DropDownListFor(m=>m.GalleryGroupId,(IEnumerable<SelectListItem>)ViewBag.grouplist, "Dökümanı Seçiniz...", new {@class="required" })
+            @Html.ValidationMessageFor(m=>m.GalleryGroupId)
+           <img src="/Areas/Admin/Content/images/icons/16/loader.gif" id="imgloader" class="imgloader" />
+        </p>
+               
+        <p>
+            <label for="txtname">Galeri</label>
+              <input type="file" name="file_upload" id="file_upload" />
+           @* <input type="file" name="uploadfile" id="uploadfile" class="required" />*@
+        </p>
+       
+        <br />
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+       </p>
+    </fieldset>
+
+
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+
+
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/gallery/addimage.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/uploadify/jquery.uploadify.min.js"></script>
+ <script type="text/javascript">
+        $(function () {
+            $('#file_upload').uploadify({
+                'swf': "@Url.Content("~/Areas/Admin/Content/scripts/plugins/uploadify/uploadify.swf")",
+                'auto': false,
+                'script': '/Gallery/UploadFile',
+                //this is where the file posts when it uploads.
+               // 'uploader': "@Url.Action("Upload", "Gallery")",
+                'onUploadSuccess' : function(file, data, response) {
+                  //data is whatever you return from the server
+                  //we're sending the URL from the server so we append this as an image to the #uploaded div
+                           $("#uploaded").append("<img src='" + data + "' alt='Uploaded Image' />");
+                }
+            });
+        });
+    </script>
+
+
+}
+
+
+
+

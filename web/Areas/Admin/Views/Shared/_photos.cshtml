@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DAL.Entities.Photo>
+<style>
+    .info {clear: both;background-color: #ABC3E3;border: 2px solid #537197;padding: 4px 4px;width: 756px;font-size:12px;color: #375A86;margin-top: 10px;}
+    #koalalist2 {padding:0; margin-left:0px;}
+    #koalalist2 li {margin: 5px 5px;background-color:#000000;border:1px solid #aaa;}
+    #koalalist2 li div {background-image: url('/Content/images/Front/info40transparency.png');width: 100%;height: 150px;top:0px;padding: 0;margin: 0;text-align: center;color: #E1E1E1;font-weight: bold;font-size: 12px;padding-top: 4px;}
+    #koalalist2 li div img {-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;}
+    #koalalist2 li div a, #koalalist2 li div a:visited {color: #E2E2E2;}
+</style>
+<script src="~/Content/Scripts/jquery.koalazoom.packed.js"></script>
+<script>
+    $(document).ready(function () {
+        $(":input, a").attr("tabindex", "-1");
+        $("#koalalist2").koalazoom({ width: 150, height: 178, expandedwidth: 300, expandedheight: 300, duration: 300, effect: "slideup" });
+        $(".resimsil").click(function () {
+            if (!confirm('Silmek istediğinizden emin misiniz?')) {
+                return false;
+            }
+
+            $("#li_" + $(this).attr("id")).fadeOut("fast");
+            $.ajax({
+                type: 'POST',
+                url: '/ProjectReference/DeletePhoto',
+                data: '{id:"' + $(this).attr("id") + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (result) {
+
+                },
+                error: function () {
+
+                }
+            });
+        });
+    });
+</script>
+    <ul id="koalalist2">
+@foreach (var item in Model)
+{
+	    <li id="li_@item.PhotoId">
+		    <div>
+			    <br/>
+			    <img src="@item.Path" width="64" height="64" alt="info" /><br/><br />
+			    <a class="imgMultiPhoto" href="javascript:void(0)" id="photo_@item.PhotoId" title="@item.Path"><img alt="Fotoğrafı Kırp" width="24" height="24" src="~/Areas/Admin/Content/images/crop.png" /></a> &nbsp;
+                <a href="javascript:void(0)" id="@item.PhotoId" class="resimsil"><img src="~/Areas/Admin/Content/images/delete.png" alt="Sil" /></a>
+		    </div>
+		    <img src="@item.Path" width="150" height="150"  />
+            <input type="text" style="position: absolute;bottom: 0px;z-index: 99999;width: 92%;" name="alttag" value="@item.Title" />
+            <input type="hidden" value="@item.PhotoId" name="photoid" />
+	    </li>
+    
+    @*<div id="div_@item.PhotoId" style="float:left; padding:3px; border:1px solid #aaa; margin-right:5px; text-align:center">
+        <img src="@item.Path" width="100" height="100" class="imgMultiPhoto" id="photo_@item.PhotoId" />
+        <br />
+        <a href="javascript:void(0)" id="@item.PhotoId" class="resimsil">Kaldır</a>
+    </div>*@
+}
+    </ul>
+
+@if (Model.Count() == 0) { 
+    <span>Hiçbir resim bulunmamakta..!</span>
+}
+

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DAL.Entities.HumanResourceCv>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("hr_leftbar")
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>CV LİSTESİ</h2>
+    </div>  
+    <section class="grid_12 form">
+    <div class="box-header" ><h1>Pozisyon&nbsp;&nbsp;|&nbsp;&nbsp;
+        @Html.DropDownList("dllPosition", (IEnumerable<SelectListItem>)ViewData["position"], new { id = "dllposition" })
+     </h1></div>
+    @Html.Hidden("selval")
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width40">CV</th>
+                <th class="witdh40">Gönderim Tarihi</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.HumanResourceCvId">
+                    <td ><a href="@item.FileUrl">CV indir</a></td>
+                    <td class="center">@item.TimeCreated</td>
+                    <td class="center">
+                      <img id="DeleteImage_@item.HumanResourceCvId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/HumanResource/DeleteHumanPositionCv',@item.HumanResourceCvId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/humanresourceposition/humancv.js"></script>
+
+
+
+    

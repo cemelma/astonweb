@@ -1,0 +1,55 @@
+﻿@model DAL.Entities.Analytic
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+@Html.Partial("_leftanalytic")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>ANALİTİK BİLGİLERİ</h2>
+    </div>
+    
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @using (Html.BeginForm("Index", "Analytic", FormMethod.Post))
+        {
+            @Html.Hidden("hdfieldcategory")
+            @Html.Hidden("hdfieldtaglist")
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Google'dan almış olduğunuz kodu aşağıya yapıştırınız...</legend>
+                <p>
+                    @Html.TextAreaFor(m => m.Code, new { id = "_txtcontent", @class = "required", @rows = 15 })
+                    @Html.ValidationMessageFor(m => m.Code)
+                </p>
+                <br />
+               
+                <br />
+                <input type="submit" value="Kaydet" id="btnsave" />
+
+            </fieldset>
+           
+
+        }
+    </section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    @*@System.Web.Optimization.Scripts.Render("~/admin/editor")*@
+    <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/news/addnews.js"></script>
+
+
+}

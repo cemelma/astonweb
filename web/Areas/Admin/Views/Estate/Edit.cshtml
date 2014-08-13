@@ -1,0 +1,363 @@
+﻿@model DAL.Entities.Estate
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<style>
+    .MultiFile-label {
+        margin-top: 10px;
+    }
+</style>
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>
+
+@Html.Partial("_leftmenu")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h1>EMLAK İŞLEMLERİ</h1>
+    </div>
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @using (Html.BeginForm("Edit", "Estate", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+    
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Emlak Düzenle</legend>
+                <p>
+                    @Html.LabelFor(m => m.Language)
+                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList, "Dil Seçiniz...")
+                    @Html.ValidationMessageFor(m => m.Language)
+
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.ReferenceNo)
+                    @Html.TextBoxFor(m => m.ReferenceNo, new { @class = "textwidth20" })
+                    @Html.ValidationMessageFor(m => m.ReferenceNo)
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Header)
+                    @Html.TextBoxFor(m => m.Header, new { @class = "textwidth50" })
+                    @Html.ValidationMessageFor(m => m.Header)
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Content)
+                    @Html.TextAreaFor(m => m.Content, new { @class = "textwidth50", @id = "txtcontent", @rows = "10" })
+                    @Html.ValidationMessageFor(m => m.Content)
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.TransactionId)
+                    @if (Model.Language == "tr")
+                    {
+                        @Html.DropDownListFor(x => x.TransactionId, new SelectList(
+                  new List<Object>{ 
+                       new { value = "1" , text = "Satılık" },
+                       new { value = "0" , text = "Kiralık" },
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                    }
+                    else
+                    {
+                    
+                    @Html.DropDownListFor(x => x.TransactionId, new SelectList(
+                  new List<Object>{ 
+                       new { value = "1" , text = "For sale" },
+                       new { value = "0" , text = "For rental" },
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                    }
+                </p>
+
+                <p>
+                    <label>Portföy Tipi</label>
+
+                    @if (Model.Language == "tr")
+                    {
+                    @Html.DropDownListFor(x => x.TypeId, new SelectList(
+                  new List<Object>{ 
+                       new { value = "0" , text = "İşyeri"  },
+                       new { value = "1" , text = "Arsa" },
+                       new { value = "2" , text = "Konut" },
+                       new { value = "4" , text = "Perakende" },
+                       new { value = "5" , text = "Sanayi ve Lojistik" },
+                       new { value = "6" , text = "Otel ve Ağırlama" },
+                       new { value = "7" , text = "Diğer (Lüks Konut)" },
+                       new { value = "8" , text = "Plaza Ofis Katı" },
+                       new { value = "9" , text = "İşyeri/Konut" },
+                       
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(x => x.TypeId, new SelectList(
+                  new List<Object>{ 
+                       new { value = "0" , text = "Office"  },
+                       new { value = "1" , text = "Land" },
+                       new { value = "2" , text = "House" },
+                       new { value = "4" , text = "Retail" },
+                       new { value = "5" , text = "Industrial and Logistics" },
+                       new { value = "6" , text = "Hotel and Entertainment" },
+                       new { value = "7" , text = "Other (Luxury property)" },
+                       new { value = "8" , text = "Office in Plaza" },
+                       new { value = "9" , text = "Commercial/Residential" },
+                       
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                    }
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.RoomNumber)
+                    @Html.TextBoxFor(m => m.RoomNumber, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Age)
+                    @Html.TextBoxFor(m => m.Age, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Brüt Alan</label>
+                    @Html.TextBoxFor(m => m.Size, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Net Alan</label>
+                    @Html.TextBoxFor(m => m.NetAlan, new { @class = "textwidth10" })
+                </p>
+
+                <p>
+                    <label>Bulunduğu Arsa m2</label>
+                    @Html.TextBoxFor(m => m.BulunduguArsa, new { @class = "textwidth10" })
+                </p>
+
+                <p>
+                    <label>Bina Taban Alanı m2</label>
+                    @Html.TextBoxFor(m => m.BinaTabanAlani, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Banyo/WC</label>
+                    @Html.TextBoxFor(m => m.BanyoWc, new { @class = "textwidth10" })
+                </p>
+
+                <p>
+                    <label>Binadaki Kat Sayısı</label>
+                    @Html.TextBoxFor(m => m.BinaKatSayisi, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Bulunduğu Kat Sayısı</label>
+                    @Html.TextBoxFor(m => m.BulunduguKat, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Cephe/Yön</label>
+                    @Html.TextBoxFor(m => m.CepheYon, new { @class = "textwidth10" })
+                </p>
+
+                <p>
+                    <label>Isınma Tipi</label>
+                    @Html.TextBoxFor(m => m.IsınmaTipi, new { @class = "textwidth10" })
+                </p>
+
+                <p>
+                    <label>Yakıt Tipi</label>
+                    @Html.TextBoxFor(m => m.YakitTipi, new { @class = "textwidth10" })
+                </p>
+
+                <p>
+                    <label>Otopark</label>
+                   @if (Model.Language == "tr")
+                   {
+                    @Html.DropDownListFor(x => x.Otopark, new SelectList(
+                  new List<Object>{ 
+                       new { value = "Yok" , text = "Yok"  },
+                       new { value = "Açık Otopark" , text = "Açık Otopark" },
+                       new { value = "Kapalı Otopark" , text = "Kapalı Otopark" },
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                   }
+                   else
+                   {
+                    @Html.DropDownListFor(x => x.Otopark, new SelectList(
+                  new List<Object>{ 
+                       new { value = "No" , text = "No"  },
+                       new { value = "Parking lot" , text = "Parking lot" },
+                        new { value = "Indoor parking" , text = "Indoor parking" },
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                   }
+                </p>
+
+                <p>
+                    <label>Yapının Durumu</label>
+                    @Html.TextBoxFor(m => m.YapininDurumu, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Kullanım Durumu</label>
+                    @Html.TextBoxFor(m => m.KullanimDurumu, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Tapu Durumu</label>
+                    @Html.TextBoxFor(m => m.TapuDurumu, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Depozito</label>
+                    @Html.TextBoxFor(m => m.Depozito, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Aidat/Yönetim</label>
+                    @Html.TextBoxFor(m => m.AidatYonetim, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Devren</label>
+                    @Html.TextBoxFor(m => m.Devren, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Takas</label>
+                    @Html.TextBoxFor(m => m.Takas, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Kredi Durumu</label>
+                    @Html.TextBoxFor(m => m.KrediDurumu, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    <label>Kira Getirisi</label>
+                    @Html.TextBoxFor(m => m.KiraGetirisi, new { @class = "textwidth10" })
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Consultant)
+                    @Html.TextBoxFor(m => m.Consultant, new { @class = "textwidth50" })
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Price)
+                    @Html.TextBoxFor(m => m.Price, new { @Value = Model.Price.ToString("0") })
+
+                    @Html.DropDownListFor(x => x.PriceTypeId, new SelectList(
+                  new List<Object>{ 
+                       new { value = "TL" , text = "TL"  },
+                       new { value = "$" , text = "$" },
+                       new { value = "Euro" , text = "Euro" },
+                    },
+                  "value",
+                  "text",
+                   0), new { @class = "textwidth10" })
+                    @Html.ValidationMessageFor(m => m.Price)
+
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.TimeCreated)
+                    @Html.TextBoxFor(m => m.TimeCreated, new { @class = "textwidth10" })
+                    @Html.ValidationMessageFor(m => m.TimeCreated)
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Popular)
+                    @Html.CheckBoxFor(m => m.Popular)
+
+                </p>
+                 <p>
+                    <label>Dosya</label>
+                   <input type="file" name="fileDosya" />
+                </p>
+                <fieldset>
+                    <legend>Ana Fotoğraf</legend>
+                    <div id="uploadPartial">
+                        @Html.Partial("_imageUploadAndCrop")
+                    </div>
+                </fieldset>
+                <p style="float: left; margin-right: 4px !important;">
+                    <label>Referans Fotoğrafları</label>
+                </p>
+                <div style="width: 249px; width: 25%; float: left">
+                    <input type="file" style="width: 99%" name="attachments" class="multi" />
+                </div>
+                <div style="height: 40px; clear: both;"></div>
+                <fieldset>
+                    <legend>Diğer Fotoğraflar</legend>
+                    @{Html.RenderAction("Photos", "ProjectReference", new { categoryId = (int)web.Areas.Admin.Helpers.PhotoType.Estate, itemId = Model.Id });}
+                </fieldset>
+                <fieldset>
+                    <legend>İl/İlçe/Semt</legend>
+                    <p>
+                        @Html.LabelFor(m => m.CountryId)
+                        @Html.DropDownListFor(m => m.CountryId, (IEnumerable<SelectListItem>)ViewBag.Country, "İl Seçiniz...")
+                        @Html.ValidationMessageFor(m => m.CountryId)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.TownId)
+                        @Html.DropDownListFor(m => m.TownId, (IEnumerable<SelectListItem>)ViewBag.Town, "İlçey Seçiniz...")
+                        @Html.ValidationMessageFor(m => m.TownId)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.DistrictId)
+                        @Html.DropDownListFor(m => m.DistrictId, (IEnumerable<SelectListItem>)ViewBag.District, "Semti Seçiniz...")
+                        @Html.ValidationMessageFor(m => m.DistrictId)
+                    </p>
+                </fieldset>
+
+                <p>
+                    <input type="submit" value="Kaydet" id="btnsave" />
+                </p>
+
+            </fieldset>
+        }
+    </section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/estate/editestate.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+}
+
+<script>
+    function rg_click_handler() {
+        var newpath = $("#imgNewImage").attr('src');
+        var photoId = $("#currenPhotoId").val();
+
+        newpath = "/Content/images/userfiles/" + newpath.split('=')[1] + "." + photoId.split('.')[1];
+        if (newpath == "") {
+            alert("Lütfen resim kırpma işlemini yapınız...");
+            return false;
+        }
+        $("#btnResimGuncelle").css("display", "none");
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UpdatePhotoPath", "Project")',
+            data: "{'photoId':'" + photoId.split('.')[0] + "', 'newpath':'" + newpath + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function (result) {
+                $('#uploadPartial').load('@Url.Action("imageUploadAndCrop", "Media")');
+
+                $.gritter.add({
+                    title: 'Resim güncelleme!',
+                    text: 'Resim kırpma işlemi başarı ile gerçekleştirilmiştir...'
+                });
+            },
+            error: function () {
+
+            }
+        });
+        }
+        $("#btnResimGuncelle").bind("click", rg_click_handler);
+</script>
+

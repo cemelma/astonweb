@@ -1,0 +1,167 @@
+﻿@model DAL.Entities.Product
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+
+
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>ÜRÜN BİLGİLERİ</h2>
+    </div> 
+  
+          
+
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage) 
+    @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+           @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+         <input type="submit" value="Kaydet" id="btnsave" />
+     <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Ürün Bilgileri</a></li>
+            <li><a href="#tabs-2">Ürün Dökümanları</a></li>
+            <li><a href="#tabs-3">Ürün Açıklaması</a></li>
+         </ul>
+          <div id="tabs-1">
+          <br />
+        <p>
+            @Html.Label("Dil")
+            @Html.DropDownListFor(d => d.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList, "Dil Seçiniz...", new { @class = "required" })
+            @Html.ValidationMessageFor(m => m.Language)
+        </p>
+        <p>
+            @Html.Label("Ürün Grubu")
+            @Html.DropDownListFor(m => m.ProductGroupId, (IEnumerable<SelectListItem>)ViewBag.grouplist, "Dökümanı Seçiniz...", new { @class = "required" })
+            @Html.ValidationMessageFor(m => m.ProductGroupId)
+           <img src="/Areas/Admin/Content/images/icons/16/loader.gif" id="imgloader" class="imgloader" />
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "textwidth50", Rows = "5" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+         <p>
+            @Html.LabelFor(m=>m.Code)
+            @Html.TextBoxFor(m=>m.Code, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m => m.Code)
+        </p>
+         <p>
+            @Html.LabelFor(m=>m.Price)
+            @Html.TextBoxFor(m=>m.Price, new { @class="textwidth10"})
+            @Html.ValidationMessageFor(m => m.Price)
+        </p>
+        
+          <p>
+                <label>Para Birimi</label>
+           
+                 @Html.DropDownListFor(m=>m.MoneyType, new[] {
+                    new SelectListItem{ Text="TL", Value="TL" },
+                    new SelectListItem{ Text= "$", Value="$" },
+                    new SelectListItem{ Text= "€", Value="€" }
+                 })
+           </p>
+        <p>
+            <label for="txtname">Ürün Resmi</label>
+            
+            <input type="file" name="uploadfile" id="uploadfile"  />
+        </p><br />
+            
+          <p>
+                <label>Ürün Donanımı Var mı?</label>
+                @Html.CheckBoxFor(m => m.Hardware)
+               
+           </p>
+           <p class="pprice">
+                @Html.LabelFor(m=>m.HardwarePrice)
+                @Html.TextBoxFor(m=>m.HardwarePrice, new { @class="textwidth10"})
+                @Html.ValidationMessageFor(m => m.HardwarePrice)
+           </p>
+            <p class="pprice">
+                <label>Para Birimi</label>
+              @*  @Html.DropDownListFor(m=>m.MoneyType)*@
+                 @Html.DropDownListFor(m=>m.HMoneyType, new[] {
+                    new SelectListItem{ Text="TL", Value="TL" },
+                    new SelectListItem{ Text= "$", Value="$" },
+                    new SelectListItem{ Text= "€", Value="€" }
+                 })
+           </p>
+
+
+
+          </div>
+          <div id="tabs-2">
+          
+         <br />
+        <p>
+            <label for="txtname" class="label2">Ürün Döküman</label>
+            
+            <input type="file" name="uploadtechfile" id="uploadtechfile"  />
+        </p>
+         <p>
+            <label for="txtname">Teknik Şartname</label>
+            
+            <input type="file" name="uploadtraining" id="uploadtraining"  />
+        </p>
+         <p>
+            <label for="txtname">Deney Dökümanı</label>
+            
+            <input type="file" name="uploadexperimentfile" id="uploadexperimentfile"  />
+        </p>
+        <p>
+            <label for="txtname">Ürün Video</label>
+            
+            <input type="file" name="uploadvideo" id="uploadvideo"/>
+        </p>
+       
+        <br />
+       
+    
+
+          </div>
+          <div id="tabs-3">
+             <p>
+            @Html.TextAreaFor(m => m.Content, new { id = "txtcontent", @class = "required" })
+            @Html.ValidationMessageFor(m => m.Content)
+        </p>
+      
+          </div>
+        
+    </div>
+        
+  
+
+    }
+</section>
+</div>
+@section Scripts {
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.number.js"></script>
+   @* <script src="~/Areas/Admin/Content/scripts/plugins/autoNumeric.js"></script>*@
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/product/addProduct.js"></script>
+}
+
+

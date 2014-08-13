@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DAL.Entities.HumanResource>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("hr_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>KARİYER OLANAKLARI</h2>
+    </div>  
+  <section class="grid_12 form">
+  <div class="box-header" ><h1>Pozisyon Listesi
+      
+    </h1></div>
+ <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width5">Sırala</th>
+                <th class="width55">Başlığı</th>
+                <th class="center witdh20">Durum</th>
+ 
+                <th class="center witdh5">Eklenme Tarihi</th>
+                <th class="center witdh5">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.Id"  class="handle">
+                   <td class="center">
+                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                    </td>
+                    <td>
+                        <span id="spanitem_@item.Id">@item.PositionName</span>
+                        <input type="text" id="textitem_@item.Id" value="" class="displaynone textwidth90"/>
+                    </td>
+                    <td class="center">
+                        @if (item.Online == true)
+                        {<img   id="img_online_@item.Id" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/HumanResource/EditStatus',@item.Id)" />}
+                        else{<img id="img_online_@item.Id" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/HumanResource/EditStatus',@item.Id)" />}
+                    </td>
+                    <td class="center">@item.TimeCreated</td>
+                    <td class="center">
+                       <a href="/yonetim/insankaynaklari/pozisyonduzenle/@item.Id">
+                        <img id="btn_update_@item.Id"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                        </a>
+                        <img id="btn_save_@item.Id"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.Id)">
+                        <img id="btn_cancel_@item.Id"  src="/Areas/Admin/Content/images/icons/16/error.png"  title="İptal" class="displaynone cursorpointer" onclick="CancelRecord(@item.Id)">
+                       <img id="DeleteImage_@item.Id"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/HumanResource/DeleteHumanResourcePosition',@item.Id)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+    <br class="cl" />
+<div id="info"></div>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+@*<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>*@
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/instituional/hr.js"></script>
+<script type="text/javascript">
+    $(function () {
+        SortOrder("/HumanResource/SortRecords");
+
+    });
+</script>
+}

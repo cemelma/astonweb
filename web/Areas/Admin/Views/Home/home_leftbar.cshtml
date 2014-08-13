@@ -1,0 +1,32 @@
+﻿<script src="~/Areas/Admin/Content/scripts/plugins/jquery.zweatherfeed.tr.js"></script>
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.zweatherfeed.css" rel="stylesheet" />
+<div id="left-col">
+    <div class="lbox">
+        <h4 class="light-grey">Hava Durumu</h4>
+        <div class="lbox-container">
+            <div id="weather"></div>
+            <span class="clearFix">&nbsp;</span>
+        </div>
+    </div>
+    <div class="lbox">
+        <h4 class="light-grey">Takvim</h4>
+        <div class="lbox-container">
+            <div id="date-container">
+                <span class="hour"></span>
+                <span class="clearFix">&nbsp;</span>
+            </div>
+            <div id="calendar-container">
+                <div id="calendar"></div>
+                <div class="inner-nav">
+                    <span class="clearFix">&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#weather').weatherfeed(['TUXX0014']);
+    });
+</script>
+

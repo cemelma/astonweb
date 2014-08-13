@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="acikalamalar" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="aciklama" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="ad" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="adres" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="agustos" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="almanca" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="applicationform" xml:space="preserve">
+    <value>Application Form</value>
+  </data>
+  <data name="applicationnotsent" xml:space="preserve">
+    <value>Your application has not been sent. Please contact us.</value>
+  </data>
+  <data name="applicationsent" xml:space="preserve">
+    <value>Your application has been sent.</value>
+  </data>
+  <data name="aralik" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="askerlik" xml:space="preserve">
+    <value>Military Status:</value>
+  </data>
+  <data name="ayrilmanedeni" xml:space="preserve">
+    <value>Reason for Leaving</value>
+  </data>
+  <data name="az" xml:space="preserve">
+    <value>Poor</value>
+  </data>
+  <data name="baslangictarihi" xml:space="preserve">
+    <value>Entrance Year</value>
+  </data>
+  <data name="basvur" xml:space="preserve">
+    <value>SEND</value>
+  </data>
+  <data name="bekar" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="bilmiyorum" xml:space="preserve">
+    <value>Don't know</value>
+  </data>
+  <data name="birthcity" xml:space="preserve">
+    <value>Birth City</value>
+  </data>
+  <data name="birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="bitistarihi" xml:space="preserve">
+    <value>Leaving Year</value>
+  </data>
+  <data name="bolum" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="career" xml:space="preserve">
+    <value>CAREER</value>
+  </data>
+  <data name="ceptel" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="cinsiyet" xml:space="preserve">
+    <value>Sex:</value>
+  </data>
+  <data name="cokiyi" xml:space="preserve">
+    <value>Excellent</value>
+  </data>
+  <data name="cv_not_sended" xml:space="preserve">
+    <value>Your CV has not been delivered successfuly.</value>
+  </data>
+  <data name="cv_sended" xml:space="preserve">
+    <value>Your CV has been delivered successfuly.</value>
+  </data>
+  <data name="danisman" xml:space="preserve">
+    <value>Real Estate Consultant</value>
+  </data>
+  <data name="deneyim" xml:space="preserve">
+    <value>Work Experience</value>
+  </data>
+  <data name="department" xml:space="preserve">
+    <value>Department you want to apply</value>
+  </data>
+  <data name="diger" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="dil" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="dilseviye" xml:space="preserve">
+    <value>Level (1-5; 1 poor; 5 excellent)</value>
+  </data>
+  <data name="dogumtarihi" xml:space="preserve">
+    <value>Date of Birth:</value>
+  </data>
+  <data name="doktora" xml:space="preserve">
+    <value>and other</value>
+  </data>
+  <data name="egitimdurumu" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="ehliyet" xml:space="preserve">
+    <value>Driving Licence:</value>
+  </data>
+  <data name="ehliyetsene" xml:space="preserve">
+    <value>Driving Licence Date:</value>
+  </data>
+  <data name="ehliyetsinifi" xml:space="preserve">
+    <value>Driving Licence Class:</value>
+  </data>
+  <data name="ekim" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="eklemekistediginiz" xml:space="preserve">
+    <value>Explanations</value>
+  </data>
+  <data name="eposta" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
+  <data name="erkek" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="evli" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="evtel" xml:space="preserve">
+    <value>Home:</value>
+  </data>
+  <data name="eylul" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="forsendcv" xml:space="preserve">
+    <value>Click to send your CV</value>
+  </data>
+  <data name="fransizce" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="gorev" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="haziran" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="iletisim" xml:space="preserve">
+    <value>Contact Information</value>
+  </data>
+  <data name="iletisimuzmani" xml:space="preserve">
+    <value>Communication Specialist</value>
+  </data>
+  <data name="ilkogretim" xml:space="preserve">
+    <value>Elementary</value>
+  </data>
+  <data name="ingilizce" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="isim" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="istel" xml:space="preserve">
+    <value>Work number</value>
+  </data>
+  <data name="iyi" xml:space="preserve">
+    <value>Good</value>
+  </data>
+  <data name="joinus" xml:space="preserve">
+    <value>Join Us</value>
+  </data>
+  <data name="kain" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="kasim" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="kimlikno" xml:space="preserve">
+    <value>T.C. Identity No:</value>
+  </data>
+  <data name="kisisel" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="kurum" xml:space="preserve">
+    <value>Firm</value>
+  </data>
+  <data name="livingcity" xml:space="preserve">
+    <value>Living City</value>
+  </data>
+  <data name="mart" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="mayis" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="medenidurum" xml:space="preserve">
+    <value>Marital Status:</value>
+  </data>
+  <data name="mezuniyetyili" xml:space="preserve">
+    <value>Graduation Year</value>
+  </data>
+  <data name="mobil" xml:space="preserve">
+    <value>Work:</value>
+  </data>
+  <data name="muaf" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="namesurname" xml:space="preserve">
+    <value>Name Surname</value>
+  </data>
+  <data name="nextstep" xml:space="preserve">
+    <value>Next Step</value>
+  </data>
+  <data name="nisan" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="not" xml:space="preserve">
+    <value>Your Notes</value>
+  </data>
+  <data name="ocak" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="ofisasistani" xml:space="preserve">
+    <value>Office Assistant</value>
+  </data>
+  <data name="ogreildigiyer" xml:space="preserve">
+    <value>Learned at</value>
+  </data>
+  <data name="ogrenci" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="ogrenimdurumu" xml:space="preserve">
+    <value>Educational Background</value>
+  </data>
+  <data name="okul" xml:space="preserve">
+    <value>School:</value>
+  </data>
+  <data name="orclick" xml:space="preserve">
+    <value>Or yo can fill in your information as specified below</value>
+  </data>
+  <data name="orta" xml:space="preserve">
+    <value>Beginner</value>
+  </data>
+  <data name="ortaogretim" xml:space="preserve">
+    <value>Secondary</value>
+  </data>
+  <data name="position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="positions" xml:space="preserve">
+    <value>Job Positions ( Please select)</value>
+  </data>
+  <data name="referans" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="sabittel" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="sofor" xml:space="preserve">
+    <value>Driver</value>
+  </data>
+  <data name="soyad" xml:space="preserve">
+    <value>Surname:</value>
+  </data>
+  <data name="subat" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="tcno" xml:space="preserve">
+    <value>TC No</value>
+  </data>
+  <data name="temmuz" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="universite" xml:space="preserve">
+    <value>University-Licence</value>
+  </data>
+  <data name="var" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="workwithus" xml:space="preserve">
+    <value>If you would like to work with us, you can either send your CV</value>
+  </data>
+  <data name="yabancidil" xml:space="preserve">
+    <value>Foreign Language Knowledge</value>
+  </data>
+  <data name="yabancidilbilgisi" xml:space="preserve">
+    <value>Foreign Language Knowledge</value>
+  </data>
+  <data name="yapildi" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="yapilmadi" xml:space="preserve">
+    <value>Not Done</value>
+  </data>
+  <data name="yok" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="yukseklisans" xml:space="preserve">
+    <value>University-Master and other</value>
+  </data>
+  <data name="yuksekokul" xml:space="preserve">
+    <value>High School</value>
+  </data>
+</root>

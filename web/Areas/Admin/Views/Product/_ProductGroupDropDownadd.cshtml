@@ -1,0 +1,41 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+
+
+@if(Model.SelectedProductGroup!=null)
+{
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == Model.SelectedProductGroup.ProductGroupId))
+    {
+        if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+        {         
+            <text> <option value="@item.ProductGroupId"  style="background-color: rgb(240, 225, 225); color: #BB7979;">@item.GroupName</option> </text>
+                {
+                Model.SelectedProductGroup = item;
+                Html.RenderPartial("_ProductGroupDropDownadd", Model);
+                }
+        }
+        else
+        {
+            <text> <option value="@item.ProductGroupId"   >--- @item.GroupName</option> </text>
+        }
+     }
+}
+else
+{
+    
+    foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
+    {
+          if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+            { 
+                <text> <option value="@item.ProductGroupId" disabled="disabled" style="background-color: rgb(240, 225, 225); color: #BB7979;">@item.GroupName</option> </text>
+                {
+                    Model.SelectedProductGroup = item;
+                    Html.RenderPartial("_ProductGroupDropDownadd", Model);
+                }
+        }
+        else
+        {
+           <text> <option value="@item.ProductGroupId" >@item.GroupName</option> </text>
+        }
+    }
+    
+}

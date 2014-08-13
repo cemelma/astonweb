@@ -1,0 +1,108 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+@{
+    int productGroupId = 0;
+}
+
+@if(Model.SelectedProductGroup!=null)
+{
+    productGroupId = Model.SelectedProductGroup.ProductGroupId;
+    
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == productGroupId && d.Online == true))
+    {
+
+        if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId && d.Online == true).Any())
+            {
+                    <li><a href="#">@item.GroupName</a>
+                        <ul>
+                
+                    @foreach (var itemsub in Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId && d.Online == true))
+                    {
+
+                        if (Model.ProductGroup.Where(d => d.TopProductId == itemsub.ProductGroupId && d.Online == true).Any())
+                        {
+                            <li><a href="#">@itemsub.GroupName</a></li>
+                            <ul>
+                                @{
+                                    Model.SelectedProductGroup = itemsub;
+                                    Html.RenderPartial("_submenusitemap", Model);
+                                }
+                             </ul>
+                        }
+                        else
+                        {
+                            <li><a href="#">@itemsub.GroupName</a></li>
+                            if (Model.Products.Where(d => d.ProductGroupId == itemsub.ProductGroupId && d.Online == true).Any())
+                                {   
+                                      <ul>
+                                        @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == itemsub.ProductGroupId && d.Online == true))
+                                        {
+                                            <li><a href="/urunler/@prd.ProductId/@prd.PageSlug">@prd.Name</a></li>
+                                        }
+                                    </ul>
+                                }
+                        }
+                    }
+                        </ul>
+                    </li>            
+            }
+            else
+            {
+                <li><a href="#">@item.GroupName</a></li>  
+                if (Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).Any())
+                    {   
+                          <ul>
+                            @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true))
+                            {
+                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug">@prd.Name</a></li>
+                            }
+                        </ul>
+                    }
+                
+            }
+         
+    }
+}
+else
+{
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == 1 && d.Online == true))
+    {
+        if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId && d.Online == true).Any())
+            { 
+                 <div class="col-md-3 noPadding">
+                    <h3>@item.GroupName</h3>
+                     <ul>
+                        @{
+                            Model.SelectedProductGroup = item;
+                            Html.RenderPartial("_submenusitemap", Model);
+                        }
+                    </ul>
+                </div>
+            }
+            else
+            {
+                if (Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).Any())
+                {
+                        <div class="col-md-3 noPadding">
+                            <h3>@item.GroupName</h3>
+                       
+                        @if (Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).Any())
+                        {   
+                              <ul>
+                                @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true))
+                                {
+                                    <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" >@prd.Name</a></li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                }
+                else 
+                {
+                    <div class="col-md-3 noPadding">
+                        <h3>@item.GroupName</h3>
+                    </div>
+                }
+            }
+                
+    }
+}

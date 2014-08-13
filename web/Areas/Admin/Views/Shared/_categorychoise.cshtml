@@ -1,0 +1,71 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+@{
+    int productGroupId = 0;
+}
+
+@if(Model.SelectedProductGroup!=null)
+{
+    productGroupId = Model.SelectedProductGroup.ProductGroupId;
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == productGroupId))
+    {
+        if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+        {         
+            <text> <li class="dd-item dd3-item" data-id="@item.ProductGroupId"> </text>
+            <div class="dd3-content">
+                @item.GroupName
+            </div> 
+            <ol class="dd-list">
+                @{
+                Model.SelectedProductGroup = item;
+                Html.RenderPartial("_categorychoise", Model);
+                }
+            </ol>
+    <text><li /></text>
+        }
+        else
+        {
+             <text> <li class="dd-item dd3-item" data-id="@item.ProductGroupId"> </text>
+            
+            <div class="dd3-content">
+                <input type="radio" id="@item.ProductGroupId" name="radiocat" />@item.GroupName
+            </div> 
+           
+    <text><li /></text>
+            
+        }
+     }
+}
+else
+{
+    foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
+    {
+          if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+            { 
+        <text><li class="dd-item dd3-item" data-id="@item.ProductGroupId"></text>
+            <div class="dd3-content">
+                @item.GroupName 
+              
+            </div> 
+          
+                <ol class="dd-list">
+                    @{
+                        Model.SelectedProductGroup = item;
+                        Html.RenderPartial("_categorychoise", Model);
+                    }
+                </ol>
+            
+            <text><li /></text>
+        }
+        else
+        {
+             <text> <li class="dd-item dd3-item" data-id="@item.ProductGroupId"> </text>      
+    <div class="dd3-content">
+                <input type="radio" id="@item.ProductGroupId" name="radiocat" />@item.GroupName
+            </div> 
+     <text><li /></text>
+              
+        }
+    }
+    
+    
+}

@@ -1,0 +1,80 @@
+﻿@model DAL.Entities.ProductHeaders
+@{
+    ViewBag.Title = "Baslik";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h1>KATEGORİ BAŞLIK BİLGİLERİ</h1>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using (Html.BeginForm("Baslik", "ProductGroup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(x=>x.HeaderId)
+        <fieldset>
+        <legend>Başlıkları Ekle</legend>
+        <p>
+            @Html.Label("Başlık 1")
+            @Html.TextBoxFor(m=>m.Header1, new { @class="textwidth50"})
+        </p>
+
+             <p>
+            @Html.Label("Başlık 2")
+            @Html.TextBoxFor(m=>m.Header2, new { @class="textwidth50"})
+        </p>
+
+         <p>
+            @Html.Label("Başlık 3")
+            @Html.TextBoxFor(m=>m.Header3, new { @class="textwidth50"})
+        </p>
+         <p>
+            @Html.Label("Başlık 4")
+            @Html.TextBoxFor(m=>m.Header4, new { @class="textwidth50"})
+        </p>
+         <p>
+            @Html.Label("Başlık 5")
+            @Html.TextBoxFor(m=>m.Header5, new { @class="textwidth50"})
+        </p>
+         <p>
+            @Html.Label("Başlık 6")
+            @Html.TextBoxFor(m=>m.Header6, new { @class="textwidth50"})
+        </p>
+         <p>
+            @Html.Label("Başlık 7")
+            @Html.TextBoxFor(m=>m.Header7, new { @class="textwidth50"})
+        </p>
+         <p>
+            @Html.Label("Başlık 8")
+            @Html.TextBoxFor(m=>m.Header8, new { @class="textwidth50"})
+        </p>
+            
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+}

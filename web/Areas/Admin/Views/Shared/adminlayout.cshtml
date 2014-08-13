@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Yönetim Paneli Ana Sayfa</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    @System.Web.Optimization.Styles.Render("~/admin/layoutcss")
+    <link href="~/Areas/Admin/Content/styles/style.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/grid.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/base.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/lists.css" rel="stylesheet" />
+    @*<link href="~/Areas/Admin/Content/styles/calendar.css"  rel="stylesheet"/>*@
+    <link href="~/Areas/Admin/Content/styles/extensions.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/visualize.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/navigation.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/notification.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/leftsidebar.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles/visualize.css" rel="stylesheet" />
+    <link href="/Content/Styles/jquery.gritter.css" rel="stylesheet">
+
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery-1.7.2.min.js"></script>
+    @*<script src="~/Areas/Admin/Content/scripts/plugins/jquery-1.9.1.js"></script>*@
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery-ui-1.8.20.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/StopReload.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.corners.min.js"></script>
+    <script src="/Content/Scripts/jquery.gritter.min.js"></script>
+
+</head>
+<body class="sidebar-left chart">
+    <header>
+        <div class="header-top tr">
+            <p>
+                Hoşgeldin, <strong></strong>@HttpContext.Current.User.Identity.Name
+                &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/cikis">Sistemden Çıkış</a>
+            </p>
+        </div>
+        <nav class="header-middle">
+            @if (!User.Identity.Name.ToString().ToLower().Equals("muhasebe"))
+            {
+                <ul id="nav" class="fr ">
+                    <li class="settings"><a class="settings" href="#">Ayarlar</a>
+                        <ul>
+                            <li><a href="/yonetim/kullanicilar">Kullanıcılar</a></li>
+                            <li><a href="/yonetim/mailkullanicilari">Mail Kişileri</a></li>
+                            <li><a href="/yonetim/mailayarlari">Mail Ayarları</a></li>
+                            <li><a href="/yonetim/analitic">Google Analitic</a></li>
+                            <li><a href="/yonetim/insankaynaklari/cvListesi">CV Listesi</a></li>
+                            <li><a href="/yonetim/iletisim-mesajlari">İletişim Mesajları</a></li>
+                           @* <li><a href="/yonetim/sosyalmedyalinkleri">Sosyal Medya Linkleri</a></li>
+                            <li><a href="/admin/country">Lokasyon Tanımları</a></li>
+                            <li><a href="/yonetim/sayfataglari/1">Sayfa Tanımları</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="content"><a class="settings" href="#">Ürünler</a>
+                        <ul>
+                            <li><a href="/yonetim/urungruplari">Ürün Kategorileri</a></li>
+                             <li><a href="/yonetim/urunler">Ürün Listesi</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="content"><a class="settings" href="#">Hizmetlerimiz</a>
+                        <ul>
+                            <li><a href="/yonetim/hizmetler">Hizmetler</a></li>
+                        </ul>
+                    </li>
+                    <li class="content"><a class="settings" href="#">İçerik İşlemleri</a>
+                        <ul>
+                             <li><a href="/yonetim/banner">Slayt Fotoğrafları</a></li>
+                            @*<li><a href="/yonetim/iletisim">İletişim Bilgileri</a></li>*@
+                             <li><a href="/yonetim/haberler"> Haberler</a></li>
+                               <li><a href="/yonetim/insankaynaklari">İnsan Kaynakları</a></li>
+                             <li><a href="/yonetim/referanslar">Referanslar</a></li>
+                        </ul>
+                    </li>
+                     <li class="content"><a class="settings" href="#">Firma Bilgileri</a>
+                        <ul>
+                             <li><a href="/yonetim/kurumsal/hakkimizda">Kurumsal</a></li>
+                            <li><a href="/yonetim/iletisim">İletişim</a></li>
+                       
+                        </ul>
+                    </li>
+                    <li class="content">
+                        <a class="users" href="/yonetim/uyeler">Üyeler</a>
+                    </li>
+                 </ul> 
+              }
+            <div style="float: left">
+                <a href="http://www.zeynelyayla.com" target="_blank">
+                    <img src="~/Areas/Admin/Content/images/logo.jpg" style="height:56px;" /></a>
+            </div>
+            <span style="line-height: 56px; float: left; color: white; font-size: 10px; margin-left: 15px;">İÇERİK YÖNETİM v2.5</span>
+
+        </nav>
+
+
+        <div class="header-bottom">
+            <ul id="breadcrumbs">
+                <li><a href="/yonetim/anasayfa">Ana Sayfa&nbsp;&nbsp;</a>&raquo;</li>
+            </ul>
+        </div>
+    </header>
+    <section id="page" style="min-height: 400px">
+
+        @RenderBody()
+
+    </section>
+
+    <script src="~/Areas/Admin/Content/scripts/myscripts/setup.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

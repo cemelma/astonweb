@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DAL.Entities.SectorGroup>
+<div>
+    @{ int sg = 0; }
+    @foreach (var item in Model)
+    {
+        sg++;
+        if (sg % 4 == 1)
+        {
+        @(new HtmlString("<ul>"));
+        @(new HtmlString("<li><a href=/" + @SharedRess.SharedStrings.menu_culture + "/" + @SharedRess.SharedStrings.menu_sectors + "/" + @item.PageSlug + "/" + @item.SectorGroupId + ">" + item.GroupName + "</a></li>"));
+        }
+        else
+        {
+        @(new HtmlString("<li><a href=/" + @SharedRess.SharedStrings.menu_culture + "/" + @SharedRess.SharedStrings.menu_sectors + "/" + @item.PageSlug + "/" + @item.SectorGroupId + ">" + item.GroupName + "</a></li>"));
+        }
+
+        if (sg % 4 == 0 || sg == Model.Count())
+        {
+        @(new HtmlString("</ul>"));
+        }
+    }
+</div>

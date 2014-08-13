@@ -1,0 +1,101 @@
+﻿@model IEnumerable<DAL.Entities.Log4Net_Error>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+@Html.Partial("home_leftbar")
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<div id="mid-col">
+
+    <div class="lbox">
+        <h4 class="white">HIZLI MENÜ</h4>
+        <div class="lbox-container">
+            <ul id="quick-visual-links">
+                <li><a href="/yonetim/uyeler">
+                    <img width="32" height="32" src="/areas/admin/content/images/ortak.png" alt="" /><br />
+                    Üyeler</a></li>
+                <li><a href="/yonetim/banner">
+                    <img width="32" height="32" src="/areas/admin/content/images/banner.png" alt="" /><br />
+                    Slayt Resimleri</a></li>
+                <li><a href="/yonetim/analitic">
+                    <img width="32" height="32" src="/areas/admin/content/images/google.png" alt="" /><br />
+                    Google Analytics</a></li>
+                <li><a href="/yonetim/haberler">
+                    <img width="32" height="32" src="/areas/admin/content/images/news.png" alt="" /><br />
+                    Haberler</a></li>
+                <li><a href="/yonetim/insankaynaklari">
+                    <img width="32" height="32" src="/areas/admin/content/images/ik.png" alt="" /><br />
+                    Kariyer</a></li>
+                <li><a href="/yonetim/hizmetler">
+                    <img width="32" height="32" src="/areas/admin/content/images/project.png" alt="" /><br />
+                    Hizmetler</a></li>
+                <li><a href="/yonetim/referanslar">
+                    <img width="32" height="32" src="/areas/admin/content/images/reference.png" alt="" /><br />
+                    Referanslar</a></li>
+                <li><a href="/yonetim/mailayarlari">
+                    <img width="32" height="32" src="/areas/admin/content/images/ql-messages.gif" alt="" /><br />
+                    Mail Ayarları</a></li>
+                
+                @*<li><a href="/yonetim/dokumanlar">
+                    <img width="32" height="32" src="/areas/admin/content/images/ql-paths.gif" alt="" /><br />
+                    Dökümanlar</a></li>*@
+                <li><a href="/yonetim/iletisim">
+                    <img width="32" height="32" src="/areas/admin/content/images/iletisim.png" alt="" /><br />
+                    İletişim</a></li>
+            </ul>
+            <span class="clearFix">&nbsp;</span>
+        </div>
+    </div>
+    <!-- end of div.box -->
+
+    <div class="lbox">
+        <h4 class="white">SON HAREKETLER</h4>
+        <div class="lbox-container">
+            <table id="tblcategory" class="table no-border tablesorter">
+                <thead>
+                    <tr>
+                        <th class="center width5">#</th>
+                        <th class="center witdh10">Seviye</th>
+                        <th class="center witdh30">Mesaj</th>
+                        <th class="center witdh40">Exception</th>
+                        <th class="center witdh5">Tarih</th>
+                    </tr>
+                </thead>
+                <tbody id="item-list">
+                    @{int i = 0; string line = "odd"; }
+                    @foreach (var item in Model)
+                    {
+                        i++;
+                        if (i % 2 == 0) { line = "odd"; } else { line = "even"; }
+                        <tr class="handle @line">
+                            <td class="center">
+                                <span>@i</span>
+                            </td>
+                            <td class="center">
+                                <span>@item.Level</span>
+                            </td>
+                            <td class="left">
+                                <span>@item.Message</span>
+                            </td>
+                            <td class="center">
+                                <span>@item.Exception</span>
+                            </td>
+                            <td class="center">
+                                <span>@item.Date</span>
+                            </td>
+                        </tr>
+             
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- end of div.box-container -->
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,6 @@
+﻿@model web.Models.ServiceSubWrapperModel
+
+@foreach (var sub in Model.services)
+{
+    <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_services/@Model.servicegroup.PageSlug/@sub.PageSlug/@sub.ServiceId">@sub.Name</a></li>
+}

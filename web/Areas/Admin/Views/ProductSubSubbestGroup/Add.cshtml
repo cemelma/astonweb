@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DAL.Entities.ProductSubSubbestGroup>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+@*css dosyaları*@
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1><b>@ViewBag.SubGroupName</b> GRUBU BİLGİLERİ </h1>
+   </div>
+   <section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+     @using (Html.BeginForm("Add", "ProductSubSubbestGroup", FormMethod.Post))
+     {
+         <input type="hidden" name="sgID" value="@ViewBag.SubGroupId" />
+    <fieldset>
+        <legend>Alt Grup Ekle</legend>
+        <p>
+         <label for="txtname">Alt Grup Adı</label>
+         <input type="text" class="textwidth50 required" id="txtname" name="txtname" />
+        </p>
+        <p>
+            <label></label>
+           <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+     }
+
+     <div class="box-header" ><h1><b>@ViewBag.SubGroupName</b> Grubu Listesi
+                    
+    </h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width5">Sırala</th>
+                <th class="width50">Grup Adı</th>
+                <th class="center witdh10">Durum</th>
+                <th class="center witdh10">Eklenme Tarihi</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.ProductSubSubbestGroupId"  class="handle">
+                    <td class="center">
+                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                    </td>
+                    <td>
+                        <span id="spanitem_@item.ProductSubSubbestGroupId">@item.GroupName</span>
+                        <input type="text" id="textitem_@item.ProductSubSubbestGroupId" value="" class="displaynone textwidth90"/>
+                    </td>
+                    <td class="center">
+                        @if (item.Online == true)
+                        {<img   id="img_online_@item.ProductSubSubbestGroupId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/ProductSubSubbestGroup/UpdateStatus',@item.ProductSubSubbestGroupId)" />}
+                        else{<img id="img_online_@item.ProductSubSubbestGroupId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/ProductSubSubbestGroup/UpdateStatus',@item.ProductSubSubbestGroupId)" />}
+                    </td>
+                    <td class="center">@item.TimeCreated</td>
+                    <td class="center">
+                       <a href="/yonetim/urunaltgrubuedit/@ViewBag.SubGroupId/@item.ProductSubSubbestGroupId">
+                           <img id="btn_update_@item.ProductSubSubbestGroupId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                        </a>
+                       <img id="DeleteImage_@item.ProductSubSubbestGroupId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/ProductSubSubbestGroup/DeleteRecord',@item.ProductSubSubbestGroupId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    </section>
+    <br class="cl" />
+<div id="info"></div>
+</div>
+<script src="~/Areas/Admin/Content/scripts/myscripts/main.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+
+@System.Web.Optimization.Scripts.Render("~/admin/validationscripts") 
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrderByCategory.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/product/ProductSubSubbestgroup.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>

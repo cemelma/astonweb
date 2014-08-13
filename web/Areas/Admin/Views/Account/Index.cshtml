@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DAL.Entities.AdminUser>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("account_leftbar")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>KULLANICI İŞLEMLERİ</h1>
+   </div>
+   <section class="grid_12 form">
+
+       <div class="box-header" ><h1>Kullanıcı Listesi
+ 
+    </h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width45">Kullanıcı Adı</th>
+                <th class="witdh45">E-Mail</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.AdminUserId"  class="handle">
+                    <td>
+                        <span id="spanitem_@item.AdminUserId">@item.FullName</span>
+                    </td>
+                    <td>
+                        <span id="spanitem_@item.AdminUserId">@item.Email</span>
+                    </td>
+                    
+                    <td class="center">
+                       <a href="/yonetim/kullaniduzenle/@item.AdminUserId">
+                        <img id="btn_update_@item.AdminUserId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                        </a>
+                        <img id="DeleteImage_@item.AdminUserId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Account/DeleteUser',@item.AdminUserId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+   <//section>
+</div>
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/bank/banklist.js"></script>
+
+
+

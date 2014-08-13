@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DAL.Entities.User>
+@{
+    ViewBag.Title = "Üyeler";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("account_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h1>ÜYE İŞLEMLERİ</h1>
+    </div>
+    <section class="grid_12 form">
+
+        <div class="box-header">
+            <h1>
+                Kullanıcı Listesi
+
+            </h1>
+        </div>
+        <table id="tblcategory" class="table no-border tablesorter">
+            <thead>
+                <tr>
+                    <th class="width45">Kullanıcı Adı</th>
+                    <th class="witdh45">E-Mail</th>
+                    <th class="width45">Telefon</th>
+                    <th class="width45">Cep. Tel.</th>
+                    <th class="width45">Şirket</th>
+                    <th class="width45">Adres</th>
+                    <th class="width45">Online</th>
+                    <th class="center witdh10">İşlem</th>
+                </tr>
+            </thead>
+            <tbody id="item-list">
+                @foreach (var item in Model)
+                {
+                    <tr id="listItem_@item.UserId" class="handle">
+                        <td>@item.FullName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Tel</td>
+                        <td>@item.Cep</td>
+                        <td>@item.Company</td>
+                        <td>@item.Address</td>
+
+                        <td class="center">
+                            @if (item.Online == true)
+                            {<img id="img_online_@item.UserId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/Users/UpdateStatus',@item.UserId)" />}
+                            else
+                            {<img id="img_online_@item.UserId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/Users/UpdateStatus',@item.UserId)" />}
+                        </td>
+                        <td class="center">
+                            <img id="DeleteImage_@item.UserId" src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer" title="Sil" onclick="DeleteRecord('/Users/DeleteUser',@item.UserId)">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <//section>
+</div>
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/bank/banklist.js"></script>
+
+
+

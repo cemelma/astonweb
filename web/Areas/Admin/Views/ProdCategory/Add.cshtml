@@ -1,0 +1,86 @@
+﻿@model IEnumerable<DAL.Entities.ProdCategory>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+@Html.Partial("prodcategory_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h1>Ürün Kategorileri</h1>
+    </div>
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @using (Html.BeginForm("Add", "ProdCategory", FormMethod.Post))
+        {
+            <fieldset>
+                <legend>Kategori Ekle</legend>
+                <p>
+                    <label for="ddlLanguage">Dil</label>
+                    @Html.DropDownList("ddlLanguage", (IEnumerable<SelectListItem>)ViewBag.LanguageList, "Dil Seçiniz...", new { @class = "required" })
+                </p>
+                @if (ViewBag.SubCategory)
+                {
+                    <p>
+                        <label for="ddlParentCategory">Üst Kategori</label>
+                        @Html.DropDownList("ddlParentCategory", (IEnumerable<SelectListItem>)ViewBag.CategoryList, "Kategori Seçiniz...", new { @class = "required" })
+                    </p>    
+                }
+                else
+                {
+                    <input type="hidden" name="ddlParentCategory" value="0" />
+                }
+                <p>
+                    <label for="txtName">Kategori Adı</label>
+                    <input type="text" class="textwidth50 required" id="txtName" name="txtName" />
+                </p>
+                <p>
+                    <label></label>
+                    <input type="submit" value="Kaydet" id="btnsave" />
+                </p>
+            </fieldset>
+        }
+
+        @*<div class="box-header">
+            <h1>Kategori Listesi
+         &nbsp;&nbsp;|&nbsp;&nbsp;
+        @Html.DropDownList("ddlParentCategoryForBelowList", (IEnumerable<SelectListItem>)ViewBag.GroupList)</h1>
+        </div>*@
+        <ul id="tt" class="easyui-tree"></ul>
+    </section>
+    <br class="cl" />
+    <div id="info"></div>
+
+</div>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/Areas/Admin/Content/Scripts/plugins/easyUI/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/Areas/Admin/Content/Scripts/plugins/easyUI/themes/icon.css">
+<script type="text/javascript" src="/Areas/Admin/Content/Scripts/plugins/easyUI/jquery.easyui.min.js"></script>
+
+<script>
+    $(function () {
+        var status = $("#ProcessMessage").val();
+        if (status == "True" || status == "true")
+            MessageBox("İşlem Başarıyla Tamamlandı", "info");
+        else if (status == "False" || status == "false")
+            MessageBox("İşlem Sırasında Bir Hata Oluştu.", "alert");
+        
+        $('#tt').tree({
+            url: '@Url.Action("GetTreeNodeJSON", "ProdCategory")'
+            //,
+            //loadFilter: function(data){
+            //    if (data.d){
+            //        return data.d;
+            //    } else {
+            //        return data;
+            //    }
+            //}
+        });
+    });
+</script>

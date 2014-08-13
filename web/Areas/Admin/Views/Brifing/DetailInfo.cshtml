@@ -1,0 +1,220 @@
+﻿@model DAL.Entities.Brifing
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("_leftbrifing")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>BRİFİNGLER</h1>
+   </div>
+   <section class="grid_12 form">
+
+      <div id="container">
+            @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage)
+          @using(Html.BeginForm("DetailInfo","Brifing"))
+          {
+    <div id="containerInner">
+        <div id="content">
+            
+            <div class="article briefContentDetailed">
+
+              
+                <div class="briefDetailedContent">
+                   
+                     
+                     
+                     <span class=" question">@BriefDetails.Detail.header2</span>
+                    <div class="clear"></div>
+                    @Html.TextBoxFor(x => x.Islem)
+                  
+                    <div class="clear"></div>
+                    <span class="question">@BriefDetails.Detail.header3</span>
+                    <div class="clear"></div>
+                    <ul class="propertyList">
+                        <li> @BriefDetails.Detail.sehir
+                        @Html.TextBoxFor(x => x.Il)
+                            <br />
+                        @BriefDetails.Detail.ilce
+                        @Html.TextBoxFor(x => x.Ilce)
+                            <br />
+                        @BriefDetails.Detail.mahalle
+                        @Html.TextBoxFor(x => x.Mahalle)
+
+                        <li>@BriefDetails.Detail.ticari
+                        @Html.TextBoxFor(x => x.Ticari)
+                        @BriefDetails.Detail.konut
+                        @Html.TextBoxFor(x => x.Konut)
+                        <li>@BriefDetails.Detail.fiytaraligi
+                            @Html.TextBoxFor(x => x.FiyatAraligi)   - 
+                  @Html.TextBoxFor(x => x.FiyatAraligi2)
+                            ( TL,USD, EURO )</li>
+                        <li><span>@BriefDetails.Detail.mulktipi</span>
+                        @Html.TextBoxFor(x => x.MulkTipi)
+                        <li><span>@BriefDetails.Detail.odasayisi</span>
+                        @Html.TextBoxFor(x => x.OdaSayisi)
+                        <li><span>@BriefDetails.Detail.metrekare </span>
+                            @Html.TextBoxFor(x => x.Boyut)
+                        <li><span>@BriefDetails.Detail.krediyeuygunluk</span>
+                        @Html.TextBoxFor(x => x.KrediyeUygunluk)
+                        <li><span>@BriefDetails.Detail.devrendetay</span>
+                        @Html.TextBoxFor(x => x.Detay)
+                        <li><span>@BriefDetails.Detail.isinmatipi</span>
+                        @Html.TextBoxFor(x => x.IsinmaTipi)
+                        <li><span>@BriefDetails.Detail.binayasi</span>
+                        @Html.TextBoxFor(x => x.Yas)
+                        <li><span>@BriefDetails.Detail.binadakikatsayisi </span>
+                            @Html.TextBoxFor(x => x.KatSayisi)
+                        <li><span>@BriefDetails.Detail.bulndugukat</span>
+                        @Html.TextBoxFor(x => x.Kati)
+                        <li><span>@BriefDetails.Detail.yakittipi  </span>
+                            @Html.TextBoxFor(x => x.YakiTipi)
+                        <li><span>@BriefDetails.Detail.depozito  </span>
+                            @Html.TextBoxFor(x => x.Depozito)
+                        <li><span>@BriefDetails.Detail.tapudurumu</span>
+                        @Html.TextBoxFor(x => x.TapDurumu)
+                        <li><span>@BriefDetails.Detail.ypıdurumu</span>
+                        @Html.TextBoxFor(x => x.YapiDurumu)
+                        <li><span>@BriefDetails.Detail.kullanimurumu</span>
+                        @Html.TextBoxFor(x => x.KullanimDurumu)
+                        <li><span>@BriefDetails.Detail.getiribeklentiniz</span>
+                        @Html.TextBoxFor(x => x.GetiriBeklentisi)
+                        <li class="another">@BriefDetails.Detail.baska<br />
+                            @Html.TextAreaFor(x => x.Baska)
+                            <br />
+                        </li>
+                        <li class="leftList"><span>@BriefDetails.Detail.adsoyad</span>
+                        @Html.TextBoxFor(x => x.Ad)
+                        <li class="leftList"><span>@BriefDetails.Detail.emil</span>
+                            @Html.TextBoxFor(x => x.Email)
+                            <div class="clear"></div>
+                            <li class="leftList"><span>@BriefDetails.Detail.tel</span>
+                        @Html.TextBoxFor(x => x.Tel)
+                        <li class="leftList"><span>@BriefDetails.Detail.tarih</span>
+                        @Html.TextBoxFor(x => x.Tarih)
+                    </ul>
+
+                 
+          
+                </div>
+
+               
+
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Kaydet" />
+        </div>
+    </div>
+          }
+</div>
+
+   <//section>
+</div>
+
+
+
+
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+}
+
+
+
+
+<style type="text/css">
+    .briefDetailedContent span {
+        padding: 6px 0;
+        float: left;
+    }
+
+    .question {
+        color: #966400 !important;
+        font-weight: 600;
+    }
+
+    input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        float: left;
+    }
+
+    .briefDetailedContent span {
+        padding: 6px 0;
+        float: left;
+    }
+
+    .fakelabel {
+        float: left;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .briefDetailedContent ul li {
+        padding: 5px 0;
+        float: left;
+    }
+
+    .propertyList li {
+        width: 100%;
+    }
+
+    .briefDetailedContent ul li textarea {
+        padding: 6px 5px;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border: none;
+        color: #555;
+        outline: none;
+        background-color: #f0f0f0;
+        width: 100%;
+        height: 70px;
+        margin: 10px 0 0 0;
+    }
+
+    .propertyList li span {
+        width: 250px;
+    }
+
+    input[type="text"] {
+        padding: 6px 5px;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border: none;
+        color: #555;
+        outline: none;
+        background-color: #f0f0f0;
+    }
+
+    .propertyList li {
+        font-size: 13px;
+    }
+
+    .inputButton {
+cursor: pointer;
+display: inline-block;
+margin: 10px 10px 15px 0;
+padding: 8px !important;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+background-color: #322c29 !important;
+color: #fff;
+font-size: 13px !important;
+
+border: none;
+}
+</style>

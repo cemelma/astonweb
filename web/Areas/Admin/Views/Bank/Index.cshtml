@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DAL.Entities.BankInfo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("bank_leftbar")
+
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>BANKA BİLGİLERİ</h1>
+   </div>
+   <section class="grid_12 form">
+
+       <div class="box-header" ><h1>Banka Bilgileri Listesi
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+             @Html.DropDownList("LanguageList")
+      
+    </h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width40">Banka Adı</th>
+                <th class="center witdh15">Hesap No</th>
+                <th class="center witdh15">IBAN No</th>
+                <th class="center witdh10">Durum</th>
+              
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.BankId"  class="handle">
+                    <td>
+                        <span id="spanitem_@item.BankId">@item.BankName</span>
+                    </td>
+                    <td class="center">
+                        <span id="spanitem_@item.BankId">@item.BankNumber</span>
+                    </td>
+                    <td class="center">
+                        <span id="spanitem_@item.BankId">@item.IBAN</span>
+                    </td>
+                    <td class="center">
+                        @if (item.Online == true)
+                        {<img   id="img_online_@item.BankId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/Bank/EditStatus',@item.BankId)" />}
+                        else{<img id="img_online_@item.BankId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/Bank/EditStatus',@item.BankId)" />}
+                    </td>
+                    
+                    <td class="center">
+                       <a href="/yonetim/bankabilgisiduzenle/@item.BankId">
+                        <img id="btn_update_@item.BankId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                        </a>
+                        <img id="DeleteImage_@item.BankId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Bank/DeleteBankInfo',@item.BankId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+   <//section>
+</div>
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/bank/banklist.js"></script>

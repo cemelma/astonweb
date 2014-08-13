@@ -1,0 +1,61 @@
+﻿@model DAL.Entities.Equipment
+@{
+    ViewBag.Title = "EditLink";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>EKİPMAN BİLGİLERİ</h2>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using (Html.BeginForm("Add", "Equipment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Ekipman Düzenle</legend>
+        <p>
+            @Html.LabelFor(m=>m.Language)
+            @Html.DropDownListFor(m=>m.Language,(IEnumerable<SelectListItem>)ViewBag.LanguageList,"Dil Seçiniz...")
+            @Html.ValidationMessageFor(m=>m.Language)
+        </p>
+
+        <p>
+            @Html.LabelFor(m=>m.Name)
+            @Html.TextBoxFor(m=>m.Name, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+      
+        <p>
+            @Html.LabelFor(m=>m.Content)
+            @Html.TextBoxFor(m=>m.Content, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Content)
+        </p>
+       
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/equipment/add.js"></script>
+}

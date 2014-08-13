@@ -1,0 +1,108 @@
+﻿@model web.Models.VMProductGroupModel
+@{
+    int productGroupId = 0;
+}
+
+@if (Model.SelectedProductGroup != null)
+{
+    productGroupId = Model.SelectedProductGroup.ProductGroupId;
+
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == productGroupId && d.Online == true).OrderBy(d => d.SortNumber))
+    {
+        if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId && d.Online == true).Any())
+        {
+    <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.GroupName</a>
+        <ul class="dropdown-menu">
+            @foreach (var itemsub in Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
+            {
+
+                if (Model.ProductGroup.Where(d => d.TopProductId == itemsub.ProductGroupId && d.Online == true).Any())
+                {
+                                 
+                <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">@itemsub.GroupName</a>
+                    <ul class="dropdown-menu">
+
+                        @{
+                    Model.SelectedProductGroup = itemsub;
+                    Html.RenderPartial("_submenu", Model);
+                        }
+
+                    </ul>
+                </li>
+                }
+                else
+                {
+                                
+                <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">@itemsub.GroupName</a>
+                    @if (Model.Products.Where(d => d.ProductGroupId == itemsub.ProductGroupId && d.Online == true).Any())
+                    {   
+                          <ul class="dropdown-menu">
+                            @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == itemsub.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
+                            {
+                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+                             
+                }
+            }
+        </ul>
+    </li>
+        }
+        else
+        {
+            @*<li><a href="/urunler/@item.ProductGroupId/@item.PageSlug" class="dropdown-toggle">@item.GroupName</a></li>*@
+              <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.GroupName</a>
+                    @if (Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).Any())
+                    {   
+                          <ul class="dropdown-menu">
+                            @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
+                            {
+                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+    
+        }
+
+    }
+}
+else
+{
+    foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == 1 && d.Online == true).OrderBy(d => d.SortNumber))
+    {
+        if (Model.ProductGroup.Where(d => d.TopProductId == item.ProductGroupId).Any())
+        { 
+    <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.GroupName</a>
+        <ul class="dropdown-menu">
+            @{
+            Model.SelectedProductGroup = item;
+            Html.RenderPartial("_submenu", Model);
+            }
+        </ul>
+    </li>
+        }
+        else
+        {
+            if (Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).Any())
+            {
+            <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.GroupName</a>
+                    @if (Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId).Any())
+                    {   
+                          <ul class="dropdown-menu">
+                            @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).OrderBy(d=>d.SortNumber))
+                            {
+                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+            else
+            {<li><a href="/urunler/@item.ProductGroupId/@item.PageSlug" class="dropdown-toggle">@item.GroupName</a></li>   }
+        }
+
+    }
+}

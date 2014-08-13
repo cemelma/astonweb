@@ -1,0 +1,175 @@
+﻿@model  web.Models.UserModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Giriş</li>
+        </ul>
+    </div>
+}
+
+<style>
+    /* -- Notification -- */
+.notification.error {background:#fccac3 url('/Content/images/Front/error.png') no-repeat 10px 50%;border-color:#ea5338;}
+.notification {border-width:1px;border-style:solid;padding:17px 17px 17px 55px;margin-bottom:15px;-moz-border-radius:3px;-webkit-border:3px;border-radius:3px;}
+.notification.success {background:#effeb9 url('/Content/images/Front/success.png') no-repeat 10px 50%;border-color:#98c700;background-size: 38px;}
+.notification.info { background:#d4e7f5 url('/Content/images/Front/information.png') no-repeat 10px 14px;border-color:#589ad7;}
+.notification.info span.strong {color:#152433;}
+    .field-validation-error {
+        width:100%; float:left;
+    }
+</style>
+
+@using (Html.BeginForm("UserLogin", "FProduct", FormMethod.Post))
+{
+<div id="container" class="container">
+
+            <p>@Html.ValidationMessage("CustomError")</p>
+            <p>@Html.ValidationSummary(true)</p>
+            @if (TempData["required"] != null)
+            {
+                if (TempData["required"].ToString().Equals("true"))
+                {
+                    <div class="notification error">Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz.</div>
+                }
+            }
+            @if (TempData["login"] != null)
+            {
+                if (TempData["login"].ToString().Equals("false"))
+                {
+                        <div class="notification error">Mail adresi/şifre yanlış, lütfen kontrol ediniz.</div>
+                }
+            }
+        @if (TempData["usernew"] != null)
+            {
+                if (TempData["usernew"].ToString().Equals("false"))
+                {
+                        <div class="notification error">Üzgünüm, Üyelik İşlemi tamamlanamadı. Lütfen yetkili ile görüşünüz.</div>
+                }
+            }
+     @if (TempData["usernewvalid"] != null)
+            {
+                if (TempData["usernewvalid"].ToString().Equals("false"))
+                {
+                        <div class="notification error">Lütfen verilerinizi kontrol ediniz, eksik veri girmeyiniz.
+                            <br />
+
+                            @*@Html.ValidationMessageFor(d => d.NewUser.Email)
+                            @Html.ValidationMessageFor(d => d.NewUser.FullName)*@
+                            @if (TempData["pass"] != null)
+                            {
+                                if (TempData["pass"].ToString().Equals("false"))
+                                {
+                                    <br /><text>Girilen şifreler uyuşmuyor lütfen kontrol ediniz...</text>
+                                }
+                            }
+                        </div>
+                }
+            }
+    @if (TempData["mailisuse"] != null)
+            {
+                if (TempData["mailisuse"].ToString().Equals("false"))
+                {
+                        <div class="notification error">Bu mail adresi zaten kayıtlı.</div>
+                }
+            }
+
+    
+    <div class="col-md-12 shadow section noPadding noMarginTop">
+        <div class="col-md-12 sectionContent page uyelikPage">
+            <h2 class="pageTitle">ÜYELİK</h2>
+            <div class="pageContent">
+                <div class="col-md-5">
+                    <h3>Giriş Yapın</h3>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Login.Email)
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Login.Email)
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Login.Password)
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Login.Password, new { type = "password"})
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8">
+                        <input name="submit" type="submit" id="submit" value="Giriş" />
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <h3>Ya da Üye Olun</h3>
+                    <div class="col-md-3">
+                       @Html.LabelFor(m => m.NewUser.FullName)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.NewUser.FullName) *
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.NewUser.Company)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.NewUser.Company)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.NewUser.Address)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.NewUser.Address, new { @style="margin: 0px 0px 10px; width: 287px; height: 68px;", Rows = "5" })
+                    </div>
+                    <div class="col-md-3">
+                         @Html.LabelFor(m => m.NewUser.Tel)
+                    </div>
+                    <div class="col-md-9">
+                         @Html.TextBoxFor(m => m.NewUser.Tel)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.NewUser.Cep)
+                    </div>
+                    <div class="col-md-9">
+                         @Html.TextBoxFor(m => m.NewUser.Cep)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.NewUser.Fax)
+                    </div>
+                    <div class="col-md-9">
+                         @Html.TextBoxFor(m => m.NewUser.Fax)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.NewUser.Email)
+                    </div>
+                    <div class="col-md-9">
+                         @Html.TextBoxFor(m => m.NewUser.Email) *
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.NewUser.Password)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.NewUser.Password, new { @type="password" }) *
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.RePassword)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.RePassword, new { @type="password" }) *
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-9">
+                        <input name="submit" type="submit" id="submit" value="Üye Ol" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+ }

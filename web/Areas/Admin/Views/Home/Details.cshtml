@@ -1,0 +1,121 @@
+﻿@model deneysan.Areas.Admin.Models.TeklifModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("home_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>TEKLİF DEĞERLENDİRME FORMU</h2>
+    </div>  
+  <section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("Details", "Home", FormMethod.Post))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Kurum Bilgileri</legend>
+        <p>
+            <label>Kurum</label>
+            @Html.TextBoxFor(m=>m.teklif.Kurum, new { @class="textwidth50"})
+           @* @Html.ValidationMessageFor(m.teklif.Kurum)*@
+        </p>
+        
+       <p>
+           <label>Ünvan</label>
+            @Html.TextBoxFor(m=>m.teklif.Unvan, new { @class="textwidth50"})
+          @*  @Html.ValidationMessageFor(m.teklif.Unvan)*@
+        </p>
+        <p>
+           <label>Yetkili Kişi</label>
+            @Html.TextBoxFor(m=>m.teklif.Adsoyad, new { @class="textwidth50"})
+           @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+        <p>
+           <label>GSM</label>
+            @Html.TextBoxFor(m=>m.teklif.Gsm, new { @class="textwidth20"})
+           @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+             <p>
+           <label>Telefon</label>
+            @Html.TextBoxFor(m=>m.teklif.Tel, new { @class="textwidth20"})
+           @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+        <p>
+            <label>Faks</label>
+            @Html.TextBoxFor(m=>m.teklif.Fax, new { @class="textwidth20"})
+             @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+         <p>
+            <label>Teslimat Süresi</label>
+            @Html.TextBoxFor(m=>m.teklif.TeslimatSuresi, new { @class="textwidth10"})
+             @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+         <p>
+            <label>Teklif Numarası</label>
+            @Html.TextBoxFor(m=>m.teklif.TeklifNo, new { @class="textwidth10"})
+             @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+         <p>
+            <label>Geçerlilik Süresi</label>
+            @Html.TextBoxFor(m=>m.teklif.GecerlilikSuresi, new { @class="textwidth10"})
+             @* @Html.ValidationMessageFor(m.teklif.Adsoyad)*@
+        </p>
+        <br />
+        
+         <div class="box-header" ><h1>Ürün Bilgileri</h1></div>
+         <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="center widt5">Resim</th>
+                <th class="width50">Ürün Adı</th>
+                <th class="center witdh10">Birim Fiyat</th>
+                <th class="center witdh10">Adet</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model.teklifurun)
+            {
+                <tr id="listItem_@item.UrunId"  class="handle">
+                    <td class="center">
+                        <img src="@item.UrunResim" alt="image" with="48" height="48" />
+                    </td>
+                     <td>
+                       @item.UrunAdi
+                    </td>
+                    <td class="center">
+                        <span id="spanitem_@item.TeklifUrunId">@item.Fiyat @item.ParaBirimi</span>
+                        <input type="text" id="textfiyat_@item.TeklifUrunId" value="" class="displaynone textwidth90"/>
+                    </td>
+                    <td class="center">
+                        <span id="spanitem_@item.TeklifUrunId">@item.Adet</span>
+                        <input type="text" id="textadet_@item.TeklifUrunId" value="" class="displaynone textwidth90"/>
+                    </td>
+                    <td></td>
+                  
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+        <p>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+</section>
+    </section>
+</div>

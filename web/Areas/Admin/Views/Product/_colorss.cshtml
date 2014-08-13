@@ -1,0 +1,77 @@
+﻿<p>
+    <label>Renk Adı</label>
+    <input type="text" id="inputad" />
+</p>
+<p>
+    <label>Renk Kodu</label>
+    <input type="text" id="inputcode" />
+</p>
+ <p>
+    
+        <input type="button" value="Kaydet" id="btnsaveColor" />
+    </p>
+@if (ViewBag.Colors != null)
+{
+     <table class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th>Renk Adı</th>
+                <th>Renk</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Colors)
+            {
+                <tr id="listItem_@item.ColorId"  class="handle">
+                    <td>@item.Adi</td>
+                    <td style="background-color:@item.RenkKodu"></td>
+                    <td>
+                        <img id="DeleteImage_@item.ColorId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Product/DeleteColor',@item.ColorId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+@Html.Hidden("prId", (object)@ViewBag.PrId)
+
+<script type="text/javascript">
+  
+    $('#inputcode').colpick({
+        colorScheme: 'dark',
+        layout: 'rgbhex',
+        color: 'ff8800',
+        onSubmit: function (hsb, hex, rgb, el) {
+            $(el).val('#' + hex);
+            $(el).colpickHide();
+        }
+    });
+
+
+    $("#btnsaveColor").click(function () {
+        var prid = $("#prId").val();
+        var input1 = $("#inputad").val();
+        var input2 = $("#inputcode").val();
+//        alert(input1 + ";" + input2 + ";" + input3 + ";" + input4 + ";" + input5 + ";" + input6 + ";" + input7 + ";" + input8);
+
+        $.ajax({
+            type: 'POST',
+            url: '/Product/SaveColor',
+            data: '{Id:"' + prid + '",ad:"' + input1 + '",code:"' + input2 +'"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'html',
+            success: function (result) {
+                $.unblockUI();
+                $("#resultColor").html(result);
+            },
+            error: function () {
+                $.unblockUI();
+            }
+        });
+
+
+    });
+
+</script>

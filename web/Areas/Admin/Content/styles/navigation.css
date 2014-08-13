@@ -1,0 +1,275 @@
+﻿/* Navigation */
+#nav
+{
+    font-size: 12px;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*width: 78%;*/
+    margin-right:10px;
+    height: 62px;
+}
+#nav li
+{
+    display: block;
+    float: right;
+    padding: 19px 10px;
+    text-align: left;
+    position: relative;
+    height: 18px;
+    font-size: 12px;
+    margin:0 1px;
+}
+#nav li:hover
+{
+    background: #2d2d2d;
+    border-right: 1px solid #606060;
+    border-left: 1px solid #606060;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 19px 10px;
+    margin:0;
+}
+#nav li a
+{
+    color: #fff;
+    padding: 22px 2px 22px 40px;
+    text-shadow: 0 -1px 1px #000000;
+    font-size: 12px;
+    text-decoration: none;
+}
+#nav li a:hover
+{
+    text-decoration: none;
+}
+#nav li a.help
+{
+    background: url('/Areas/Admin/Content/images/icons/nav/help.png') no-repeat 0 -38px;
+}
+#nav li a.settings
+{
+    background: url('/Areas/Admin/Content/images/icons/nav/settings.png') no-repeat 0 -38px;
+}
+#nav li a.users
+{
+    background: url('/Areas/Admin/Content/images/icons/nav/users.png') no-repeat 0 -38px;
+}
+#nav li a.content
+{
+    background: url('/Areas/Admin/Content/images/icons/nav/content.png') no-repeat 0 -38px;
+}
+#nav li a.dashboard
+{
+    background: url('/Areas/Admin/Content/images/icons/nav/dashboard.png') no-repeat 0 -38px;
+}
+#nav li:hover > a
+{
+    background-position: 0 16px;
+}
+/* sub levels link hover */
+#nav ul li:hover a, #nav li:hover li a
+{
+    background: none;
+    border: none;
+}
+#nav ul a:hover
+{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+/* dropdown */
+#nav li:hover > ul
+{
+    display: block;
+}
+/* drop down widths */
+#nav li.dashboard ul
+{
+     width: 160px;
+}
+#nav li.dashboard ul li ul
+{
+     width: 160px;
+}
+#nav li.content ul
+{
+    width: 160px;
+}
+#nav li.content ul li ul
+{
+     width: 160px;
+}
+#nav li.users ul
+{
+     width: 160px;
+}
+#nav li.users ul li ul
+{
+     width: 160px;
+}
+#nav li.settings ul
+{
+   
+    margin-left: -57px;
+}
+#nav li.settings ul li ul
+{
+    
+    left: 160px;
+}
+#nav li:first-child ul li
+{
+    /*right:10px;*/
+    /*left: 160px;*/
+}
+
+#nav li.help ul
+{
+  /*  margin-left: -58px;*/
+  /*  width: 160px;*/
+}
+#nav li.help ul li ul
+{
+    /*left: 160px;*/
+}
+/* level 2 list */
+#nav ul
+{
+    display: none;
+    margin: 0;
+    padding: 0; /*	width: 174px; */
+    position: absolute;
+    top: 56px;
+    left: -1px;
+    background: #2d2d2d;
+    border: 1px solid #606060;
+    z-index: 10;
+    border-top: none;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    padding-bottom: 5px;
+}
+#nav ul li
+{
+    float: none;
+   padding: 8px 0 8px 5px;
+   width: 155px;
+    margin: 0;
+}
+
+#nav ul li:hover
+{
+     background: #478db4;
+     
+    border: 0;
+    padding: 8px 0 8px 5px;
+}
+#nav ul a
+{
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 15px;
+    text-shadow: none;
+    padding-left: 15px;
+    vertical-align: top;
+}
+#nav ul li:hover > a
+{
+    text-shadow: none;
+    vertical-align: top;
+}
+/* level 3+ list */
+#nav ul ul
+{
+    /*	left: 174px; */
+    top: 0;
+    -moz-border-radius: 0px 5px 5px 5px;
+    -webkit-border-radius: 0px 5px 5px 5px;
+    border-top: 1px solid #606060;
+}
+/* rounded corners of first and last link */
+/*
+#nav ul li:last-child > a
+{
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+}
+    */
+
+/* clearfix */
+#nav:after
+{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#nav
+{
+    display: inline-block;
+}
+html[xmlns] #nav
+{
+    display: block;
+    z-index: 10;
+    position: absolute;
+    right: 10px;
+}
+* html #nav
+{
+    height: 1%;
+}
+
+
+/* breadcrumbs */
+#breadcrumbs
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#breadcrumbs li
+{
+    display: inline;
+    font-size: 12px;
+    line-height: normal;
+    float: none;
+    font-size: 14px;
+}
+#breadcrumbs li a
+{
+    float: none;
+    display: inline;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+    font-size: 12px;
+}
+#breadcrumbs li.bold a
+{
+    font-weight: bold;
+}
+#breadcrumbs li:HOVER
+{
+    background: none;
+    padding: 0;
+}
+#breadcrumbs li:HOVER A
+{
+    text-decoration: underline;
+    padding: 0;
+}
+.breadcrumbs li a:HOVER
+{
+    text-decoration: underline;
+    background: none;
+    padding: 0;
+}
+/* sidebar */

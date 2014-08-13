@@ -1,0 +1,159 @@
+﻿@model DAL.Entities.Tags
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<style type="text/css">
+    aside {
+    overflow: visible;
+margin: 0;
+padding: 10px;
+}
+    
+    #sidebar-nav li ul {
+        display: block !important;
+    }
+    #sidebar-nav li a {
+padding:2px;
+border-bottom: 1px solid #CCCCCC;
+display: block;
+text-decoration: none;
+/* font-size: 108%; */
+color: #262626;
+font-weight: bold;
+/* outline: none; */
+}
+</style>
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+<aside>
+<ul id="sidebar-nav"> 
+ <li class="firstList"><a href="/yonetim/sayfataglari/1">ANASAYFA</a></li>
+            <li class="firstList"><a href="#">HAKKIMIZDA</a>
+                <ul class="">
+                    <li><a href="/yonetim/sayfataglari/2">Venue İstanbul Hakkında</a></li>
+                    <li><a href="/yonetim/sayfataglari/3">Vizyonumuz ve Misyonumuz</a></li>
+                    <li><a href="/yonetim/sayfataglari/4">Ekibimiz</a></li>
+                    <li><a href="/yonetim/sayfataglari/5">Diğer Faaliyetlerimiz</a></li>
+                </ul>
+            </li>
+            <li class="firstList"><a href="#">HİZMETLER</a>
+                <ul class="siteSubMenu">
+                    <li><a href="/yonetim/sayfataglari/6">Hizmetler</a></li>
+                    <li><a href="/yonetim/sayfataglari/7">Sektörler</a></li>
+                </ul>
+            </li>
+            <li class="firstList"><a href="#">REFERANSLAR</a>
+                <ul class="">
+                    <li><a href="/yonetim/sayfataglari/8">Firmalar ve Markalar</a></li>
+                    <li><a href="/yonetim/sayfataglari/9">Neden Biz?</a></li>
+                </ul>
+            </li>
+            <li class="firstList"><a href="#">HABERLER</a>
+                <ul class="">
+                    <li><a href="/yonetim/sayfataglari/10">Sektörden Haberler</a></li>
+                    <li><a href="/yonetim/sayfataglari/11">Basında Venue İstanbul</a></li>
+                </ul>
+            </li>
+            <li class="firstList"><a href="#">BİZE ULAŞIN</a>
+                <ul class="">
+                    <li><a href="/yonetim/sayfataglari/12">Adres Bilgileri ve Google Map</a></li>
+                    <li><a href="/yonetim/sayfataglari/13">Kariyer Olanakları</a></li>
+                </ul>
+            </li>
+            <li class="firstList"><a href="#">ÖZELLİK ARAMA</a>
+                <ul class="">
+                    <li><a href="/yonetim/sayfataglari/14">Öne Çıkan Gayimenkuller</a></li>
+                    <li><a href="/yonetim/sayfataglari/15">Detaylı Arama</a></li>
+                      <li><a href="/yonetim/sayfataglari/16">Mesaj Bırakın, Sizi Arayalım</a></li>
+                    <li><a href="/yonetim/sayfataglari/17">Detaylı Mesaj Bırakma</a></li>
+                </ul>
+            </li>
+     
+ </ul>
+<br /> <br /> 
+      
+</aside>
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h1>SAYFA TAG İŞLEMLERİ</h1>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("Index", "Tags", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>@ViewBag.PageName Sayfasına Tag Ekle</legend>
+             <p>
+            @Html.Label("Dil Seçimi")
+            @Html.DropDownListFor(m=>m.Lang,(IEnumerable<SelectListItem>)ViewBag.LanguageList)
+            
+           
+        </p>
+        <p>
+            @Html.Label("Başlık")
+            @Html.TextBoxFor(m=>m.Title, new { @class="textwidth50"})
+        </p>
+
+        <p>
+            @Html.Label("Tanımlama")
+            @Html.TextBoxFor(m=>m.Description, new { @class="textwidth50"})
+   
+        </p>
+        <p>
+            @Html.Label("Anahtar Kelimeler")
+            @Html.TextBoxFor(m=>m.Keyword, new { @class="textwidth50"})
+        </p>
+       
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#Lang").change(function () {
+
+
+            var ty = window.location.pathname.split('/');
+          //  alert(ty+";"+ty.length);
+            var lang = $("#Lang option:selected").val();
+           
+            if (ty.length == 4) {
+                var loc = window.location.href;
+                window.location.href = loc + "/" + lang;
+            }
+            if (ty.length == 5) {
+                var host = window.location.host;
+              
+                var newloc = host +  ty[0] + "/" + ty[1] + "/" + ty[2] + "/"+ty[3]+"/" + lang;
+               // alert(newloc);
+                window.location.href = "/yonetim/sayfataglari/"+ty[3]+"/"+lang;
+            }
+
+        });
+    });
+
+</script>
+
+}
+           
+     

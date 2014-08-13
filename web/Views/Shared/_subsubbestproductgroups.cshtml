@@ -1,0 +1,6 @@
+﻿@model web.Models.ProductSubWrapperModel
+
+@foreach (var sub in Model.productsubsubbestgroups)
+{
+    <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_products/@Model.productgroup.PageSlug/@Model.productsubgroup.PageSlug/@Model.productsubbestgroup.PageSlug/@sub.PageSlug/@sub.ProductSubSubbestGroupId">@sub.GroupName</a></li>
+}

@@ -1,0 +1,75 @@
+@model DAL.Entities.Certificate
+@{
+    ViewBag.Title = "EditCertificate";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("Certificate_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>SERTIFIKA BILGILERI</h2>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using (Html.BeginForm("EditCertificate", "Certificate", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Sertifika Duzenle</legend>
+        <p>
+            @Html.LabelFor(m=>m.Language)
+            @Html.DropDownListFor(m=>m.Language,(IEnumerable<SelectListItem>)ViewBag.LanguageList,"Dil Seçiniz...")
+            @Html.ValidationMessageFor(m=>m.Language)
+           
+        </p>
+
+        <p>
+            @Html.LabelFor(m=>m.CertificateName)
+            @Html.TextBoxFor(m=>m.CertificateName, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m => m.CertificateName)
+        </p>
+        
+        <p>
+            <label for="txtname">Logo</label>
+            
+            <input type="file" name="uploadfile" id="uploadfile" />
+        </p>
+        <p>
+            @Html.LabelFor(m=>m.Link)
+            @Html.TextBoxFor(m=>m.Link, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Link)
+        </p>
+        <p>
+            @Html.LabelFor(m=>m.Content)
+            @Html.TextAreaFor(m=>m.Content, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Content)
+        </p>
+        <p>
+            <label></label>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/Certificate/addCertificate.js"></script>
+}
+
+
+

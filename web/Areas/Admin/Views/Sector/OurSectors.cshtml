@@ -1,0 +1,55 @@
+﻿@model DAL.Entities.OurSectors
+
+@{
+    ViewBag.Title = "Vizyon";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+@*sayfa css leri*@
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+
+
+
+@Html.Partial("Sector_leftbar")
+
+<div id="page-content" class="container_12">
+ @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage)
+       <div id="page-header">
+       <h2>SEKTÖRLERİMİZ</h2>
+    </div>  
+  <section class="grid_12 form">
+  
+    @using(Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Sektörlerimiz</legend>
+        <p>
+            @Html.Label("Dil Seçimi")
+            @Html.DropDownList("ddllanguage", (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+        </p>
+        <p>
+            @Html.TextAreaFor(m => m.Content, new { id="txtcontent",@class="required"})
+            @Html.ValidationMessageFor(m=>m.Content)
+        </p>
+        <br />
+      
+        <p>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+
+
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+@*@System.Web.Optimization.Scripts.Render("~/admin/editor")*@
+<script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/Sectors/ourSectors.js"></script>
+
+}

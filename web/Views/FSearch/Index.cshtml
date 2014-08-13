@@ -1,0 +1,83 @@
+﻿@model List<Tuple<string, string>>
+@{
+    ViewBag.Title = "Arama";    
+    Layout = "~/Views/Shared/frontlayout.cshtml";
+}
+<style>
+    .link {
+        display: block;
+        text-decoration: underline;
+        color: #666;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 5px 0 5px 20px;
+        background: url(/images/bullet.png) no-repeat left center;
+        transition: color 450ms ease-in-out, background-color 450ms ease-in-out;
+        -moz-transition: color 450ms ease-in-out, background-color 450ms ease-in-out;
+        -webkit-transition: color 450ms ease-in-out, background-color 450ms ease-in-out;
+        -o-transition: color 450ms ease-in-out, background-color 450ms ease-in-out;
+        float: left;
+    }
+
+    nav-tabss > li > a {
+        margin-right: 10px;
+        color: #AD6D6D;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration:underline;
+    }
+
+    .nav-tabss>li>a:hover { color: #AD6D6D; }
+    .navs { margin-bottom: 0; padding-left: 0; list-style: none }
+    .navs>li { position: relative; display: block }
+    .navs>li>a { position: relative; display: block; padding: 10px 16px }
+    .navs>li>a:hover, .navs>li>a:focus { text-decoration: none; background-color: #FFF }
+    .navs>li.disabled>a { color: #999 }
+    .navs>li.disabled>a:hover, .nav>li.disabled>a:focus { color: #999; text-decoration: none; background-color: transparent; cursor: not-allowed }
+    .navs .open>a, .nav .open>a:hover, .nav .open>a:focus { background-color: #eee; border-color: #428bca; color: #D84545; }
+    .navs .nav-divider { height: 1px; margin: 9px 0; overflow: hidden; background-color: #e5e5e5 }
+    .navs>li>a>img { max-width: none }
+
+</style>
+
+
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Arama </li>
+        </ul>
+    </div>
+}
+
+<div id="container" class="container">
+    <div class="col-md-12 shadow section noPadding">
+        <div class="col-md-12 sectionContent page">
+            <h2 class="pageTitle">ARAMA SONUÇLARI</h2>
+            <ul class="navs nav-tabss" id="pulpositions">
+               @foreach (var item in Model)
+                {
+                    <li style="overflow:hidden; width:100%;"><a class="link" href="@item.Item2">@item.Item1.ToUpper()</a></li>
+                    <li style="margin-left: 21px; margin-bottom: 10px; color: #ed1c24; font-size: 12px; width:100%;">http://www.zeynelyayla.com.tr@(item.Item2)</li>
+                }
+          </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/js/jquery.highlight.js" charset="windows-1254"></script>
+<script>
+    $(document).ready(function () {
+        //alert(html_entity_decode("@ViewBag.SearchTextUpper"));
+        $(".biz").highlight("@ViewBag.SearchTextLower");
+        $(".biz").highlight(html_entity_decode("@ViewBag.SearchTextUpper"));
+
+        function html_entity_decode(str) {
+            var ta = str.replace("&#220;", "Ü").replace("&#214;", "Ö").replace("&#199;", "Ç");
+            return ta;
+        }
+    });
+</script>

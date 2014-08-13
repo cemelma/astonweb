@@ -1,0 +1,129 @@
+﻿@model DAL.Entities.News
+@{
+    ViewBag.Title = "EditNews";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>
+
+@Html.Partial("news_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>HABER BİLGİLERİ</h2>
+    </div>
+    @if (TempData["ImageSizeError"] != null)
+    {
+        <div class="notification error">@TempData["ImageSizeError"].ToString()</div>
+    }
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @Html.TextBoxFor(m => m.NewsId, new { style = "display:none;" })
+        @using (Html.BeginForm("EditNews", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Hidden("hdfieldcategory")
+            @Html.Hidden("hdfieldtaglist")
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Haber Düzenle</legend>
+            
+                <p>
+                    @Html.LabelFor(m => m.Header)
+                    @Html.TextBoxFor(m => m.Header, new { @class = "textwidth50", Rows = "5" })
+                    @Html.ValidationMessageFor(m => m.Header)
+                </p>
+             
+                <fieldset>
+                    <legend>Haber Resmi</legend>
+                    <div id="uploadPartial">
+                        @Html.Partial("_imageUploadAndCrop")
+                    </div>
+                </fieldset>
+
+                <p>
+                    @Html.LabelFor(m => m.Spot)
+                    @Html.TextAreaFor(m => m.Spot, 5, 0, new { @class = "textwidth50" })
+                    @Html.ValidationMessageFor(m => m.Spot, "", new { @class = "verticalaligntop", @maxlength = 10 })
+                    <br />
+                    <label class="colorredright">Haber açıklaması en fazla 200 karakter olabilir.</label>
+                    <br />
+                    <label class="colorred" id="wordcounter">Kalan Karakter: 200</label>
+
+                </p>
+   
+                <p>
+                    @Html.TextAreaFor(m => m.Content, new { id = "txtcontent", @class = "required" })
+                    @Html.ValidationMessageFor(m => m.Content)
+                </p>
+                 <p>
+                    @Html.LabelFor(m => m.TimeCreated)
+                    @Html.TextBox("txtdate", @Model.TimeCreated.Value.ToShortDateString(), new { @class = "textwidth10" })
+                    @* @Html.TextBox("txtdate")*@
+                </p>
+                <p>
+                    @Html.Label("Ana sayfada Göster")
+                    @Html.CheckBoxFor(x=>x.ShowInMenu)
+                    @* @Html.TextBox("txtdate")*@
+                </p>
+                <br />
+                <input type="submit" value="Kaydet" id="btnsave" />
+
+            </fieldset>
+
+
+        }
+    </section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    @*@System.Web.Optimization.Scripts.Render("~/admin/editor")*@
+    <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+
+
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/news/editnews.js"></script>
+}
+
+
+<script>
+    function rg_click_handler() {
+        var newpath = $("#imgNewImage").attr('src');
+        var photoId = $("#currenPhotoId").val();
+
+        newpath = "/Content/images/userfiles/" + newpath.split('=')[1] + "." + photoId.split('.')[1];
+        if (newpath == "") {
+            alert("Lütfen resim kırpma işlemini yapınız...");
+            return false;
+        }
+        $("#btnResimGuncelle").css("display", "none");
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UpdatePhotoPath", "Project")',
+            data: "{'photoId':'" + photoId.split('.')[0] + "', 'newpath':'" + newpath + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function (result) {
+                $('#uploadPartial').load('@Url.Action("imageUploadAndCrop", "Media")');
+
+                $.gritter.add({
+                    title: 'Resim güncelleme!',
+                    text: 'Resim kırpma işlemi başarı ile gerçekleştirilmiştir...'
+                });
+            },
+            error: function () {
+
+            }
+        });
+        }
+        $("#btnResimGuncelle").bind("click", rg_click_handler);
+</script>

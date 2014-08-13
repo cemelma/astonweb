@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Updates";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<aside>
+<ul id="sidebar-nav"> 
+<li><a href="#">GÜNCELLEMELER</a>
+<ul class="drop" style="display: block;">
+    <li><a href="/yonetim/songuncellemeler"><img src="/Areas/Admin/Content/images/icons/16/page.png">Son Yenilikler</a></li>
+</ul>
+</li>
+</ul>
+<br /> <br /> 
+      
+</aside>
+<div id="page-content" class="container_12">
+  <div id="page-header">
+        <h1>SON YENİLİKLER VE GÜNCELLEMELER</h1>
+   </div>
+   <section class="grid_12 form">
+       <div class="box-header" ><h1>Liste
+    </h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width90">Güncelleme</th>
+                <th class="center witdh10">Tarih</th>
+              </tr>
+        </thead>
+         <tbody id="item-list">
+                <tr class="handle">
+                    <td>
+                        <span>Çözüm Ortakları eklentisi yapıldı</span>
+                    </td>
+                    <td class="center">
+                        <span>25.10.2013</span>
+                    </td>
+                </tr>
+                <tr class="handle odd">
+                    <td>
+                        <span>İnsan Kaynaklarında pozisyon ekleme özelliği eklendi</span>
+                    </td>
+                    <td class="center">
+                        <span>25.10.2013</span>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+
+   <//section>
+</div>
+
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/TableSorterScript.js"></script>

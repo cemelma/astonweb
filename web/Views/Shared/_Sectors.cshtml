@@ -1,0 +1,6 @@
+﻿@model web.Models.SectorSubWrapperModel
+
+@foreach (var sub in Model.sectors)
+{
+    <li><a href="/@SharedRess.SharedStrings.menu_culture/@SharedRess.SharedStrings.menu_sectors/@Model.sectorgroup.PageSlug/@sub.PageSlug/@sub.SectorId">@sub.Name</a></li>
+}

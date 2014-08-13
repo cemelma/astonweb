@@ -1,0 +1,146 @@
+﻿@model DAL.Entities.Service
+@{
+    ViewBag.Title = "EditService";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.MultiFile.js"></script>>
+
+@Html.Partial("Service_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>HİZMET BİLGİLERİ</h2>
+    </div> 
+    
+<section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("EditService", "Service", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+         @Html.Hidden("hdfieldcategory")
+         @Html.Hidden("hdfieldtaglist")
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Hizmet Düzenle</legend>
+       
+         <p>
+            @Html.LabelFor(m=>m.Name)
+            @Html.TextBoxFor(m=>m.Name, new { @class="textwidth50"})
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+      
+        <p>
+            @Html.LabelFor(m=>m.Content)
+            @Html.TextAreaFor(m=>m.Content,5,0, new { id="txtcontent", @class="textwidth50"})
+            @Html.ValidationMessageFor(m=>m.Content,"", new { @class="verticalaligntop"})
+           
+        </p>
+            <p>
+            @Html.Label("Anasayfada Göster")
+            @Html.CheckBoxFor(m=>m.ShowInMenu)
+        </p>
+        <p>
+            @Html.Label("Anasayfada Resimleri Göster")
+            @Html.CheckBoxFor(m=>m.ShowContentHome)
+        </p>
+          <p style="float: left; margin-right: 4px !important;">
+                    <label>Fotoğraflar</label>
+                </p>
+
+                <div style="width: 249px; width: 25%; float: left">
+                    <input type="file" style="width: 99%" name="attachments" class="multi" />
+                </div>
+                <div style="height: 40px; clear: both;"></div>
+        <p>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+       
+    </fieldset>
+    }
+
+     <div class="box-header" >
+        <h1>Mevcut Resimler
+        </h1>
+
+    </div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width5">Sırala</th>
+                <th class="width5 center">Resim</th>
+                <th class="width60">Başlık</th>
+               
+                <th class="center witdh10">Eklenme Tarihi</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in ViewBag.Photos)
+            {
+                <tr id="listItem_@item.PhotoId"  class="handle">
+                    <td class="center">
+                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
+                    </td>
+                    <td>
+                        <center>
+                            <a href="@item.Path" onclick="return false;"
+                                class="preview">
+                                <img src="@item.Path" alt="image" width="48" height="48" /></a></center>
+                    </td>
+                    <td>
+                        <span id="spanitem_@item.PhotoId">@item.Title</span>
+                    </td>
+                  @*  <td class="center">
+                        @if (item.Online == true)
+                        {<img   id="img_online_@item.PhotoId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/Banner/PhotoEditStatus',@item.PhotoId)" />}
+                        else{<img id="img_online_@item.PhotoId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/Banner/PhotoEditStatus',@item.PhotoId)" />}
+                    </td>*@
+                    <td class="center">@item.TimeCreated</td>
+                    <td class="center">
+                     @*  <a href="/yonetim/bannerduzenle/@item.PhotoId">
+                        <img id="btn_update_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
+                       </a>
+                        <img id="btn_save_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.PhotoId)">
+                        <img id="btn_cancel_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/error.png"  title="İptal" class="displaynone cursorpointer" onclick="CancelRecord(@item.PhotoId)">*@
+                       <img id="DeleteImage_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Service/DeletePhoto',@item.PhotoId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/Services/editService.js"></script>
+
+<script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+
+    <script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+@*<script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>*@
+    <script type="text/javascript">
+        $(function () {
+
+            SortOrder("/Service/SortPhotos");
+        });
+
+    </script>
+
+
+}

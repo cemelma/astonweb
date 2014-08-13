@@ -1,0 +1,35 @@
+﻿.divcategory
+{
+    margin: 5px 1% 2px !important;
+}
+
+    .divcategory ul
+    {
+        display:inline-block;
+        list-style-type:none;
+        margin-left:0 !important;
+        width:55%;
+        border: solid 1px #CCC;
+        padding: 10px
+    }
+
+    .divcategory ul li
+    {
+        float:left;
+    }
+
+    .divcategory .chlabel
+    {
+        width:100px !important;
+    }
+
+    .divcategory .checkboxlisterror
+
+    {
+        color:black;
+        display:none;
+    }
+
+
+
+    

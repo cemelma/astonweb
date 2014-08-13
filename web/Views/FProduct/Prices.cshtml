@@ -1,0 +1,169 @@
+﻿@model web.Models.ProductPriceModel
+@{
+    ViewBag.Title = "Fiyatlar";
+    Layout = "~/Views/Shared/frontlayout.cshtml";        
+}
+
+@section breadcrumb{
+    <div class="col-md-8 breadcrumb">
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/fiyatlar/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>
+            <li>Fiyatlar </li>
+        </ul>
+    </div>
+}
+
+<div id="container" class="container">
+    <div class="col-md-12 shadow section noPadding noMarginTop">
+        <div class="col-md-12 sectionContent page newsPage">
+            <h2 class="pageTitle">FİYAT LİSTESİ</h2>
+            @if (ViewBag.userloginemail == "")
+            { 
+                <a href="/giris" class="print">
+                    <img src="/content/images/print.png" border="0"></a>
+            }
+            else
+            {
+                <a href="javascript:void(0);" class="print" onclick="PrintElem('.pageContent')">
+                    <img src="/content/images/print.png" border="0"></a>
+    
+                <script type="text/javascript">
+
+                    function PrintElem(elem) {
+                        Popup($(elem).html());
+                    }
+
+                    function Popup(data) {
+                        var mywindow = window.open('', 'ZEYNEL YAYLA - FİYAT LİSTESİ', 'height=500,width=800');
+                        mywindow.document.write('<html><head><title>ZEYNEL YAYLA - FİYAT LİSTESİ</title>');
+                        mywindow.document.write('<link rel="stylesheet" href="/Content/Styles/style.css" type="text/css" />');
+                        mywindow.document.write('<link rel="stylesheet" href="/Content/Styles/bootstrap.min.css" type="text/css" />');
+                        mywindow.document.write('</head><body >');
+                        mywindow.document.write(data);
+                        mywindow.document.write('</body></html>');
+                        mywindow.print();
+                        mywindow.close();
+                        return true;
+                    }
+                </script>
+
+            }
+
+            @*
+        <a href="/giris" class="print"><img src="/content/images/print.png" border="0"/></a>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        </div>*@
+            <div class="pageContent">
+                @foreach (var item in Model.Info)
+                {
+                    if(item.headers!=null && item.productsinfo!=null && item.productsinfo.Count()>0)
+                    {
+                    
+                    <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
+                        <tr>
+                            <td colspan="8" class="urunAd">@item.ProductName - <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a></td>
+                        </tr>
+                        @if (item.headers != null)
+                        {
+                            <tr class="fiyatTabloTitle">
+                                @if (!string.IsNullOrEmpty(item.headers.Header1))
+                                { <td>@item.headers.Header1</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header2))
+                                { <td>@item.headers.Header2</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header3))
+                                { <td>@item.headers.Header3</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header4))
+                                { <td>@item.headers.Header4</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header5))
+                                { <td>@item.headers.Header5</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header6))
+                                { <td>@item.headers.Header6</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header7))
+                                { <td>@item.headers.Header7</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header8))
+                                { <td>@item.headers.Header8</td>}
+                            </tr>
+                        }
+                        @if (item.productsinfo != null)
+                        {
+                            foreach (var dt in item.productsinfo)
+                            {
+                            <tr>
+                                @if (!string.IsNullOrEmpty(item.headers.Header1))
+                                { <td>@dt.Field1</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header2))
+                                { <td>@dt.Field2</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header3))
+                                { <td>@dt.Field3</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header4))
+                                { <td>@dt.Field4</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header5))
+                                { <td>@dt.Field5</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header6))
+                                { <td>@dt.Field6</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header7))
+                                { <td>@dt.Field7</td>}
+                                @if (!string.IsNullOrEmpty(item.headers.Header8))
+                                { <td>@dt.Field8</td>}
+                            </tr>
+                            }
+                        }
+
+                    </table>
+                    }
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $('.print').click(function () {
+
+        $("#myModal").load("/FProduct/UserLogin", function (responseTxt, statusTxt, xhr) {
+            if (statusTxt == "success") {
+                $('#myModal').modal('show');
+                //alert("Başarılı giriş yaptınız");
+            }
+            //if (statusTxt == "error") alert("Hata: " + xhr.status + ": " + xhr.statusText);
+        });
+
+
+    });
+</script>
+
+
+@*   @foreach (var item in @Model)
+            {
+                <tr><td colspan="8" class="urunAd">@item.Name - <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a></td></tr>
+                  <tr class="fiyatTabloTitle">
+                    <td>KOD</td>
+                    <td>MALZEME</td>
+                    <td>BİRİM</td>
+                    <td>EBAT</td>
+                    <td>AĞIRLIK (KG)</td>
+                    <td>ARAÇ (20 TON)</td>
+                    <td>RENGİ TL/M²</td>
+                    <td>FİYATI</td>
+                  </tr>
+                foreach (var itemdetail in BLL.ProductBL.ProductManager.GetProductDetailListForFront(item.ProductId))
+	            {
+		            <tr>
+                        <td>@itemdetail.Code</td>
+                        <td>@itemdetail.Material</td>
+                        <td>@itemdetail.Unit</td>
+                        <td>@itemdetail.Dimension</td>
+                        <td>@itemdetail.Weight</td>
+                        <td>@itemdetail.VehicleTon</td>
+                        <td>@itemdetail.ColorWhite</td>
+                        <td>@itemdetail.Price</td>
+                      </tr>
+	            }
+                  
+            }*@

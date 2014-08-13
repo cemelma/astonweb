@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DAL.Entities.ContactHome>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("messagesleftbar")
+<div id="page-content" class="container_12">
+    <div id="page-header">
+       <h2>CV LİSTESİ</h2>
+    </div>  
+    <section class="grid_12 form">
+    <div class="box-header" ><h1>İLETİŞİM MESAJLARI</h1></div>
+    @Html.Hidden("selval")
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="width10">Ad Soyad</th>
+                <th class="width10">Telefon</th>
+                <th class="width10">Email</th>
+                <th class="width5">Şehir</th>
+                <th class="width15">Konu</th>
+                <th class="width30">İçerik</th>
+                <th class="witdh10">Tarihi</th>
+                <th class="center witdh10">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+            @foreach (var item in Model)
+            {
+                <tr id="listItem_@item.ContactId">
+                    <td>@item.FullName</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td>@item.City</td>
+                    <td>@item.Subject</td>
+                    <td>@item.Body</td>
+                    <td class="center">@item.TimeCreated.ToShortDateString()</td>
+                    <td class="center">
+                      <img id="DeleteImage_@item.ContactId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Contact/DeleteContactHome',@item.ContactId)">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+@*<script src="~/Areas/Admin/Content/scripts/pagescripts/humanresourceposition/humancv.js"></script>*@
+
+
+
+    

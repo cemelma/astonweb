@@ -1,0 +1,58 @@
+﻿@model DAL.Entities.OurServices
+
+@{
+    ViewBag.Title = "Vizyon";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+@*sayfa css leri*@
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+
+
+
+@Html.Partial("service_leftbar")
+
+<div id="page-content" class="container_12">
+ @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage)
+       <div id="page-header">
+       <h2>HİZMETLERİMİZ</h2>
+    </div>  
+  <section class="grid_12 form">
+  
+    @using(Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Hizmetlerimiz</legend>
+        
+        <br />
+       <p style="float: left; margin-right: 4px !important;">
+                    <label>Fotoğraflar</label>
+                </p>
+
+                <div style="width: 249px; width: 25%; float: left">
+                    <input type="file" style="width: 99%" name="attachments" class="multi" />
+                </div>
+                <div style="height: 40px; clear: both;"></div>
+
+
+
+        <p>
+            <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+
+
+    }
+</section>
+</div>
+@section Scripts {
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+@*@System.Web.Optimization.Scripts.Render("~/admin/editor")*@
+<script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+<script src="~/Areas/Admin/Content/scripts/pagescripts/services/ourservices.js"></script>
+
+}

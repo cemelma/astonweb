@@ -1,0 +1,215 @@
+﻿@model web.Areas.Admin.Models.TeklifModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+}
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("home_leftbar")
+<div id="page-content" class="container_12">
+    <div id="page-header">
+        <h2>TEKLİF DEĞERLENDİR</h2>
+    </div>
+    
+    <section class="grid_12 form">
+        @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
+        @using (Html.BeginForm("Details", "Teklif", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Hidden("hdfieldcategory")
+            @Html.Hidden("hdfieldtaglist")
+            @Html.Hidden("teklifid", (object)@Model.teklif.TeklifId) 
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Kurum Bilgileri</legend>
+                <p>
+                    @Html.Label("Kurum")
+                    @Html.TextBoxFor(d => d.teklif.Kurum, new { @class = "textwidth50 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.Kurum)
+                </p>
+                <p>
+                    @Html.Label("Ünvan")
+                    @Html.TextBoxFor(d => d.teklif.Unvan, new { @class = "textwidth50" })
+                    @Html.ValidationMessageFor(d => d.teklif.Unvan)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.Adsoyad)
+                    @Html.TextBoxFor(d => d.teklif.Adsoyad, new { @class = "textwidth50 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.Adsoyad)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.Eposta)
+                    @Html.TextBoxFor(d => d.teklif.Eposta, new { @class = "textwidth50 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.Eposta)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.Gsm)
+                    @Html.TextBoxFor(d => d.teklif.Gsm, new { @class = "textwidth20 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.Gsm)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.Tel)
+                    @Html.TextBoxFor(d => d.teklif.Tel, new { @class = "textwidth20" })
+                    @Html.ValidationMessageFor(d => d.teklif.Tel)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.Fax)
+                    @Html.TextBoxFor(d => d.teklif.Fax, new { @class = "textwidth20" })
+                    @Html.ValidationMessageFor(d => d.teklif.Fax)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.Not)
+                    @Html.TextAreaFor(d => d.teklif.Not, new { @class = "textwidth50", @rows = "6" })
+                    @Html.ValidationMessageFor(d => d.teklif.Not)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.TeklifTarihi)
+                    <span style="color: green; font-weight: bold;">@String.Format("{0:d}", Model.teklif.TeklifTarihi)</span>
+
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.CevapTarihi)
+                    <input type="text" id="txtcevaptarihi" name="txtcevaptarihi" class="textwidth10 required" value="@ViewBag.cevaptrh" />
+                    @Html.ValidationMessageFor(d => d.teklif.CevapTarihi)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.TeklifNo)
+                    @Html.TextBoxFor(d => d.teklif.TeklifNo, new { @class = "textwidth10 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.TeklifNo)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.GecerlilikSuresi)
+                    @Html.TextBoxFor(d => d.teklif.GecerlilikSuresi, new { @class = "textwidth10 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.GecerlilikSuresi)
+                </p>
+                <p>
+                    @Html.LabelFor(d => d.teklif.TeslimatSuresi)
+                    @Html.TextBoxFor(d => d.teklif.TeslimatSuresi, new { @class = "textwidth10 required" })
+                    @Html.ValidationMessageFor(d => d.teklif.TeslimatSuresi)
+                </p>
+                
+                <p>
+                    <label>Teklif Durumu</label>
+
+                @Html.DropDownList("TeklifDurum", null , (List<SelectListItem>)ViewBag.TeklifDurum)
+               @* <select name="TeklifDurum">
+                    <option value="0">Onaylandı</option>
+                    <option value="1">Onaylanmadı</option>
+                    <option value="2">İptal Edildi</option>
+                </select>   *@
+
+                </p>
+                <br />
+                <p>
+                    <label></label>
+                    <input type="submit" value="Kaydet" id="btnsave" />
+                </p>
+            </fieldset>
+        }
+        <fieldset>
+            <legend>Ürün Bilgileri</legend>
+
+
+            <table id="tblcategory" class="table no-border tablesorter">
+                <thead>
+                    <tr>
+                        <th class="width10">Resim</th>
+                        <th class="width40">Ürün Adı</th>
+                        <th class="center width10">Birim Fiyat</th>
+                        <th class="center width10">Donanım Fiyatı</th>
+                        <th class="center width10">Adet</th>
+                        <th class="center width10">Toplam</th>
+                        <th class="center witdh10">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="item-list">
+                    @foreach (var item in Model.teklifurun)
+                    {
+               
+                        <tr id="listItem_@item.UrunId"  class="handle">
+                            <td>
+                                <center>
+                            <a href="@item.UrunResim" onclick="return false;"
+                                class="preview">
+                                <img src="@item.UrunResim" alt="image" width="48" height="48" /></a></center>
+                            </td>
+                            <td>@item.UrunAdi</td>
+                            <td class="center">
+                                <span id="spantextfiyat_@item.UrunId">@item.Fiyat</span><span id="moneytype_@item.UrunId"> TL</span> 
+                                <input type="text" id="textfiyat_@item.UrunId" value="" class="displaynone textwidth90"/>
+                                <input type="hidden" id="hdndonanim_@item.UrunId" value="@item.Donanim.ToString()" class="displaynone textwidth90"/>
+                            </td>
+                            <td class="center">
+                                @if (@item.Donanim == true)
+                                {
+                                    <span id="spantextdonanim_@item.UrunId">@item.DonanimFiyat</span><span id="moneytype2_@item.UrunId"> TL</span>
+                                    <input type="text" id="textdonanim_@item.UrunId" value="" class="displaynone textwidth90"/>
+                                }
+                                else
+                                {
+                                    <span id="spanitem_@item.UrunId">----</span>
+                                }
+                            </td>
+                            <td class="center">
+                                <span id="spantextadet_@item.UrunId">@item.Adet</span>
+                                <input type="text" id="textadet_@item.UrunId" value="" class="displaynone textwidth90"/>
+                            </td>
+
+                            <td class="center">
+                                <span id="spanitemtoplam_@item.UrunId">
+                                    @(item.Fiyat * item.Adet + item.DonanimFiyat) TL
+                                </span>
+
+                            </td>
+                            <td class="center">
+                                <img id="btn_update_@item.UrunId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" onclick="EditRecord(@item.UrunId)">
+                                <img id="btn_save_@item.UrunId"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.UrunId)">
+                                <img id="btn_cancel_@item.UrunId"  src="/Areas/Admin/Content/images/icons/16/error.png"  title="İptal" class="displaynone cursorpointer" onclick="CancelRecord(@item.UrunId)">
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p>
+                <label>Toplam Tutar:</label>
+                <span id="toplamtutar" style="color: green; font-weight: bold;">@Model.teklif.FaturaTutar @Model.teklif.ParaBirimi</span>
+            </p>
+            <p>
+                <label>KDV Tutarı:</label>
+                <span id="kdvtutar" style="color: green; font-weight: bold;">@Model.teklif.KDV @Model.teklif.ParaBirimi</span>
+            </p>
+            <div>
+                @using (Html.BeginForm("Proforma", "Teklif", FormMethod.Post))
+                {
+                    @Html.Hidden("tekid", (object)@Model.teklif.TeklifId) 
+                        
+                    <input type="submit" style="float: right" value="Önizleme" id="btnpreview" />
+                }
+                @using (Html.BeginForm("ProformaGonder", "Teklif", FormMethod.Post))
+                {
+                    @Html.Hidden("tekid2", (object)@Model.teklif.TeklifId) 
+                    
+                    <input type="submit" style="float: right" value="Gönder" id="btnsend" />
+                }
+            </div>
+        </fieldset>
+
+    </section>
+</div>
+@section Scripts {
+    <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/main.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+    <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
+    <script src="~/Areas/Admin/Content/scripts/pagescripts/teklif/teklif.js"></script>
+}
+

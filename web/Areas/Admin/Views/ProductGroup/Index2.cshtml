@@ -1,0 +1,92 @@
+﻿@model web.Areas.Admin.Models.VMProductGroupModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+    string formdisplay = (Request.QueryString["topProductGroupId"] != null ? "block" : "none");
+}
+
+
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/styles/table.css" rel="stylesheet" />
+
+@Html.Partial("product_leftbar")
+
+<div id="page-content" class="container_12">
+    <div id="page-header"><h1>ÜRÜN GRUBU BİLGİLERİ </h1></div>
+    <section class="grid_12 form">
+    @Html.Hidden("ProcessMessage",(object)@ViewBag.ProcessMessage) 
+    @using(Html.BeginForm("Index", "ProductGroup", FormMethod.Post, new { style ="display:" + formdisplay}))
+    {
+    <fieldset>
+        <legend>Grup Ekle</legend>
+        <p>
+         <label for="txtname">Grup Adı</label>
+         <input type="text" class="textwidth50 required" id="txtname" name="txtname" />
+            @Html.Hidden("topProductGroupId",Request.QueryString["topProductGroupId"])
+        </p>
+        <p>
+            <label></label>
+           <input type="submit" value="Kaydet" id="btnsave" />
+        </p>
+    </fieldset>
+    }
+
+    <div class="box-header" ><h1>Grup Listesi</h1></div>
+    <table id="tblcategory" class="table no-border tablesorter">
+        <thead>
+            <tr>
+                <th class="center width5">Sırala</th>
+                <th class="width70">Kategori Adı</th>
+                <th class="center witdh15">Durum</th>
+                 <th class="center witdh15">İşlem</th>
+            </tr>
+        </thead>
+         <tbody id="item-list">
+           @{Html.RenderPartial("_menu", Model);}
+        </tbody>
+    </table>
+</section>
+ <br class="cl" />
+<div id="info"></div>
+</div>
+
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/main.js"></script>
+<link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.msgbox.min.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/MessageBox.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/myscripts/generalprocess.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/tablesorter.js"></script>
+<script src="~/Areas/Admin/Content/scripts/plugins/tablesorter/jquery.tablesorter.pager.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrder.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SortOrderByCategory.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
+<script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+
+<script src="~/Areas/Admin/Content/scripts/pagescripts/product/productlist.js"></script>
+
+
+<script>
+    $(function () {
+        //$("#ddl_group option:last").remove();
+
+        var groupid = $("#h_groupid").val();
+        if (groupid!=null)
+            $("#ddl_group").val(groupid);
+
+        if ($("#ddl_group").val() == 0)
+        {
+            $(".sortimg").hide();
+        }
+
+        $("#ddl_group").change(function () {
+            if ($("#ddl_group").val() != 0)
+                window.location = "/yonetim/urunlistesi?groupId=" + $("#ddl_group").val();
+            else window.location = "/yonetim/urunlistesi";
+        });
+
+    });
+</script>
