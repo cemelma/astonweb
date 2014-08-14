@@ -21,6 +21,10 @@ namespace DAL.Entities
         public string Field6 { get; set; }
         public string Field7 { get; set; }
         public string Field8 { get; set; }
+        public string Field9 { get; set; }
+        public string Field10 { get; set; }
+        public string Field11 { get; set; }
+        public string Field12 { get; set; }
 
      
     }

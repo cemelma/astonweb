@@ -16,7 +16,8 @@ using DAL.Context;
 
 namespace web.Areas.Admin.Controllers
 {
-    public class nestedlist {
+    public class nestedlist
+    {
         public int id { get; set; }
         //public nestedlist children { get; set; }
         //public nestedlist(){}
@@ -147,8 +148,8 @@ namespace web.Areas.Admin.Controllers
 
             using (MainContext db = new MainContext())
             {
-                ProductHeaders hed =db.ProductHeaders.FirstOrDefault(x => x.CategoryId == catId);
-                if(hed!=null)
+                ProductHeaders hed = db.ProductHeaders.FirstOrDefault(x => x.CategoryId == catId);
+                if (hed != null)
                 {
                     hed.Header1 = model.Header1;
                     hed.Header2 = model.Header2;
@@ -158,14 +159,18 @@ namespace web.Areas.Admin.Controllers
                     hed.Header6 = model.Header6;
                     hed.Header7 = model.Header7;
                     hed.Header8 = model.Header8;
-                   
+                    hed.Header9 = model.Header9;
+                    hed.Header10 = model.Header10;
+                    hed.Header11 = model.Header11;
+                    hed.Header12 = model.Header12;
+
 
                 }
                 else
                 {
                     model.CategoryId = catId;
                     db.ProductHeaders.Add(model);
-                    
+
                 }
                 db.SaveChanges();
             }

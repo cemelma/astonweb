@@ -22,7 +22,7 @@ namespace web.Areas.Admin.Controllers
     [AuthenticateUser]
     public class ProductController : Controller
     {
-        public ActionResult AddProduct(int id=0)
+        public ActionResult AddProduct(int id = 0)
         {
             if (RouteData.Values["id"] != null)
             {
@@ -33,13 +33,13 @@ namespace web.Areas.Admin.Controllers
             {
                 ViewBag.SaveResult = false;
             }
-            
+
             web.Areas.Admin.Models.VMProductGroupModel grouplist = new Models.VMProductGroupModel();
             grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
             ProductAddModel model = new ProductAddModel();
             model.VMProductGroupModel = grouplist;
 
-           //      ViewBag.Groups = grouplist;
+            //      ViewBag.Groups = grouplist;
             return View(model);
         }
 
@@ -54,7 +54,7 @@ namespace web.Areas.Admin.Controllers
             {
                 ViewBag.SaveResult = true;
                 ViewBag.ProductId = id;
-               
+
                 Product prt = ProductManager.GetProductById(id);
                 ViewBag.CategoryId = prt.ProductGroupId;
                 model.Product = prt;
@@ -163,7 +163,7 @@ namespace web.Areas.Admin.Controllers
                     }
                 }
 
-             
+
                 ViewBag.SaveResult = true;
                 ViewBag.ProcessMessage = true;
             }
@@ -173,7 +173,7 @@ namespace web.Areas.Admin.Controllers
                 ViewBag.ProcessMessage = false;
             }
 
-        
+
 
             return Redirect("/yonetim/urunduzenle/" + model.Product.ProductId);
             //return View();
@@ -202,7 +202,7 @@ namespace web.Areas.Admin.Controllers
                         Helpers.ImageHelper.WaterMarkThumb(item1);
                     }
                 }
-                
+
 
             }
             return View();
@@ -210,7 +210,7 @@ namespace web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2,int hdProductId)
+        public ActionResult EditProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2, int hdProductId)
         {
             try
             {
@@ -345,7 +345,7 @@ namespace web.Areas.Admin.Controllers
         }
 
 
-        public PartialViewResult SaveProductDetail(string prid,string catid, string input1, string input2, string input3, string input4, string input5, string input6, string input7, string input8)
+        public PartialViewResult SaveProductDetail(string prid, string catid, string input1, string input2, string input3, string input4, string input5, string input6, string input7, string input8, string input9, string input10, string input11, string input12)
         {
             using (MainContext db = new MainContext())
             {
@@ -358,6 +358,10 @@ namespace web.Areas.Admin.Controllers
                 if (input6 != "undefined") pinfo.Field6 = input6;
                 if (input7 != "undefined") pinfo.Field7 = input7;
                 if (input8 != "undefined") pinfo.Field8 = input8;
+                if (input9 != "undefined") pinfo.Field9 = input9;
+                if (input10 != "undefined") pinfo.Field10 = input10;
+                if (input11 != "undefined") pinfo.Field11 = input11;
+                if (input12 != "undefined") pinfo.Field12 = input12;
 
                 pinfo.ProductId = Convert.ToInt32(prid);
 
@@ -375,7 +379,7 @@ namespace web.Areas.Admin.Controllers
                 ViewBag.Details = db.ProductDetail.Where(x => x.ProductId == pid).ToList();
                 return PartialView("~/Areas/Admin/Views/Product/_detailproptable.cshtml", model);
             }
-        
+
         }
 
 
@@ -385,12 +389,12 @@ namespace web.Areas.Admin.Controllers
         {
             using (MainContext db = new MainContext())
             {
-                   ViewBag.Details = db.ProductDetail.Where(x => x.ProductId == id).ToList();
-                   return PartialView("~/Areas/Admin/Views/Product/_detailtable1.cshtml", ViewBag.Details);
-             }
+                ViewBag.Details = db.ProductDetail.Where(x => x.ProductId == id).ToList();
+                return PartialView("~/Areas/Admin/Views/Product/_detailtable1.cshtml", ViewBag.Details);
+            }
         }
 
-        public ActionResult GetDetailPage(int id,int cid)
+        public ActionResult GetDetailPage(int id, int cid)
         {
             using (MainContext db = new MainContext())
             {
@@ -400,23 +404,23 @@ namespace web.Areas.Admin.Controllers
                 ViewBag.PrId = id;
                 ViewBag.CatId = cid;
                 ViewBag.Details = db.ProductDetail.Where(x => x.ProductId == id).ToList();
-                return PartialView("~/Areas/Admin/Views/Product/_detailproptable.cshtml",model);
+                return PartialView("~/Areas/Admin/Views/Product/_detailproptable.cshtml", model);
             }
         }
 
-      
+
         public ActionResult Index(int? groupId)
         {
             using (MainContext db = new MainContext())
             {
                 VMProductGroupModel vm = new VMProductGroupModel();
                 vm.ProductGroup = ProductManager.GetProductGroupList("tr");
-                if (groupId==null)
-                    vm.Products = db.Product.Where(x => x.Deleted==false).ToList();
-                else vm.Products = db.Product.Where(x => x.Deleted == false && x.TopProductGroupId == groupId).OrderBy(d=>d.SortNumber).ToList();
+                if (groupId == null)
+                    vm.Products = db.Product.Where(x => x.Deleted == false).ToList();
+                else vm.Products = db.Product.Where(x => x.Deleted == false && x.TopProductGroupId == groupId).OrderBy(d => d.SortNumber).ToList();
                 return View(vm);
             }
-          
+
         }
 
         public void SaveCategory(int id, int prdId)
@@ -599,7 +603,7 @@ namespace web.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult GetColors(int id,int cid)
+        public ActionResult GetColors(int id, int cid)
         {
             using (MainContext db = new MainContext())
             {
@@ -609,7 +613,7 @@ namespace web.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult SaveColor(int id, string ad,string code)
+        public ActionResult SaveColor(int id, string ad, string code)
         {
             using (MainContext db = new MainContext())
             {
@@ -617,7 +621,7 @@ namespace web.Areas.Admin.Controllers
                 pinfo.Adi = ad;
                 pinfo.RenkKodu = code;
                 pinfo.ProductId = id;
-                
+
 
                 //pinfo.ProductId = Convert.ToInt32(prid);
 
