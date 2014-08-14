@@ -61,7 +61,8 @@
 
             @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contactform" }))
             {
-            <h2 class="pageTitle">İLETİŞİM</h2>
+                
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>İLETİŞİM</h2>
             <div class="col-md-6 noPadding">
                 <h3>İletişim Formu</h3>
                 <div class="col-md-6">
@@ -101,21 +102,21 @@
                 <div class="col-md-12 noPadding">
                     <ul class="noPadding">
                         <li>
-                            <span class="red col-xs-4 noPadding">[ Telefon ]
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.phone
               <span class="colon">:</span></span>@contact.Phone
 
                         </li>
                         <li>
-                            <span class="red col-xs-4 noPadding">[ Faks ]
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.fax
               <span class="colon">:</span></span>@contact.Fax
 
                         </li>
                         <li>
 
-                            <span class="red col-xs-4 noPadding">[ E-Posta ] 
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.email 
               <span class="colon">:</span></span><a href="mailto:info@zeynelyayla.com">@contact.Email</a></li>
                         <li>
-                            <span class="red col-xs-4 noPadding">[ Adres ]
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.address
               <span class="colon">:</span></span><span>@contact.Address</span></li>
 
                     </ul>
