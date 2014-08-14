@@ -21,5 +21,9 @@ namespace DAL.Entities
         public string Header6 { get; set; }
         public string Header7 { get; set; }
         public string Header8 { get; set; }
+        public string Header9 { get; set; }
+        public string Header10 { get; set; }
+        public string Header11 { get; set; }
+        public string Header12 { get; set; }
     }
 }

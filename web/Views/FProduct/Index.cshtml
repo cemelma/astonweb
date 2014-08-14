@@ -121,10 +121,24 @@
 
                 @if (!string.IsNullOrEmpty(@Model.headers.Header8))
                 {
-              
                     <td>@Model.headers.Header8</td>
-                      
-             
+                }
+
+              @if (!string.IsNullOrEmpty(@Model.headers.Header9))
+                {
+                    <td>@Model.headers.Header9</td>
+                }
+              @if (!string.IsNullOrEmpty(@Model.headers.Header10))
+                {
+                    <td>@Model.headers.Header10</td>
+                }
+              @if (!string.IsNullOrEmpty(@Model.headers.Header11))
+                {
+                    <td>@Model.headers.Header11</td>
+                }
+              @if (!string.IsNullOrEmpty(@Model.headers.Header12))
+                {
+                    <td>@Model.headers.Header12</td>
                 }
               
             </tr>
@@ -199,7 +213,27 @@
 <td>@item.Field8</td>
                         //}
                     }
-                   
+
+                   @if (!string.IsNullOrEmpty(Model.headers.Header9))
+                    {
+                        <td>@item.Field9</td>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.headers.Header10))
+                    {
+                        <td>@item.Field10</td>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.headers.Header10))
+                    {
+                        <td>@item.Field10</td>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.headers.Header11))
+                    {
+                        <td>@item.Field11</td>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.headers.Header12))
+                    {
+                        <td>@item.Field12</td>
+                    }
                 </tr>
                 }
             }
@@ -288,8 +322,8 @@
 <script type="text/javascript">
     $(function () {
         $(".fancybox").fancybox({
-            openEffect	: 'none',
-            closeEffect	: 'none'
+            openEffect: 'none',
+            closeEffect: 'none'
         });
 
         $('.fiyatBilgi a').click(function (e) {

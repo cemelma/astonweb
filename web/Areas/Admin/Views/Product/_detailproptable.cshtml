@@ -67,6 +67,38 @@
     </p>
     }
     
+    if (!string.IsNullOrEmpty(@Model.header.Header9))
+    {
+    <p>
+        <label>@Model.header.Header9</label>
+        <input type="text" id="inputtext9" />
+    </p>
+    }
+    
+    if (!string.IsNullOrEmpty(@Model.header.Header10))
+    {
+    <p>
+        <label>@Model.header.Header10</label>
+        <input type="text" id="inputtext10" />
+    </p>
+    }
+    
+    if (!string.IsNullOrEmpty(@Model.header.Header11))
+    {
+    <p>
+        <label>@Model.header.Header11</label>
+        <input type="text" id="inputtext11" />
+    </p>
+    }
+    
+    if (!string.IsNullOrEmpty(@Model.header.Header12))
+    {
+    <p>
+        <label>@Model.header.Header12</label>
+        <input type="text" id="inputtext12" />
+    </p>
+    }
+    
     <p>
         <input type="button" value="Temizle" id="btnclear" />
         <input type="button" value="Kaydet" id="btnsaveProp" />
@@ -134,10 +166,24 @@
 
                 @if (!string.IsNullOrEmpty(@Model.header.Header8))
                 {
-              
                     <th>@Model.header.Header8</th>
-                      
-             
+                }
+
+                @if (!string.IsNullOrEmpty(@Model.header.Header9))
+                {
+                    <th>@Model.header.Header9</th>
+                }
+                @if (!string.IsNullOrEmpty(@Model.header.Header10))
+                {
+                    <th>@Model.header.Header10</th>
+                }
+                @if (!string.IsNullOrEmpty(@Model.header.Header11))
+                {
+                    <th>@Model.header.Header11</th>
+                }
+                @if (!string.IsNullOrEmpty(@Model.header.Header12))
+                {
+                    <th>@Model.header.Header12</th>
                 }
                 <th>İşlem</th>
             </tr>
@@ -209,9 +255,26 @@
                     {
                         //if (@item.Field8 != null)
                         //{
-<td>@item.Field8</td>
+                        <td>@item.Field8</td>
                         //}
                     }
+
+                   @if (!string.IsNullOrEmpty(Model.header.Header9))
+                   {
+                       <td>@item.Field9</td>
+                   }
+                   @if (!string.IsNullOrEmpty(Model.header.Header10))
+                   {
+                       <td>@item.Field10</td>
+                   }
+                   @if (!string.IsNullOrEmpty(Model.header.Header11))
+                   {
+                       <td>@item.Field11</td>
+                   }
+                   @if (!string.IsNullOrEmpty(Model.header.Header12))
+                   {
+                       <td>@item.Field12</td>
+                   }
                     <td>
                         <img id="DeleteImage_@item.ProductInformationId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Product/DeleteDetail',@item.ProductInformationId)">
                     </td>
@@ -234,6 +297,10 @@
         $("#inputtext6").val("");
         $("#inputtext7").val("");
         $("#inputtext8").val("");
+        $("#inputtext9").val("");
+        $("#inputtext10").val("");
+        $("#inputtext11").val("");
+        $("#inputtext12").val("");
         $("#inputtext1").focus();
 
     });
@@ -248,12 +315,17 @@
         var input6 = $("#inputtext6").val();
         var input7 = $("#inputtext7").val();
         var input8 = $("#inputtext8").val();
-//        alert(input1 + ";" + input2 + ";" + input3 + ";" + input4 + ";" + input5 + ";" + input6 + ";" + input7 + ";" + input8);
+        var input9 = $("#inputtext9").val();
+        var input10 = $("#inputtext10").val();
+        var input11 = $("#inputtext11").val();
+        var input12 = $("#inputtext12").val();
+
+        //        alert(input1 + ";" + input2 + ";" + input3 + ";" + input4 + ";" + input5 + ";" + input6 + ";" + input7 + ";" + input8);
 
         $.ajax({
             type: 'POST',
             url: '/Product/SaveProductDetail',
-            data: '{prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '"}',
+            data: '{prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '",input9:"' + input9 + '",input10:"' + input10 + '",input11:"' + input11 + '",input12:"' + input12 + '"}',
             contentType: "application/json; charset=utf-8",
             dataType: 'html',
             success: function (result) {
