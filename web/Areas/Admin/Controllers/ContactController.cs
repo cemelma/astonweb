@@ -25,7 +25,7 @@ namespace web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Index(Contact record)
         {
-             //ViewBag.ProcessMessage = ContactManager.EditContact(record);
+             ViewBag.ProcessMessage = ContactManager.EditContact(record);
             return View();
         }
 

@@ -15,11 +15,35 @@
 </script>
 <style>
     /* -- Notification -- */
-.notification.error {background:#fccac3 url('/Content/images/Front/error.png') no-repeat 10px 50%;border-color:#ea5338;}
-.notification {border-width:1px;border-style:solid;padding:17px 17px 17px 55px;margin-bottom:15px;-moz-border-radius:3px;-webkit-border:3px;border-radius:3px;}
-.notification.success {background:#effeb9 url('/Content/images/Front/success.png') no-repeat 10px 50%;border-color:#98c700;background-size: 38px;}
-.notification.info { background:#d4e7f5 url('/Content/images/Front/information.png') no-repeat 10px 14px;border-color:#589ad7;}
-.notification.info span.strong {color:#152433;}
+    .notification.error {
+        background: #fccac3 url('/Content/images/Front/error.png') no-repeat 10px 50%;
+        border-color: #ea5338;
+    }
+
+    .notification {
+        border-width: 1px;
+        border-style: solid;
+        padding: 17px 17px 17px 55px;
+        margin-bottom: 15px;
+        -moz-border-radius: 3px;
+        -webkit-border: 3px;
+        border-radius: 3px;
+    }
+
+        .notification.success {
+            background: #effeb9 url('/Content/images/Front/success.png') no-repeat 10px 50%;
+            border-color: #98c700;
+            background-size: 38px;
+        }
+
+        .notification.info {
+            background: #d4e7f5 url('/Content/images/Front/information.png') no-repeat 10px 14px;
+            border-color: #589ad7;
+        }
+
+            .notification.info span.strong {
+                color: #152433;
+            }
 </style>
 
 @section breadcrumb{
@@ -31,100 +55,143 @@
     </div>
 }
 <div id="container" class="container">
+    <p>@Html.ValidationMessage("_FORM")</p>
+    @if (TempData["captchaError"] != null)
+    {
+        <div class="notification error">@TempData["captchaError"].ToString()</div>
+    }
+    @if (TempData["required"] != null)
+    {
+        if (TempData["required"].ToString().Equals("true"))
+        {
+        <div class="notification error">Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz</div>
+        }
+    }
+    @if (TempData["sent"] != null)
+    {
+        if (TempData["sent"].ToString().Equals("true"))
+        {
+        <div class="notification success">Mesajınız başarıyla iletilmiştir.</div>
+        }
+        else if (TempData["sent"].ToString().Equals("false"))
+        {
+        <div class="notification error">Mesajınız şuan iletilmemektedir. Lütfen hatayı bize bildiriniz.</div>
+        }
+    }
 
-            <p>@Html.ValidationMessage("_FORM")</p>
-            @if (TempData["captchaError"] != null)
-            {
-                <div class="notification error">@TempData["captchaError"].ToString()</div>
-            }
-            @if (TempData["required"] != null)
-            {
-                if (TempData["required"].ToString().Equals("true"))
-                {
-                    <div class="notification error">Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz</div>
-                }
-            }
-            @if (TempData["sent"] != null)
-            {
-                if (TempData["sent"].ToString().Equals("true"))
-                {
-                        <div class="notification success">Mesajınız başarıyla iletilmiştir.</div>
-                }
-                else if (TempData["sent"].ToString().Equals("false"))
-                {
-                        <div class="notification error">Mesajınız şuan iletilmemektedir. Lütfen hatayı bize bildiriniz.</div>
-                }
-            }
-    
     <div class="col-md-12 shadow section noPadding noMarginTop">
         <div class="col-md-12 sectionContent page contactPage">
 
             @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contactform" }))
             {
                 
-            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>İLETİŞİM</h2>
-            <div class="col-md-6 noPadding">
-                <h3>İletişim Formu</h3>
-                <div class="col-md-6">
-                    <input type="text" placeholder="Ad Soyad" id="namesurname" name="namesurname" class="text-input"/>
+                <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>İLETİŞİM</h2>
+                <div class="col-md-6 noPadding">
+                    <h3>İletişim Formu</h3>
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Ad Soyad" id="namesurname" name="namesurname" class="text-input" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Telefon" id="phone" name="phone" class="text-input" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" placeholder="E-Posta" id="email" name="email" class="validate[required,custom[email]] text-input" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Şehir" id="city" name="city" class="text-input" />
+                    </div>
+                    <div class="col-md-12">
+                        @*<input type="text" placeholder="Mesaj Konusu" id="subject" name="subject" class="validate[required] text-input" />*@
+                        <select id="department">
+                            <option value="-1">Departman Seçiniz</option>
+                            <option value="1">Muhasebe</option>
+                            <option value="2">Satış</option>
+                            <option value="3">Pazarlama</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <textarea placeholder="Mesaj İçeriği" id="body" name="body" class="validate[required] text-input"></textarea>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="@Url.Action("Index")">
+                            <img alt="Captcha" src="@Url.Action("CaptchaImage")" style="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" placeholder="Güvenlik Kodu" id="captcha" name="captcha" class="validate[required] text-input" />
+                    </div>
+                    <div class="col-md-12" style="margin-top: 15px;">
+                        <input type="submit" class="btn btn-warning" value="GÖNDER" />
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <input type="text" placeholder="Telefon" id="phone" name="phone" class="text-input"/>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" placeholder="E-Posta" id="email" name="email" class="validate[required,custom[email]] text-input"/>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" placeholder="Şehir" id="city" name="city" class="text-input"/>
-                </div>
-                <div class="col-md-12">
-                    <input type="text" placeholder="Mesaj Konusu" id="subject" name="subject" class="validate[required] text-input"/>
-                </div>
-                <div class="col-md-12">
-                    <textarea placeholder="Mesaj İçeriği" id="body" name="body" class="validate[required] text-input"></textarea>
-                </div>
-                <div class="col-md-3">
-                    <a href="@Url.Action("Index")">
-                        <img alt="Captcha" src="@Url.Action("CaptchaImage")" style="" />
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <input type="text" placeholder="Güvenlik Kodu" id="captcha" name="captcha" class="validate[required] text-input"/>
-                </div>
-                <div class="col-md-12" style="margin-top:15px;">
-                    <input type="submit" class="btn btn-warning" value="GÖNDER" />
-                </div>
-            </div>
             }
 
             <div class="col-md-5 col-md-offset-1 noPadding">
                 <h3>İletişim Bilgileri</h3>
                 <div class="col-md-12 noPadding">
+                    <h4>Merkez</h4>
                     <ul class="noPadding">
                         <li>
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.address
+                                <span class="colon">:</span></span><span>@contact.Address</span></li>
+                        <li>
                             <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.phone
-              <span class="colon">:</span></span>@contact.Phone
+                                <span class="colon">:</span></span>@contact.Phone
 
                         </li>
                         <li>
                             <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.fax
-              <span class="colon">:</span></span>@contact.Fax
+                                <span class="colon">:</span></span>@contact.Fax
 
                         </li>
                         <li>
 
-                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.email 
-              <span class="colon">:</span></span><a href="mailto:info@zeynelyayla.com">@contact.Email</a></li>
-                        <li>
-                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.address
-              <span class="colon">:</span></span><span>@contact.Address</span></li>
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.email
+                                <span class="colon">:</span></span><a href="mailto:info@zeynelyayla.com">@contact.Email</a></li>
+
 
                     </ul>
+                    <h4 style="margin-top: 30px;">Ofis</h4>
+                    <ul class="noPadding">
+                        <li>
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.address
+                                <span class="colon">:</span></span><span>@contact.Address2</span></li>
+                        <li>
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.phone
+                                <span class="colon">:</span></span>@contact.Phone2
 
+                        </li>
+                        <li>
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.fax
+                                <span class="colon">:</span></span>@contact.Fax2
+
+                        </li>
+                        <li>
+
+                            <span class="red col-xs-4 noPadding">@SharedRess.SharedStrings.email
+                                <span class="colon">:</span></span><a href="mailto:info@zeynelyayla.com">@contact.Email2</a></li>
+
+
+                    </ul>
                 </div>
 
-                
 
+
+            </div>
+
+            <div class="col-md-12 noPadding">
+                <h3><i class="fa fa-arrow-circle-right"></i>Haritadaki Konum</h3>
+                <div class="col-md-12 noPadding">
+                    <div class="col-md-6 ">
+                        <h4>Merkez</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48146.399379125134!2d29.035010463361186!3d41.0438495766741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVsLCBUw7xya2l5ZQ!5e0!3m2!1str!2s!4v1405109412109" width="100%" height="300" frameborder="0" style="border: 0"></iframe>
+                    </div>
+                    <div class="col-md-6 ">
+                        <h4>Ofis</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48146.399379125134!2d29.035010463361186!3d41.0438495766741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVsLCBUw7xya2l5ZQ!5e0!3m2!1str!2s!4v1405109412109" width="100%" height="300" frameborder="0" style="border: 0"></iframe>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

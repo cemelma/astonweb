@@ -21,16 +21,16 @@ namespace DAL.Entities
         [Required(ErrorMessage = "Email Bilgisini Giriniz")]
         public string Email { get; set; }
 
-        //[Display(Name = "Adres")]
-        //[Required(ErrorMessage = "Adres Bilgisini Giriniz")]
-        //public string Address2 { get; set; }
-        //[Display(Name = "Telefon")]
-        //public string Phone2 { get; set; }
-        //[Display(Name = "Faks")]
-        //public string Fax2 { get; set; }
-        //[Display(Name = "Email")]
-        //[Required(ErrorMessage = "Email Bilgisini Giriniz")]
-        //public string Email2 { get; set; }
+        [Display(Name = "Adres")]
+        [Required(ErrorMessage = "Adres Bilgisini Giriniz")]
+        public string Address2 { get; set; }
+        [Display(Name = "Telefon")]
+        public string Phone2 { get; set; }
+        [Display(Name = "Faks")]
+        public string Fax2 { get; set; }
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Email Bilgisini Giriniz")]
+        public string Email2 { get; set; }
     }
 
     public class ContactHome

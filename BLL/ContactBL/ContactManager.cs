@@ -37,6 +37,12 @@ namespace BLL.ContactBL
                         contact.Phone = record.Phone;
                         contact.Fax = record.Fax;
                         contact.Email = record.Email;
+
+                        contact.Address2 = record.Address2;
+                        contact.Phone2 = record.Phone2;
+                        contact.Fax2 = record.Fax2;
+                        contact.Email2 = record.Email2;
+
                         db.Contact.Add(contact);
                     }
                     else
@@ -45,6 +51,11 @@ namespace BLL.ContactBL
                         contact.Phone = record.Phone;
                         contact.Fax = record.Fax;
                         contact.Email = record.Email;
+
+                        contact.Address2 = record.Address2;
+                        contact.Phone2 = record.Phone2;
+                        contact.Fax2 = record.Fax2;
+                        contact.Email2 = record.Email2;
                     }
 
                     db.SaveChanges();
