@@ -59,7 +59,7 @@
           <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
        
           <tr>
-            <td colspan="8" class="urunAd">@Model.product.Name</td>
+            <td colspan="12" class="urunAd">@Model.product.Name</td>
           </tr>
               @if(Model.headers!=null)
               {
@@ -124,7 +124,7 @@
                     <td>@Model.headers.Header8</td>
                 }
 
-              @if (!string.IsNullOrEmpty(@Model.headers.Header9))
+               @if (!string.IsNullOrEmpty(@Model.headers.Header9))
                 {
                     <td>@Model.headers.Header9</td>
                 }
@@ -214,13 +214,9 @@
                         //}
                     }
 
-                   @if (!string.IsNullOrEmpty(Model.headers.Header9))
+                    @if (!string.IsNullOrEmpty(Model.headers.Header9))
                     {
                         <td>@item.Field9</td>
-                    }
-                    @if (!string.IsNullOrEmpty(Model.headers.Header10))
-                    {
-                        <td>@item.Field10</td>
                     }
                     @if (!string.IsNullOrEmpty(Model.headers.Header10))
                     {
