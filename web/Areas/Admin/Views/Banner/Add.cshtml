@@ -27,12 +27,12 @@
             @Html.ValidationSummary(true)
             <fieldset>
                 <legend>Banner Ekle</legend>
-              @*  <p>
+                <p>
                     @Html.LabelFor(m => m.Language)
-                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList, "Dil Seçiniz...")
+                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
                     @Html.ValidationMessageFor(m => m.Language)
 
-                </p>*@
+                </p>
                <p>
                     @Html.LabelFor(m => m.Title)
                     @Html.TextBoxFor(m => m.Title, new { @class = "textwidth50" })

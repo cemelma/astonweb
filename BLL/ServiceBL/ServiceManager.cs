@@ -12,11 +12,11 @@ namespace BLL.ServiceBL
 {
     public class ServiceManager
     {
-        public static List<Service> GetServiceList(int id)
+        public static List<Service> GetServiceList(int id,string lang)
         {
             using (MainContext db = new MainContext())
             {
-                var list = db.Service.Where(d => d.ServiceGroupId == id).OrderBy(d => d.SortOrder).ToList();
+                var list = db.Service.Where(d => d.ServiceGroupId == id && d.Language == lang).OrderBy(d => d.SortOrder).ToList();
                 return list;
             }
         }

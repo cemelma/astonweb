@@ -29,7 +29,11 @@
             @Html.ValidationSummary(true)
             <fieldset>
                 <legend>Haber Düzenle</legend>
-            
+            <p>
+                    @Html.LabelFor(m => m.Language)
+                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+                    @Html.ValidationMessageFor(m => m.Language)
+                </p>
                 <p>
                     @Html.LabelFor(m => m.Header)
                     @Html.TextBoxFor(m => m.Header, new { @class = "textwidth50", Rows = "5" })

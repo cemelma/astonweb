@@ -14,6 +14,7 @@ namespace BLL.InstituionalBL
         {
             using (MainContext db = new MainContext())
             {
+                if (string.IsNullOrEmpty(language)) language = "tr";
                 Institutional instional_info = db.Institutional.SingleOrDefault(d => d.TypeId == typeid && d.Language == language);
                 return instional_info;
             }

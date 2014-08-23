@@ -18,14 +18,17 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var contact = ContactManager.GetContact();
+            string lang = FillLanguagesList();
+            var contact = ContactManager.GetContact(lang);
             return View(contact);
         }
 
         [HttpPost]
         public ActionResult Index(Contact record)
         {
-             ViewBag.ProcessMessage = ContactManager.EditContact(record);
+            string lang = FillLanguagesList();
+            record.Language = lang;
+            ViewBag.ProcessMessage = ContactManager.EditContact(record);
             return View();
         }
 

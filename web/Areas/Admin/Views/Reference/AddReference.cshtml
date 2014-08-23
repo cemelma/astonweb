@@ -25,7 +25,12 @@
         @Html.ValidationSummary(true)
         <fieldset>
         <legend>Firma/Marka Ekle</legend>
-        
+        <p>
+                    @Html.LabelFor(m => m.Language)
+                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+                    @Html.ValidationMessageFor(m => m.Language)
+
+                </p>
         <p>
             <label>Firma/Marka Adı</label>
             @Html.TextBoxFor(m=>m.ReferenceName, new { @class="textwidth50"})

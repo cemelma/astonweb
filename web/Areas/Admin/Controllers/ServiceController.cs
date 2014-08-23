@@ -26,8 +26,13 @@ namespace web.Areas.Admin.Controllers
         {
             string id = FillLanguagesList();
             int groupid = Convert.ToInt32(id);
+            string lang;
+            if (RouteData.Values["lang"] == null)
+                lang = "tr";
+            else lang = RouteData.Values["lang"].ToString();
 
-            var list = ServiceManager.GetServiceList(groupid);
+
+            var list = ServiceManager.GetServiceList(groupid,lang);
             return View(list);
         }
 
@@ -54,13 +59,15 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult AddService()
         {
-        
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
             return View();
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddService(Service newmodel, HttpPostedFileBase uploadfile, HttpPostedFileBase uploadimage,IEnumerable<HttpPostedFileBase> attachments)
+        public ActionResult AddService(Service newmodel, HttpPostedFileBase uploadfile, HttpPostedFileBase uploadimage,IEnumerable<HttpPostedFileBase> attachments, string language)
         {
             FillLanguagesList();
 
@@ -133,7 +140,7 @@ namespace web.Areas.Admin.Controllers
                         p.Thumbnail = "/Content/images/userfiles/servicethumb/" + thumbnail + ".jpeg";
                         p.Online = true;
                         p.SortOrder = 9999;
-                        p.Language = "tr";
+                        p.Language = language;
                         p.TimeCreated = DateTime.Now;
                         p.Title = newmodel.Name;
                         PhotoManager.Save(p);

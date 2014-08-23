@@ -84,18 +84,20 @@ namespace BLL.PhotoBL
                 {
                     Photo p = db.Photo.First(d => d.PhotoId == id);
                     db.Photo.Remove(p);
-                    string filePath = HttpContext.Current.Server.MapPath(p.Path);
-                    if (System.IO.File.Exists(filePath))
+                    if (p.Path != "/Content/images/front/noimage.jpeg")
                     {
-                        System.IO.File.Delete(filePath);
-                    }
+                        string filePath = HttpContext.Current.Server.MapPath(p.Path);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
 
-                    string filePatht = HttpContext.Current.Server.MapPath(p.Thumbnail);
-                    if (System.IO.File.Exists(filePatht))
-                    {
-                        System.IO.File.Delete(filePatht);
+                        string filePatht = HttpContext.Current.Server.MapPath(p.Thumbnail);
+                        if (System.IO.File.Exists(filePatht))
+                        {
+                            System.IO.File.Delete(filePatht);
+                        }
                     }
-
                     db.SaveChanges();
 
                     return true;
@@ -107,7 +109,7 @@ namespace BLL.PhotoBL
             }
         }
 
-        public static bool Edit(int id, string Title, string path,string link)
+        public static bool Edit(int id, string Title, string path,string link,string lang)
         {
             using (MainContext db = new MainContext())
             {
@@ -116,6 +118,7 @@ namespace BLL.PhotoBL
                     Photo p = db.Photo.First(d => d.PhotoId == id);
                     p.Title = Title;
                     p.Link = link;
+                    p.Language = lang;
                     if (path != null)
                     {
                         p.Path = path;

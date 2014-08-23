@@ -33,7 +33,7 @@ namespace web.Areas.Admin.Filters
                 var photoid = filterContext.Controller.ValueProvider.GetValue("photoid").AttemptedValue.Split(',');
                 for (int i = 0; i < tags.Count(); i++)
                 {
-                    PhotoManager.Edit(Convert.ToInt32(photoid[i]), tags[i], null, "");
+                    PhotoManager.Edit(Convert.ToInt32(photoid[i]), tags[i], null, "","");
                 }
             
             }

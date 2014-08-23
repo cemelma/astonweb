@@ -49,7 +49,7 @@ namespace web.Controllers
             List<ProductGroup> pgList = ProductManager.GetProductGroupList("tr");
             ViewData["pgList"] = pgList;
 
-            Contact cont=ContactManager.GetContact();
+            Contact cont=ContactManager.GetContact("tr");
             ViewBag.Services = ServiceManager.GetServiceListForFront("tr").Take(3);
             return PartialView("Partial/_footeraddress",cont);
         }

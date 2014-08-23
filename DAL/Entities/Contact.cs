@@ -31,6 +31,10 @@ namespace DAL.Entities
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Email Bilgisini Giriniz")]
         public string Email2 { get; set; }
+
+        [Display(Name = "Dil Seçimi")]
+        [Required(ErrorMessage = "Dili giriniz")]
+        public string Language { get; set; }
     }
 
     public class ContactHome
@@ -53,6 +57,8 @@ namespace DAL.Entities
         public DateTime TimeCreated { get; set; }
 
         public bool Deleted { get; set; }
+
+        public string Language { get; set; }
 
     }
 }

@@ -22,23 +22,23 @@ namespace web.Areas.Admin.Controllers
               
         public ActionResult Index()
         {
-           
-            var news = NewsManager.GetNewsList("tr");
+            string lang = FillLanguagesList();
+            var news = NewsManager.GetNewsList(lang);
             return View(news);
         }
 
         public ActionResult AddNews()
         {
-            //var languages = LanguageManager.GetLanguages();
-            //var list = new SelectList(languages, "Culture", "Language");
-            //ViewBag.LanguageList = list;
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
             ImageHelperNew.DestroyImageCashAndSession(600, 338);
             return View();
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddNews(IEnumerable<HttpPostedFileBase> attachments, News newsmodel, HttpPostedFileBase uploadfile, string txtdate)
+        public ActionResult AddNews(IEnumerable<HttpPostedFileBase> attachments, News newsmodel, HttpPostedFileBase uploadfile, string txtdate, string Language)
         {
            
             if (ModelState.IsValid)
@@ -56,7 +56,7 @@ namespace web.Areas.Admin.Controllers
                     newsmodel.NewsImage = "/Content/images/front/noimage.jpeg";
                 }
 
-                newsmodel.Language = "tr";
+                newsmodel.Language = Language;
                 newsmodel.TypeId = 0;
                 newsmodel.PageSlug = Utility.SetPagePlug(newsmodel.Header);
                 newsmodel.TimeCreated = Utility.ControlDateTime(txtdate);
@@ -84,6 +84,9 @@ namespace web.Areas.Admin.Controllers
                 //}
                 ModelState.Clear();
                // Response.Redirect("/yonetim/haberduzenle/" + newsmodel.NewsId);
+                var languages = LanguageManager.GetLanguages();
+                var list = new SelectList(languages, "Culture", "Language");
+                ViewBag.LanguageList = list;
                 return View();
             }
             else          
@@ -117,6 +120,9 @@ namespace web.Areas.Admin.Controllers
                 {
                     ImageHelperNew.DestroyImageCashAndSession(600, 338);
                     News editnews = NewsManager.GetNewsById(nid);
+                    var languages = LanguageManager.GetLanguages();
+                    var list = new SelectList(languages, "Culture", "Language");
+                    ViewBag.LanguageList = list;
                     return View(editnews);
                 }
                 else
@@ -143,7 +149,7 @@ namespace web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [SaveImageAltTags]
-        public ActionResult EditNews( News newsmodel, HttpPostedFileBase uploadfile,string txtdate)
+        public ActionResult EditNews(News newsmodel, HttpPostedFileBase uploadfile, string txtdate, string Language)
         {
     
             if (ModelState.IsValid)
@@ -160,7 +166,7 @@ namespace web.Areas.Admin.Controllers
               
                 newsmodel.PageSlug = Utility.SetPagePlug(newsmodel.Header);
                 newsmodel.TimeCreated = Utility.ControlDateTime(txtdate);
-                newsmodel.Language = "tr";
+                newsmodel.Language = Language;
                 if (RouteData.Values["id"] != null)
                 {
                     int nid = 0;
@@ -190,10 +196,16 @@ namespace web.Areas.Admin.Controllers
                         //        PhotoManager.Save(p);
                         //    }
                         //}
+                        var languages = LanguageManager.GetLanguages();
+                        var list = new SelectList(languages, "Culture", "Language");
+                        ViewBag.LanguageList = list;
                         return View(newsmodel);
                     }
                     else
                     {
+                        var languages = LanguageManager.GetLanguages();
+                        var list = new SelectList(languages, "Culture", "Language");
+                        ViewBag.LanguageList = list;
                         ViewBag.ProcessMessage = false;
                         return View(newsmodel);
                     }

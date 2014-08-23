@@ -26,7 +26,12 @@
         @Html.ValidationSummary(true)
         <fieldset>
         <legend>Hizmet Düzenle</legend>
-       
+       <p>
+                    @Html.LabelFor(m => m.Language)
+                    @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+                    @Html.ValidationMessageFor(m => m.Language)
+
+                </p>
          <p>
             @Html.LabelFor(m=>m.Name)
             @Html.TextBoxFor(m=>m.Name, new { @class="textwidth50"})

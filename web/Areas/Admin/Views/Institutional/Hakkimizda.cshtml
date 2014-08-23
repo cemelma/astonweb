@@ -14,16 +14,26 @@
     <div id="page-header">
        <h2>KURUMSAL</h2>
     </div>  
+    
   <section class="grid_12 form">
-  
+@*   <p>
+                @Html.Label("Dil Seçimi")
+                @Html.DropDownListFor(m=>m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+                @Html.ValidationMessageFor(m=>m.Language)
+            </p>*@
+
   @Html.Hidden("ProcessMessage", (object)@ViewBag.ProcessMessage)
-    @using (Html.BeginForm("Hakkimizda", "Institutional", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       @using(Html.BeginForm())
     {
          @Html.Hidden("hdfieldcategory")
          @Html.Hidden("hdfieldtaglist")
         @Html.ValidationSummary(true)
         <fieldset>
         <legend>Hakkımızda</legend>
+            <p>
+            @Html.Label("Dil Seçimi")
+            @Html.DropDownList("ddllanguage", (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+        </p>
         <p>
             @Html.TextAreaFor(m => m.Content, new { id = "txtcontent", @class = "required" })
             @Html.ValidationMessageFor(m => m.Content)

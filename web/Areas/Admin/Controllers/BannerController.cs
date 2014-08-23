@@ -16,33 +16,30 @@ namespace web.Areas.Admin.Controllers
     [AuthenticateUser]
     public class BannerController : Controller
     {
-        //
-        // GET: /Admin/Photo/
-
         public ActionResult Index()
         {
-            //string lang=FillLanguagesList();
-
-            var photos = PhotoManager.GetList("tr", 0);
+            string lang = FillLanguagesList();
+            var photos = PhotoManager.GetList(lang, 0);
             return View(photos);
         }
 
         public ActionResult Add()
         {
             ImageHelperNew.DestroyImageCashAndSession(1120,350);
-           // var languages = LanguageManager.GetLanguages();
-           // var list = new SelectList(languages, "Culture", "Language");
-        //    ViewBag.LanguageList = list;
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
            
             return View();
         }
 
         [HttpPost]
-        public ActionResult Add(Photo newmodel, HttpPostedFileBase uploadfile)
+        public ActionResult Add(Photo newmodel, HttpPostedFileBase uploadfile, string language)
         {
-           // var languages = LanguageManager.GetLanguages();
-           // var list = new SelectList(languages, "Culture", "Language");
-          //  ViewBag.LanguageList = list;
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
+
             if (ModelState.IsValid)
             {
                 if (Session["ModifiedImageId"] != null)
@@ -54,7 +51,7 @@ namespace web.Areas.Admin.Controllers
                 {
                     newmodel.Path = "/Content/images/front/noimage.jpeg";
                 }
-                newmodel.Language = "tr";
+                newmodel.Language = language;
                 newmodel.Online = true;
                 newmodel.SortOrder = 9999;
                 newmodel.TimeCreated = DateTime.Now;
@@ -70,9 +67,9 @@ namespace web.Areas.Admin.Controllers
         public ActionResult Edit()
         {
             ImageHelperNew.DestroyImageCashAndSession(1120, 350);
-            //var languages = LanguageManager.GetLanguages();
-            //var list = new SelectList(languages, "Culture", "Language");
-     //       ViewBag.LanguageList = list;
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
             if (RouteData.Values["id"] != null)
             {
                 int nid = 0;
@@ -90,11 +87,11 @@ namespace web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Photo Photomodel, HttpPostedFileBase uploadfile)
+        public ActionResult Edit(Photo Photomodel, HttpPostedFileBase uploadfile, string language)
         {
-            //var languages = LanguageManager.GetLanguages();
-            //var list = new SelectList(languages, "Culture", "Language");
-            //ViewBag.LanguageList = list;
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
 
             if (ModelState.IsValid)
             {
@@ -131,7 +128,7 @@ namespace web.Areas.Admin.Controllers
                     if (isnumber)
                     {
                         Photomodel.PhotoId = nid;
-                        ViewBag.ProcessMessage = PhotoManager.Edit(nid, Photomodel.Title, Photomodel.Path,Photomodel.Link);
+                        ViewBag.ProcessMessage = PhotoManager.Edit(nid, Photomodel.Title, Photomodel.Path,Photomodel.Link,language);
                         return View(Photomodel);
                     }
                     else

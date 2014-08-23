@@ -22,13 +22,16 @@
             @Html.Hidden("hdfieldcategory")
             @Html.Hidden("hdfieldtaglist")
             @Html.ValidationSummary(true)
+            <p>
+                @Html.Label("Dil Seçimi")
+                @Html.DropDownListFor(m=>m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
+                @Html.ValidationMessageFor(m=>m.Language)
+            </p>
             <fieldset>
                 <legend>İletişim Bilgileri</legend>
-                @*<p>
-            @Html.Label("Dil Seçimi")
-            @Html.DropDownListFor(m=>m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
-            @Html.ValidationMessageFor(m=>m.Language)
-        </p>*@
+                <p>
+            
+        </p>
                 <h3>Merkez</h3>
                 <p>
                     @Html.LabelFor(m => m.Address)

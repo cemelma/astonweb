@@ -14,11 +14,12 @@ namespace BLL.ContactBL
     public class ContactManager
     {
         static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public static Contact GetContact()
+        public static Contact GetContact(string lang)
         {
             using (MainContext db = new MainContext())
             {
-                var list = db.Contact.SingleOrDefault();
+                if (string.IsNullOrEmpty(lang)) lang = "tr";
+                var list = db.Contact.SingleOrDefault(d=>d.Language == lang);
                 return list;
             }
         }
@@ -29,7 +30,7 @@ namespace BLL.ContactBL
             {
                 try
                 {
-                    Contact contact = db.Contact.SingleOrDefault();
+                    Contact contact = db.Contact.SingleOrDefault(d=>d.Language == record.Language);
                     if (contact == null)
                     {
                         contact = new Contact();

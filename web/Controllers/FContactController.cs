@@ -75,7 +75,7 @@ namespace web.Controllers
         }
         public ActionResult Index()
         {
-            ViewData["contact"] = ContactManager.GetContact();
+            ViewData["contact"] = ContactManager.GetContact("tr");
             //SubscribeModel obj = new SubscribeModel();
             //ContactWrapperModel m = new ContactWrapperModel(contact, obj);
             return View();
@@ -148,7 +148,7 @@ namespace web.Controllers
                 TempData["sent"] = "false";
             }
 
-            ViewData["contact"] = ContactManager.GetContact();
+            ViewData["contact"] = ContactManager.GetContact("tr");
             return View();
         }
     }

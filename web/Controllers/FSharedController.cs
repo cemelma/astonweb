@@ -37,7 +37,7 @@ namespace web.Controllers
 
         public PartialViewResult footer()
         {
-            var contact = ContactManager.GetContact();
+            var contact = ContactManager.GetContact("tr");
             return PartialView("_footer", contact);
         }
 

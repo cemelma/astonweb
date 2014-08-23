@@ -23,21 +23,27 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-          
 
-            var referncelist = ReferenceManager.GetReferenceList("tr");
+            string lang = FillLanguagesList();
+            var referncelist = ReferenceManager.GetReferenceList(lang);
             return View(referncelist);
         }
 
         public ActionResult AddReference()
         {
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
             ImageHelperNew.DestroyImageCashAndSession(169, 62);
              return View();
         }
 
         [HttpPost]
-        public ActionResult AddReference(References newmodel, HttpPostedFileBase uploadfile, IEnumerable<HttpPostedFileBase> attachments)
+        public ActionResult AddReference(References newmodel, HttpPostedFileBase uploadfile, IEnumerable<HttpPostedFileBase> attachments, string language)
         {
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
             if (ModelState.IsValid)
             {
                 if (Session["ModifiedImageId"] != null)
@@ -61,7 +67,7 @@ namespace web.Areas.Admin.Controllers
                 //    newmodel.Logo = "/Content/images/front/noimage.jpeg";
                 //}
 
-                newmodel.Language = "tr";
+                newmodel.Language = language;
                 newmodel.SortOrder = 9999;
                 newmodel.TimeCreated = DateTime.Now;
                 ViewBag.ProcessMessage = ReferenceManager.AddReference(newmodel);
@@ -106,7 +112,7 @@ namespace web.Areas.Admin.Controllers
                         p.Thumbnail = "/Content/images/userfiles/" + thumbnail;
                         p.Online = true;
                         p.SortOrder = 9999;
-                        p.Language = "tr";
+                        p.Language = language;
                         p.TimeCreated = DateTime.Now;
                         p.Title = newmodel.ReferenceName;
                         PhotoManager.Save(p);
@@ -128,6 +134,9 @@ namespace web.Areas.Admin.Controllers
          
             if (RouteData.Values["id"] != null)
             {
+                var languages = LanguageManager.GetLanguages();
+                var list = new SelectList(languages, "Culture", "Language");
+                ViewBag.LanguageList = list;
                 int nid = 0;
                 bool isnumber = int.TryParse(RouteData.Values["id"].ToString(), out nid);
                 if (isnumber)
@@ -147,8 +156,12 @@ namespace web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditReference(References referencemodel, HttpPostedFileBase uploadfile,IEnumerable<HttpPostedFileBase> attachments)
+        public ActionResult EditReference(References referencemodel, HttpPostedFileBase uploadfile, IEnumerable<HttpPostedFileBase> attachments, string language)
         {
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
+
              int ID = Convert.ToInt32(RouteData.Values["id"]);
             if (ModelState.IsValid)
             {
@@ -205,7 +218,7 @@ namespace web.Areas.Admin.Controllers
                         p.Thumbnail = "/Content/images/userfiles/" + thumbnail;
                         p.Online = true;
                         p.SortOrder = 9999;
-                        p.Language = "tr";
+                        p.Language = language;
                         p.TimeCreated = DateTime.Now;
                         p.Title = "Haberler";
                         PhotoManager.Save(p);
@@ -221,7 +234,7 @@ namespace web.Areas.Admin.Controllers
                     bool isnumber = int.TryParse(RouteData.Values["id"].ToString(), out nid);
                     if (isnumber)
                     {
-                        referencemodel.Language = "tr";
+                        referencemodel.Language = language;
                         referencemodel.ReferenceId = nid;
                         ViewBag.ProcessMessage = ReferenceManager.EditReference(referencemodel);
                         var photos = PhotoManager.GetList(4,ID);

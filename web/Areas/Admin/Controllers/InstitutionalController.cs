@@ -97,7 +97,8 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult Hakkimizda()
         {
-            var vision_info = InstituionalManager.GetInstationalByLanguage("tr", Convert.ToInt32(EnumInstituionalTypes.Hakkimizda));
+            string lang = FillLanguagesList();
+            var vision_info = InstituionalManager.GetInstationalByLanguage(lang, Convert.ToInt32(EnumInstituionalTypes.Hakkimizda));
             return View(vision_info);
         }
 
@@ -105,9 +106,10 @@ namespace web.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Hakkimizda(Institutional record, HttpPostedFileBase fileUpload)
         {
-          
+            string lang = FillLanguagesList();
+            record.Language = lang;
             record.TypeId = Convert.ToInt32(EnumInstituionalTypes.Hakkimizda);
-            record.Language = "tr";
+            
             //if (fileUpload != null)
             //{
             //    Random random = new Random();
@@ -118,6 +120,7 @@ namespace web.Areas.Admin.Controllers
 
             //}
             ViewBag.ProcessMessage = InstituionalManager.EditInstituional(record);
+            
             return View();
         }
 
