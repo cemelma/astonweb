@@ -38,6 +38,10 @@
         <legend>Grup Ekle</legend>
         <p>
          <label for="txtname">Grup Adı</label>
+        @Html.DropDownList("Language",null, new {style="width: 80px;"})
+            </p>
+        <p>
+         <label for="txtname">Grup Adı</label>
          <input type="text" class="textwidth50 required" id="txtname" name="txtname" />
             @Html.Hidden("topProductGroupId",Request.QueryString["topProductGroupId"])
         </p>
@@ -48,7 +52,8 @@
     </fieldset>
     }
     <div class="box-header" style="width:668px;" >
-        <h1>Grup Listesi</h1>
+        <h1>Grup Listesi&nbsp;&nbsp;|&nbsp;&nbsp;
+             @Html.DropDownList("LanguageList",null, new {style="width: 80px;"})</h1>
         <menu id="nestable-menu">
             <a href="/yonetim/urungruplari?topProductGroupId=1">Yeni Grup</a>
             <button type="button" data-action="expand-all">Grupları Aç</button>
@@ -78,6 +83,12 @@
 
 <script>
     $(document).ready(function () {
+
+        $("#LanguageList").change(function () {
+            var lang = $("#LanguageList option:selected").val();
+            window.location.href = "/yonetim/urungruplari/" + lang;
+        });
+
         $("#btnsortsave").click(function () {
             var list = "";
             $(".dd-list").find("li").each(function (index) {

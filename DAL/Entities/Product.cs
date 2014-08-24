@@ -31,6 +31,8 @@ namespace DAL.Entities
         public string PageSlug { get; set; }
         public ProductGroup ProductGroup { get; set; }
         public bool IsShownMain { get; set; }
+        [Required(ErrorMessage = "Dili Seçiniz.")]
+        public string Language { get; set; }
         //public List<ProductDetail> ProductDetail { get; set; }
         //public List<ProductInformation> ProductInformation { get; set; }
     }

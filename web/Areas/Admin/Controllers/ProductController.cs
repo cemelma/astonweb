@@ -22,8 +22,12 @@ namespace web.Areas.Admin.Controllers
     [AuthenticateUser]
     public class ProductController : Controller
     {
-        public ActionResult AddProduct(int id = 0)
+        public ActionResult AddProduct(int id = 0, string lang="tr")
         {
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language", lang);
+            ViewBag.LanguageList = list;
+
             if (RouteData.Values["id"] != null)
             {
                 ViewBag.SaveResult = true;
@@ -35,38 +39,10 @@ namespace web.Areas.Admin.Controllers
             }
 
             web.Areas.Admin.Models.VMProductGroupModel grouplist = new Models.VMProductGroupModel();
-            grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
+            grouplist.ProductGroup = ProductManager.GetProductGroupList(lang);
             ProductAddModel model = new ProductAddModel();
             model.VMProductGroupModel = grouplist;
 
-            //      ViewBag.Groups = grouplist;
-            return View(model);
-        }
-
-        public ActionResult EditProduct(int id = 0)
-        {
-            web.Areas.Admin.Models.VMProductGroupModel grouplist = new Models.VMProductGroupModel();
-            grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
-            ProductAddModel model = new ProductAddModel();
-            model.VMProductGroupModel = grouplist;
-
-            if (RouteData.Values["id"] != null)
-            {
-                ViewBag.SaveResult = true;
-                ViewBag.ProductId = id;
-
-                Product prt = ProductManager.GetProductById(id);
-                ViewBag.CategoryId = prt.ProductGroupId;
-                model.Product = prt;
-            }
-            else
-            {
-                ViewBag.SaveResult = false;
-            }
-
-            var photos = PhotoManager.GetList(11, id);
-            ViewBag.Photos = photos;
-            model.VMProductGroupModel = grouplist;
             //      ViewBag.Groups = grouplist;
             return View(model);
         }
@@ -75,6 +51,10 @@ namespace web.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult AddProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2, string ddl_group)
         {
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language", model.Product.Language);
+            ViewBag.LanguageList = list;
+
             try
             {
                 model.Product.PageSlug = Utility.SetPagePlug(model.Product.Name);
@@ -156,7 +136,7 @@ namespace web.Areas.Admin.Controllers
                         p.Thumbnail = "/Content/images/userfiles/productthumb/" + thumbnail + ".jpeg";
                         p.Online = true;
                         p.SortOrder = 9999;
-                        p.Language = "tr";
+                        p.Language = model.Product.Language;
                         p.TimeCreated = DateTime.Now;
                         p.Title = model.Product.Name;
                         PhotoManager.Save(p);
@@ -179,6 +159,35 @@ namespace web.Areas.Admin.Controllers
             //return View();
         }
 
+
+        public ActionResult EditProduct(int id = 0)
+        {
+            web.Areas.Admin.Models.VMProductGroupModel grouplist = new Models.VMProductGroupModel();
+            grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
+            ProductAddModel model = new ProductAddModel();
+            model.VMProductGroupModel = grouplist;
+
+            if (RouteData.Values["id"] != null)
+            {
+                ViewBag.SaveResult = true;
+                ViewBag.ProductId = id;
+
+                Product prt = ProductManager.GetProductById(id);
+                ViewBag.CategoryId = prt.ProductGroupId;
+                model.Product = prt;
+            }
+            else
+            {
+                ViewBag.SaveResult = false;
+            }
+
+            var photos = PhotoManager.GetList(11, id);
+            ViewBag.Photos = photos;
+            model.VMProductGroupModel = grouplist;
+            //      ViewBag.Groups = grouplist;
+            return View(model);
+        }
+        
         public ActionResult EditImg()
         {
 
@@ -409,14 +418,18 @@ namespace web.Areas.Admin.Controllers
         }
 
 
-        public ActionResult Index(int? groupId)
+        public ActionResult Index(int? groupId,string lang)
         {
             using (MainContext db = new MainContext())
             {
+                var languages = LanguageManager.GetLanguages();
+                var list = new SelectList(languages, "Culture", "Language", lang);
+                ViewBag.LanguageList = list;
+
                 VMProductGroupModel vm = new VMProductGroupModel();
-                vm.ProductGroup = ProductManager.GetProductGroupList("tr");
+                vm.ProductGroup = ProductManager.GetProductGroupList(lang);
                 if (groupId == null)
-                    vm.Products = db.Product.Where(x => x.Deleted == false).ToList();
+                    vm.Products = db.Product.Where(x => x.Deleted == false && x.Language == lang).ToList();
                 else vm.Products = db.Product.Where(x => x.Deleted == false && x.TopProductGroupId == groupId).OrderBy(d => d.SortNumber).ToList();
                 return View(vm);
             }
@@ -654,5 +667,19 @@ namespace web.Areas.Admin.Controllers
                 }
             }
         }
+
+        string FillLanguagesList()
+        {
+            string lang = "";
+            if (RouteData.Values["lang"] == null)
+                lang = "tr";
+            else lang = RouteData.Values["lang"].ToString();
+
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language", lang);
+            ViewBag.LanguageList = list;
+            return lang;
+        }
+
     }
 }

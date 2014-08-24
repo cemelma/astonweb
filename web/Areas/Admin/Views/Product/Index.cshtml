@@ -7,7 +7,12 @@
     {
         groupid = Request.QueryString["groupId"].ToString();
     }
-    
+
+    string lang = "";
+    if (Request.QueryString["lang"] != null)
+    {
+        lang = Request.QueryString["lang"].ToString();
+    }
 }
 
 
@@ -18,13 +23,14 @@
 @Html.Partial("product_leftbar")
 
 <input type="hidden" id="h_groupid" value="@groupid" />
+<input type="hidden" id="h_lang" value="@lang" />
 
 <div id="page-content" class="container_12">
     <div id="page-header">
        <h2>ÜRÜN BİLGİLERİ</h2>
     </div>  
     <section class="grid_12 form">
-    <div class="box-header" ><h1>Ürün Listesi | Kategori Seçiniz:
+    <div class="box-header" ><h1>Ürün Listesi | Dil: @Html.DropDownList("LanguageList") | Kategori Seçiniz:
         <select id="ddl_group">
             <option value="0">Tümü</option>
             @Html.Partial("_ProductGroupDropDown",Model)
@@ -119,9 +125,22 @@
         }
 
         $("#ddl_group").change(function () {
-            if ($("#ddl_group").val() != 0)
-                window.location = "/yonetim/urunlistesi?groupId=" + $("#ddl_group").val();
-            else window.location = "/yonetim/urunlistesi";
+            if ($("#ddl_group").val() != 0) {
+                if ($("#h_lang").val() != null) {
+                    window.location = "/yonetim/urunlistesi?lang=" + $("#h_lang").val() + "&groupId=" + $("#ddl_group").val();
+                }
+                else
+                    window.location = "/yonetim/urunlistesi?lang=tr" + "&groupId=" + $("#ddl_group").val();
+            }
+            else
+                if ($("#h_lang").val() != null)
+                    window.location = "/yonetim/urunlistesi?lang=" + $("#h_lang").val();
+                else window.location = "/yonetim/urunlistesi";
+        
+        });
+
+        $("#LanguageList").change(function () {
+                window.location = "/yonetim/urunlistesi?lang=" + $("#LanguageList").val();
         });
 
     });

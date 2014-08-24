@@ -31,19 +31,26 @@ namespace web.Areas.Admin.Controllers
             string lang = FillLanguagesList();
             web.Areas.Admin.Models.VMProductGroupModel grouplist = new Models.VMProductGroupModel();
             grouplist.ProductGroup = ProductManager.GetProductGroupList(lang);
+
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language", lang);
+            ViewBag.Language = list;
             return View(grouplist);
         }
 
-
         [HttpPost]
-        public ActionResult Index(string txtname, int topProductGroupId)
+        public ActionResult Index(string txtname, int topProductGroupId,string language)
         {
             string lang = FillLanguagesList();
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language", lang);
+            ViewBag.Language = list;
+
             if (ModelState.IsValid)
             {
                 ProductGroup model = new ProductGroup();
                 model.GroupName = txtname;
-                model.Language = "tr";
+                model.Language = language;
                 model.PageSlug = Utility.SetPagePlug(txtname);
                 model.TopProductId = topProductGroupId;
                 ViewBag.ProcessMessage = ProductManager.AddProductGroup(model);

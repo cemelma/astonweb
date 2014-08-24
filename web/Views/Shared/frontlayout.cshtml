@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/Content/Styles/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/Content/Styles/style.css">
 <link rel="stylesheet" type="text/css" href="/Content/Styles/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/Content/Styles/jquery.bxslider.css" />
 <link rel="shortcut icon" href="/favicon.ico">
 <!--[if lt IE 9]>
 	<script src="~/Content/Scripts/html5shiv.js"></script>
@@ -21,6 +22,40 @@
         })
     });
 </script>
+    <script src="/Content/Scripts/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.slider').bxSlider({
+            auto: true,
+            controls: true
+        });
+        $('.newsSlider').bxSlider({
+            auto: true,
+            slideWidth: 295,
+            minSlides: 3,
+            maxSlides: 3,
+            slideMargin: 15,
+            pause: 8000,
+            speed: 1500,
+            controls: false
+        });
+        $('.referenceSlider').bxSlider({
+            auto: true,
+            slideWidth: 295,
+            minSlides: 5,
+            maxSlides: 5,
+            slideMargin: 15,
+            pause: 8000,
+            speed: 1500,
+            controls: false
+        });
+        $('.tab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    });
+</script>
 </head>
 
 <body>
