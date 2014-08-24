@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="breadcrumbmaintext" xml:space="preserve">
-    <value>Anasayfa</value>
+    <value>الصفحة الرئيسية</value>
   </data>
   <data name="breadcrumbmainurl" xml:space="preserve">
-    <value>/tr/anasayfa</value>
+    <value>/ar/homepage</value>
   </data>
   <data name="breadcrumbtext" xml:space="preserve">
-    <value>Kurumsal</value>
+    <value>المؤسسية</value>
   </data>
   <data name="breadcrumburl" xml:space="preserve">
-    <value>/tr/kurumsal</value>
+    <value>/ar/institutional</value>
   </data>
   <data name="header" xml:space="preserve">
-    <value>KURUMSAL</value>
+    <value>المؤسسية</value>
   </data>
 </root>
