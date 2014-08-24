@@ -5,9 +5,14 @@ using DAL.Context;
 using DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using web.Models;
 
 namespace web.Controllers
@@ -44,6 +49,74 @@ namespace web.Controllers
 
 
           
+        }
+
+        public ActionResult ExportData(int id)
+        {
+            using (MainContext db = new MainContext())
+            {
+                GridView gv = new GridView();
+                var ss = db.ProductInformation.Where(d=>d.ProductId == id).ToList();
+                int catid = db.Product.FirstOrDefault(d=>d.ProductId == id).ProductGroupId;
+
+                var headers = db.ProductHeaders.FirstOrDefault(d => d.CategoryId == catid);
+
+                DataTable dtDetails = new DataTable();
+                int colcount = 0;
+
+                if (headers.Header1 != null) { dtDetails.Columns.Add(headers.Header1, typeof(string)); colcount = 1; } 
+                if (headers.Header2 != null) {dtDetails.Columns.Add(headers.Header2, typeof(string)); colcount = 2; }
+                if (headers.Header3 != null) {dtDetails.Columns.Add(headers.Header3, typeof(string)); colcount = 3; }
+                if (headers.Header4 != null) {dtDetails.Columns.Add(headers.Header4, typeof(string)); colcount = 4; }
+                if (headers.Header5 != null) {dtDetails.Columns.Add(headers.Header5, typeof(string)); colcount = 5; }
+                if (headers.Header6 != null) {dtDetails.Columns.Add(headers.Header6, typeof(string)); colcount = 6; }
+                if (headers.Header7 != null) {dtDetails.Columns.Add(headers.Header7, typeof(string)); colcount = 7; }
+                if (headers.Header8 != null) {dtDetails.Columns.Add(headers.Header8, typeof(string)); colcount = 8; }
+                if (headers.Header9 != null) {dtDetails.Columns.Add(headers.Header9, typeof(string)); colcount = 9; }
+                if (headers.Header10 != null) { dtDetails.Columns.Add(headers.Header10, typeof(string)); colcount = 10; }
+                if (headers.Header11 != null) {dtDetails.Columns.Add(headers.Header11, typeof(string)); colcount = 11; }
+                if (headers.Header12 != null) {dtDetails.Columns.Add(headers.Header12, typeof(string)); colcount = 12; }
+
+                int bobo = 0;
+
+                foreach (var item in ss)
+                {
+                    DataRow dr = null;
+                    dr = dtDetails.NewRow();
+
+                    for (int i = 0; i < colcount; i++)
+                    {
+                        dr[i] = item.GetType().GetProperty("Field" + (i + 1)).GetValue(item, null);
+                    }
+                    bobo++;
+
+                    dtDetails.Rows.Add(dr);
+                    //dtDetails.Rows.Add(item.Field1, item.Field2, item.Field3, item.Field4, item.Field5, item.Field6, item.Field7, item.Field8, item.Field9, item.Field10, item.Field11, item.Field11);
+                }
+
+                gv.DataSource = dtDetails;
+                gv.DataBind();
+                
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.Charset = Encoding.UTF8.EncodingName;
+                Response.ContentEncoding = System.Text.Encoding.UTF8;
+                Response.BinaryWrite(System.Text.Encoding.UTF8.GetPreamble());
+
+                Response.AddHeader("content-disposition", "attachment; filename=UrunListesi.xls");
+                Response.ContentType = "application/ms-excel";
+                
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter htw = new HtmlTextWriter(sw);
+                gv.RenderControl(htw);
+
+
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+
+                return RedirectToAction("Prices");
+            }
         }
 
         public ActionResult Prices()

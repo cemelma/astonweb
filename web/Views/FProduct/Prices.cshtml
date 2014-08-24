@@ -20,13 +20,13 @@
             <h2 class="pageTitle">FİYAT LİSTESİ</h2>
             @if (ViewBag.userloginemail == "")
             { 
-                <a href="/giris" class="print">
-                    <img src="/content/images/print.png" border="0"></a>
+                @*<a href="/giris" class="print">
+                    <img src="/content/images/print.png" border="0"></a>*@
             }
             else
             {
-                <a href="javascript:void(0);" class="print" onclick="PrintElem('.pageContent')">
-                    <img src="/content/images/print.png" border="0"></a>
+                @*<a href="javascript:void(0);" class="print" onclick="PrintElem('.pageContent')">
+                    <img src="/content/images/print.png" border="0"></a>*@
     
                 <script type="text/javascript">
 
@@ -63,7 +63,7 @@
                     
                     <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
                         <tr>
-                            <td colspan="12" class="urunAd">@item.ProductName - <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a></td>
+                            <td colspan="12" class="urunAd">@item.ProductName <a href="/FProduct/ExportData/@item.ProductId" class="fiyatIndir">Fiyat Listesini İndir</a> @*- <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a>*@</td>
                         </tr>
                         @if (item.headers != null)
                         {
