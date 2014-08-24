@@ -26,15 +26,18 @@ namespace web.Controllers
 
     public class FHomeController : Controller
     {
+
+        string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
+
         public ActionResult Index()
         {
             HomePageWrapperModel model = new HomePageWrapperModel();
-            model.photos = PhotoManager.GetListForFront("tr",0);
-            model.news = NewsManager.GetNewsListForFront("tr");
+            model.photos = PhotoManager.GetListForFront(lang,0);
+            model.news = NewsManager.GetNewsListForFront(lang);
             model.servicegroups = ServiceManager.GetServiceList();
-            model.references = ReferenceManager.GetReferenceListForFront("tr");
+            model.references = ReferenceManager.GetReferenceListForFront(lang);
 
-            model.prodgroups = ProductManager.GetProductGroupList("tr").Where(x=>x.TopProductId==1).Take(6);
+            model.prodgroups = ProductManager.GetProductGroupList(lang).Where(x=>x.TopProductId==1).Take(6);
             int[] pgoupids = model.prodgroups.Select(d => d.ProductGroupId).ToArray();
             model.Products = ProductManager.GetProductTopListFrontMainPage(pgoupids).ToList();
             model.servicesphotos = PhotoManager.GetListForFrontServices((int)web.Areas.Admin.Helpers.PhotoType.Service);
@@ -46,11 +49,11 @@ namespace web.Controllers
         public PartialViewResult GetAddress()
         {
             web.Areas.Admin.Models.VMProductGroupModel grouplist = new web.Areas.Admin.Models.VMProductGroupModel();
-            List<ProductGroup> pgList = ProductManager.GetProductGroupList("tr");
+            List<ProductGroup> pgList = ProductManager.GetProductGroupList(lang);
             ViewData["pgList"] = pgList;
 
-            Contact cont=ContactManager.GetContact("tr");
-            ViewBag.Services = ServiceManager.GetServiceListForFront("tr").Take(3);
+            Contact cont=ContactManager.GetContact(lang);
+            ViewBag.Services = ServiceManager.GetServiceListForFront(lang).Take(3);
             return PartialView("Partial/_footeraddress",cont);
         }
 
@@ -58,7 +61,7 @@ namespace web.Controllers
         public PartialViewResult GetTopMenu()
         {
             VMProductGroupModel grouplist = new VMProductGroupModel();
-            grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
+            grouplist.ProductGroup = ProductManager.GetProductGroupList(lang);
 
             int[] ids = grouplist.ProductGroup.Select(x => x.ProductGroupId).ToArray();
             grouplist.Products = ProductManager.GetProductList(ids);
@@ -66,7 +69,7 @@ namespace web.Controllers
 
           
 
-            ViewBag.Services = ServiceManager.GetServiceListForFront("tr");
+            ViewBag.Services = ServiceManager.GetServiceListForFront(lang);
             return PartialView("Partial/_topmenu", grouplist);
         }
 
@@ -74,7 +77,7 @@ namespace web.Controllers
 
         public JsonResult GetImages()
         {
-            var photos = PhotoManager.GetListForFront("tr", 0);
+            var photos = PhotoManager.GetListForFront(lang, 0);
             
             var slider = new List<slider>();    
 
@@ -97,9 +100,10 @@ namespace web.Controllers
         public ActionResult ChangeCulture(string lang,string returnUrl)
         {
             Session["culture"] = lang;
-            if(lang=="en")
-                return Redirect("/en/homepage");
-            return Redirect("/tr/anasayfa");
+            if(lang=="en") return Redirect("/en/homepage");
+            else if (lang == "ar")  return Redirect("/ar/home");
+            else return Redirect("/tr/anasayfa");
+
         }
 
     }

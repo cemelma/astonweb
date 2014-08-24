@@ -12,11 +12,10 @@ namespace web.Controllers
 {
     public class FInstitutionalController : Controller
     {
- 
+        string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
         public ActionResult Index()
         {
-            Institutional model = InstituionalManager.GetInstationalByLanguage("tr",0);
-           
+            Institutional model = InstituionalManager.GetInstationalByLanguage(lang, 0);
             return View(model);
         }
 

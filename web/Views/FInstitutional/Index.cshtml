@@ -6,8 +6,8 @@
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
-            <li>Kurumsal</li>
+            <li><a href="@InstitutionalRess.InstitutionalStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
+            <li>@InstitutionalRess.InstitutionalStrings.breadcrumbtext</li>
         </ul>
     </div>
 }
@@ -22,7 +22,7 @@
         <div class="col-md-12 sectionContent page">
             <h2 class="pageTitle">
                 <i class="fa fa-angle-double-right"></i>
-                KURUMSAL
+                @InstitutionalRess.InstitutionalStrings.header
             </h2>
             @Html.Raw(Model.Content)
         </div>

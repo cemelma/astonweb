@@ -73,9 +73,9 @@
           @{ Html.RenderAction("_search", "FSearch"); }
 
             <ul class="nav nav-pills topMenu">
-              <li class="first"><a href="index.html">TR</a></li>
-              <li><a href="#">EN</a></li>
-              <li class="last"><a href="#">العربية</a></li>
+              <li class="first">@Html.ActionLink("TR", "ChangeCulture", "FHome", new { lang = "tr", returnUrl = this.Request.RawUrl }, null)</li>
+              <li>@Html.ActionLink("EN", "ChangeCulture", "FHome", new { lang = "en", returnUrl = this.Request.RawUrl }, null)</li>
+              <li class="last"><a href="/FHome/ChangeCulture?lang=ar">العربية</a></li>
             </ul>
 
       </div>

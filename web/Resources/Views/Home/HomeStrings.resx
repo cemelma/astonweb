@@ -117,37 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="allnews" xml:space="preserve">
-    <value>Tüm Haberler</value>
+  <data name="bolum_haberler_baslik" xml:space="preserve">
+    <value>HABERLER</value>
   </data>
-  <data name="documentBoxContent" xml:space="preserve">
-    <value>Uluslararası alanlarda kongre, sempozyum ve dergilerde yayınlanmış olan tüm bildiri ve makalelere konu başlıkları dahilinde buradan ulaşabilirsiniz.</value>
+  <data name="bolum_haberler_tum" xml:space="preserve">
+    <value>TÜM HABERLER</value>
   </data>
-  <data name="documents" xml:space="preserve">
-    <value>DÖKÜMANLAR</value>
+  <data name="bolum_haberler_tum_link" xml:space="preserve">
+    <value>/tr/haberler</value>
   </data>
-  <data name="linkBoxContent" xml:space="preserve">
-    <value>Ulusal ve uluslararası alandaki çözüm ortaklarımıza, mesleki alandaki eğitim vakıfları, dernekler ve odalara buradan ulaşabilirsiniz.</value>
+  <data name="bolum_hizmetler_baslik" xml:space="preserve">
+    <value>HİZMETLER</value>
   </data>
-  <data name="links" xml:space="preserve">
-    <value>BAĞLANTILAR</value>
-  </data>
-  <data name="ourproductsimage" xml:space="preserve">
-    <value>/Content/Images/Front/urunlerimiz.png</value>
-  </data>
-  <data name="ourprojects" xml:space="preserve">
-    <value>PROJELERİMİZ</value>
-  </data>
-  <data name="projectBoxContent" xml:space="preserve">
-    <value>Son olarak gerçekleştirdiğimiz projelerimizden birisi olan Soğutma eğitim setlerinde gerçek zamanlı log p-h diyagramı ve veri toplama sistemini gerçekleştirdik. Diğer tüm projelerimizi buradan takip edebilirsiniz.</value>
-  </data>
-  <data name="references" xml:space="preserve">
+  <data name="bolum_referanslar_baslik" xml:space="preserve">
     <value>REFERANSLAR</value>
   </data>
-  <data name="takeofferimage" xml:space="preserve">
-    <value>/Content/Images/Front/teklif-banner-tr.png</value>
+  <data name="bolum_referanslar_tum" xml:space="preserve">
+    <value>TÜM REFERANSLAR</value>
   </data>
-  <data name="workwithusimage" xml:space="preserve">
-    <value>/Content/Images/Front/bizimle-calismak-istermisiniz2.png</value>
+  <data name="bolum_referanslar_tum_link" xml:space="preserve">
+    <value>/tr/referanslar</value>
+  </data>
+  <data name="bolum_urunler_baslik" xml:space="preserve">
+    <value>ÜRÜNLER</value>
   </data>
 </root>

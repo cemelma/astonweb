@@ -2,14 +2,14 @@
  
 <div class="col-md-12 col-md-pull-0 menu noPadding">
     <ul class="nav nav-pills">
-        <li><a href="/kurumsal">Kurumsal</a></li>
-        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ürünler/Hizmetler</a>
+        <li><a href="@SharedRess.SharedStrings.m_kurumsal_link">@SharedRess.SharedStrings.m_kurumsal</a></li>
+        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="@SharedRess.SharedStrings.m_urunler_link">@SharedRess.SharedStrings.m_urunler</a>
             <ul class="dropdown-menu  multi-level" role="menu" aria-labelledby="dropdownMenu">
                 @{Html.RenderPartial("_submenu", Model);}
             </ul>
         </li>
-        <li><a href="/haberler">Haberler</a></li>
-        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Fiyat Listesi</a>
+        <li><a href="@SharedRess.SharedStrings.m_haberler_link">@SharedRess.SharedStrings.m_haberler</a></li>
+        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="@SharedRess.SharedStrings.m_fiyatlistesi_link">@SharedRess.SharedStrings.m_fiyatlistesi</a>
         <ul class="dropdown-menu">
             @foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
             {
@@ -17,11 +17,11 @@
             }
         </ul>
         </li>
-        <li><a href="makine-ve-arac-parkuru.html">Makine ve Araç Parkuru</a></li>
-        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="@SharedRess.SharedStrings.m_makine_link">@SharedRess.SharedStrings.m_makine</a></li>
+        <li><a href="@SharedRess.SharedStrings.m_galeri_link">@SharedRess.SharedStrings.m_galeri</a></li>
 
-        <li><a href="/referanslar">Referanslar</a></li>
-        <li class="last"><a href="/iletisim">İletişim</a></li>
+        <li><a href="@SharedRess.SharedStrings.m_referans_link">@SharedRess.SharedStrings.m_referans</a></li>
+        <li class="last"><a href="@SharedRess.SharedStrings.m_iletisim_link">@SharedRess.SharedStrings.m_iletisim</a></li>
 
     </ul>
 </div>

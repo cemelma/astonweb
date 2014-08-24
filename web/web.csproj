@@ -321,6 +321,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EstateStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Home\HomeStrings.tr.Designer.cs">
+      <DependentUpon>HomeStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Home\HomeStrings.ar.Designer.cs">
+      <DependentUpon>HomeStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Home\HomeStrings.en.Designer.cs">
+      <DependentUpon>HomeStrings.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Institutional\InstitutionalStrings.tr.Designer.cs">
+      <DependentUpon>InstitutionalStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Institutional\InstitutionalStrings.ar.Designer.cs">
+      <DependentUpon>InstitutionalStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\References\ReferencesStrings.Designer.cs">
       <DependentUpon>ReferencesStrings.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -366,11 +391,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Views\Home\HomeStrings.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HomeStrings.en.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Views\Institutional\InstitutionalStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -410,6 +430,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\SharedStrings.ar.Designer.cs">
+      <DependentUpon>SharedStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\SharedStrings.tr.Designer.cs">
+      <DependentUpon>SharedStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Resources\Views\Shared\NotFoundStrings.en.Designer.cs">
       <DependentUpon>NotFoundStrings.en.resx</DependentUpon>
@@ -3159,6 +3189,34 @@
       <CustomToolNamespace>Estates</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\HomeStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>HomeRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\HomeStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>HomeRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\HomeStrings.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeStrings.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>HomeRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Institutional\InstitutionalStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InstitutionalStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>InstitutionalRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Institutional\InstitutionalStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InstitutionalStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>InstitutionalRess</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\References\ReferencesStrings.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ReferencesStrings.en.Designer.cs</LastGenOutput>
@@ -3199,12 +3257,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DocumentsStrings.Designer.cs</LastGenOutput>
       <CustomToolNamespace>DocumentsRess</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Views\Home\HomeStrings.en.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeStrings.en.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>HomeRess</CustomToolNamespace>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Home\HomeStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -3251,6 +3303,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductStrings.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ProductRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SharedRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SharedRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\NotFoundStrings.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
