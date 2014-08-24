@@ -2,7 +2,26 @@
 @{
     ViewBag.Title = "AddProduct";
     Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+
+    string lang = ViewBag.lang;
 }
+@if(lang=="ar")
+{
+    <style>
+        input {
+            direction:rtl;
+        }
+    </style>
+    
+    <script>
+        $(function () {
+            CKEDITOR.config.contentsLangDirection = 'rtl';
+        });
+    </script>
+  
+}
+
+
 
 <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
 <link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
@@ -28,6 +47,8 @@
             @Html.Hidden("hdCategoryId", (object)@ViewBag.CategoryId)
             @Html.Hidden("hdfieldcategory")
             @Html.Hidden("hdfieldtaglist")
+            @Html.Hidden("Product.Language",@lang)
+            
             @Html.ValidationSummary(true)
          
             <div id="tabs">
@@ -50,7 +71,7 @@
 
                      <p>
                         @Html.Label("Ana sayfada Göster")
-                        @Html.CheckBoxFor(x=>x.Product.IsShownMain)
+                        @Html.CheckBoxFor(x => x.Product.IsShownMain)
                     </p>
 
                     <p style="float: left; margin-right: 4px !important;">
@@ -233,6 +254,9 @@
         });
 
     </script>
+
+
+
 }
 
 

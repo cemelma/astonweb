@@ -175,6 +175,7 @@ namespace web.Areas.Admin.Controllers
                 Product prt = ProductManager.GetProductById(id);
                 ViewBag.CategoryId = prt.ProductGroupId;
                 model.Product = prt;
+                ViewBag.lang = prt.Language;
             }
             else
             {
@@ -253,7 +254,7 @@ namespace web.Areas.Admin.Controllers
                 }
 
                 ProductManager.EditProduct(model.Product);
-
+                ViewBag.lang = model.Product.Language;
                 foreach (var item in attachments)
                 {
                     if (item != null && item.ContentLength > 0)
@@ -413,6 +414,7 @@ namespace web.Areas.Admin.Controllers
                 ViewBag.PrId = id;
                 ViewBag.CatId = cid;
                 ViewBag.Details = db.ProductDetail.Where(x => x.ProductId == id).ToList();
+                ViewBag.lang = db.Product.FirstOrDefault(d => d.ProductId == id).Language;
                 return PartialView("~/Areas/Admin/Views/Product/_detailproptable.cshtml", model);
             }
         }

@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Vizyon";
     Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+    string lang = "tr";
+    if(ViewContext.RouteData.Values["lang"]!=null)
+    {
+        lang = ViewContext.RouteData.Values["lang"].ToString();
+    }
 }
 @*sayfa css leri*@
 <link href="~/Areas/Admin/Content/styles/forms.css" rel="stylesheet" />
@@ -56,5 +61,13 @@
 <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
 
 <script src="~/Areas/Admin/Content/scripts/pagescripts/instituional/about.js"></script>
+     <script>
+         $(function () {
+             var lang = '@lang';
+              if (lang == "ar")
+                  CKEDITOR.config.contentsLangDirection = 'rtl';
+              else CKEDITOR.config.contentsLangDirection = 'ltr';
+          });
+    </script>
 
 }

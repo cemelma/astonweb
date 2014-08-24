@@ -147,5 +147,19 @@
 
     </script>
 
-
+     <script>
+         $(function () {
+             $("#Language").change(function () {
+                 var lang = $("#Language option:selected").val();
+                 if (lang == "ar") {
+                     $('#Name').css('direction', 'rtl');
+                     CKEDITOR.config.contentsLangDirection = 'rtl';
+                 }
+                 else {
+                     $('#Name').css('direction', 'ltr');
+                     CKEDITOR.config.contentsLangDirection = 'ltr';
+                 }
+             });
+         });
+    </script>
 }

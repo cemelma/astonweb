@@ -65,5 +65,17 @@
     <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
     <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
     <script src="~/Areas/Admin/Content/scripts/pagescripts/banner/addbanner.js"></script>
+
+    
+      <script>
+          $(function () {
+              $("#Language").change(function () {
+                  var lang = $("#Language option:selected").val();
+                  if (lang == "ar")
+                      $('#Title').css('direction', 'rtl');
+                  else $('#Title').css('direction', 'ltr');
+              });
+          });
+    </script>
 }
 

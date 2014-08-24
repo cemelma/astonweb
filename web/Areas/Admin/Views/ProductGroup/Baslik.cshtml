@@ -93,4 +93,17 @@
 <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
 <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
 <script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+
+     <script>
+         $(function () {
+             var lang = '@ViewBag.lang';
+                 if (lang == "ar") {
+                     $('input').css('direction', 'rtl');
+                 }
+                 else {
+                     $('input').css('direction', 'ltr');
+                 }
+         });
+    </script>
+
 }

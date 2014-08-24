@@ -131,3 +131,22 @@
         }
         $("#btnResimGuncelle").bind("click", rg_click_handler);
 </script>
+
+  <script>
+      $(function () {
+          $("#Language").change(function () {
+              var lang = $("#Language option:selected").val();
+              if (lang == "ar") {
+                  $('#Spot').css('direction', 'rtl');
+                  $('#Header').css('direction', 'rtl');
+                  CKEDITOR.config.contentsLangDirection = 'rtl';
+                  config.contentsLangDirection = 'rtl';
+              }
+              else {
+                  $('#Spot').css('direction', 'ltr');
+                  $('#Header').css('direction', 'ltr');
+                  CKEDITOR.config.contentsLangDirection = 'ltr';
+              }
+          });
+      });
+    </script>

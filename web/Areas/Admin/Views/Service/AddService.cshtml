@@ -82,5 +82,21 @@
 <script src="~/Areas/Admin/Content/CKEditor/ckeditor/ckeditor.js"></script>
 <script src="~/Areas/Admin/Content/CKEditor/ckfinder/ckfinder.js"></script>
 <script src="~/Areas/Admin/Content/scripts/myscripts/CKEditorCreate.js"></script>
+
+      <script>
+          $(function () {
+              $("#Language").change(function () {
+                  var lang = $("#Language option:selected").val();
+                  if (lang == "ar") {
+                      $('#Name').css('direction', 'rtl');
+                      CKEDITOR.config.contentsLangDirection = 'rtl';
+                  }
+                  else {
+                      $('#Name').css('direction', 'ltr');
+                      CKEDITOR.config.contentsLangDirection = 'ltr';
+                  }
+              });
+          });
+    </script>
 }
 

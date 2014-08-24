@@ -37,7 +37,7 @@
     <fieldset>
         <legend>Grup Ekle</legend>
         <p>
-         <label for="txtname">Grup Adı</label>
+         <label for="txtname">Dil</label>
         @Html.DropDownList("Language",null, new {style="width: 80px;"})
             </p>
         <p>
@@ -117,3 +117,16 @@
         });
     });
 </script>
+ <script>
+     $(function () {
+         $("#Language").change(function () {
+             var lang = $("#Language option:selected").val();
+             if (lang == "ar") {
+                 $('#txtname').css('direction', 'rtl');
+             }
+             else {
+                 $('#txtname').css('direction', 'ltr');
+             }
+         });
+     });
+    </script>

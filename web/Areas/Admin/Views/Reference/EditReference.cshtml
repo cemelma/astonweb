@@ -148,6 +148,23 @@
         });
 
     </script>
+
+          <script>
+              $(function () {
+                  $("#Language").change(function () {
+                      var lang = $("#Language option:selected").val();
+                      if (lang == "ar") {
+                          $('#ReferenceName').css('direction', 'rtl');
+                          $('#Content').css('direction', 'rtl');
+                      }
+                      else {
+                          $('#ReferenceName').css('direction', 'ltr');
+                          $('#Content').css('direction', 'ltr');
+                      }
+                  });
+              });
+    </script>
+
 }
 
 

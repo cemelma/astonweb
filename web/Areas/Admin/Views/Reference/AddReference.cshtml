@@ -26,7 +26,7 @@
         <fieldset>
         <legend>Firma/Marka Ekle</legend>
         <p>
-                    @Html.LabelFor(m => m.Language)
+                    @Html.LabelFor(m => m.Language,"Dil")
                     @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
                     @Html.ValidationMessageFor(m => m.Language)
 
@@ -85,5 +85,22 @@
 <script src="~/Areas/Admin/Content/scripts/plugins/jquery.validate.unobtrusive.js"></script>
 <script src="~/Areas/Admin/Content/scripts/plugins/jquery.ui.datepicker-tr.js"></script>
 <script src="~/Areas/Admin/Content/scripts/pagescripts/reference/addreference.js"></script>
+
+      <script>
+          $(function () {
+              $("#Language").change(function () {
+                  var lang = $("#Language option:selected").val();
+                  if (lang == "ar") {
+                      $('#ReferenceName').css('direction', 'rtl');
+                      $('#Content').css('direction', 'rtl');
+                  }
+                  else {
+                      $('#ReferenceName').css('direction', 'ltr');
+                      $('#Content').css('direction', 'ltr');
+                  }
+              });
+          });
+    </script>
+
 }
 

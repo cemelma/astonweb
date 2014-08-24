@@ -139,6 +139,9 @@ namespace web.Areas.Admin.Controllers
         {
             using (MainContext db = new MainContext())
             {
+                var toplang = db.ProductGroup.FirstOrDefault(d => d.ProductGroupId == id);
+                ViewBag.lang = toplang.Language;
+
                 ProductHeaders hed = db.ProductHeaders.FirstOrDefault(x => x.CategoryId == id);
                 if (hed != null)
                 {

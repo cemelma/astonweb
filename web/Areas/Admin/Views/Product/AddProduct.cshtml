@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "AddProduct";
     Layout = "~/Areas/Admin/Views/Shared/adminlayout.cshtml";
+
+    string lang = (Request.QueryString["lang"] != null ? Request.QueryString["lang"].ToString() : "tr");
+    
 }
 
 <link href="~/Areas/Admin/Content/styles/pluginstyles/jquery.msgbox.css" rel="stylesheet" />
@@ -240,6 +243,21 @@
         });
 
     </script>
+
+    <script>
+        $(function () {
+            var lang = '@lang';
+             if (lang == "ar") {
+                 $('input').css('direction', 'rtl');
+                 CKEDITOR.config.contentsLangDirection = 'rtl';
+             }
+             else {
+                 $('input').css('direction', 'ltr');
+                 CKEDITOR.config.contentsLangDirection = 'ltr';
+             }
+         });
+    </script>
+
 }
 
 
