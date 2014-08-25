@@ -120,11 +120,23 @@
   <data name="accountnumber" xml:space="preserve">
     <value>Account Number</value>
   </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="bank" xml:space="preserve">
     <value>Bank</value>
   </data>
   <data name="bankaccounts" xml:space="preserve">
     <value>Bank Accounts</value>
+  </data>
+  <data name="center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="choosedepartment" xml:space="preserve">
+    <value>Choose Department</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>City</value>
   </data>
   <data name="contact" xml:space="preserve">
     <value>Contact Details</value>
@@ -134,6 +146,9 @@
   </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="fax" xml:space="preserve">
+    <value>Fax</value>
   </data>
   <data name="mapcoordinates" xml:space="preserve">
     <value>Map Coordinates</value>
@@ -147,11 +162,26 @@
   <data name="messagesent" xml:space="preserve">
     <value>Your message has been sent.</value>
   </data>
+  <data name="muhasebe" xml:space="preserve">
+    <value>Accounting</value>
+  </data>
   <data name="namesurname" xml:space="preserve">
     <value>Name Surname</value>
   </data>
+  <data name="office" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="pazarlama" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
   <data name="requiredfiled" xml:space="preserve">
     <value>* symbol demonstrates required fileds.</value>
+  </data>
+  <data name="satis" xml:space="preserve">
+    <value>Sales</value>
   </data>
   <data name="send" xml:space="preserve">
     <value>Send</value>

@@ -8,6 +8,7 @@ using BLL.LogBL;
 using DAL.Context;
 using DAL.Entities;
 using log4net;
+using System.Data.Entity.Validation;
 
 namespace BLL.ContactBL
 {
@@ -31,6 +32,8 @@ namespace BLL.ContactBL
                 try
                 {
                     Contact contact = db.Contact.SingleOrDefault(d=>d.Language == record.Language);
+
+
                     if (contact == null)
                     {
                         contact = new Contact();
@@ -43,7 +46,7 @@ namespace BLL.ContactBL
                         contact.Phone2 = record.Phone2;
                         contact.Fax2 = record.Fax2;
                         contact.Email2 = record.Email2;
-
+                        contact.Language = record.Language;
                         db.Contact.Add(contact);
                     }
                     else
@@ -56,6 +59,7 @@ namespace BLL.ContactBL
                         contact.Address2 = record.Address2;
                         contact.Phone2 = record.Phone2;
                         contact.Fax2 = record.Fax2;
+                        contact.Language = record.Language;
                         contact.Email2 = record.Email2;
                     }
 
@@ -71,6 +75,25 @@ namespace BLL.ContactBL
 
 
                     return true;
+                }
+               
+                catch (DbEntityValidationException ex)
+                {
+                    // Retrieve the error messages as a list of strings.
+                    var errorMessages = ex.EntityValidationErrors
+                            .SelectMany(x => x.ValidationErrors)
+                            .Select(x => x.ErrorMessage);
+
+                    // Join the list to a single string.
+                    var fullErrorMessage = string.Join("; ", errorMessages);
+
+                    // Combine the original exception message with the new one.
+                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                    // Throw a new DbEntityValidationException with the improved exception message.
+                    return false;
+
+                    //throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
                 }
                 catch (Exception ex)
                 {

@@ -22,9 +22,9 @@
     
     <div id="preview-pane">
         <div class="preview-container">
-            @if (Convert.ToInt32(Session["_minwidth"]) > 1100)
+            @if (Convert.ToInt32(Session["_minwidth"]) > 1000)
             {
-                <img src="/Content/Images/Front/noimage.jpeg" width="280" height="87.5" id="imgNewImage" alt="Image" />
+                <img src="/Content/Images/Front/noimage.jpeg" width="254" height="153" id="imgNewImage" alt="Image" />
             }
             else
             { 
@@ -76,7 +76,7 @@
     var imageHandler = '@Url.Content("~/ImageHandler.ashx?id=")';
     $(function () {
         
-        if (parseInt(@Session["_minwidth"]) > 1100) {
+        if (parseInt(@Session["_minwidth"]) > 1000) {
             
             $("#preview-pane").css("width","280");
             $("#preview-pane").css("height","87.5");
@@ -130,19 +130,19 @@
                     $("#pnlUploadedImage").show();
                     $("#imgUploadedImage").attr("src", imageHandler + response.Id);
                     $("#btnResimGuncelle").css("display","none");
-                    if (parseInt(@Session["_minwidth"]) > 1100) {
+                    if (parseInt(@Session["_minwidth"]) > 1000) {
                         $('#imgUploadedImage').Jcrop({
                             onChange: setCoords,
                             onSelect: setCoords,
                             //trueSize: [300, 225],
                             //aspectRatio: 1,
-                            minSize: [280, 87.5],
+                            //minSize: [280, 87.5],
                             maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],
                             @*boxWidth: @TempData["minwidth"],*@
                             keySupport: false,
                             boxWidth: 280,
-                            aspectRatio: 280 / 87.5, //keep aspect ratio
-                            setSelect: [0, 0, 280, 87.5]
+                            aspectRatio: 1024 / 768, //keep aspect ratio
+                            //setSelect: [0, 0, 280, 87.5]
                         },function(){
                             // Use the API to get the real image size
                             var bounds = this.getBounds();
@@ -185,12 +185,12 @@
                         });
                     }
 
-                    if (parseInt(@Session["_minwidth"]) > 1100) {
+                    if (parseInt(@Session["_minwidth"]) > 1000) {
             
-                        $("#preview-pane").css("width","280");
-                        $("#preview-pane").css("height","87.5");
-                        $(".preview-container").css("width","280");
-                        $(".preview-container").css("height","87.5");
+                        $("#preview-pane").css("width","254");
+                        $("#preview-pane").css("height","153");
+                        $(".preview-container").css("width","254");
+                        $(".preview-container").css("height","153");
                         $("#main-pane").css("height","190");
                     }else{
                         $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");

@@ -24,7 +24,7 @@
     
     <div id="preview-pane">
         <div class="preview-container">
-            @if (Convert.ToInt32(Session["_minwidth"]) > 1900)
+            @if (Convert.ToInt32(Session["_minwidth"]) > 1000)
             {
                 <img src="/Content/Images/Front/noimage.jpeg" width="288" height="162" id="imgNewImage" alt="Image" />
             }
@@ -78,7 +78,7 @@
     var imageHandler = '@Url.Content("~/ImageHandler.ashx?id=")';
     $(function () {
         
-        if (parseInt(@Session["_minwidth"]) > 1900) {
+        if (parseInt(@Session["_minwidth"]) > 1000) {
             
             $("#preview-pane").css("width","288");
             $("#preview-pane").css("height","162");
@@ -132,7 +132,7 @@
                     $("#pnlUploadedImage").show();
                     $("#imgUploadedImage").attr("src", imageHandler + response.Id);
                     $("#btnResimGuncelle").css("display","none");
-                    if (parseInt(@Session["_minwidth"]) > 1900) {
+                    if (parseInt(@Session["_minwidth"]) > 1000) {
                         $('#imgUploadedImage').Jcrop({
                             onChange: setCoords,
                             onSelect: setCoords,
@@ -187,7 +187,7 @@
                         });
                     }
 
-                    if (parseInt(@Session["_minwidth"]) > 1900) {
+                    if (parseInt(@Session["_minwidth"]) > 1000) {
             
                         $("#preview-pane").css("width","288");
                         $("#preview-pane").css("height","162");

@@ -51,9 +51,9 @@
                     </td>
                     <td class="center">@item.TimeCreated</td>
                     <td class="center">
-                       <a href="/yonetim/bannerduzenle/@item.PhotoId">
+                       @*<a href="/yonetim/bannerduzenle/@item.PhotoId">
                         <img id="btn_update_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
-                       </a>
+                       </a>*@
                         <img id="btn_save_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.PhotoId)">
                         <img id="btn_cancel_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/error.png"  title="İptal" class="displaynone cursorpointer" onclick="CancelRecord(@item.PhotoId)">
                        <img id="DeleteImage_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Banner/DeletePhoto',@item.PhotoId)">

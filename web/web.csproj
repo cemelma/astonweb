@@ -313,6 +313,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContactStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Contact\ContactStrings.ar.Designer.cs">
+      <DependentUpon>ContactStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\Estate\EstatesStrings.en.Designer.cs">
       <DependentUpon>EstatesStrings.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1598,7 +1603,6 @@
     <Content Include="Areas\Admin\Content\images\link-arrow-hover.gif" />
     <Content Include="Areas\Admin\Content\images\link-arrow-regular.gif" />
     <Content Include="Areas\Admin\Content\images\logo-web.png" />
-    <Content Include="Areas\Admin\Content\images\logo-.png" />
     <Content Include="Areas\Admin\Content\images\news.png" />
     <Content Include="Areas\Admin\Content\images\ortak.png" />
     <Content Include="Areas\Admin\Content\images\product.png" />
@@ -2663,23 +2667,39 @@
     <Content Include="Areas\Admin\Views\HumanResource\HumanResourcePositions.cshtml" />
     <Content Include="Areas\Admin\Views\Updates\Index.cshtml" />
     <Content Include="HTMLTemplate\CareerTemplate.html" />
+    <Content Include="Images\aktiv.png" />
+    <Content Include="Images\arrow.png" />
     <Content Include="Images\arsa.jpg" />
+    <Content Include="Images\blank.gif" />
+    <Content Include="Images\blue.png" />
+    <Content Include="Images\bodyBg.jpg" />
     <Content Include="Images\border.png" />
     <Content Include="Images\bulletList.png" />
+    <Content Include="Images\bx_loader.gif" />
     <Content Include="Images\controls.png" />
     <Content Include="Images\controlsColorbox.png" />
+    <Content Include="Images\default.png" />
     <Content Include="Images\degertunali.jpg" />
     <Content Include="Images\enticariHizmetler.png" />
     <Content Include="Images\error.png" />
+    <Content Include="Images\fancybox_loading%402x.gif" />
+    <Content Include="Images\fancybox_loading.gif" />
+    <Content Include="Images\fancybox_overlay.png" />
+    <Content Include="Images\fancybox_sprite%402x.png" />
+    <Content Include="Images\fancybox_sprite.png" />
     <Content Include="Images\giris_yazi.png" />
     <Content Include="Images\hakkimizda.jpg" />
     <Content Include="Images\headerBg.png" />
     <Content Include="Images\headerBg_y.png" />
+    <Content Include="Images\home.png" />
     <Content Include="Images\ikitelli.jpg" />
+    <Content Include="Images\inaktiv.png" />
     <Content Include="Images\leasing.jpg" />
     <Content Include="Images\linkedin.png" />
+    <Content Include="Images\listStyle.jpg" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\loading_background.png" />
+    <Content Include="Images\logo-2.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\lukskonut.jpg" />
@@ -2695,11 +2715,13 @@
     <Content Include="Images\minus.png" />
     <Content Include="Images\misyon.jpg" />
     <Content Include="Images\msgNoteBg.png" />
+    <Content Include="Images\nav.png" />
     <Content Include="Images\next.png" />
     <Content Include="Images\office.jpg" />
     <Content Include="Images\otel.jpg" />
     <Content Include="Images\ourteam.jpg" />
     <Content Include="Images\overlay.png" />
+    <Content Include="Images\pageHeader.jpg" />
     <Content Include="Images\perakende.jpg" />
     <Content Include="Images\plus.png" />
     <Content Include="Images\portfoydetay\image01.jpg" />
@@ -2735,6 +2757,7 @@
     <Content Include="Images\referanslar\turktelekom.jpg" />
     <Content Include="Images\referanslar\unilever.jpg" />
     <Content Include="Images\referanslar\vodafone.jpg" />
+    <Content Include="Images\referenceListImg.png" />
     <Content Include="Images\rentIcon.png" />
     <Content Include="Images\rent_1.jpg" />
     <Content Include="Images\right.png" />
@@ -2743,9 +2766,14 @@
     <Content Include="Images\sale_1.jpg" />
     <Content Include="Images\sanayivelojistik.jpg" />
     <Content Include="Images\satisvedevralma.jpg" />
+    <Content Include="Images\search.png" />
     <Content Include="Images\serviceImage.jpg" />
     <Content Include="Images\showcase\slide_01.jpg" />
     <Content Include="Images\showcase\slide_02.jpg" />
+    <Content Include="Images\slide01.png" />
+    <Content Include="Images\slide1.png" />
+    <Content Include="Images\slide2.png" />
+    <Content Include="Images\slide3.png" />
     <Content Include="Images\stratejivedanismanlik.jpg" />
     <Content Include="Images\success.png" />
     <Content Include="Images\ticariHizmetler.png" />
@@ -2943,6 +2971,7 @@
     <Content Include="js\jquery.bxslider.min.js" />
     <Content Include="js\jquery.colorbox-min.js" />
     <Content Include="js\jquery.easing.js" />
+    <Content Include="js\jquery.fancybox.pack.js" />
     <Content Include="js\jquery.highlight.js" />
     <Content Include="js\jquery.slidorion.min.js" />
     <Content Include="js\jquery.validate.js" />
@@ -3180,6 +3209,12 @@
     <EmbeddedResource Include="Resources\Views\Contact\ContactStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ContactStrings1.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ContactRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Contact\ContactStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactStrings.ar.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ContactRess</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -27,6 +27,10 @@ namespace web
             routes.MapRoute("galeri_en", "en/gallery", new { action = "Index", Controller = "FGallery" });
             routes.MapRoute("galeri_ar", "ar/gallery", new { action = "Index", Controller = "FGallery" });
 
+            routes.MapRoute("contact_tr", "tr/iletisim", new { action = "Index", Controller = "FContact" });
+            routes.MapRoute("contact_en", "en/contact", new { action = "Index", Controller = "FContact" });
+            routes.MapRoute("contact_ar", "ar/contact", new { action = "Index", Controller = "FContact" });
+
             /*Default*/
             //routes.MapRoute("home_default", "/", new { action = "Index", Controller = "FHome" });
             //routes.MapRoute("home_default", "anasayfa", new { action = "Index", Controller = "FHome" });

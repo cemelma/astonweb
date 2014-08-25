@@ -81,7 +81,7 @@ namespace web.Areas.Admin.Controllers
             
             if (Session["ModifiedImageId"] != null)
             {
-                newmodel.Path = "/userfiles/images/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
+                newmodel.Path = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
                 ImageHelperNew.DestroyImageCashAndSession(0, 0);
             }
             else
@@ -95,6 +95,7 @@ namespace web.Areas.Admin.Controllers
             p.Online = true;
             p.SortOrder = 9999;
             p.TimeCreated = DateTime.Now;
+            p.Path = newmodel.Path;
 
             ViewBag.ProcessMessage = PhotoManager.Save(p);
 

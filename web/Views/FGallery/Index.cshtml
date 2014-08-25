@@ -1,7 +1,17 @@
-﻿@{
+﻿@model List<DAL.Entities.Photo>
+@{
     ViewBag.Title = "Gellery";
     Layout = "~/Views/Shared/frontlayout.cshtml";
 }
+<link href="~/css/jquery.fancybox.css" rel="stylesheet" />
+<script src="/js/jquery.fancybox.pack.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".fancybox").fancybox({
+            openEffect: 'none',
+            closeEffect: 'none'
+        });
+    });</script>
 @section breadcrumb{
     <div class="col-md-12 breadcrumb">
         <ul>
@@ -13,18 +23,17 @@
 
 <div class="col-md-12 shadow section noPadding noMarginTop">
     <div class="col-md-12 sectionContent page hizmetPage">
-    
-      <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>GALERİ</h2>
- 
-      <div class="col-md-12 noPadding products">
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%" /></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-        <div class="col-md-3 "><a href="images/default.png" class="fancybox" rel="gallery"><img src="images/default.png" width="100%"/></a></div>
-      </div>
+
+        <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>GALERİ</h2>
+
+        <div class="col-md-12 noPadding products">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 "><a href="@item.Path" class="fancybox" rel="gallery">
+                    <img src="@item.Path" width="226" height="135" /></a></div>
+            }
+
+        </div>
     </div>
-  </div>
+</div>

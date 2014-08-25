@@ -118,75 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="accountnumber" xml:space="preserve">
-    <value>Hesap Numarası</value>
+    <value>رقم الحساب</value>
   </data>
   <data name="address" xml:space="preserve">
-    <value>Adres</value>
+    <value>عنوان</value>
   </data>
   <data name="bank" xml:space="preserve">
-    <value>Banka</value>
+    <value>البنك</value>
   </data>
   <data name="bankaccounts" xml:space="preserve">
-    <value>Banka Hesaplarımız</value>
+    <value>الحسابات المصرفية</value>
   </data>
   <data name="center" xml:space="preserve">
-    <value>Merkez</value>
+    <value>المكتب الرئيسي</value>
   </data>
   <data name="choosedepartment" xml:space="preserve">
-    <value>Departman Seçini</value>
+    <value>وزارة اختر</value>
   </data>
   <data name="city" xml:space="preserve">
-    <value>Şehir</value>
+    <value>المدينة</value>
   </data>
   <data name="contact" xml:space="preserve">
-    <value>İletişim Bilgileri</value>
+    <value>معلومات الاتصال</value>
   </data>
   <data name="contactform" xml:space="preserve">
-    <value>İletişim Formu</value>
+    <value>نموذج الاتصال</value>
   </data>
   <data name="email" xml:space="preserve">
-    <value>Eposta</value>
+    <value>البريد الإلكتروني</value>
   </data>
   <data name="fax" xml:space="preserve">
-    <value>Fax</value>
+    <value>الفاكس</value>
   </data>
   <data name="mapcoordinates" xml:space="preserve">
-    <value>Harita Koordinatları</value>
+    <value>خريطة الاحداثيات</value>
   </data>
   <data name="message" xml:space="preserve">
-    <value>Mesaj</value>
+    <value>آخر</value>
   </data>
   <data name="messagenotsent" xml:space="preserve">
-    <value>Mesajınız şuan iletilmemektedir. Lütfen hatayı bize bildiriniz.</value>
+    <value>لم يتم تسليم رسالتك الآن. من فضلك قل لنا خطأك.</value>
   </data>
   <data name="messagesent" xml:space="preserve">
-    <value>Mesajınız başarıyla iletilmiştir.</value>
+    <value>تم تسليم الرسالة بنجاح.</value>
   </data>
   <data name="muhasebe" xml:space="preserve">
-    <value>Muhasebe</value>
+    <value>المحاسبة</value>
   </data>
   <data name="namesurname" xml:space="preserve">
-    <value>Adınız Soyadınız</value>
+    <value>اسمك</value>
   </data>
   <data name="office" xml:space="preserve">
-    <value>Ofis</value>
+    <value>مكتب</value>
   </data>
   <data name="pazarlama" xml:space="preserve">
-    <value>Pazarlama</value>
+    <value>التسويق</value>
   </data>
   <data name="phone" xml:space="preserve">
-    <value>Telefon</value>
+    <value>الهاتف</value>
   </data>
   <data name="requiredfiled" xml:space="preserve">
-    <value>* doldurulması zorunlu alanlardır.</value>
+    <value>* هل الحقول المطلوبة.</value>
   </data>
   <data name="satis" xml:space="preserve">
-    <value>Satış</value>
+    <value>مبيعات</value>
   </data>
   <data name="send" xml:space="preserve">
-    <value>Gönder</value>
+    <value>إرسال</value>
   </data>
   <data name="subject" xml:space="preserve">
-    <value>Başlık</value>
+    <value>عنوان</value>
   </data>
 </root>

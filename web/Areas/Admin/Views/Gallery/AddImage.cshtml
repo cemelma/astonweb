@@ -39,14 +39,15 @@
                     @Html.LabelFor(m => m.Link)
                     @Html.TextBoxFor(m => m.Link, new { @class = "textwidth50" })
                 </p>*@
+                <br /><br />
                 <fieldset>
                     <legend>Fotoğraf</legend>
                     <div id="uploadPartial">
                         @Html.Partial("_imageUploadAndCropGallery")
                     </div>
                 </fieldset>
+                <br /><br><br />
                 <p>
-                    <label></label>
                     <input type="submit" value="Kaydet" id="btnsave" />
                 </p>
 
