@@ -5,17 +5,39 @@ using System.Web;
 using System.Web.Mvc;
 using BLL.Gallery;
 using BLL.LanguageBL;
+using DAL.Context;
+using web.Helpers.Enums;
+using System.Web.Script.Serialization;
+using BLL.PhotoBL;
+using DAL.Entities;
 
 namespace web.Areas.Admin.Controllers
 {
     public class GalleryController : Controller
     {
-        //
-        // GET: /Admin/Gallery/
+        
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult GalleryList()
+        {
+            using (MainContext db = new MainContext())
+            {
+                FillLanguagesList();
+                var list = db.Photo.Where(d => d.CategoryId == (int)PhotoTypes.Gallery).ToList();
+                return View(list);
+            }
+        }
 
         public ActionResult AddImage()
         {
-            FillLanguagesList();
+            ImageHelperNew.DestroyImageCashAndSession(1024, 768);
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
+
             return View();
         }
 
@@ -49,9 +71,33 @@ namespace web.Areas.Admin.Controllers
             return id;
         }
         [HttpPost]
-        public ActionResult AddImage(HttpPostedFileBase [] files)
+        public ActionResult AddImage(Photo newmodel, HttpPostedFileBase uploadfile, string language, string Title)
         {
-            FillLanguagesList();
+            var languages = LanguageManager.GetLanguages();
+            var list = new SelectList(languages, "Culture", "Language");
+            ViewBag.LanguageList = list;
+
+            Photo p = new Photo();
+            
+            if (Session["ModifiedImageId"] != null)
+            {
+                newmodel.Path = "/userfiles/images/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
+                ImageHelperNew.DestroyImageCashAndSession(0, 0);
+            }
+            else
+            {
+                newmodel.Path = "/Content/images/front/noimage.jpeg";
+            }
+
+            p.CategoryId = (int)PhotoTypes.Gallery;
+            p.Title = Title;
+            p.Language = language;
+            p.Online = true;
+            p.SortOrder = 9999;
+            p.TimeCreated = DateTime.Now;
+
+            ViewBag.ProcessMessage = PhotoManager.Save(p);
+
             return View();
         }
 
@@ -99,6 +145,18 @@ namespace web.Areas.Admin.Controllers
             return "ok";
         }
 
+        public JsonResult SortRecords(string list)
+        {
+            JsonList psl = (new JavaScriptSerializer()).Deserialize<JsonList>(list);
+            string[] idsList = psl.list;
+            bool issorted = PhotoManager.SortRecords(idsList);
+            return Json(issorted);
+        }
+
+        public class JsonList
+        {
+            public string[] list { get; set; }
+        }
 
         public void Upload(HttpPostedFileBase files)
         {

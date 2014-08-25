@@ -216,7 +216,7 @@ namespace web.Areas.Admin
             context.MapRoute("gallerygroupsx", "yonetim/galerigruplari/{lang}", new { action = "Index", Controller = "GalleryGroup" });
             context.MapRoute("galleryimageaddx", "yonetim/resimekle", new { action = "AddImage", Controller = "Gallery" });
             context.MapRoute("gallerylistx", "yonetim/galeriresimleri", new { action = "GalleryList", Controller = "Gallery" });
-
+            context.MapRoute("gallerylistx2", "yonetim/galeriresimleri/{lang}", new { action = "GalleryList", Controller = "Gallery" });
 
             //BANKA BİLGİLERİ
             context.MapRoute("bank_defaultx", "yonetim/bankabilgileri", new { action = "Index", Controller = "Bank" });

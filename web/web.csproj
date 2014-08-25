@@ -224,6 +224,7 @@
     <Compile Include="Areas\Admin\Models\ProductAddModel.cs" />
     <Compile Include="Areas\Admin\Models\PropertyModel.cs" />
     <Compile Include="Areas\Admin\Models\VMProductGroupModel.cs" />
+    <Compile Include="Controllers\FGalleryController.cs" />
     <Compile Include="Controllers\FProductController.cs" />
     <Compile Include="Controllers\FEstatesController.cs" />
     <Compile Include="Controllers\FHumanResourcesController.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Enums\PhotoTypes.cs" />
     <Compile Include="Helpers\Enums\EnumMailUser.cs" />
     <Compile Include="Helpers\Enums\EnumPortfoyTipi.cs" />
     <Compile Include="Helpers\Enums\InstituionalTypes.cs" />
@@ -1625,6 +1627,7 @@
     <Content Include="Areas\Admin\Content\scripts\pagescripts\estate\addestate.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\estate\editestate.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\estate\estatelist.js" />
+    <Content Include="Areas\Admin\Content\scripts\pagescripts\gallery\gallerylist.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\humanresourceposition\humancv.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\instituional\whyus.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\ourteam\addOurTeam.js" />
@@ -2887,6 +2890,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\Gallery\GalleryList.cshtml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
     <None Include="Properties\PublishProfiles\ist.pubxml" />
@@ -3093,6 +3097,7 @@
     <Content Include="Views\FProduct\UserLogin.cshtml" />
     <Content Include="Views\Shared\Partial\_footernew.cshtml" />
     <Content Include="Views\Shared\Partial\_topmenuold.cshtml" />
+    <Content Include="Views\FGallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,7 +23,9 @@ namespace web
             routes.MapRoute("kurumsal_en", "en/institutional", new { action = "Index", Controller = "FInstitutional" });
             routes.MapRoute("kurumsal_ar", "ar/institutional", new { action = "Index", Controller = "FInstitutional" });
 
-
+            routes.MapRoute("galeri_tr", "tr/galeri", new { action = "Index", Controller = "FGallery" });
+            routes.MapRoute("galeri_en", "en/gallery", new { action = "Index", Controller = "FGallery" });
+            routes.MapRoute("galeri_ar", "ar/gallery", new { action = "Index", Controller = "FGallery" });
 
             /*Default*/
             //routes.MapRoute("home_default", "/", new { action = "Index", Controller = "FHome" });
