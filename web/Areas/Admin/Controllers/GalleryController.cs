@@ -25,8 +25,8 @@ namespace web.Areas.Admin.Controllers
         {
             using (MainContext db = new MainContext())
             {
-                FillLanguagesList();
-                var list = db.Photo.Where(d => d.CategoryId == (int)PhotoTypes.Gallery).ToList();
+                string lang = FillLanguagesList();
+                var list = db.Photo.Where(d => d.CategoryId == (int)PhotoTypes.Gallery && d.Language == lang).ToList();
                 return View(list);
             }
         }
@@ -103,7 +103,6 @@ namespace web.Areas.Admin.Controllers
         }
 
 
-
         string FillLanguagesList()
         {
             string lang = "";
@@ -112,14 +111,8 @@ namespace web.Areas.Admin.Controllers
             else lang = RouteData.Values["lang"].ToString();
 
             var languages = LanguageManager.GetLanguages();
-            var list = new SelectList(languages, "Culture", "Language");
-            //var list = new SelectList(languages, "Culture", "Language", lang);
+            var list = new SelectList(languages, "Culture", "Language", lang);
             ViewBag.LanguageList = list;
-
-            var groups = GalleryManager.GetGalleryGroupList(lang);
-            var grouplist = new SelectList(groups, "GalleryGroupId", "GroupName");
-            ViewBag.GroupList = grouplist;
-
             return lang;
         }
 
@@ -148,6 +141,7 @@ namespace web.Areas.Admin.Controllers
 
         public JsonResult SortRecords(string list)
         {
+            FillLanguagesList();
             JsonList psl = (new JavaScriptSerializer()).Deserialize<JsonList>(list);
             string[] idsList = psl.list;
             bool issorted = PhotoManager.SortRecords(idsList);
