@@ -123,6 +123,12 @@
   <data name="fiyatbilgisi" xml:space="preserve">
     <value>اضغط هنا للتسعير معلومات</value>
   </data>
+  <data name="fiyatlistesi" xml:space="preserve">
+    <value>قائمة الأسعار</value>
+  </data>
+  <data name="fiyatlistesiniindir" xml:space="preserve">
+    <value>تحميل قائمة الأسعار</value>
+  </data>
   <data name="urunfotograflari" xml:space="preserve">
     <value>صور المنتج</value>
   </data>

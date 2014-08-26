@@ -13,7 +13,7 @@
         <ul class="dropdown-menu">
             @foreach (var item in Model.ProductGroup.Where(d=>d.TopProductId == 1))
             {
-                <li><a href="/fiyatlar/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
+                <li><a href="@SharedRess.SharedStrings.productpricesmenulink/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
             }
         </ul>
         </li>

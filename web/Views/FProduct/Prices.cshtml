@@ -8,16 +8,22 @@
     <div class="col-md-8 breadcrumb">
         <ul>
             <li><a href="/">Anasayfa</a></li>
-            <li><a href="/fiyatlar/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>
+            @*<li><a href="/fiyatlar/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>*@
+            <li><a href="#">@ViewBag.ProductGroup.GroupName</a> </li>            
             <li>Fiyatlar </li>
         </ul>
     </div>
 }
+<div id="pageHeader">
+    <div class="pageHeaderImg">
+        <img src="/Content/images/pageHeader.jpg">
+    </div>
+</div>
 
 <div id="container" class="container">
-    <div class="col-md-12 shadow section noPadding noMarginTop">
-        <div class="col-md-12 sectionContent page newsPage">
-            <h2 class="pageTitle">FİYAT LİSTESİ</h2>
+    <div class="col-md-12 shadow section noPadding">
+        <div class="col-md-12 sectionContent page">
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@ProductRess.ProductStrings.fiyatlistesi</h2>
             @if (ViewBag.userloginemail == "")
             { 
                 @*<a href="/giris" class="print">
@@ -63,7 +69,7 @@
                     
                     <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
                         <tr>
-                            <td colspan="12" class="urunAd">@item.ProductName <a href="/FProduct/ExportData/@item.ProductId" class="fiyatIndir">Fiyat Listesini İndir</a> @*- <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a>*@</td>
+                            <td colspan="12" class="urunAd">@item.ProductName <a href="/FProduct/ExportData/@item.ProductId" class="fiyatIndir">@ProductRess.ProductStrings.fiyatlistesiniindir</a> @*- <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a>*@</td>
                         </tr>
                         @if (item.headers != null)
                         {
@@ -155,33 +161,3 @@
 
     });
 </script>
-
-
-@*   @foreach (var item in @Model)
-            {
-                <tr><td colspan="8" class="urunAd">@item.Name - <a href="/urunler/@item.ProductId/@item.PageSlug">Ürün Detay</a></td></tr>
-                  <tr class="fiyatTabloTitle">
-                    <td>KOD</td>
-                    <td>MALZEME</td>
-                    <td>BİRİM</td>
-                    <td>EBAT</td>
-                    <td>AĞIRLIK (KG)</td>
-                    <td>ARAÇ (20 TON)</td>
-                    <td>RENGİ TL/M²</td>
-                    <td>FİYATI</td>
-                  </tr>
-                foreach (var itemdetail in BLL.ProductBL.ProductManager.GetProductDetailListForFront(item.ProductId))
-	            {
-		            <tr>
-                        <td>@itemdetail.Code</td>
-                        <td>@itemdetail.Material</td>
-                        <td>@itemdetail.Unit</td>
-                        <td>@itemdetail.Dimension</td>
-                        <td>@itemdetail.Weight</td>
-                        <td>@itemdetail.VehicleTon</td>
-                        <td>@itemdetail.ColorWhite</td>
-                        <td>@itemdetail.Price</td>
-                      </tr>
-	            }
-                  
-            }*@
