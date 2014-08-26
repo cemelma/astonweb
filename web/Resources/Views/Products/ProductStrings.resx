@@ -117,25 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="allproducts" xml:space="preserve">
-    <value>TÜM ÜRÜNLER</value>
-  </data>
-  <data name="productinfo" xml:space="preserve">
-    <value>Ürün Bilgileri</value>
-  </data>
-  <data name="productsheader" xml:space="preserve">
+  <data name="breadcrumb" xml:space="preserve">
     <value>Ürünler</value>
   </data>
-  <data name="relateddocs" xml:space="preserve">
-    <value>İlgili Dökümanlar</value>
+  <data name="fiyatbilgisi" xml:space="preserve">
+    <value>Fiyat Bilgisi İçin Tıklayınız</value>
   </data>
-  <data name="sampleexp" xml:space="preserve">
-    <value>Örnek Deney</value>
+  <data name="urunfotograflari" xml:space="preserve">
+    <value>Ürün Fotoğrafları</value>
   </data>
-  <data name="techspecs" xml:space="preserve">
-    <value>Teknik Şartname</value>
-  </data>
-  <data name="video" xml:space="preserve">
-    <value>Ürün Videosu</value>
+  <data name="urunrenkleri" xml:space="preserve">
+    <value>Ürün Renkleri</value>
   </data>
 </root>

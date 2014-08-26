@@ -353,6 +353,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\Products\ProductStrings.tr.Designer.cs">
+      <DependentUpon>ProductStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Products\ProductStrings.ar.Designer.cs">
+      <DependentUpon>ProductStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\References\ReferencesStrings.Designer.cs">
       <DependentUpon>ReferencesStrings.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -3256,6 +3266,16 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>InstitutionalStrings.ar.Designer.cs</LastGenOutput>
       <CustomToolNamespace>InstitutionalRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Products\ProductStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProductStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ProductRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Products\ProductStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProductStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ProductRess</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\References\ReferencesStrings.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>

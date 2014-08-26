@@ -115,7 +115,7 @@
             </div>
             <div class="col-md-6 allContent"><a href="@HomeRess.HomeStrings.bolum_haberler_tum_link">[ @HomeRess.HomeStrings.bolum_haberler_tum ]</a> </div>
         </div>
-        <div class="col-md-12 sectionContent">
+        <div class="col-md-12 sectionContent neww">
             <ul class="newsSlider">
                 @foreach (var item in Model.news)
                 {
@@ -164,6 +164,9 @@
 <script src="~/Content/Scripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
     $(function () {
+
+        //$('.newsslider').parent().parent().find('.bx-controls').find('.bx-pager').css("bottom", "ce0px");
+
         $("#servicepositions li:first").addClass("active");
         $("#servicecontent .tab-pane:first").addClass("active");
         $("#productpositions li:first").addClass("active");
@@ -173,7 +176,11 @@
             openEffect: 'none',
             closeEffect: 'none'
         });
-
     });
 
 </script>
+
+<style>
+    .neww .bx-controls .bx-pager{bottom:-30px !important;
+    }
+</style>

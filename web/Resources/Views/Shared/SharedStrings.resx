@@ -168,6 +168,9 @@
   <data name="m_urunler_link" xml:space="preserve">
     <value>#</value>
   </data>
+  <data name="productmenulink" xml:space="preserve">
+    <value>/tr/urunler</value>
+  </data>
   <data name="txtsearch" xml:space="preserve">
     <value>Arama</value>
   </data>
