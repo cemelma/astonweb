@@ -39,24 +39,24 @@
             @Html.ValidationMessageFor(m => m.ReferenceName)
         </p>
         
-                 <fieldset>
+              @*   <fieldset>
                     <legend>Logo</legend>
                     <div id="uploadPartial">
                         @Html.Partial("_imageUploadAndCropRefeance")
                     </div>
-                </fieldset>
+                </fieldset>*@
         <p>
             @Html.LabelFor(m=>m.Link)
             @Html.TextBoxFor(m=>m.Link, new { @class="textwidth50"})
             @Html.ValidationMessageFor(m=>m.Link)
         </p>
-        <p>
+       @* <p>
             @Html.LabelFor(m=>m.Content)
             @Html.TextAreaFor(m=>m.Content, new { @class="textwidth50"})
             @Html.ValidationMessageFor(m=>m.Content)
-        </p>
+        </p>*@
 
-         <p style="float: left; margin-right: 4px !important;">
+         @*<p style="float: left; margin-right: 4px !important;">
                     <label>Fotoðraflar</label>
                 </p>
 
@@ -64,7 +64,7 @@
                     <input type="file" style="width: 99%" name="attachments" class="multi" />
                 </div>
                 <div style="height: 40px; clear: both;"></div>
-        <p>
+        <p>*@
 
         <p>
             <label></label>
@@ -74,56 +74,7 @@
     </fieldset>
     }
 
-    <div class="box-header" >
-        <h1>Mevcut Resimler
-        </h1>
-
-    </div>
-    <table id="tblcategory" class="table no-border tablesorter">
-        <thead>
-            <tr>
-                <th class="width5">Sýrala</th>
-                <th class="width5 center">Resim</th>
-                <th class="width60">Baþlýk</th>
-               
-                <th class="center witdh10">Eklenme Tarihi</th>
-                <th class="center witdh10">Ýþlem</th>
-            </tr>
-        </thead>
-         <tbody id="item-list">
-            @foreach (var item in ViewBag.Photos)
-            {
-                <tr id="listItem_@item.PhotoId"  class="handle">
-                    <td class="center">
-                        <img src="/Areas/Admin/Content/images/icons/tablesorter/arrow2.png" alt="move" border="0" class="handle sortimg" align="middle" />
-                    </td>
-                    <td>
-                        <center>
-                            <a href="@item.Path" onclick="return false;"
-                                class="preview">
-                                <img src="@item.Path" alt="image" with="48" height="48" /></a></center>
-                    </td>
-                    <td>
-                        <span id="spanitem_@item.PhotoId">@item.Title</span>
-                    </td>
-                  @*  <td class="center">
-                        @if (item.Online == true)
-                        {<img   id="img_online_@item.PhotoId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/Banner/PhotoEditStatus',@item.PhotoId)" />}
-                        else{<img id="img_online_@item.PhotoId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/Banner/PhotoEditStatus',@item.PhotoId)" />}
-                    </td>*@
-                    <td class="center">@item.TimeCreated</td>
-                    <td class="center">
-                     @*  <a href="/yonetim/bannerduzenle/@item.PhotoId">
-                        <img id="btn_update_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
-                       </a>
-                        <img id="btn_save_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.PhotoId)">
-                        <img id="btn_cancel_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/error.png"  title="Ýptal" class="displaynone cursorpointer" onclick="CancelRecord(@item.PhotoId)">*@
-                       <img id="DeleteImage_@item.PhotoId"  src="/Areas/Admin/Content/images/icons/16/delete.png" class="cursorpointer"  title="Sil" onclick="DeleteRecord('/Reference/DeletePhoto',@item.PhotoId)">
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+   
 
 </section>
 </div>

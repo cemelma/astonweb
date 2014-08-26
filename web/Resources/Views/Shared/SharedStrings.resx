@@ -120,6 +120,9 @@
   <data name="copyright" xml:space="preserve">
     <value>©2014 AS-TON. Her hakkı saklıdır.</value>
   </data>
+  <data name="m_arama_link" xml:space="preserve">
+    <value>/tr/arama</value>
+  </data>
   <data name="m_fiyatlistesi" xml:space="preserve">
     <value>Fiyat Listesi</value>
   </data>

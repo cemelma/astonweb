@@ -39,32 +39,32 @@
         
        
            
-            <fieldset>
+          @*  <fieldset>
                     <legend>Logo</legend>
                     <div id="uploadPartial">
                         @Html.Partial("_imageUploadAndCropRefeance")
                     </div>
-                </fieldset>
+                </fieldset>*@
         
         <p>
             @Html.LabelFor(m=>m.Link)
             @Html.TextBoxFor(m=>m.Link, new { @class="textwidth50"})
             @Html.ValidationMessageFor(m=>m.Link)
         </p>
-        <p>
+        @*<p>
             @Html.LabelFor(m=>m.Content)
             @Html.TextAreaFor(m=>m.Content, new { @class="textwidth50"})
             @Html.ValidationMessageFor(m=>m.Content)
-        </p>
+        </p>*@
 
-         <p style="float: left; margin-right: 4px !important;">
+         @*<p style="float: left; margin-right: 4px !important;">
                     <label>Fotoğraflar</label>
                 </p>
 
                 <div style="width: 249px; width: 25%; float: left">
                     <input type="file" style="width: 99%" name="attachments" class="multi" />
                 </div>
-                <div style="height: 40px; clear: both;"></div>
+                <div style="height: 40px; clear: both;"></div>*@
 
 
 

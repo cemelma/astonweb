@@ -72,52 +72,52 @@ namespace web.Areas.Admin.Controllers
                 newmodel.TimeCreated = DateTime.Now;
                 ViewBag.ProcessMessage = ReferenceManager.AddReference(newmodel);
 
-                foreach (var item in attachments)
-                {
-                    if (item != null && item.ContentLength > 0)
-                    {
-                        item.SaveAs(Server.MapPath("/Content/images/userfiles/")+item.FileName);
-                        Random random = new Random();
-                        int rand = random.Next(1000, 99999999);
-                        string path = Utility.SetPagePlug(newmodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
-                        new ImageHelper(1020, 768).SaveThumbnail(item, "/Content/images/userfiles/", path);
+                //foreach (var item in attachments)
+                //{
+                //    if (item != null && item.ContentLength > 0)
+                //    {
+                //        item.SaveAs(Server.MapPath("/Content/images/userfiles/")+item.FileName);
+                //        Random random = new Random();
+                //        int rand = random.Next(1000, 99999999);
+                //        string path = Utility.SetPagePlug(newmodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
+                //        new ImageHelper(1020, 768).SaveThumbnail(item, "/Content/images/userfiles/", path);
 
-                        rand = random.Next(1000, 99999999);
-                        string thumbnail = Utility.SetPagePlug(newmodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
+                //        rand = random.Next(1000, 99999999);
+                //        string thumbnail = Utility.SetPagePlug(newmodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
 
-                       // Image img = Image.FromFile(Server.MapPath("/Content/images/userfiles/") + item.FileName);
+                //       // Image img = Image.FromFile(Server.MapPath("/Content/images/userfiles/") + item.FileName);
 
-                        Bitmap bmp = new Bitmap(Server.MapPath("/Content/images/userfiles/") + item.FileName);
+                //        Bitmap bmp = new Bitmap(Server.MapPath("/Content/images/userfiles/") + item.FileName);
 
-                    Bitmap bmp2 = new Bitmap(bmp);
+                //    Bitmap bmp2 = new Bitmap(bmp);
 
-                  using (Bitmap Orgbmp = bmp2)
-                   {
+                //  using (Bitmap Orgbmp = bmp2)
+                //   {
 
-                       int sabit = 90;
-                       Size Boyut = new Size(210, 125);
-                       Bitmap ReSizedThmb = new Bitmap(Orgbmp, Boyut);
-                        ReSizedThmb.Save(Server.MapPath("/Content/images/userfiles/")+thumbnail);
-                       bmp.Dispose();
-                         bmp2.Dispose();
-                       Orgbmp.Dispose();
-                       GC.Collect();
-                    }
+                //       int sabit = 90;
+                //       Size Boyut = new Size(210, 125);
+                //       Bitmap ReSizedThmb = new Bitmap(Orgbmp, Boyut);
+                //        ReSizedThmb.Save(Server.MapPath("/Content/images/userfiles/")+thumbnail);
+                //       bmp.Dispose();
+                //         bmp2.Dispose();
+                //       Orgbmp.Dispose();
+                //       GC.Collect();
+                //    }
 
-                       //new ImageHelper(300, 280).ResizeFromStream("/Content/images/userfiles/",thumbnail,img);
-                        Photo p = new Photo();
-                        p.CategoryId = (int)PhotoType.Reference;
-                        p.ItemId = newmodel.ReferenceId;
-                        p.Path = "/Content/images/userfiles/" + path;
-                        p.Thumbnail = "/Content/images/userfiles/" + thumbnail;
-                        p.Online = true;
-                        p.SortOrder = 9999;
-                        p.Language = language;
-                        p.TimeCreated = DateTime.Now;
-                        p.Title = newmodel.ReferenceName;
-                        PhotoManager.Save(p);
-                    }
-                }
+                //       //new ImageHelper(300, 280).ResizeFromStream("/Content/images/userfiles/",thumbnail,img);
+                //        Photo p = new Photo();
+                //        p.CategoryId = (int)PhotoType.Reference;
+                //        p.ItemId = newmodel.ReferenceId;
+                //        p.Path = "/Content/images/userfiles/" + path;
+                //        p.Thumbnail = "/Content/images/userfiles/" + thumbnail;
+                //        p.Online = true;
+                //        p.SortOrder = 9999;
+                //        p.Language = language;
+                //        p.TimeCreated = DateTime.Now;
+                //        p.Title = newmodel.ReferenceName;
+                //        PhotoManager.Save(p);
+                //    }
+                //}
 
 
              
@@ -178,52 +178,52 @@ namespace web.Areas.Admin.Controllers
                 //    referencemodel.Logo = "/Content/images/references/" + Utility.SetPagePlug(referencemodel.ReferenceName) + "_" + rand + Path.GetExtension(uploadfile.FileName);
                 //}
               
-                foreach (var item in attachments)
-                {
-                    if (item != null && item.ContentLength > 0)
-                    {
-                        item.SaveAs(Server.MapPath("/Content/images/userfiles/") + item.FileName);
-                        Random random = new Random();
-                        int rand = random.Next(1000, 99999999);
-                        string path = Utility.SetPagePlug(referencemodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
-                        new ImageHelper(1020, 768).SaveThumbnail(item, "/Content/images/userfiles/", path);
+                //foreach (var item in attachments)
+                //{
+                //    if (item != null && item.ContentLength > 0)
+                //    {
+                //        item.SaveAs(Server.MapPath("/Content/images/userfiles/") + item.FileName);
+                //        Random random = new Random();
+                //        int rand = random.Next(1000, 99999999);
+                //        string path = Utility.SetPagePlug(referencemodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
+                //        new ImageHelper(1020, 768).SaveThumbnail(item, "/Content/images/userfiles/", path);
 
-                        rand = random.Next(1000, 99999999);
-                        string thumbnail = Utility.SetPagePlug(referencemodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
+                //        rand = random.Next(1000, 99999999);
+                //        string thumbnail = Utility.SetPagePlug(referencemodel.ReferenceName) + "_" + rand + Path.GetExtension(item.FileName);
 
-                        // Image img = Image.FromFile(Server.MapPath("/Content/images/userfiles/") + item.FileName);
+                //        // Image img = Image.FromFile(Server.MapPath("/Content/images/userfiles/") + item.FileName);
 
-                        Bitmap bmp = new Bitmap(Server.MapPath("/Content/images/userfiles/") + item.FileName);
+                //        Bitmap bmp = new Bitmap(Server.MapPath("/Content/images/userfiles/") + item.FileName);
 
-                        Bitmap bmp2 = new Bitmap(bmp);
+                //        Bitmap bmp2 = new Bitmap(bmp);
 
-                        using (Bitmap Orgbmp = bmp2)
-                        {
+                //        using (Bitmap Orgbmp = bmp2)
+                //        {
 
-                            int sabit = 90;
-                            Size Boyut = new Size(210, 125);
-                            Bitmap ReSizedThmb = new Bitmap(Orgbmp, Boyut);
-                            ReSizedThmb.Save(Server.MapPath("/Content/images/userfiles/") + thumbnail);
-                            bmp.Dispose();
-                            bmp2.Dispose();
-                            Orgbmp.Dispose();
-                            GC.Collect();
-                        }
+                //            int sabit = 90;
+                //            Size Boyut = new Size(210, 125);
+                //            Bitmap ReSizedThmb = new Bitmap(Orgbmp, Boyut);
+                //            ReSizedThmb.Save(Server.MapPath("/Content/images/userfiles/") + thumbnail);
+                //            bmp.Dispose();
+                //            bmp2.Dispose();
+                //            Orgbmp.Dispose();
+                //            GC.Collect();
+                //        }
 
-                        //new ImageHelper(300, 280).ResizeFromStream("/Content/images/userfiles/",thumbnail,img);
-                        Photo p = new Photo();
-                        p.CategoryId = (int)PhotoType.Reference;
-                        p.ItemId = ID;
-                        p.Path = "/Content/images/userfiles/" + path;
-                        p.Thumbnail = "/Content/images/userfiles/" + thumbnail;
-                        p.Online = true;
-                        p.SortOrder = 9999;
-                        p.Language = language;
-                        p.TimeCreated = DateTime.Now;
-                        p.Title = "Haberler";
-                        PhotoManager.Save(p);
-                    }
-                }
+                //        //new ImageHelper(300, 280).ResizeFromStream("/Content/images/userfiles/",thumbnail,img);
+                //        Photo p = new Photo();
+                //        p.CategoryId = (int)PhotoType.Reference;
+                //        p.ItemId = ID;
+                //        p.Path = "/Content/images/userfiles/" + path;
+                //        p.Thumbnail = "/Content/images/userfiles/" + thumbnail;
+                //        p.Online = true;
+                //        p.SortOrder = 9999;
+                //        p.Language = language;
+                //        p.TimeCreated = DateTime.Now;
+                //        p.Title = "Haberler";
+                //        PhotoManager.Save(p);
+                //    }
+                //}
 
 
 

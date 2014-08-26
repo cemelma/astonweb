@@ -11,17 +11,17 @@ namespace BLL.SearchBL
     {
         public static List<Tuple<string, string>> Search(string text)
         {
-            //string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
+            string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
             
             using (MainContext db = new MainContext())
             {
                 //var references = db.ProjectReferences.Where(d => d.Online == true && d.Language == lang).FullTextSearch(text);
                 //var servicegs = db.ServiceGroup.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
-                var services = db.Service.Where(d => d.Online == true && d.Deleted == false).FullTextSearch(text);
+                //var services = db.Service.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
                 //var sectorgs = db.SectorGroup.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
                 //var sectors = db.Sector.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
-                var news = db.News.Where(d => d.Online == true && d.Deleted == false && d.Language == "tr").FullTextSearch(text);
-                var products = db.Product.Where(d => d.Online == true && d.Deleted == false).FullTextSearch(text);
+                var news = db.News.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
+                var products = db.Product.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
                 
                 var result = new List<Tuple<string, string>>();
                 string route, link = string.Empty;
@@ -29,24 +29,30 @@ namespace BLL.SearchBL
                 ///urunler/68/muflu-betornarme-boru-grubu
                 foreach (var item in products)
                 {
-                    route = "urunler";
+                    if (lang.Equals("tr")) route = "urunler"; else route = "products";
                     link = "/" + route + "/" + item.ProductId + "/" + item.PageSlug;
                     result.Add(Tuple.Create(item.Name, link));
                 }
 
+                //if (text.ToLower().Contains("iletisim") || text.ToLower().Contains("iletişim"))
+                //    result.Add(Tuple.Create("İletişim", "/" + lang + "/iletisim"));
 
-                if (text.ToLower().Contains("iletisim") || text.ToLower().Contains("iletişim"))
-                    result.Add(Tuple.Create("İletişim", "/iletisim"));
-
-                if (text.ToLower().Contains("kurumsal") || text.ToLower().Contains("kurumsal"))
-                    result.Add(Tuple.Create("Kurumsal", "/kurumsal"));
-
-                foreach (var item in services)
+                foreach (var item in news)
                 {
-                    route = "hizmetler";
-                    link = "/" + route + "/" + item.ServiceId + "/" + item.PageSlug;
-                    result.Add(Tuple.Create(item.Name, link));
+                    if (lang.Equals("tr")) route = "haberler"; else route = "news";
+                    link = "/" + lang + "/" + route;
+                    result.Add(Tuple.Create(item.Header, link));
                 }
+
+                //if (text.ToLower().Contains("kurumsal") || text.ToLower().Contains("kurumsal"))
+                //    result.Add(Tuple.Create("Kurumsal", "/" + lang + "/kurumsal"));
+
+                //foreach (var item in services)
+                //{
+                //    route = "hizmetler";
+                //    link = "/" + route + "/" + item.ServiceId + "/" + item.PageSlug;
+                //    result.Add(Tuple.Create(item.Name, link));
+                //}
 
                 //foreach (var item in sectorgs)
                 //{
@@ -62,11 +68,7 @@ namespace BLL.SearchBL
                 //    result.Add(Tuple.Create(item.Name, link));
                 //}
 
-                foreach (var item in news)
-                {
-                    link = "/haberler" ;
-                    result.Add(Tuple.Create(item.Header, link));
-                }
+               
 
 
                 //foreach (var item in emlak)
