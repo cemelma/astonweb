@@ -171,6 +171,9 @@
   <data name="m_urunler_link" xml:space="preserve">
     <value>#</value>
   </data>
+  <data name="productmenulink" xml:space="preserve">
+    <value>/en/products</value>
+  </data>
   <data name="txtsearch" xml:space="preserve">
     <value>البحث</value>
   </data>

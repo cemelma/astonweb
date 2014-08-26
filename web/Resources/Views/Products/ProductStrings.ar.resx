@@ -117,67 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="copyright" xml:space="preserve">
-    <value>© 2014 AS-TON. All rights reserved.</value>
+  <data name="breadcrumb" xml:space="preserve">
+    <value>المنتجات</value>
   </data>
-  <data name="m_arama_link" xml:space="preserve">
-    <value>/en/search</value>
+  <data name="fiyatbilgisi" xml:space="preserve">
+    <value>اضغط هنا للتسعير معلومات</value>
   </data>
-  <data name="m_fiyatlistesi" xml:space="preserve">
-    <value>Price List</value>
+  <data name="urunfotograflari" xml:space="preserve">
+    <value>صور المنتج</value>
   </data>
-  <data name="m_fiyatlistesi_link" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="m_galeri" xml:space="preserve">
-    <value>Gallery</value>
-  </data>
-  <data name="m_galeri_link" xml:space="preserve">
-    <value>/en/gallery</value>
-  </data>
-  <data name="m_haberler" xml:space="preserve">
-    <value>News</value>
-  </data>
-  <data name="m_haberler_link" xml:space="preserve">
-    <value>/en/news</value>
-  </data>
-  <data name="m_iletisim" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="m_iletisim_link" xml:space="preserve">
-    <value>/en/contact</value>
-  </data>
-  <data name="m_kurumsal" xml:space="preserve">
-    <value>Institutional</value>
-  </data>
-  <data name="m_kurumsal_link" xml:space="preserve">
-    <value>/en/institutional</value>
-  </data>
-  <data name="m_makine" xml:space="preserve">
-    <value>Machinery and Vehicle Trails</value>
-  </data>
-  <data name="m_makine_link" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="m_referans" xml:space="preserve">
-    <value>Referance</value>
-  </data>
-  <data name="m_referans_link" xml:space="preserve">
-    <value>/en/referance</value>
-  </data>
-  <data name="m_urunler" xml:space="preserve">
-    <value>Products/Services</value>
-  </data>
-  <data name="m_urunler_link" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="productmenulink" xml:space="preserve">
-    <value>/en/products</value>
-  </data>
-  <data name="txtsearch" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="weblink" xml:space="preserve">
-    <value>Web Design and Software &lt;a href="http://www.wortec.net"&gt; WORTEC&lt;/a&gt;</value>
+  <data name="urunrenkleri" xml:space="preserve">
+    <value>الألوان المنتج</value>
   </data>
 </root>

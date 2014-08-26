@@ -31,6 +31,7 @@ namespace web
             routes.MapRoute("contact_en", "en/contact", new { action = "Index", Controller = "FContact" });
             routes.MapRoute("contact_ar", "ar/contact", new { action = "Index", Controller = "FContact" });
 
+
             routes.MapRoute("reference_tr", "tr/referanslar", new { action = "Index", Controller = "FReferences" });
             routes.MapRoute("reference_en", "en/referance", new { action = "Index", Controller = "FReferences" });
             routes.MapRoute("reference_ar", "ar/referance", new { action = "Index", Controller = "FReferences" });
@@ -48,6 +49,11 @@ namespace web
             //routes.MapRoute("news_ar", "ar/news", new { action = "Index", Controller = "FNews" });
 
 
+            routes.MapRoute("urunler_tr", "tr/urunler/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
+            routes.MapRoute("urunler_en", "en/products/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
+            routes.MapRoute("urunler_ar", "ar/products/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
+
+
             /*Default*/
             //routes.MapRoute("home_default", "/", new { action = "Index", Controller = "FHome" });
             //routes.MapRoute("home_default", "anasayfa", new { action = "Index", Controller = "FHome" });
@@ -59,8 +65,9 @@ namespace web
             routes.MapRoute("insankaynaklari", "insankaynaklari", new { action = "Index", Controller = "FHumanResources" });
             //routes.MapRoute("arama", "arama", new { action = "Index", Controller = "FSearch" });
             routes.MapRoute("sitemap", "siteharita", new { action = "Index", Controller = "FSiteMap" });
-            routes.MapRoute("urunler", "urunler/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
-            //routes.MapRoute("fiyatlar", "fiyatlar/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
+            
+            routes.MapRoute("fiyatlar", "fiyatlar/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
+
             routes.MapRoute("giris", "giris", new { action = "UserLogin", Controller = "FProduct" });
             routes.MapRoute("cik", "guvenlicikis", new { action = "UserLogout", Controller = "FProduct" });
             routes.MapRoute("hizmetler", "hizmetler/{id}/{page}", new { action = "Index", Controller = "FServices" });

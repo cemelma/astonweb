@@ -103,7 +103,7 @@ font-size: 16px;}
 .fiyatBilgi { padding: 10px 0; border-top: 1px solid #e0e0e0; margin-top: 13px; }
 .fiyatBilgi a { float: right; background: #6DA214; padding: 10px 15px; font-size: 13px; font-weight: bold; color: #fff; text-decoration: none; border-radius: 3px; }
 .fiyatBilgi a:hover { background: #537E0B; }
-.fiyatTablo { font-size: 12px; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; margin-bottom: 40px; }
+.fiyatTablo { font-size: 12px; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; }
 .fiyatTablo tr td { padding: 7px; border-bottom: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; }
 .fiyatTablo tr.fiyatTabloTitle td { font-weight: bold; color: #174f9b; font-size: 14PX; }
 .urunAd { font-size: 18px; font-weight: 800; line-height: 30px; color: #174f9b; }

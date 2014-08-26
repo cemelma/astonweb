@@ -223,6 +223,15 @@ namespace SharedRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /tr/urunler.
+        /// </summary>
+        public static string productmenulink {
+            get {
+                return ResourceManager.GetString("productmenulink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arama.
         /// </summary>
         public static string txtsearch {

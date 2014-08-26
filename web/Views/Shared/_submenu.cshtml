@@ -39,7 +39,7 @@
                           <ul class="dropdown-menu">
                             @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == itemsub.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
                             {
-                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
                             }
                         </ul>
                     }
@@ -59,7 +59,7 @@
                           <ul class="dropdown-menu">
                             @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
                             {
-                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
                             }
                         </ul>
                     }
@@ -94,14 +94,14 @@ else
                           <ul class="dropdown-menu">
                             @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).OrderBy(d=>d.SortNumber))
                             {
-                                <li><a href="/urunler/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
                             }
                         </ul>
                     }
                 </li>
             }
             else
-            {<li><a href="/urunler/@item.ProductGroupId/@item.PageSlug" class="dropdown-toggle">@item.GroupName</a></li>   }
+            {<li><a href="@SharedRess.SharedStrings.productmenulink/@item.ProductGroupId/@item.PageSlug" class="dropdown-toggle">@item.GroupName</a></li>   }
         }
 
     }
