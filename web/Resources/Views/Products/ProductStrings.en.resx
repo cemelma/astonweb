@@ -123,6 +123,12 @@
   <data name="fiyatbilgisi" xml:space="preserve">
     <value>Show Price</value>
   </data>
+  <data name="fiyatlistesi" xml:space="preserve">
+    <value>PRICE LIST</value>
+  </data>
+  <data name="fiyatlistesiniindir" xml:space="preserve">
+    <value>Download Price List</value>
+  </data>
   <data name="urunfotograflari" xml:space="preserve">
     <value>Products Photo</value>
   </data>

@@ -79,6 +79,24 @@ namespace ProductRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FİYAT LİSTESİ.
+        /// </summary>
+        public static string fiyatlistesi {
+            get {
+                return ResourceManager.GetString("fiyatlistesi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fiyat Listesini İndir.
+        /// </summary>
+        public static string fiyatlistesiniindir {
+            get {
+                return ResourceManager.GetString("fiyatlistesiniindir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ürün Fotoğrafları.
         /// </summary>
         public static string urunfotograflari {

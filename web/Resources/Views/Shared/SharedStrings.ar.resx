@@ -171,6 +171,9 @@
   <data name="productmenulink" xml:space="preserve">
     <value>/en/products</value>
   </data>
+  <data name="productpricesmenulink" xml:space="preserve">
+    <value>/ar/prices</value>
+  </data>
   <data name="txtsearch" xml:space="preserve">
     <value>البحث</value>
   </data>
