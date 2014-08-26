@@ -13,12 +13,13 @@ namespace web.Controllers
 {
     public class FNewsController : Controller
     {
-      
+
+        string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
 
         public ActionResult Index()
         {
 
-            var news = NewsManager.GetNewsListForFront("tr");
+            var news = NewsManager.GetNewsListForFront(lang);
             //var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News, lang);
        //     var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News);
        //     NewsWrapperModel m = new NewsWrapperModel(news, photos);

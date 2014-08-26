@@ -13,10 +13,11 @@ namespace web.Controllers
     {
         //
         // GET: /FReferences/
+        string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
 
         public ActionResult Index()
         {
-            var references = ReferenceManager.GetReferenceListForFront("tr");
+            var references = ReferenceManager.GetReferenceListForFront(lang);
             //SubscribeModel obj = new SubscribeModel();
             //ContactWrapperModel m = new ContactWrapperModel(contact, obj);
             return View(references);
