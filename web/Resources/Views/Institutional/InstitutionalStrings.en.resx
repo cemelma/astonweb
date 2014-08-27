@@ -132,4 +132,7 @@
   <data name="header" xml:space="preserve">
     <value>INSTITUTIONAL</value>
   </data>
+  <data name="title" xml:space="preserve">
+    <value>Institutional</value>
+  </data>
 </root>

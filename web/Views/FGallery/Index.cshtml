@@ -1,6 +1,6 @@
 ﻿@model List<DAL.Entities.Photo>
 @{
-    ViewBag.Title = "Gellery";
+    ViewBag.Title = @SharedRess.SharedStrings.galeri;
     Layout = "~/Views/Shared/frontlayout.cshtml";
 }
 <link href="~/css/jquery.fancybox.css" rel="stylesheet" />
@@ -15,8 +15,8 @@
 @section breadcrumb{
     <div class="col-md-12 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
-            <li>Galeri</li>
+            <li><a href="@Gallery.GalleryStrings.breadcrumbmainurl">@Gallery.GalleryStrings.breadcrumbmaintext</a></li>
+            <li>@Gallery.GalleryStrings.breadcrumbtext</li>
         </ul>
     </div>
 }
@@ -24,7 +24,7 @@
 <div class="col-md-12 shadow section noPadding noMarginTop">
     <div class="col-md-12 sectionContent page hizmetPage">
 
-        <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>GALERİ</h2>
+        <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@Gallery.GalleryStrings.header</h2>
 
         <div class="col-md-12 noPadding products">
 

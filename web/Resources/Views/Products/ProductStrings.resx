@@ -129,6 +129,9 @@
   <data name="fiyatlistesiniindir" xml:space="preserve">
     <value>Fiyat Listesini İndir</value>
   </data>
+  <data name="pricestitle" xml:space="preserve">
+    <value>Fiyatlar</value>
+  </data>
   <data name="urunfotograflari" xml:space="preserve">
     <value>Ürün Fotoğrafları</value>
   </data>

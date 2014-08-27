@@ -120,6 +120,9 @@
   <data name="copyright" xml:space="preserve">
     <value>© 2014 AS-TON. All rights reserved.</value>
   </data>
+  <data name="galeri" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
   <data name="m_arama_link" xml:space="preserve">
     <value>/en/search</value>
   </data>
@@ -181,6 +184,6 @@
     <value>Search</value>
   </data>
   <data name="weblink" xml:space="preserve">
-    <value>Web Design and Software &lt;a href="http://www.wortec.net"&gt; WORTEC&lt;/a&gt;</value>
+    <value>Web Design and Software &lt;a href="http://www.wortec.net"&gt;WORTEC&lt;/a&gt;</value>
   </data>
 </root>

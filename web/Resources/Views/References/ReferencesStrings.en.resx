@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="breadcrumbmaintext" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="breadcrumbmainurl" xml:space="preserve">
+    <value>/en/referance</value>
+  </data>
+  <data name="breadcrumbtext" xml:space="preserve">
+    <value>Referances</value>
+  </data>
+  <data name="header" xml:space="preserve">
+    <value>Referances</value>
+  </data>
   <data name="references" xml:space="preserve">
-    <value>References</value>
+    <value>Referance</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Referances</value>
   </data>
 </root>

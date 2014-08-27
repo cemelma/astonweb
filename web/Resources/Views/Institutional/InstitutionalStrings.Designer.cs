@@ -104,5 +104,14 @@ namespace InstitutionalRess {
                 return ResourceManager.GetString("header", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kurumsal.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
     }
 }

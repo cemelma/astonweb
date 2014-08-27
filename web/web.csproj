@@ -318,6 +318,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\Contact\ContactStrings.tr.Designer.cs">
+      <DependentUpon>ContactStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\Estate\EstatesStrings.en.Designer.cs">
       <DependentUpon>EstatesStrings.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -327,6 +332,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EstateStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Gallery\GalleryStrings.tr.Designer.cs">
+      <DependentUpon>GalleryStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Gallery\GalleryStrings.ar.Designer.cs">
+      <DependentUpon>GalleryStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Gallery\GalleryStrings.en.Designer.cs">
+      <DependentUpon>GalleryStrings.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Gallery\GalleryStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GalleryStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Home\HomeStrings.tr.Designer.cs">
       <DependentUpon>HomeStrings.tr.resx</DependentUpon>
@@ -353,6 +378,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\News\NewsStrings.ar.Designer.cs">
+      <DependentUpon>NewsStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsStrings.tr.Designer.cs">
+      <DependentUpon>NewsStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\Products\ProductStrings.tr.Designer.cs">
       <DependentUpon>ProductStrings.tr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -360,6 +395,16 @@
     </Compile>
     <Compile Include="Resources\Views\Products\ProductStrings.ar.Designer.cs">
       <DependentUpon>ProductStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\References\ReferencesStrings.ar.Designer.cs">
+      <DependentUpon>ReferencesStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\References\ReferencesStrings.tr.Designer.cs">
+      <DependentUpon>ReferencesStrings.tr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -447,6 +492,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Search\SearchStrings.en.Designer.cs">
+      <DependentUpon>SearchStrings.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Search\SearchStrings.ar.Designer.cs">
+      <DependentUpon>SearchStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Search\SearchStrings.tr.Designer.cs">
+      <DependentUpon>SearchStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Search\SearchStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Shared\SharedStrings.ar.Designer.cs">
       <DependentUpon>SharedStrings.ar.resx</DependentUpon>
@@ -3228,6 +3293,12 @@
       <CustomToolNamespace>ContactRess</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Contact\ContactStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ContactRess</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Estate\EstatesStrings.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EstatesStrings.en.Designer.cs</LastGenOutput>
@@ -3238,6 +3309,26 @@
       <LastGenOutput>EstateStrings.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Estates</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Gallery\GalleryStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GalleryStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Gallery</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Gallery\GalleryStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GalleryStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Gallery</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Gallery\GalleryStrings.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GalleryStrings.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Gallery</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Gallery\GalleryStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GalleryStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Gallery</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Home\HomeStrings.tr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -3267,6 +3358,16 @@
       <LastGenOutput>InstitutionalStrings.ar.Designer.cs</LastGenOutput>
       <CustomToolNamespace>InstitutionalRess</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\News\NewsStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\News\NewsStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsRess</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Products\ProductStrings.tr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductStrings.tr.Designer.cs</LastGenOutput>
@@ -3276,6 +3377,16 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductStrings.ar.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ProductRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\References\ReferencesStrings.ar.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReferencesStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ReferencesRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\References\ReferencesStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReferencesStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ReferencesRess</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\References\ReferencesStrings.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -3363,6 +3474,26 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductStrings.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ProductRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Search\SearchStrings.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SearchStrings.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Search</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Search\SearchStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SearchStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Search</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Search\SearchStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SearchStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Search</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Search\SearchStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SearchStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Search</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.ar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

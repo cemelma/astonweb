@@ -118,78 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="bolum_haberler_baslik" xml:space="preserve">
-    <value>HABERLER</value>
+    <value>الأخبار</value>
   </data>
   <data name="bolum_haberler_tum" xml:space="preserve">
-    <value>TÜM HABERLER</value>
+    <value>جميع الأخبار</value>
   </data>
   <data name="bolum_haberler_tum_link" xml:space="preserve">
-    <value>/tr/haberler</value>
+    <value>/ar/news</value>
   </data>
   <data name="bolum_hizmetler_baslik" xml:space="preserve">
-    <value>HİZMETLER</value>
+    <value>الخدمات</value>
   </data>
   <data name="bolum_referanslar_baslik" xml:space="preserve">
-    <value>REFERANSLAR</value>
+    <value>المراجع</value>
   </data>
   <data name="bolum_referanslar_tum" xml:space="preserve">
-    <value>TÜM REFERANSLAR</value>
+    <value>كل مراجع</value>
   </data>
   <data name="bolum_referanslar_tum_link" xml:space="preserve">
-    <value>/tr/referanslar</value>
+    <value>/ar/referance</value>
   </data>
   <data name="bolum_urunler_baslik" xml:space="preserve">
-    <value>ÜRÜNLER</value>
+    <value>المنتجات</value>
   </data>
-  <data name="m_fiyatlistesi" xml:space="preserve">
-    <value>Fiyat Listesi</value>
+  <data name="bolum_urunler_link" xml:space="preserve">
+    <value>/ar/products</value>
   </data>
-  <data name="m_fiyatlistesi_link" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="m_galeri" xml:space="preserve">
-    <value>Galeri</value>
-  </data>
-  <data name="m_galeri_link" xml:space="preserve">
-    <value>/tr/galeri</value>
-  </data>
-  <data name="m_haberler" xml:space="preserve">
-    <value>Habeler</value>
-  </data>
-  <data name="m_haberler_link" xml:space="preserve">
-    <value>/tr/haberler</value>
-  </data>
-  <data name="m_iletisim" xml:space="preserve">
-    <value>İletişim</value>
-  </data>
-  <data name="m_iletisim_link" xml:space="preserve">
-    <value>/tr/iletisim</value>
-  </data>
-  <data name="m_kurumsal" xml:space="preserve">
-    <value>Kurumsal</value>
-  </data>
-  <data name="m_kurumsal_link" xml:space="preserve">
-    <value>/tr/kurumsal</value>
-  </data>
-  <data name="m_makine" xml:space="preserve">
-    <value>Makine ve Araç Parkuru</value>
-  </data>
-  <data name="m_makine_link" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="m_referans" xml:space="preserve">
-    <value>Referanslar</value>
-  </data>
-  <data name="m_referans_link" xml:space="preserve">
-    <value>/tr/referanslar</value>
-  </data>
-  <data name="m_urunler" xml:space="preserve">
-    <value>Ürünler/Hizmetler</value>
-  </data>
-  <data name="m_urunler_link" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="txtsearch" xml:space="preserve">
-    <value>Arama</value>
+  <data name="title" xml:space="preserve">
+    <value>الحضرية الأثاث، مواد البنية التحتية، محيط أنظمة الأمن، الحجر الطبيعي</value>
   </data>
 </root>

@@ -30,7 +30,7 @@ namespace BLL.SearchBL
                 foreach (var item in products)
                 {
                     if (lang.Equals("tr")) route = "urunler"; else route = "products";
-                    link = "/" + route + "/" + item.ProductId + "/" + item.PageSlug;
+                    link = "/" + lang + "/" + route + "/" + item.ProductId + "/" + item.PageSlug;
                     result.Add(Tuple.Create(item.Name, link));
                 }
 

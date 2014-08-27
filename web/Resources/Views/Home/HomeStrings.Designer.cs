@@ -131,5 +131,23 @@ namespace HomeRess {
                 return ResourceManager.GetString("bolum_urunler_baslik", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/urunler.
+        /// </summary>
+        public static string bolum_urunler_link {
+            get {
+                return ResourceManager.GetString("bolum_urunler_link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kent Mobilyaları, Altyapı Elemanları, Çevre Güvenlik Sistemleri, Doğal Taşlar.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
     }
 }

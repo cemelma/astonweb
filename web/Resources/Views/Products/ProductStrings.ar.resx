@@ -129,6 +129,9 @@
   <data name="fiyatlistesiniindir" xml:space="preserve">
     <value>تحميل قائمة الأسعار</value>
   </data>
+  <data name="pricestitle" xml:space="preserve">
+    <value>أسعار</value>
+  </data>
   <data name="urunfotograflari" xml:space="preserve">
     <value>صور المنتج</value>
   </data>

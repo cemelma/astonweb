@@ -22,6 +22,9 @@ namespace web.Controllers
 {
     public class FContactController : Controller
     {
+
+        string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
+
         public ActionResult CaptchaImage(string prefix, bool noisy = true)
         {
             var rand = new Random((int)DateTime.Now.Ticks);
@@ -75,7 +78,7 @@ namespace web.Controllers
         }
         public ActionResult Index()
         {
-            ViewData["contact"] = ContactManager.GetContact("tr");
+            ViewData["contact"] = ContactManager.GetContact(lang);
             //SubscribeModel obj = new SubscribeModel();
             //ContactWrapperModel m = new ContactWrapperModel(contact, obj);
             return View();

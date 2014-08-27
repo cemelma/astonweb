@@ -1,6 +1,6 @@
 ﻿@model dynamic
 @{
-    ViewBag.Title = "İletişim";
+    ViewBag.Title = ContactRess.ContactStrings.titlle;
     Layout = "~/Views/Shared/frontlayout.cshtml";
     DAL.Entities.Contact contact = ViewData["contact"] as DAL.Entities.Contact;
 }
@@ -49,9 +49,8 @@
 @section breadcrumb{
     <div class="col-md-12 breadcrumb">
         <ul>
-            <li><a href="/">@SharedRess.SharedStrings.m_kurumsal
-                </a></li>
-            <li>@SharedRess.SharedStrings.m_iletisim</li>
+            <li><a href="@ContactRess.ContactStrings.breadcrumbmainurl">@ContactRess.ContactStrings.breadcrumbmaintext</a></li>
+            <li>@ContactRess.ContactStrings.breadcrumbtext</li>
         </ul>
     </div>
 }
@@ -65,18 +64,18 @@
     {
         if (TempData["required"].ToString().Equals("true"))
         {
-        <div class="notification error">Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz</div>
+        <div class="notification error">@ContactRess.ContactStrings.notificationrequired</div>
         }
     }
     @if (TempData["sent"] != null)
     {
         if (TempData["sent"].ToString().Equals("true"))
         {
-        <div class="notification success">Mesajınız başarıyla iletilmiştir.</div>
+        <div class="notification success">@ContactRess.ContactStrings.notificationsuccess</div>
         }
         else if (TempData["sent"].ToString().Equals("false"))
         {
-        <div class="notification error">Mesajınız şuan iletilmemektedir. Lütfen hatayı bize bildiriniz.</div>
+        <div class="notification error">@ContactRess.ContactStrings.notificationerror</div>
         }
     }
 
@@ -111,7 +110,7 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <textarea placeholder="Mesaj İçeriği" id="body" name="body" class="validate[required] text-input"></textarea>
+                        <textarea placeholder="@ContactRess.ContactStrings.messagecontent" id="body" name="body" class="validate[required] text-input"></textarea>
                     </div>
                     <div class="col-md-3">
                         <a href="@Url.Action("Index")">
@@ -119,10 +118,10 @@
                         </a>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" placeholder="Güvenlik Kodu" id="captcha" name="captcha" class="validate[required] text-input" />
+                        <input type="text" placeholder="@ContactRess.ContactStrings.securitycode" id="captcha" name="captcha" class="validate[required] text-input" />
                     </div>
                     <div class="col-md-12" style="margin-top: 15px;">
-                        <input type="submit" class="btn btn-warning" value="GÖNDER" />
+                        <input type="submit" class="btn btn-warning" value="@ContactRess.ContactStrings.btngonder" />
                     </div>
                 </div>
             }

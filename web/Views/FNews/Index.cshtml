@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<DAL.Entities.News>
 @{
-    ViewBag.Title = "Haberler";
+    ViewBag.Title = NewsRess.NewsStrings.title;
     Layout = "~/Views/Shared/frontlayout.cshtml";
 }
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
-            <li>Haberler</li>
+              <li><a href="@NewsRess.NewsStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
+            <li>@NewsRess.NewsStrings.breadcrumbtext</li>
         </ul>
     </div>
 }
@@ -24,7 +24,7 @@ width:8% !important;
 <div id="container" class="container">
     <div class="col-md-12 shadow section noPadding noMarginTop">
         <div class="col-md-12 sectionContent page newsPage">
-            <h2 class="pageTitle">HABERLER</h2>
+            <h2 class="pageTitle">@NewsRess.NewsStrings.header</h2>
             @foreach (var item in Model)
             {
                 <div class="col-md-6 noPadding">

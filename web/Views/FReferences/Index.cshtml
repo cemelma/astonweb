@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<DAL.Entities.References>
 @{
-    ViewBag.Title = "Referanslar";
+    ViewBag.Title = ReferencesRess.ReferencesStrings.title;     
     Layout = "~/Views/Shared/frontlayout.cshtml";
 }
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
-            <li>Referanslar</li>
+            <li><a href="@ReferencesRess.ReferencesStrings.breadcrumbmainurl">@ReferencesRess.ReferencesStrings.breadcrumbmaintext</a></li>
+            <li>@ReferencesRess.ReferencesStrings.breadcrumbtext</li>
         </ul>
     </div>
 }
@@ -15,7 +15,7 @@
 <div id="container" class="container">
     <div class="col-md-12 shadow section noPadding noMarginTop">
         <div class="col-md-12 sectionContent page newsPage referencePage">
-            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>REFERANSLAR</h2>
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@ReferencesRess.ReferencesStrings.header</h2>
 
             @foreach (var item in Model)
             {

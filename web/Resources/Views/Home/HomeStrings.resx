@@ -141,4 +141,10 @@
   <data name="bolum_urunler_baslik" xml:space="preserve">
     <value>ÜRÜNLER</value>
   </data>
+  <data name="bolum_urunler_link" xml:space="preserve">
+    <value>/tr/urunler</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Kent Mobilyaları, Altyapı Elemanları, Çevre Güvenlik Sistemleri, Doğal Taşlar</value>
+  </data>
 </root>

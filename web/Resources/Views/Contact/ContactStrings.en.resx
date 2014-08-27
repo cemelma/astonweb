@@ -129,6 +129,18 @@
   <data name="bankaccounts" xml:space="preserve">
     <value>Bank Accounts</value>
   </data>
+  <data name="breadcrumbmaintext" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="breadcrumbmainurl" xml:space="preserve">
+    <value>/en/homepage</value>
+  </data>
+  <data name="breadcrumbtext" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="btngonder" xml:space="preserve">
+    <value>SEND</value>
+  </data>
   <data name="center" xml:space="preserve">
     <value>Center</value>
   </data>
@@ -156,6 +168,9 @@
   <data name="message" xml:space="preserve">
     <value>Message</value>
   </data>
+  <data name="messagecontent" xml:space="preserve">
+    <value>Message Content</value>
+  </data>
   <data name="messagenotsent" xml:space="preserve">
     <value>Your massage has not been sent right now. Please contact us about this issue.</value>
   </data>
@@ -167,6 +182,15 @@
   </data>
   <data name="namesurname" xml:space="preserve">
     <value>Name Surname</value>
+  </data>
+  <data name="notificationerror" xml:space="preserve">
+    <value>Your message is not delivered now. Please tell us your fault.</value>
+  </data>
+  <data name="notificationrequired" xml:space="preserve">
+    <value>Please fill in the required fields please complete and accurate.</value>
+  </data>
+  <data name="notificationsuccess" xml:space="preserve">
+    <value>Your message has been successfully delivered.</value>
   </data>
   <data name="office" xml:space="preserve">
     <value>Office</value>
@@ -183,10 +207,16 @@
   <data name="satis" xml:space="preserve">
     <value>Sales</value>
   </data>
+  <data name="securitycode" xml:space="preserve">
+    <value>Security Code</value>
+  </data>
   <data name="send" xml:space="preserve">
     <value>Send</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>Subject</value>
+  </data>
+  <data name="titlle" xml:space="preserve">
+    <value>Contact</value>
   </data>
 </root>

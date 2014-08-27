@@ -120,8 +120,11 @@
   <data name="copyright" xml:space="preserve">
     <value>© 2014 AS-TON. جميع الحقوق محفوظة.</value>
   </data>
+  <data name="galeri" xml:space="preserve">
+    <value>معرض</value>
+  </data>
   <data name="m_arama_link" xml:space="preserve">
-    <value>/en/search</value>
+    <value>/ar/search</value>
   </data>
   <data name="m_fiyatlistesi" xml:space="preserve">
     <value>قائمة الأسعار</value>
@@ -133,25 +136,25 @@
     <value>معرض</value>
   </data>
   <data name="m_galeri_link" xml:space="preserve">
-    <value>/en/gallery</value>
+    <value>/ar/gallery</value>
   </data>
   <data name="m_haberler" xml:space="preserve">
     <value>الأخبار</value>
   </data>
   <data name="m_haberler_link" xml:space="preserve">
-    <value>/en/news</value>
+    <value>/ar/news</value>
   </data>
   <data name="m_iletisim" xml:space="preserve">
     <value>الاتصال</value>
   </data>
   <data name="m_iletisim_link" xml:space="preserve">
-    <value>/en/contact</value>
+    <value>/ar/contact</value>
   </data>
   <data name="m_kurumsal" xml:space="preserve">
-    <value>المؤسسية</value>
+    <value>الشركات</value>
   </data>
   <data name="m_kurumsal_link" xml:space="preserve">
-    <value>/en/institutional</value>
+    <value>/ar/institutional</value>
   </data>
   <data name="m_makine" xml:space="preserve">
     <value>الماكينات والمركبات مسارات</value>
@@ -160,19 +163,19 @@
     <value>#</value>
   </data>
   <data name="m_referans" xml:space="preserve">
-    <value>بإشارة</value>
+    <value>المراجع</value>
   </data>
   <data name="m_referans_link" xml:space="preserve">
-    <value>/en/referance</value>
+    <value>/ar/referance</value>
   </data>
   <data name="m_urunler" xml:space="preserve">
-    <value>المنتجات/الخدمات</value>
+    <value>المنتجات / الخدمات</value>
   </data>
   <data name="m_urunler_link" xml:space="preserve">
     <value>#</value>
   </data>
   <data name="productmenulink" xml:space="preserve">
-    <value>/en/products</value>
+    <value>/ar/products</value>
   </data>
   <data name="productpricesmenulink" xml:space="preserve">
     <value>/ar/prices</value>
@@ -181,6 +184,6 @@
     <value>البحث</value>
   </data>
   <data name="weblink" xml:space="preserve">
-    <value>تصميم الويب والبرمجيات &lt;a href="http://www.wortec.net"&gt; WORTEC &lt;/a&gt;</value>
+    <value>تصميم المواقع الإلكترونية و البرمجيات &lt;a href="http://www.wortec.net"&gt;WORTEC&lt;/a&gt;</value>
   </data>
 </root>

@@ -129,6 +129,18 @@
   <data name="bankaccounts" xml:space="preserve">
     <value>الحسابات المصرفية</value>
   </data>
+  <data name="breadcrumbmaintext" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="breadcrumbmainurl" xml:space="preserve">
+    <value>/ar/homepage</value>
+  </data>
+  <data name="breadcrumbtext" xml:space="preserve">
+    <value>الاتصال</value>
+  </data>
+  <data name="btngonder" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
   <data name="center" xml:space="preserve">
     <value>المكتب الرئيسي</value>
   </data>
@@ -156,6 +168,9 @@
   <data name="message" xml:space="preserve">
     <value>آخر</value>
   </data>
+  <data name="messagecontent" xml:space="preserve">
+    <value>محتوى الرسالة</value>
+  </data>
   <data name="messagenotsent" xml:space="preserve">
     <value>لم يتم تسليم رسالتك الآن. من فضلك قل لنا خطأك.</value>
   </data>
@@ -167,6 +182,15 @@
   </data>
   <data name="namesurname" xml:space="preserve">
     <value>اسمك</value>
+  </data>
+  <data name="notificationerror" xml:space="preserve">
+    <value>لم يتم تسليم رسالتك الآن. من فضلك قل لنا خطأك.</value>
+  </data>
+  <data name="notificationrequired" xml:space="preserve">
+    <value>يرجى ملء الحقول المطلوبة يرجى إكمال ودقيقة.</value>
+  </data>
+  <data name="notificationsuccess" xml:space="preserve">
+    <value>تم تسليم الرسالة بنجاح.</value>
   </data>
   <data name="office" xml:space="preserve">
     <value>مكتب</value>
@@ -183,10 +207,16 @@
   <data name="satis" xml:space="preserve">
     <value>مبيعات</value>
   </data>
+  <data name="securitycode" xml:space="preserve">
+    <value>كود الأمن</value>
+  </data>
   <data name="send" xml:space="preserve">
     <value>إرسال</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>عنوان</value>
+  </data>
+  <data name="titlle" xml:space="preserve">
+    <value>الاتصال</value>
   </data>
 </root>

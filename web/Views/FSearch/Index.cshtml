@@ -1,6 +1,6 @@
 ﻿@model List<Tuple<string, string>>
 @{
-    ViewBag.Title = "Arama";    
+    ViewBag.Title = @Search.SearchStrings.title;  
     Layout = "~/Views/Shared/frontlayout.cshtml";
 }
 <style>
@@ -44,8 +44,8 @@
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
-            <li>Arama </li>
+            <li><a href="@Search.SearchStrings.breadcrumbmainurl">@Search.SearchStrings.breadcrumbmaintext</a></li>
+            <li>@Search.SearchStrings.breadcrumbtext</li>
         </ul>
     </div>
 }
@@ -53,12 +53,12 @@
 <div id="container" class="container">
     <div class="col-md-12 shadow section noPadding">
         <div class="col-md-12 sectionContent page">
-            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i> ARAMA SONUÇLARI</h2>
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i> @Search.SearchStrings.sonuc</h2>
             <ul class="navs nav-tabss" id="pulpositions">
                @foreach (var item in Model)
                 {
                     <li style="overflow:hidden; width:100%;"><a class="link" href="@item.Item2">@item.Item1.ToUpper()</a></li>
-                    <li style="margin-left: 21px; margin-bottom: 10px; color: #ed1c24; font-size: 12px; width:100%;">http://www.zeynelyayla.com.tr@(item.Item2)</li>
+                    <li style="margin-left: 21px; margin-bottom: 10px; color: #ed1c24; font-size: 12px; width:100%;">http://www.as-ton.com@(item.Item2)</li>
                 }
           </ul>
         </div>

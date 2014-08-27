@@ -132,4 +132,7 @@
   <data name="header" xml:space="preserve">
     <value>KURUMSAL</value>
   </data>
+  <data name="title" xml:space="preserve">
+    <value>Kurumsal</value>
+  </data>
 </root>

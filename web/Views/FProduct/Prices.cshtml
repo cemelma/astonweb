@@ -1,16 +1,17 @@
 ﻿@model web.Models.ProductPriceModel
 @{
-    ViewBag.Title = "Fiyatlar";
+    ViewBag.Title = @ProductRess.ProductStrings.pricestitle;
     Layout = "~/Views/Shared/frontlayout.cshtml";        
 }
 
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
+                         <li><a href="@NewsRess.NewsStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
+
             @*<li><a href="/fiyatlar/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>*@
             <li><a href="#">@ViewBag.ProductGroup.GroupName</a> </li>            
-            <li>Fiyatlar </li>
+            <li>@ProductRess.ProductStrings.pricestitle </li>
         </ul>
     </div>
 }

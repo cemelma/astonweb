@@ -97,6 +97,15 @@ namespace ProductRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fiyatlar.
+        /// </summary>
+        public static string pricestitle {
+            get {
+                return ResourceManager.GetString("pricestitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ürün Fotoğrafları.
         /// </summary>
         public static string urunfotograflari {

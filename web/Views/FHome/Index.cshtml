@@ -1,6 +1,6 @@
 ﻿@model web.Models.HomePageWrapperModel
 @{
-    ViewBag.Title = "Kent Mobilyaları, Altyapı Elemanları, Çevre Güvenlik Sistemleri, Doğal Taşlar";
+    ViewBag.Title = @HomeRess.HomeStrings.title;
     Layout = "~/Views/Shared/frontlayout.cshtml";
 }
 
@@ -56,7 +56,7 @@
                               if (!string.IsNullOrEmpty(itemproduct.Image1) && itemproduct.Image1 != "/Content/images/front/noimage.jpeg")
                               {
                                 <div class="col-md-3 ">
-                                    <img src="@itemproduct.Image1" /><a href="/urunler/@itemproduct.ProductId/@itemproduct.PageSlug">@itemproduct.Name</a>
+                                    <img src="@itemproduct.Image1" /><a href="@HomeRess.HomeStrings.bolum_urunler_link/@itemproduct.ProductId/@itemproduct.PageSlug">@itemproduct.Name</a>
                                 </div>
                               }
                             
