@@ -9,15 +9,15 @@
 <meta charset="utf-8">
 <title>Aston</title>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/style.css">
+<link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
 <!--[if lt IE 9]>
 	<script src="/js/html5shiv.js"></script>
 	<![endif]-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.cycle.all.js"></script>
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/jquery.cycle.all.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.tab a').click(function (e) {
@@ -47,50 +47,23 @@
 <body>
 <div id="header" class="container">
 	<div class="col-md-12 noPadding">
-		<div class="col-md-3 noPadding"> <a href="index.html" class="logo"><img src="images/logo.png" border="0" /></a> </div>
+		<div class="col-md-3 noPadding"> <a href="index.html" class="logo"><img src="~/images/logo.png" border="0" /></a> </div>
 		<div class="col-md-9 noPadding">
 			<div class="col-md-12 col-md-pull-0 noPadding headerTop">
-				<div class="search">
-					<input type="text" placeholder="Arama" />
-					<input type="button" />
-				</div>
-				<ul class="nav nav-pills topMenu">
-					<li class="first"><a href="index.html">TR</a></li>
-					<li><a href="#">EN</a></li>
-					<li class="last"><a href="#">العربية</a></li>
-				</ul>
+				          @{ Html.RenderAction("_search", "FSearch"); }
+
+                 <ul class="nav nav-pills topMenu">
+              <li class="first">@Html.ActionLink("TR", "ChangeCulture", "FHome", new { lang = "tr", returnUrl = this.Request.RawUrl }, null)</li>
+              <li>@Html.ActionLink("EN", "ChangeCulture", "FHome", new { lang = "en", returnUrl = this.Request.RawUrl }, null)</li>
+              <li class="last"><a href="/FHome/ChangeCulture?lang=ar">العربية</a></li>
+            </ul>
+
+				
 			</div>
-			<div class="col-md-12 col-md-pull-0 menu noPadding">
-				<ul class="nav nav-pills">
-					<li><a href="kurumsal.html">Kurumsal</a></li>
-					<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ürünler/Hizmetler</a>
-						<ul class="dropdown-menu  multi-level" role="menu" aria-labelledby="dropdownMenu">
-							<li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Alt Yapı Elemanları</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Beton Borular</a></li>
-									<li><a href="#">Baca & Konik & Kapak & Taban Çeşitleri</a></li>
-								</ul>
-							</li>
-							<li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Parke</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Parke Taşları</a></li>
-									<li><a href="#">Bordürler</a></li>
-									<li><a href="#">Yağmur Olukları</a></li>
-									<li><a href="#">Çiçeklikler</a></li>
-									<li><a href="#">Karolar</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Taahhüt</a></li>
-						</ul>
-					</li>
-					<li><a href="haberler.html">Haberler</a></li>
-					<li><a href="fiyat-listesi.html">Fiyat listesi</a></li>
-					<li><a href="makine-ve-arac-parkuru.html">Makine ve Araç Parkuru</a></li>
-					<li><a href="galeri.html">Galeri</a></li>
-					<li><a href="referanslar.html">Referanslar</a></li>
-					<li class="last"><a href="iletisim.html">İletişim</a></li>
-				</ul>
-			</div>
+			
+
+        @{Html.RenderAction("GetTopMenu", "FHome");}
+
 		</div>
 	</div>
 </div>
