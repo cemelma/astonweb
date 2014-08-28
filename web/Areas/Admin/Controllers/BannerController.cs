@@ -25,7 +25,7 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult Add()
         {
-            ImageHelperNew.DestroyImageCashAndSession(1120,350);
+            ImageHelperNew.DestroyImageCashAndSession(697,666);
             var languages = LanguageManager.GetLanguages();
             var list = new SelectList(languages, "Culture", "Language");
             ViewBag.LanguageList = list;
@@ -66,7 +66,7 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult Edit()
         {
-            ImageHelperNew.DestroyImageCashAndSession(1120, 350);
+            ImageHelperNew.DestroyImageCashAndSession(697, 666);
             var languages = LanguageManager.GetLanguages();
             var list = new SelectList(languages, "Culture", "Language");
             ViewBag.LanguageList = list;

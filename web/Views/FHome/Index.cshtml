@@ -1,186 +1,291 @@
 ﻿@model web.Models.HomePageWrapperModel
 @{
     ViewBag.Title = @HomeRess.HomeStrings.title;
-    Layout = "~/Views/Shared/frontlayout.cshtml";
+    Layout = null;
 }
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aston</title>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js"></script>
+	<![endif]-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.cycle.all.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.tab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
 
-<style>
-    .col-md-3 {
-        text-align:center;
-    }
-</style>
+        $(".news-slider").after('<div id="nav">')
+		.cycle({
+		    fx: 'slideY',
+		    speed: 300,
+		    timeout: 0,
+		    pager: '#nav'
+		});
 
-@section breadcrumb{
-@*    <div class="col-md-8 breadcrumb">
-        <ul>
-            <li><a href="/">Anasayfa</a></li>
-        </ul>
-    </div>*@
-}
+        $(".slider").after('<div id="kav">')
+		.cycle({
+		    fx: 'fade',
+		    speed: 300,
+		    timeout: 0,
+		    pager: '#kav'
+		});
+    });
+</script>
+</head>
 
-<div id="slider">
-    <ul class="slider">
-        @foreach (var item in Model.photos)
-        {
-            <li><a href="@item.Link" target="_blank">
-                <img src="@item.Path" style="width:1090px;height:347px;" /></a></li>
-        }
-    </ul>
-
+<body>
+<div id="header" class="container">
+	<div class="col-md-12 noPadding">
+		<div class="col-md-3 noPadding"> <a href="index.html" class="logo"><img src="images/logo.png" border="0" /></a> </div>
+		<div class="col-md-9 noPadding">
+			<div class="col-md-12 col-md-pull-0 noPadding headerTop">
+				<div class="search">
+					<input type="text" placeholder="Arama" />
+					<input type="button" />
+				</div>
+				<ul class="nav nav-pills topMenu">
+					<li class="first"><a href="index.html">TR</a></li>
+					<li><a href="#">EN</a></li>
+					<li class="last"><a href="#">العربية</a></li>
+				</ul>
+			</div>
+			<div class="col-md-12 col-md-pull-0 menu noPadding">
+				<ul class="nav nav-pills">
+					<li><a href="kurumsal.html">Kurumsal</a></li>
+					<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ürünler/Hizmetler</a>
+						<ul class="dropdown-menu  multi-level" role="menu" aria-labelledby="dropdownMenu">
+							<li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Alt Yapı Elemanları</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Beton Borular</a></li>
+									<li><a href="#">Baca & Konik & Kapak & Taban Çeşitleri</a></li>
+								</ul>
+							</li>
+							<li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Parke</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Parke Taşları</a></li>
+									<li><a href="#">Bordürler</a></li>
+									<li><a href="#">Yağmur Olukları</a></li>
+									<li><a href="#">Çiçeklikler</a></li>
+									<li><a href="#">Karolar</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Taahhüt</a></li>
+						</ul>
+					</li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="fiyat-listesi.html">Fiyat listesi</a></li>
+					<li><a href="makine-ve-arac-parkuru.html">Makine ve Araç Parkuru</a></li>
+					<li><a href="galeri.html">Galeri</a></li>
+					<li><a href="referanslar.html">Referanslar</a></li>
+					<li class="last"><a href="iletisim.html">İletişim</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 <div id="container" class="container">
-    <div class="col-md-12 shadow services section noPadding">
-        <div class="col-md-12 sectionTitle">
-            <div class="col-md-12">
-                <h5>@HomeRess.HomeStrings.bolum_urunler_baslik</h5>
-            </div>
-        </div>
-        <div class="col-md-12 sectionContent">
-            <ul class="nav nav-tabs" id="productpositions">
-                 @foreach (var item in Model.prodgroups)
-                 {
-                            <li class=""><a href="#prd_@item.ProductGroupId" data-toggle="tab" data-id="@item.ProductGroupId" class="positiontabclick">@item.GroupName</a></li>
-                 }
-            </ul>
-            <div class="tab-content" id="productcontent">
-                  @foreach (var item in Model.prodgroups)
-                  {
-                      <div class="tab-pane" id="prd_@item.ProductGroupId">
-                             <div class="col-md-12 noPadding">
+	
+	<div class="container-left">
+		
+		<div class="slider">
+			
+            @*<div class="slide-content">
+				<img src="images/slide1.png" alt="">
+				<div class="caption">
+					<p>Kaliteyi ve ekonomiyi birleştirmek</p>
+				</div> <!-- caption -->
+			</div> <!-- slide-content -->*@
 
-                      @foreach (var itemproduct in Model.Products.OrderBy(d=>d.SortNumber))
-                      {
-                          if (item.ProductGroupId == itemproduct.TopProductGroupId)
-                          { 
-                            
-                              if (!string.IsNullOrEmpty(itemproduct.Image1) && itemproduct.Image1 != "/Content/images/front/noimage.jpeg")
-                              {
-                                <div class="col-md-3 ">
-                                    <img src="@itemproduct.Image1" /><a href="@HomeRess.HomeStrings.bolum_urunler_link/@itemproduct.ProductId/@itemproduct.PageSlug">@itemproduct.Name</a>
-                                </div>
-                              }
-                            
-                          }
-                      }
-                                  </div>
-                        </div>
-                  }
-            </div>
-        </div>
+            @foreach (var item in Model.photos)
+            {   
+                 <div class="slide-content">
+				
+				    <img src="@item.Path" style="width:697px;height:666px;" alt="">
 
-    </div>
-    <div class="col-md-12 shadow products section noPadding">
-        <div class="col-md-12 sectionTitle">
-            <div class="col-md-12">
-                <h5>@HomeRess.HomeStrings.bolum_hizmetler_baslik</h5>
-            </div>
-        </div>
+				    <div class="caption">
+					
+					    <p>@item.Title</p>
 
-        <div class="col-md-12 sectionContent">
-            <ul class="nav nav-tabs" id="servicepositions">
-                @foreach (var item in Model.servicegroups)
-                {
-                    <li><a href="#service_@item.Name" data-toggle="tab">@item.Name</a></li>
-                }
-            </ul>
-            <div class="tab-content" id="servicecontent">
-                @foreach (var item in Model.servicegroups)
-                {
-                   if (item.ShowInMenu==true)
-                   {
-                    <div class="tab-pane" id="service_@item.Name">
-                        <div class="col-md-12">
-                            @Html.Raw(item.Content)
-                        </div>
-                        <div class="col-md-12 noPadding">
-                            @if(item.ShowContentHome)
-                            {
-                                foreach (var itemsub in Model.servicesphotos.Where(d=>d.ItemId == item.ServiceId))
-                                {
-                                    <div class="col-md-3 "><a href="@itemsub.Path" class="fancybox" rel="galleryservice"><img src="@itemsub.Thumbnail" /></a></div>                                
-                                }
-                            }
-                        </div>
-                    </div>
-                    }
-                }
-            </div>
-        </div>
-    </div>
+				    </div> <!-- caption -->
 
-    <div class="col-md-12 shadow news section noPadding">
-        <div class="col-md-12 sectionTitle">
-            <div class="col-md-6">
-                <h5>@HomeRess.HomeStrings.bolum_haberler_baslik</h5>
-            </div>
-            <div class="col-md-6 allContent"><a href="@HomeRess.HomeStrings.bolum_haberler_tum_link">[ @HomeRess.HomeStrings.bolum_haberler_tum ]</a> </div>
-        </div>
-        <div class="col-md-12 sectionContent neww">
-            <ul class="newsSlider">
-                @foreach (var item in Model.news)
-                {
-                    <li><a href="/haberler">
-                        <h5>@item.Header</h5>
-                        <p>@item.Spot</p>
-                        <div>@item.TimeCreated.Value.ToShortDateString()</div>
-                    </a>
+			    </div> <!-- slide-content -->
+            }
 
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
+			
 
-    <!-- REFERANLAR BÖLÜMÜ -->
-    <div class="col-md-12 shadow references section noPadding">
-        <div class="col-md-12 sectionTitle">
-            <div class="col-md-6">
-                <h5>@HomeRess.HomeStrings.bolum_referanslar_baslik</h5>
-            </div>
-            <div class="col-md-6 allContent"><a href="@HomeRess.HomeStrings.bolum_referanslar_tum_link">[ @HomeRess.HomeStrings.bolum_referanslar_tum ]</a> </div>
-        </div>
-        <div class="col-md-12 sectionContent">
-            <ul class="referenceSlider">
-                @foreach (var item in Model.references)
-                {
-                    if (item.Logo != null)
-                    {
-                    <li><img src="@item.Logo"/></li>
-                    }
-                    else
-                    {
-                        <li><img src="/Content/Images/Front/noimage.jpeg"/></li>
-                    }
-                }
-        
-            </ul>
-        </div>
+			
+		</div> <!-- slider -->
 
-    </div>
-    <!-- /REFERANLAR BÖLÜMÜ -->
+		<div class="clear"></div>
+
+		<div class="news">
+			
+			<h2>HABERLER</h2>
+
+			<div class="clear"></div>
+
+			<div class="news-slider">
+				
+				<div class="news-group">
+					
+					<div class="news-list">
+						
+						<div class="date"><p>14.05 <br/> 2014</p></div>
+						<p>
+							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
+
+							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
+						</p>
+
+					</div> <!-- news-list -->
+
+					<div class="news-list">
+						
+						<div class="date"><p>14.05 <br/> 2014</p></div>
+						<p>
+							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
+
+							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
+						</p>
+
+					</div> <!-- news-list -->
+
+				</div> <!-- news-group -->
+
+				<div class="news-group">
+					
+					<div class="news-list">
+						
+						<div class="date"><p>14.05 <br/> 2014</p></div>
+						<p>
+							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
+
+							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
+						</p>
+
+					</div> <!-- news-list -->
+
+					<div class="news-list">
+						
+						<div class="date"><p>14.05 <br/> 2014</p></div>
+						<p>
+							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
+
+							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
+						</p>
+
+					</div> <!-- news-list -->
+
+				</div> <!-- news-group -->
+
+			</div> <!-- news-slider -->
+
+		</div> <!-- news -->
+
+		<div class="product-info">
+			<h2>ÜRÜNLER HAKKINDA <br/> BİLGİ VE SİPARİŞ</h2>
+			<p>0126 123 12 42 no'lu hattan ulaşabilirsiniz.</p>
+		</div> <!-- product-info -->
+
+		<div class="newsletter">
+			
+			<h2>E-POSTA ABONELİĞİ</h2>
+
+			<form action="">
+				<input type="text" placeholder="E-posta adresi">
+				<a href="#" class="submit-btn"></a>
+			</form>
+
+		</div> <!-- newsletter -->
+
+	</div> <!-- container-left -->
+
+	<div class="container-right">
+	
+		<div class="product-menu">
+			<h1>ÜRÜNLER</h1>
+
+			<ul>
+				<li class="parent"><a href="#">ALTYAPI ÜRÜNLERİ</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+			</ul>
+
+			<ul>
+				<li class="parent"><a href="#">ÜSTYAPI ÜRÜNLERİ</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
+			</ul>
+
+		</div> <!-- product-menu -->
+
+		<div class="clear"></div>
+
+		<a href="#" class="price-list-button flr"><img src="images/money.png" alt=""></a>
+
+		<div class="clear"></div>
+
+		<div class="references-list">
+			
+			<h2><span class="icon"></span>REFERANSLAR</h2>
+
+			<div class="clear"></div>
+
+			<ul>
+				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+			</ul>
+
+			<a href="#" class="all-btn"><span class="icon"></span>Tüm referanslar için tıklayın</a>
+
+		</div> <!-- references-list -->
+
+	</div> <!-- container-right -->
+	
+	 
+
 </div>
 
-<link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
-<script src="~/Content/Scripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-    $(function () {
 
-        //$('.newsslider').parent().parent().find('.bx-controls').find('.bx-pager').css("bottom", "ce0px");
+<div id="footer">
+	<div class="container">
+		<div class="col-md-9   noPadding noMarginTop"><ul class="nav nav-pills">
+			<li><a href="kurumsal.html">Kurumsal</a></li>
+			<li><a href="#">Ürünler/Hizmetler</a></li>
+			<li><a href="haberler.html">Haberler</a></li>
+			<li><a href="fiyat-listesi.html">Fiyat listesi</a></li>
+			<li><a href="makine-ve-arac-parkuru.html">Makine ve Araç Parkuru</a></li>
+			<li><a href="galeri.html">Galeri</a></li>
+			<li><a href="referanslar.html">Referanslar</a></li>
+			<li class="last"><a href="iletisim.html">İletişim</a></li>
+		</ul>
+		 </div>
+		<div class="col-md-3  wortec"> Web Tasarım ve Yazılım <a href="http://www.wortec.net">WORTEC</a> </div>
+		<div class="col-md-12 copyright">©2014 AS-TON. Her hakkı saklıdır. </div>
+	</div>
+</div>
 
-        $("#servicepositions li:first").addClass("active");
-        $("#servicecontent .tab-pane:first").addClass("active");
-        $("#productpositions li:first").addClass("active");
-        $("#productcontent .tab-pane:first").addClass("active");
-        
-        $(".fancybox").fancybox({
-            openEffect: 'none',
-            closeEffect: 'none'
-        });
-    });
+</body>
+</html>
 
-</script>
-
-<style>
-    .neww .bx-controls .bx-pager{bottom:-30px !important;
-    }
-</style>

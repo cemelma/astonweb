@@ -2743,7 +2743,9 @@
     <Content Include="Areas\Admin\Views\Updates\Index.cshtml" />
     <Content Include="HTMLTemplate\CareerTemplate.html" />
     <Content Include="Images\aktiv.png" />
+    <Content Include="Images\all-references.png" />
     <Content Include="Images\arrow.png" />
+    <Content Include="Images\arrow2.png" />
     <Content Include="Images\arsa.jpg" />
     <Content Include="Images\blank.gif" />
     <Content Include="Images\blue.png" />
@@ -2751,10 +2753,12 @@
     <Content Include="Images\border.png" />
     <Content Include="Images\bulletList.png" />
     <Content Include="Images\bx_loader.gif" />
+    <Content Include="Images\cloud.jpg" />
     <Content Include="Images\controls.png" />
     <Content Include="Images\controlsColorbox.png" />
     <Content Include="Images\default.png" />
     <Content Include="Images\degertunali.jpg" />
+    <Content Include="Images\dotted.png" />
     <Content Include="Images\enticariHizmetler.png" />
     <Content Include="Images\error.png" />
     <Content Include="Images\fancybox_loading%402x.gif" />
@@ -2778,6 +2782,7 @@
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\lukskonut.jpg" />
+    <Content Include="Images\mail_send_btn.jpg" />
     <Content Include="Images\mainslider\slider_01.jpg" />
     <Content Include="Images\mainslider\slider_01_en.jpg" />
     <Content Include="Images\mainslider\slider_01_en_y.jpg" />
@@ -2789,6 +2794,7 @@
     <Content Include="Images\metrocity.jpg" />
     <Content Include="Images\minus.png" />
     <Content Include="Images\misyon.jpg" />
+    <Content Include="Images\money.png" />
     <Content Include="Images\msgNoteBg.png" />
     <Content Include="Images\nav.png" />
     <Content Include="Images\next.png" />
@@ -3041,13 +3047,20 @@
     <Content Include="img\whiteTrans.png" />
     <Content Include="img\yuksekgerilim.jpg" />
     <Content Include="js\additional-methods.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\code.js" />
+    <Content Include="js\functions.js" />
+    <Content Include="js\html5shiv.js" />
     <Content Include="js\jquery-1.11.0.min.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\jquery.bxslider.min.js" />
     <Content Include="js\jquery.colorbox-min.js" />
+    <Content Include="js\jquery.cycle.all.js" />
     <Content Include="js\jquery.easing.js" />
     <Content Include="js\jquery.fancybox.pack.js" />
     <Content Include="js\jquery.highlight.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="js\jquery.slidorion.min.js" />
     <Content Include="js\jquery.validate.js" />
     <Content Include="js\showcaseCustom.js" />
@@ -3182,8 +3195,7 @@
     <Content Include="Views\Shared\_subbestproductgroups.cshtml" />
     <Content Include="Views\Shared\_subsubbestproductgroups.cshtml" />
     <Content Include="Views\Shared\_topaboutus.cshtml" />
-    <Content Include="Views\Shared\Eskifrontlayout.cshtml" />
-    <Content Include="Views\FHome\Index.cshtml" />
+    <Content Include="Views\FHome\EskiIndex.cshtml" />
     <Content Include="Views\FInstitutional\Index.cshtml" />
     <Content Include="Views\Shared\Partial\_topmenu.cshtml" />
     <Content Include="Views\FContact\Index.cshtml" />
@@ -3202,6 +3214,7 @@
     <Content Include="Views\Shared\Partial\_footernew.cshtml" />
     <Content Include="Views\Shared\Partial\_topmenuold.cshtml" />
     <Content Include="Views\FGallery\Index.cshtml" />
+    <Content Include="Views\FHome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
