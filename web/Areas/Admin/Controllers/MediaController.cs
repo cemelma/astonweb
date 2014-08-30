@@ -223,14 +223,15 @@ namespace web.Areas.Admin.Controllers
         /// <param name="w">The w.</param>
         /// <param name="h">The h.</param>
         /// <returns>Image Id</returns>
-        public JsonResult CropImage(int x, int y, int w, int h)
+        public JsonResult CropImage(int x, int y, int w, int h, bool? extension)
         {
             try
             {
+                if (extension == null) extension = false;
                 if (w == 0 && h == 0) // Make sure the user selected a crop area
                     throw new Exception("A crop selection was not made.");
 
-                string imageId = ModifyImage(x, y, w, h, ImageModificationType.Crop);
+                string imageId = ModifyImage(x, y, w, h, ImageModificationType.Crop, extension);
                 return Json(imageId);
             }
             catch (Exception ex)
@@ -242,6 +243,7 @@ namespace web.Areas.Admin.Controllers
             }
         }
 
+
         /// <summary>
         /// Resizes the image.
         /// </summary>
@@ -250,7 +252,7 @@ namespace web.Areas.Admin.Controllers
         {
             try
             {
-                string imageId = ModifyImage(0, 0, W_FixedSize, H_FixedSize, ImageModificationType.Resize);
+                string imageId = ModifyImage(0, 0, W_FixedSize, H_FixedSize, ImageModificationType.Resize,false);
                 return Json(imageId);
             }
             catch (Exception ex)
@@ -271,7 +273,7 @@ namespace web.Areas.Admin.Controllers
         /// <param name="h">The h.</param>
         /// <param name="modType">Type of the mod. Crop or Resize</param>
         /// <returns>New Image Id</returns>
-        private string ModifyImage(int x, int y, int w, int h, ImageModificationType modType)
+        private string ModifyImage(int x, int y, int w, int h, ImageModificationType modType, bool? withextension)
         {
             ModifiedImageId = Guid.NewGuid();
             Image img = ImageHelperNew.ByteArrayToImage(WorkingImage);
@@ -335,7 +337,10 @@ namespace web.Areas.Admin.Controllers
             Image CoreppedImg = ImageHelperNew.ByteArrayToImage(ModifiedImage);
             //CoreppedImg.Save(Server.MapPath("/Content/images/userfiles/newbig/" + ModifiedImageId + WorkingImageExtension));
             //CoreppedImg.Save(Server.MapPath("/Content/images/userfiles/news/" + ModifiedImageId));
-            CoreppedImg.Save(Server.MapPath("/Content/images/userfiles/news/" + ModifiedImageId + WorkingImageExtension));
+
+            if(withextension==false)
+                CoreppedImg.Save(Server.MapPath("/Content/images/userfiles/news/" + ModifiedImageId));
+            else CoreppedImg.Save(Server.MapPath("/Content/images/userfiles/news/" + ModifiedImageId + WorkingImageExtension));
             return ModifiedImageId.ToString();
         }
 

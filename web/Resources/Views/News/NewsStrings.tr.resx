@@ -123,8 +123,14 @@
   <data name="breadcrumbtext" xml:space="preserve">
     <value>Haberler</value>
   </data>
+  <data name="breadcrumbtextmachine" xml:space="preserve">
+    <value>Makine ve Araç Parkuru</value>
+  </data>
   <data name="header" xml:space="preserve">
     <value>HABERLER</value>
+  </data>
+  <data name="headermachine" xml:space="preserve">
+    <value>MAKİNE VE ARAÇ PARKURU</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>Haberler</value>

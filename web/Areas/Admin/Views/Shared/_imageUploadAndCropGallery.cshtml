@@ -310,7 +310,7 @@
         $.ajax({
             url: '@Url.Action("CropImage", "Media")',
             type: "POST",
-            data: { x: x, y: y, w: w, h: h },
+            data: { x: x, y: y, w: w, h: h,extension:true },
             success: function (data) {
                 $('#lblMethodError').hide();
                 //$("#pnlNewImage").show();
