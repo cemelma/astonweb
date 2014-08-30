@@ -123,6 +123,12 @@
   <data name="galeri" xml:space="preserve">
     <value>Galeri</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>/tr/guvenlicikis</value>
+  </data>
+  <data name="logouttext" xml:space="preserve">
+    <value>Güveli Çıkış</value>
+  </data>
   <data name="m_arama_link" xml:space="preserve">
     <value>/tr/arama</value>
   </data>

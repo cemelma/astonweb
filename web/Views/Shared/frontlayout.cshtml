@@ -67,7 +67,7 @@
           
           @if (Session["userlogin"] != null)
           { 
-              <span style="float: right;position: absolute;right: 441px;top: 4px;"><a href="/guvenlicikis">Güvenli Çıkış</a></span>
+              <span style="float: right;position: absolute;right: 441px;top: 4px;"><a href="@SharedRess.SharedStrings.logout">@SharedRess.SharedStrings.logouttext</a></span>
           }
           
           @{ Html.RenderAction("_search", "FSearch"); }

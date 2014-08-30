@@ -198,7 +198,7 @@ namespace web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (ProductManager.GetMailControl(user.Login.Email))
+                    if (ProductManager.GetMailControl(user.NewUser.Email))
                     {
                         if (user.NewUser.Password == user.RePassword)
                         {
