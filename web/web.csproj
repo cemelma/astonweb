@@ -3007,6 +3007,7 @@
     <Content Include="Areas\Admin\Views\Machine\EditNews.cshtml" />
     <Content Include="Areas\Admin\Views\Machine\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Machine\news_leftbar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_imageUploadAndCropGalleryNew.cshtml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
     <None Include="Properties\PublishProfiles\ist.pubxml" />
