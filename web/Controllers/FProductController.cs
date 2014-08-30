@@ -185,7 +185,7 @@ namespace web.Controllers
         [HttpPost]
         public ActionResult UserLogin(UserModel user,string submit)
         {
-            if (submit == "Giriş")
+            if (submit == "Giriş" || submit == "Login")
             {
                 if (ProductManager.GetLoginControl(user.Login.Email, user.Login.Password))
                 {

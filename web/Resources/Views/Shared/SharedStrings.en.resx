@@ -123,6 +123,9 @@
   <data name="galeri" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="login" xml:space="preserve">
+    <value>/en/login</value>
+  </data>
   <data name="logout" xml:space="preserve">
     <value>/en/logout</value>
   </data>

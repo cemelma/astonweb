@@ -58,14 +58,14 @@ namespace web
             routes.MapRoute("fiyatlar_ar", "ar/prices/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
 
 
-            routes.MapRoute("giris_tr", "/tr/giris", new { action = "UserLogin", Controller = "FProduct" });
-            routes.MapRoute("giris_en", "/en/login", new { action = "UserLogin", Controller = "FProduct" });
-            routes.MapRoute("giris_ar", "/ar/login", new { action = "UserLogin", Controller = "FProduct" });
+            routes.MapRoute("giris_tr", "tr/giris", new { action = "UserLogin", Controller = "FProduct" });
+            routes.MapRoute("giris_en", "en/login", new { action = "UserLogin", Controller = "FProduct" });
+            routes.MapRoute("giris_ar", "ar/login", new { action = "UserLogin", Controller = "FProduct" });
 
 
-            routes.MapRoute("cik_tr", "/tr/guvenlicikis", new { action = "UserLogout", Controller = "FProduct" });
-            routes.MapRoute("cik_en", "/en/logout", new { action = "UserLogout", Controller = "FProduct" });
-            routes.MapRoute("cik_ar", "/ar/logout", new { action = "UserLogout", Controller = "FProduct" });
+            routes.MapRoute("cik_tr", "tr/guvenlicikis", new { action = "UserLogout", Controller = "FProduct" });
+            routes.MapRoute("cik_en", "en/logout", new { action = "UserLogout", Controller = "FProduct" });
+            routes.MapRoute("cik_ar", "ar/logout", new { action = "UserLogout", Controller = "FProduct" });
 
 
             /*Default*/
@@ -80,8 +80,8 @@ namespace web
             //routes.MapRoute("arama", "arama", new { action = "Index", Controller = "FSearch" });
             routes.MapRoute("sitemap", "siteharita", new { action = "Index", Controller = "FSiteMap" });
             
-            routes.MapRoute("giris", "giris", new { action = "UserLogin", Controller = "FProduct" });
-            routes.MapRoute("cik", "guvenlicikis", new { action = "UserLogout", Controller = "FProduct" });
+            //routes.MapRoute("giris", "giris", new { action = "UserLogin", Controller = "FProduct" });
+            //routes.MapRoute("cik", "guvenlicikis", new { action = "UserLogout", Controller = "FProduct" });
             routes.MapRoute("hizmetler", "hizmetler/{id}/{page}", new { action = "Index", Controller = "FServices" });
             routes.MapRoute("siteharita_tr", "tr/siteharitasi", new { action = "SiteHarita", Controller = "FInstitutional" });
 

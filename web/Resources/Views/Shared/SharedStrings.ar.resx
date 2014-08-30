@@ -123,6 +123,9 @@
   <data name="galeri" xml:space="preserve">
     <value>معرض</value>
   </data>
+  <data name="login" xml:space="preserve">
+    <value>/ar/login</value>
+  </data>
   <data name="logout" xml:space="preserve">
     <value>/ar/logout</value>
   </data>

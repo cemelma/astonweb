@@ -123,6 +123,9 @@
   <data name="galeri" xml:space="preserve">
     <value>Galeri</value>
   </data>
+  <data name="login" xml:space="preserve">
+    <value>/tr/giris</value>
+  </data>
   <data name="logout" xml:space="preserve">
     <value>/tr/guvenlicikis</value>
   </data>

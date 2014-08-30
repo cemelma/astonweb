@@ -120,6 +120,9 @@
   <data name="breadcrumb" xml:space="preserve">
     <value>المنتجات</value>
   </data>
+  <data name="breadcrumblogin" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
   <data name="fiyatbilgisi" xml:space="preserve">
     <value>اضغط هنا للتسعير معلومات</value>
   </data>
@@ -129,8 +132,71 @@
   <data name="fiyatlistesiniindir" xml:space="preserve">
     <value>تحميل قائمة الأسعار</value>
   </data>
+  <data name="laddress" xml:space="preserve">
+    <value>العنوان:</value>
+  </data>
+  <data name="lbtn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="lcep" xml:space="preserve">
+    <value>الهاتف النقال:</value>
+  </data>
+  <data name="lcompany" xml:space="preserve">
+    <value>شركة:</value>
+  </data>
+  <data name="lfax" xml:space="preserve">
+    <value>الفاكس:</value>
+  </data>
+  <data name="lmail" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني:</value>
+  </data>
+  <data name="lname" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="lnbtn" xml:space="preserve">
+    <value>تسجيل</value>
+  </data>
+  <data name="lnmail" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="lnpass" xml:space="preserve">
+    <value>كلمة المرور:</value>
+  </data>
+  <data name="lnrpass" xml:space="preserve">
+    <value>إعادة كلمة المرور</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="loginmessageerror" xml:space="preserve">
+    <value>يرجى ملء الحقول المطلوبة الرجاء إكمال ودقيقة.</value>
+  </data>
+  <data name="loginmessagemsg" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني / كلمة المرور غير صحيحة، يرجى مراجعة.</value>
+  </data>
+  <data name="loginmessagenew" xml:space="preserve">
+    <value>عذرا، لم تكتمل عملية التسجيل. يرجى الاتصال المعتمد.</value>
+  </data>
+  <data name="loginmessagenotmail" xml:space="preserve">
+    <value>يتم تسجيل عنوان البريد الإلكتروني هذا بالفعل.</value>
+  </data>
+  <data name="loginmessagenotnull" xml:space="preserve">
+    <value>يرجى التحقق من البيانات، إدخال البيانات المفقودة.</value>
+  </data>
+  <data name="loginmessagepass" xml:space="preserve">
+    <value>يرجى التحقق من كلمات السر دخلت لا تتطابق ...</value>
+  </data>
+  <data name="lpass" xml:space="preserve">
+    <value>كلمة المرور:</value>
+  </data>
+  <data name="ltel" xml:space="preserve">
+    <value>الهاتف:</value>
+  </data>
   <data name="pricestitle" xml:space="preserve">
     <value>أسعار</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>تسجيل</value>
   </data>
   <data name="urunfotograflari" xml:space="preserve">
     <value>صور المنتج</value>

@@ -79,6 +79,15 @@ namespace SharedRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /tr/giris.
+        /// </summary>
+        public static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /tr/guvenlicikis.
         /// </summary>
         public static string logout {

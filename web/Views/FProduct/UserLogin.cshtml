@@ -6,11 +6,12 @@
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-            <li><a href="/">Anasayfa</a></li>
-            <li>Giriş</li>
+              <li><a href="@NewsRess.NewsStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
+            <li>@ProductRess.ProductStrings.breadcrumblogin</li>
         </ul>
     </div>
 }
+
 
 <style>
     /* -- Notification -- */
@@ -40,28 +41,28 @@
             {
                 if (TempData["required"].ToString().Equals("true"))
                 {
-                    <div class="notification error">Lütfen gerekli alanları eksiksiz ve doğru bir şekilde doldurunuz.</div>
+                    <div class="notification error">@ProductRess.ProductStrings.loginmessageerror</div>
                 }
             }
             @if (TempData["login"] != null)
             {
                 if (TempData["login"].ToString().Equals("false"))
                 {
-                        <div class="notification error">Mail adresi/şifre yanlış, lütfen kontrol ediniz.</div>
+                        <div class="notification error">@ProductRess.ProductStrings.loginmessagemsg</div>
                 }
             }
         @if (TempData["usernew"] != null)
             {
                 if (TempData["usernew"].ToString().Equals("false"))
                 {
-                        <div class="notification error">Üzgünüm, Üyelik İşlemi tamamlanamadı. Lütfen yetkili ile görüşünüz.</div>
+                        <div class="notification error">@ProductRess.ProductStrings.loginmessagenew</div>
                 }
             }
      @if (TempData["usernewvalid"] != null)
             {
                 if (TempData["usernewvalid"].ToString().Equals("false"))
                 {
-                        <div class="notification error">Lütfen verilerinizi kontrol ediniz, eksik veri girmeyiniz.
+                        <div class="notification error">@ProductRess.ProductStrings.loginmessagenotnull
                             <br />
 
                             @*@Html.ValidationMessageFor(d => d.NewUser.Email)
@@ -70,7 +71,7 @@
                             {
                                 if (TempData["pass"].ToString().Equals("false"))
                                 {
-                                    <br /><text>Girilen şifreler uyuşmuyor lütfen kontrol ediniz...</text>
+                                    <br /><text>@ProductRess.ProductStrings.loginmessagepass</text>
                                 }
                             }
                         </div>
@@ -80,25 +81,25 @@
             {
                 if (TempData["mailisuse"].ToString().Equals("false"))
                 {
-                        <div class="notification error">Bu mail adresi zaten kayıtlı.</div>
+                        <div class="notification error">@ProductRess.ProductStrings.loginmessagenotmail</div>
                 }
             }
 
     
     <div class="col-md-12 shadow section noPadding noMarginTop">
         <div class="col-md-12 sectionContent page uyelikPage">
-            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>ÜYELİK</h2>
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@ProductRess.ProductStrings.login</h2>
             <div class="pageContent">
                 <div class="col-md-5">
                     <h3>Giriş Yapın</h3>
                     <div class="col-md-4">
-                        @Html.LabelFor(m => m.Login.Email)
+                        @Html.LabelFor(m => m.Login.Email,@ProductRess.ProductStrings.lmail)
                     </div>
                     <div class="col-md-8">
                         @Html.TextBoxFor(m => m.Login.Email)
                     </div>
                     <div class="col-md-4">
-                        @Html.LabelFor(m => m.Login.Password)
+                        @Html.LabelFor(m => m.Login.Password,@ProductRess.ProductStrings.lpass)
                     </div>
                     <div class="col-md-8">
                         @Html.TextBoxFor(m => m.Login.Password, new { type = "password"})
@@ -106,62 +107,62 @@
                     <div class="col-md-4">
                     </div>
                     <div class="col-md-8">
-                        <input name="submit" type="submit" id="submit" value="Giriş" />
+                        <input name="submit" type="submit" id="submit" value="@ProductRess.ProductStrings.lbtn" />
                     </div>
                 </div>
 
                 <div class="col-md-7">
-                    <h3>Ya da Üye Olun</h3>
+                    <h3>@ProductRess.ProductStrings.register</h3>
                     <div class="col-md-3">
-                       @Html.LabelFor(m => m.NewUser.FullName)
+                       @Html.LabelFor(m => m.NewUser.FullName,@ProductRess.ProductStrings.lname)
                     </div>
                     <div class="col-md-9">
                         @Html.TextBoxFor(m => m.NewUser.FullName) *
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.NewUser.Company)
+                        @Html.LabelFor(m => m.NewUser.Company,@ProductRess.ProductStrings.lcompany)
                     </div>
                     <div class="col-md-9">
                         @Html.TextBoxFor(m => m.NewUser.Company)
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.NewUser.Address)
+                        @Html.LabelFor(m => m.NewUser.Address,@ProductRess.ProductStrings.laddress)
                     </div>
                     <div class="col-md-9">
                         @Html.TextBoxFor(m => m.NewUser.Address, new { @style="margin: 0px 0px 10px; width: 315px; height: 68px;", Rows = "5" })
                     </div>
                     <div class="col-md-3">
-                         @Html.LabelFor(m => m.NewUser.Tel)
+                         @Html.LabelFor(m => m.NewUser.Tel,@ProductRess.ProductStrings.ltel)
                     </div>
                     <div class="col-md-9">
                          @Html.TextBoxFor(m => m.NewUser.Tel)
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.NewUser.Cep)
+                        @Html.LabelFor(m => m.NewUser.Cep,@ProductRess.ProductStrings.lcep)
                     </div>
                     <div class="col-md-9">
                          @Html.TextBoxFor(m => m.NewUser.Cep)
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.NewUser.Fax)
+                        @Html.LabelFor(m => m.NewUser.Fax,@ProductRess.ProductStrings.lfax)
                     </div>
                     <div class="col-md-9">
                          @Html.TextBoxFor(m => m.NewUser.Fax)
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.NewUser.Email)
+                        @Html.LabelFor(m => m.NewUser.Email,@ProductRess.ProductStrings.lnmail)
                     </div>
                     <div class="col-md-9">
                          @Html.TextBoxFor(m => m.NewUser.Email) *
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.NewUser.Password)
+                        @Html.LabelFor(m => m.NewUser.Password,@ProductRess.ProductStrings.lnpass)
                     </div>
                     <div class="col-md-9">
                         @Html.TextBoxFor(m => m.NewUser.Password, new { @type="password" }) *
                     </div>
                     <div class="col-md-3">
-                        @Html.LabelFor(m => m.RePassword)
+                        @Html.LabelFor(m => m.RePassword,@ProductRess.ProductStrings.lnrpass)
                     </div>
                     <div class="col-md-9">
                         @Html.TextBoxFor(m => m.RePassword, new { @type="password" }) *
@@ -169,7 +170,7 @@
                     <div class="col-md-3">
                     </div>
                     <div class="col-md-9">
-                        <input name="submit" type="submit" id="submit" value="Üye Ol" />
+                        <input name="submit" type="submit" id="submits" value="@ProductRess.ProductStrings.lnbtn" />
                     </div>
                 </div>
 
