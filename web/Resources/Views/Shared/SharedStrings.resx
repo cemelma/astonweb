@@ -172,7 +172,7 @@
     <value>Makine ve Araç Parkuru</value>
   </data>
   <data name="m_makine_link" xml:space="preserve">
-    <value>#</value>
+    <value>/tr/makine-ve-arac-parkuru</value>
   </data>
   <data name="m_referans" xml:space="preserve">
     <value>Referanslar</value>

@@ -95,5 +95,14 @@ namespace NewsRess {
                 return ResourceManager.GetString("title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makine ve Araç Parkuru.
+        /// </summary>
+        public static string titlemachine {
+            get {
+                return ResourceManager.GetString("titlemachine", resourceCulture);
+            }
+        }
     }
 }

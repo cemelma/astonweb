@@ -129,4 +129,7 @@
   <data name="title" xml:space="preserve">
     <value>Haberler</value>
   </data>
+  <data name="titlemachine" xml:space="preserve">
+    <value>Makine ve Araç Parkuru</value>
+  </data>
 </root>

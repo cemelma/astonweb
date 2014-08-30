@@ -3222,6 +3222,7 @@
     <Content Include="Views\Shared\Partial\_topmenuold.cshtml" />
     <Content Include="Views\FGallery\Index.cshtml" />
     <Content Include="Views\FHome\Index.cshtml" />
+    <Content Include="Views\FNews\Machine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3236,7 +3237,6 @@
     <Folder Include="Areas\Admin\Content\CKEditor\userfiles\images\" />
     <Folder Include="Areas\Admin\Content\CKEditor\userfiles\_thumbs\Images\" />
     <Folder Include="Areas\Admin\Content\images\icons\small\" />
-    <Folder Include="Areas\Admin\Content\scripts\pagescripts\NewFolder1\" />
     <Folder Include="bin\" />
     <Folder Include="Content\Images\Banka\" />
     <Folder Include="Content\Images\bankinfo\" />

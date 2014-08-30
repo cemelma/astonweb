@@ -29,7 +29,7 @@ namespace web.Controllers
         //makine-ve-arac-parkuru
         public ActionResult Machine()
         {
-            var machine = NewsManager.GetNewsListForFront(lang,true);
+            var machine = NewsManager.GetNewsListForFrontMachine(lang, true);
             return View(machine);
         }
 

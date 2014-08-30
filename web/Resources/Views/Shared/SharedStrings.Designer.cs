@@ -223,7 +223,7 @@ namespace SharedRess {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #.
+        ///   Looks up a localized string similar to /tr/makine-ve-arac-parkuru.
         /// </summary>
         public static string m_makine_link {
             get {
