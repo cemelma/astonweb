@@ -59,6 +59,12 @@ namespace web.Areas.Admin
             context.MapRoute("newsaddx", "yonetim/haberekle", new { action = "AddNews", Controller = "News" });
             context.MapRoute("newseditx", "yonetim/haberduzenle/{id}", new { action = "EditNews", Controller = "News" });
 
+            //Makine ve Araç Parkuru
+            context.MapRoute("machine_defaultx", "yonetim/makinevearac", new { action = "Index", Controller = "Machine" }, null, new[] { "web.Areas.Admin.Controllers" });
+            context.MapRoute("machinex", "yonetim/makinevearac/{lang}", new { action = "Index", Controller = "Machine" });
+            context.MapRoute("machineaddx", "yonetim/makinevearacekle", new { action = "AddNews", Controller = "Machine" });
+            context.MapRoute("machineeditx", "yonetim/makinevearacduzenle/{id}", new { action = "EditNews", Controller = "Machine" });
+
             //EKİBİMİZ
             context.MapRoute("ekibimiz_defaultx", "yonetim/ekibimiz", new { action = "Index", Controller = "OurTeam" }, null, new[] { "web.Areas.Admin.Controllers" });
             context.MapRoute("ekibimizx", "yonetim/ekibimiz/{lang}", new { action = "Index", Controller = "OurTeam" });

@@ -33,7 +33,7 @@ namespace web.Controllers
         {
             HomePageWrapperModel model = new HomePageWrapperModel();
             model.photos = PhotoManager.GetListForFront(lang,0);
-            model.news = NewsManager.GetNewsListForFront(lang);
+            model.news = NewsManager.GetNewsListForFront(lang,false);
             model.servicegroups = ServiceManager.GetServiceList();
             model.references = ReferenceManager.GetReferenceListForFront(lang);
 

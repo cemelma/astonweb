@@ -19,14 +19,20 @@ namespace web.Controllers
         public ActionResult Index()
         {
 
-            var news = NewsManager.GetNewsListForFront(lang);
+            var news = NewsManager.GetNewsListForFront(lang,false);
             //var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News, lang);
        //     var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News);
        //     NewsWrapperModel m = new NewsWrapperModel(news, photos);
             return View(news);
         }
 
-       
+        //makine-ve-arac-parkuru
+        public ActionResult Machine()
+        {
+            var machine = NewsManager.GetNewsListForFront(lang,true);
+            return View(machine);
+        }
+
         //public ActionResult NewsContent(int hid)
         //{
         //    var news = NewsManager.GetNewsItem(hid);

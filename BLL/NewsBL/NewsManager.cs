@@ -13,11 +13,11 @@ namespace BLL.NewsBL
     public class NewsManager
     {
         static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public static List<News> GetNewsList(string language)
+        public static List<News> GetNewsList(string language,bool ismachine)
         {
             using (MainContext db = new MainContext())
             {
-                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
+                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language && d.IsMachine == ismachine).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
                 return news_list;
             }
         }
@@ -31,11 +31,11 @@ namespace BLL.NewsBL
             }
         }
 
-        public static List<News> GetNewsListForFront(string language)
+        public static List<News> GetNewsListForFront(string language, bool ismachine)
         {
             using (MainContext db = new MainContext())
             {
-                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language && d.Online == true && d.ShowInMenu==true).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
+                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language && d.Online == true && d.ShowInMenu==true && d.IsMachine==ismachine).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
                 return news_list;
             }
         }

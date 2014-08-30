@@ -185,6 +185,7 @@
     <Compile Include="Areas\Admin\Controllers\AnalyticController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MachineController.cs" />
     <Compile Include="Areas\Admin\Controllers\DistrictController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagsController.cs" />
@@ -3000,6 +3001,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\Gallery\GalleryList.cshtml" />
+    <Content Include="Areas\Admin\Views\Machine\AddNews.cshtml" />
+    <Content Include="Areas\Admin\Views\Machine\EditNews.cshtml" />
+    <Content Include="Areas\Admin\Views\Machine\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Machine\news_leftbar.cshtml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
     <None Include="Properties\PublishProfiles\ist.pubxml" />

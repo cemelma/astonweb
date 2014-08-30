@@ -44,5 +44,8 @@ namespace DAL.Entities
         [Display(Name = "Anasayfada Göster")]
         public bool ShowInMenu { get; set; }
         public int SortOrder { get; set; }
+        
+        public bool IsMachine { get; set; }
+
     }
 }
