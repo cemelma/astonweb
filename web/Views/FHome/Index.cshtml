@@ -123,7 +123,8 @@
                             @(new HtmlString("<div class='news-group' style='width: 370px;'>"));
                         }
                         
-                        @(new HtmlString("<div class='news-list'><div class='date'><p>" + item.TimeCreated.Value.ToShortDateString().Split('.')[0] + "." + item.TimeCreated.Value.ToShortDateString().Split('.')[1] + "<br />" + item.TimeCreated.Value.ToShortDateString().Split('.')[2] + "</p></div>"));
+                        @(new HtmlString("<div class='news-list'><div class='date'><p>" + item.TimeCreated.Value.ToShortDateString().Substring(0, item.TimeCreated.Value.ToShortDateString().Length - 5) + "<br>"));
+                        @(new HtmlString(item.TimeCreated.Value.ToShortDateString().Substring(item.TimeCreated.Value.ToShortDateString().Length - 4, 4) + "</p></div>"));
                         @(new HtmlString("<p><a href='" + @SharedRess.SharedStrings.m_haberler_link + "' style='color:#333'><b>" + item.Header + "</b>" + item.Spot));
                         @(new HtmlString("</a></p></div>"));
 
