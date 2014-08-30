@@ -82,7 +82,7 @@
 
             @foreach (var item in Model.photos)
             {   
-                 <div class="slide-content">
+                 <div class="slide-content" style="z-index:0 !important">
 				
 				    <img src="@item.Path" style="width:697px;height:666px;" alt="">
 
@@ -104,76 +104,48 @@
 
 		<div class="news">
 			
-			<h2>HABERLER</h2>
+			<h2>@HomeRess.HomeStrings.bolum_haberler_baslik</h2>
 
 			<div class="clear"></div>
 
 			<div class="news-slider">
 				
-				<div class="news-group">
-					
-					<div class="news-list">
-						
-						<div class="date"><p>14.05 <br/> 2014</p></div>
-						<p>
-							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
+				@{ int i = 0; }
+                    @foreach (var item in Model.news)
+                    {
+                        i++;
+                        if (i % 2 == 1)
+                        {
+                            @(new HtmlString("<div class='news-group'>"));
+                        }
+                        
+                        @(new HtmlString("<div class='news-list'><div class='date'><p>" + item.TimeCreated.Value.ToShortDateString().Split('.')[0] + "." + item.TimeCreated.Value.ToShortDateString().Split('.')[1] + "<br />" + item.TimeCreated.Value.ToShortDateString().Split('.')[2] + "</p></div>"));
+                        @(new HtmlString("<p><a href='/haberler' style='color:#333'><b>" + item.Header + "</b>" + item.Spot));
+                        @(new HtmlString("</a></p></div>"));
 
-							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
-						</p>
+                        if (i % 2 == 0)
+                        {
+                            @(new HtmlString("</div>"));
+                        }
+                    }
 
-					</div> <!-- news-list -->
+				 <!-- news-group -->
 
-					<div class="news-list">
-						
-						<div class="date"><p>14.05 <br/> 2014</p></div>
-						<p>
-							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
-
-							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
-						</p>
-
-					</div> <!-- news-list -->
-
-				</div> <!-- news-group -->
-
-				<div class="news-group">
-					
-					<div class="news-list">
-						
-						<div class="date"><p>14.05 <br/> 2014</p></div>
-						<p>
-							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
-
-							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
-						</p>
-
-					</div> <!-- news-list -->
-
-					<div class="news-list">
-						
-						<div class="date"><p>14.05 <br/> 2014</p></div>
-						<p>
-							<b>Lorem ipsum, dizgi ve baskı endüstrisinde</b>
-
-							Obcaecati repellat cumque voluptas eum quod, dolorem natus quas, animi corporis sit assumenda cupiditate...
-						</p>
-
-					</div> <!-- news-list -->
-
-				</div> <!-- news-group -->
+				
 
 			</div> <!-- news-slider -->
 
 		</div> <!-- news -->
 
 		<div class="product-info">
-			<h2>ÜRÜNLER HAKKINDA <br/> BİLGİ VE SİPARİŞ</h2>
-			<p>0126 123 12 42 no'lu hattan ulaşabilirsiniz.</p>
+			<h2>@HomeRess.HomeStrings.urunler_hakkinda <br/> @HomeRess.HomeStrings.bilgi_ve_siparis</h2>
+			<p>@HomeRess.HomeStrings.nolu_hattan_ulasabilirsiniz</p>
 		</div> <!-- product-info -->
 
 		<div class="newsletter">
 			
-			<h2>E-POSTA ABONELİĞİ</h2>
+			<h2>@HomeRess.HomeStrings.eposta_aboneligi
+			</h2>
 
 			<form action="">
 				<input type="text" placeholder="E-posta adresi">
@@ -187,7 +159,7 @@
 	<div class="container-right">
 	
 		<div class="product-menu">
-			<h1>ÜRÜNLER</h1>
+			<h1>@ProductRess.ProductStrings.urunler</h1>
 
 			<ul>
 				<li class="parent"><a href="#">ALTYAPI ÜRÜNLERİ</a></li>
@@ -217,20 +189,19 @@
 
 		<div class="references-list">
 			
-			<h2><span class="icon"></span>REFERANSLAR</h2>
+			<h2><span class="icon"></span>@SharedRess.SharedStrings.m_referans</h2>
 
 			<div class="clear"></div>
 
 			<ul>
-				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
-				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
-				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
-				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
-				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
-				<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>
+                @foreach (var item in Model.references)
+                {
+				    <li><a href="@item.Link"><span class="icon"></span>@item.ReferenceName.ToUpper()</a></li>
+                }
+				@*<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>*@
 			</ul>
 
-			<a href="#" class="all-btn"><span class="icon"></span>Tüm referanslar için tıklayın</a>
+			<a href="@SharedRess.SharedStrings.m_referans_link" class="all-btn"><span class="icon"></span>Tüm referanslar için tıklayın</a>
 
 		</div> <!-- references-list -->
 
@@ -243,19 +214,19 @@
 
 <div id="footer">
 	<div class="container">
-		<div class="col-md-9   noPadding noMarginTop"><ul class="nav nav-pills">
-			<li><a href="kurumsal.html">Kurumsal</a></li>
-			<li><a href="#">Ürünler/Hizmetler</a></li>
-			<li><a href="haberler.html">Haberler</a></li>
-			<li><a href="fiyat-listesi.html">Fiyat listesi</a></li>
-			<li><a href="makine-ve-arac-parkuru.html">Makine ve Araç Parkuru</a></li>
-			<li><a href="galeri.html">Galeri</a></li>
-			<li><a href="referanslar.html">Referanslar</a></li>
-			<li class="last"><a href="iletisim.html">İletişim</a></li>
-		</ul>
-		 </div>
-		<div class="col-md-3  wortec"> Web Tasarım ve Yazılım <a href="http://www.wortec.net">WORTEC</a> </div>
-		<div class="col-md-12 copyright">©2014 AS-TON. Her hakkı saklıdır. </div>
+		 <div class="col-md-9   noPadding noMarginTop"><ul class="nav nav-pills">
+      <li><a href="@SharedRess.SharedStrings.m_kurumsal_link">@SharedRess.SharedStrings.m_kurumsal</a></li>
+      <li><a href="@SharedRess.SharedStrings.m_urunler_link">@SharedRess.SharedStrings.m_urunler</a></li>
+      <li><a href="@SharedRess.SharedStrings.m_haberler_link">@SharedRess.SharedStrings.m_haberler</a></li>
+      <li><a href="@SharedRess.SharedStrings.m_fiyatlistesi_link">@SharedRess.SharedStrings.m_fiyatlistesi</a></li>
+      <li><a href="@SharedRess.SharedStrings.m_makine_link">@SharedRess.SharedStrings.m_makine</a></li>
+      <li><a href="@SharedRess.SharedStrings.m_galeri_link">@SharedRess.SharedStrings.m_galeri</a></li>
+      <li><a href="@SharedRess.SharedStrings.m_referans_link">@SharedRess.SharedStrings.m_referans</a></li>
+      <li class="last"><a href="@SharedRess.SharedStrings.m_iletisim_link">@SharedRess.SharedStrings.m_iletisim</a></li>
+    </ul>
+     </div>
+    <div class="col-md-3  wortec">@Html.Raw(SharedRess.SharedStrings.weblink)</div>
+    <div class="col-md-12 copyright">@Html.Raw(SharedRess.SharedStrings.copyright)</div>
 	</div>
 </div>
 

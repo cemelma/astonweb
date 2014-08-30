@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bilgi_ve_siparis" xml:space="preserve">
+    <value>المعلومات والترتيب</value>
+  </data>
   <data name="bolum_haberler_baslik" xml:space="preserve">
     <value>الأخبار</value>
   </data>
@@ -144,7 +147,16 @@
   <data name="bolum_urunler_link" xml:space="preserve">
     <value>/ar/products</value>
   </data>
+  <data name="eposta_aboneligi" xml:space="preserve">
+    <value>الاشتراك الإلكتروني</value>
+  </data>
+  <data name="nolu_hattan_ulasabilirsiniz" xml:space="preserve">
+    <value>يمكنك حتى تصل إلى رقم 0126 123 12 42.</value>
+  </data>
   <data name="title" xml:space="preserve">
     <value>الحضرية الأثاث، مواد البنية التحتية، محيط أنظمة الأمن، الحجر الطبيعي</value>
+  </data>
+  <data name="urunler_hakkinda" xml:space="preserve">
+    <value>حول المنتجات</value>
   </data>
 </root>

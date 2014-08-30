@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bilgi_ve_siparis" xml:space="preserve">
+    <value>BİLGİ VE SİPARİŞ</value>
+  </data>
   <data name="bolum_haberler_baslik" xml:space="preserve">
     <value>HABERLER</value>
   </data>
@@ -144,7 +147,16 @@
   <data name="bolum_urunler_link" xml:space="preserve">
     <value>/tr/urunler</value>
   </data>
+  <data name="eposta_aboneligi" xml:space="preserve">
+    <value>E-POSTA ABONELİĞİ</value>
+  </data>
+  <data name="nolu_hattan_ulasabilirsiniz" xml:space="preserve">
+    <value>0126 123 12 42 no'lu hattan ulaşabilirsiniz.</value>
+  </data>
   <data name="title" xml:space="preserve">
     <value>Kent Mobilyaları, Altyapı Elemanları, Çevre Güvenlik Sistemleri, Doğal Taşlar</value>
+  </data>
+  <data name="urunler_hakkinda" xml:space="preserve">
+    <value>ÜRÜNLER HAKKINDA</value>
   </data>
 </root>

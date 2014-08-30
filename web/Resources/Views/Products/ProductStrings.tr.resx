@@ -135,6 +135,9 @@
   <data name="urunfotograflari" xml:space="preserve">
     <value>Ürün Fotoğrafları</value>
   </data>
+  <data name="urunler" xml:space="preserve">
+    <value>Ürünler</value>
+  </data>
   <data name="urunrenkleri" xml:space="preserve">
     <value>Ürün Renkleri</value>
   </data>
