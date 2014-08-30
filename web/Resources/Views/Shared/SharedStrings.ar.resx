@@ -120,6 +120,9 @@
   <data name="copyright" xml:space="preserve">
     <value>© 2014 AS-TON. جميع الحقوق محفوظة.</value>
   </data>
+  <data name="fiyat_listesi_btn_img" xml:space="preserve">
+    <value>/images/money-ar.png</value>
+  </data>
   <data name="galeri" xml:space="preserve">
     <value>معرض</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="productpricesmenulink" xml:space="preserve">
     <value>/ar/prices</value>
+  </data>
+  <data name="tum_referanslar_icin_tiklayin" xml:space="preserve">
+    <value>انقر هنا لعرض جميع المراجع</value>
   </data>
   <data name="txtsearch" xml:space="preserve">
     <value>البحث</value>

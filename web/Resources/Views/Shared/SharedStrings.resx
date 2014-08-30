@@ -120,6 +120,9 @@
   <data name="copyright" xml:space="preserve">
     <value>©2014 AS-TON. Her hakkı saklıdır.</value>
   </data>
+  <data name="fiyat_listesi_btn_img" xml:space="preserve">
+    <value>/images/money.png</value>
+  </data>
   <data name="galeri" xml:space="preserve">
     <value>Galeri</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="productpricesmenulink" xml:space="preserve">
     <value>/tr/fiyatlar</value>
+  </data>
+  <data name="tum_referanslar_icin_tiklayin" xml:space="preserve">
+    <value>Tüm referanslar için tıklayınız</value>
   </data>
   <data name="txtsearch" xml:space="preserve">
     <value>Arama</value>

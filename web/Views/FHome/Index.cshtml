@@ -45,7 +45,7 @@
 </head>
 
 <body>
-<div id="header" class="container">
+<div id="header" class="container" >
 	<div class="col-md-12 noPadding">
 		<div class="col-md-3 noPadding"> <a href="index.html" class="logo"><img src="~/images/logo.png" border="0" /></a> </div>
 		<div class="col-md-9 noPadding">
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 </div>
-<div id="container" class="container">
+<div id="container" class="container" style="overflow: hidden;">
 	
 	<div class="container-left">
 		
@@ -153,7 +153,7 @@
 			</h2>
 
 			<form action="">
-				<input type="text" placeholder="E-posta adresi">
+				<input type="text" placeholder="@ContactRess.ContactStrings.email">
 				<a href="#" class="submit-btn"></a>
 			</form>
 
@@ -188,14 +188,14 @@
 
 		<div class="clear"></div>
 
-         @if (Session["userlogin"] != null)
+         @*@if (Session["userlogin"] != null)
           { 
              <a href="@SharedRess.SharedStrings.login" class="price-list-button flr"><img src="/images/money.png" alt=""></a>
-          }
-             <a href="#" class="price-list-button flr"><img src="/images/money.png" alt=""></a>
-		
-
-		<div class="clear"></div>
+          }*@
+           
+             <a href="@SharedRess.SharedStrings.login" class="price-list-button flr"><img src="@SharedRess.SharedStrings.fiyat_listesi_btn_img" alt=""></a>
+          
+        <div class="clear"></div>
 
 		<div class="references-list">
 			
@@ -211,7 +211,7 @@
 				@*<li><a href="#"><span class="icon"></span>ALEMDAĞ BELEDİYE BAŞKANLIĞI</a></li>*@
 			</ul>
 
-			<a href="@SharedRess.SharedStrings.m_referans_link" class="all-btn"><span class="icon"></span>Tüm referanslar için tıklayın</a>
+			<a href="@SharedRess.SharedStrings.m_referans_link" class="all-btn"><span class="icon"></span>@SharedRess.SharedStrings.tum_referanslar_icin_tiklayin</a>
 
 		</div> <!-- references-list -->
 

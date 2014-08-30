@@ -2795,6 +2795,8 @@
     <Content Include="Images\metrocity.jpg" />
     <Content Include="Images\minus.png" />
     <Content Include="Images\misyon.jpg" />
+    <Content Include="Images\money-ar.png" />
+    <Content Include="Images\money-en.png" />
     <Content Include="Images\money.png" />
     <Content Include="Images\msgNoteBg.png" />
     <Content Include="Images\nav.png" />
