@@ -19,7 +19,7 @@ namespace web.Controllers
         public ActionResult Index()
         {
 
-            var news = NewsManager.GetNewsListForFront(lang,0);
+            var news = NewsManager.GetNewsListForFront(lang,false);
             //var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News, lang);
        //     var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News);
        //     NewsWrapperModel m = new NewsWrapperModel(news, photos);
@@ -29,7 +29,7 @@ namespace web.Controllers
         //makine-ve-arac-parkuru
         public ActionResult Machine()
         {
-            var machine = NewsManager.GetNewsListForFront(lang,1);
+            var machine = NewsManager.GetNewsListForFront(lang,true);
             return View(machine);
         }
 

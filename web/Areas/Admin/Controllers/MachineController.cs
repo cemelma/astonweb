@@ -17,13 +17,13 @@ using System.Web.Helpers;
 namespace web.Areas.Admin.Controllers
 {
     [AuthenticateUser]
-    public class NewsController : Controller
+    public class MachineController : Controller
     {
               
         public ActionResult Index()
         {
             string lang = FillLanguagesList();
-            var news = NewsManager.GetNewsList(lang,false);
+            var news = NewsManager.GetNewsList(lang,true);
             return View(news);
         }
 
@@ -58,7 +58,7 @@ namespace web.Areas.Admin.Controllers
 
                 newsmodel.Language = Language;
                 newsmodel.TypeId = 0;
-                newsmodel.IsMachine = false;
+                newsmodel.IsMachine = true;
                 newsmodel.PageSlug = Utility.SetPagePlug(newsmodel.Header);
                 newsmodel.TimeCreated = Utility.ControlDateTime(txtdate);
                 ViewBag.ProcessMessage = NewsManager.AddNews(newsmodel);

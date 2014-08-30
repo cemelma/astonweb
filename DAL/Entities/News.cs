@@ -45,7 +45,7 @@ namespace DAL.Entities
         public bool ShowInMenu { get; set; }
         public int SortOrder { get; set; }
         
-        public int Type { get; set; }
+        public bool IsMachine { get; set; }
 
     }
 }
