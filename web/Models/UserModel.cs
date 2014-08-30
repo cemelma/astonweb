@@ -22,11 +22,11 @@ namespace web.Models
 
     public class loginModel
     {
-        [Required(ErrorMessage = "Lütfen Emailinizi Giriniz")]
+        //[Required(ErrorMessage = "Lütfen Emailinizi Giriniz")]
         [Display(Name = "E-Posta Adresi:")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Lütfen Şifrenizi Giriniz")]
+        //[Required(ErrorMessage = "Lütfen Şifrenizi Giriniz")]
         [Display(Name = "Şifre:")]
         public string Password { get; set; }
     }

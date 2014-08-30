@@ -57,6 +57,17 @@ namespace web
             routes.MapRoute("fiyatlar_en", "en/prices/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
             routes.MapRoute("fiyatlar_ar", "ar/prices/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
 
+
+            routes.MapRoute("giris_tr", "/tr/giris", new { action = "UserLogin", Controller = "FProduct" });
+            routes.MapRoute("giris_en", "/en/login", new { action = "UserLogin", Controller = "FProduct" });
+            routes.MapRoute("giris_ar", "/ar/login", new { action = "UserLogin", Controller = "FProduct" });
+
+
+            routes.MapRoute("cik_tr", "/tr/guvenlicikis", new { action = "UserLogout", Controller = "FProduct" });
+            routes.MapRoute("cik_en", "/en/logout", new { action = "UserLogout", Controller = "FProduct" });
+            routes.MapRoute("cik_ar", "/ar/logout", new { action = "UserLogout", Controller = "FProduct" });
+
+
             /*Default*/
             //routes.MapRoute("home_default", "/", new { action = "Index", Controller = "FHome" });
             //routes.MapRoute("home_default", "anasayfa", new { action = "Index", Controller = "FHome" });

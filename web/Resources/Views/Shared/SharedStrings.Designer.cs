@@ -79,6 +79,24 @@ namespace SharedRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /tr/guvenlicikis.
+        /// </summary>
+        public static string logout {
+            get {
+                return ResourceManager.GetString("logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Güveli Çıkış.
+        /// </summary>
+        public static string logouttext {
+            get {
+                return ResourceManager.GetString("logouttext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /tr/arama.
         /// </summary>
         public static string m_arama_link {

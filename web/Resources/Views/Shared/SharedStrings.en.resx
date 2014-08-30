@@ -123,6 +123,12 @@
   <data name="galeri" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>/en/logout</value>
+  </data>
+  <data name="logouttext" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="m_arama_link" xml:space="preserve">
     <value>/en/search</value>
   </data>
