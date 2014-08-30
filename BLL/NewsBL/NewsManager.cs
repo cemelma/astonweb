@@ -31,11 +31,11 @@ namespace BLL.NewsBL
             }
         }
 
-        public static List<News> GetNewsListForFront(string language)
+        public static List<News> GetNewsListForFront(string language,int type)
         {
             using (MainContext db = new MainContext())
             {
-                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language && d.Online == true && d.ShowInMenu==true).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
+                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language && d.Online == true && d.ShowInMenu==true && d.Type==type).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
                 return news_list;
             }
         }
