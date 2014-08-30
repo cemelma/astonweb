@@ -68,8 +68,8 @@ namespace web
             routes.MapRoute("cik_ar", "ar/logout", new { action = "UserLogout", Controller = "FProduct" });
 
             routes.MapRoute("makine_tr", "tr/makine-ve-arac-parkuru", new { action = "Machine", Controller = "FNews" });
-            routes.MapRoute("makine_en", "en/Machinery-and-Vehicle-Trails", new { action = "Machine", Controller = "FNews" });
-            routes.MapRoute("makine_ar", "ar/Machinery-and-Vehicle-Trails", new { action = "Machine", Controller = "FNews" });
+            routes.MapRoute("makine_en", "en/machinery-and-vehicle-trails", new { action = "Machine", Controller = "FNews" });
+            routes.MapRoute("makine_ar", "ar/machinery-and-vehicle-trails", new { action = "Machine", Controller = "FNews" });
 
             /*Default*/
             //routes.MapRoute("home_default", "/", new { action = "Index", Controller = "FHome" });

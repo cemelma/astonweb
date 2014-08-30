@@ -129,4 +129,7 @@
   <data name="title" xml:space="preserve">
     <value>الأخبار</value>
   </data>
+  <data name="titlemachine" xml:space="preserve">
+    <value>الماكينات والمركبات مسارات</value>
+  </data>
 </root>

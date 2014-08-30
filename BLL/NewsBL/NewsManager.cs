@@ -40,6 +40,15 @@ namespace BLL.NewsBL
             }
         }
 
+        public static List<News> GetNewsListForFrontMachine(string language, bool ismachine)
+        {
+            using (MainContext db = new MainContext())
+            {
+                var news_list = db.News.Where(d => d.Deleted == false && d.Language == language && d.Online == true && d.IsMachine == ismachine).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
+                return news_list;
+            }
+        }
+
         public static News GetNewsItem(int id)
         {
             using (MainContext db = new MainContext())

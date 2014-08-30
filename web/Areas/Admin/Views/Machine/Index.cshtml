@@ -24,9 +24,9 @@
         <thead>
             <tr>
                 <th class="width5">Sırala</th>
-                <th class="width55">Başlığı</th>
+                <th class="width55">Başlık</th>
                 <th class="center witdh20">Durum</th>
-                <th class="center witdh10">Türü</th>
+                @*<th class="center witdh10">Türü</th>*@
                 <th class="center witdh5">Eklenme Tarihi</th>
                 <th class="center witdh5">İşlem</th>
             </tr>
@@ -47,10 +47,10 @@
                         {<img   id="img_online_@item.NewsId" src="/Areas/Admin/Content/images/icons/online.png" class="cursorpointer" title="Offline yap" onclick="SetOnlineStatus('/News/NewsEditStatus',@item.NewsId)" />}
                         else{<img id="img_online_@item.NewsId" src="/Areas/Admin/Content/images/icons/offline.png" class="cursorpointer" title="Online yap" onclick="SetOnlineStatus('/News/NewsEditStatus',@item.NewsId)" />}
                     </td>
-                    <td class="center">@if (item.TypeId == 0) { <text>Sektör Haberleri</text> }else{ <text>Basında Venueİstanbul</text> }</td>
+                    
                     <td class="center">@item.TimeCreated</td>
                     <td class="center">
-                       <a href="/yonetim/haberduzenle/@item.NewsId">
+                       <a href="/yonetim/makinevearacduzenle/@item.NewsId">
                         <img id="btn_update_@item.NewsId"  src="/Areas/Admin/Content/images/icons/16/edit.png"  title="Güncelle" class="cursorpointer" >
                         </a>
                         <img id="btn_save_@item.NewsId"  src="/Areas/Admin/Content/images/icons/16/save.png"  title="Kaydet" class="displaynone cursorpointer" onclick="UpdateRecord(@item.NewsId)">
@@ -81,7 +81,17 @@
 
 <script src="~/Areas/Admin/Content/scripts/myscripts/SetOnlineStatusRecord.js"></script>
 <script src="~/Areas/Admin/Content/scripts/myscripts/DeleteRecordTable.js"></script>
+<script>
+$(function () {
 
-<script src="~/Areas/Admin/Content/scripts/pagescripts/news/newslist.js"></script>
+    $("#LanguageList").change(function () {
+        var lang = $("#LanguageList option:selected").val();
+        window.location.href = "/yonetim/makinevearac/" + lang;
+    });
 
+    SortOrder("/News/SortRecords");
+
+});
+
+    </script>
 

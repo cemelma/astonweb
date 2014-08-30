@@ -30,7 +30,7 @@
             <fieldset>
                 <legend>Düzenle</legend>
             <p>
-                    @Html.LabelFor(m => m.Language)
+                    @Html.LabelFor(m => m.Language,"Dil")
                     @Html.DropDownListFor(m => m.Language, (IEnumerable<SelectListItem>)ViewBag.LanguageList)
                     @Html.ValidationMessageFor(m => m.Language)
                 </p>
@@ -67,7 +67,7 @@
                     @Html.TextBox("txtdate", @Model.TimeCreated.Value.ToShortDateString(), new { @class = "textwidth10" })
                     @* @Html.TextBox("txtdate")*@
                 </p>
-                <p>
+                <p style="display:none;">
                     @Html.Label("Ana sayfada Göster")
                     @Html.CheckBoxFor(x=>x.ShowInMenu)
                     @* @Html.TextBox("txtdate")*@
