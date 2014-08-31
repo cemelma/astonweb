@@ -296,6 +296,8 @@ namespace web.Areas.Admin
 
             context.MapRoute("uyeler", "yonetim/uyeler", new { action = "Index", Controller = "Users" });
 
+            context.MapRoute("aboneler", "yonetim/aboneler", new { action = "Index", Controller = "Subscription" });
+
 
             context.MapRoute(
                 "Admin_defaultx",

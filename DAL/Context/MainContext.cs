@@ -66,6 +66,8 @@ namespace DAL.Context
 
         public DbSet<ProductInformation> ProductInformation { get; set; }
         public DbSet<ProductColors> ProductColors { get; set; }
+        public DbSet<Subscription> Subscription { get; set; }
+
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -125,6 +127,8 @@ namespace DAL.Context
             modelBuilder.Entity<ProductHeaders>().ToTable("ProductHeaders");
             modelBuilder.Entity<ProductInformation>().ToTable("ProductInformation");
             modelBuilder.Entity<ProductColors>().ToTable("ProductColors"); 
+            modelBuilder.Entity<Subscription>().ToTable("Subscription"); 
+
             
             
         }
