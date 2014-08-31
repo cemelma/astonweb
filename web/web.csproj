@@ -1682,6 +1682,7 @@
     <Content Include="Areas\Admin\Content\images\link-arrow-hover.gif" />
     <Content Include="Areas\Admin\Content\images\link-arrow-regular.gif" />
     <Content Include="Areas\Admin\Content\images\logo-web.png" />
+    <Content Include="Areas\Admin\Content\images\logo.jpg" />
     <Content Include="Areas\Admin\Content\images\news.png" />
     <Content Include="Areas\Admin\Content\images\ortak.png" />
     <Content Include="Areas\Admin\Content\images\product.png" />
