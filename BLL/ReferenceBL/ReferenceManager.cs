@@ -27,7 +27,7 @@ namespace BLL.ReferenceBL
         {
             using (MainContext db = new MainContext())
             {
-                var list = db.References.Where(d => d.Deleted == false && d.Language == language && d.Online==true).OrderBy(d=>d.SortOrder).ToList();
+                var list = db.References.Where(d => d.Deleted == false && d.Language == language && d.Online==true && d.IsShownMain == true).OrderBy(d=>d.SortOrder).ToList();
                 return list;
             }
         }
@@ -150,6 +150,7 @@ namespace BLL.ReferenceBL
                         record.Link = referencemodel.Link;
                         record.ReferenceName = referencemodel.ReferenceName;
                         record.Language = referencemodel.Language;
+                        record.IsShownMain = referencemodel.IsShownMain;
                         if (!string.IsNullOrEmpty(referencemodel.Logo))
                         {
                             record.Logo = referencemodel.Logo;

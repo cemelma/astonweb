@@ -51,6 +51,12 @@
             @Html.TextBoxFor(m=>m.Link, new { @class="textwidth50"})
             @Html.ValidationMessageFor(m=>m.Link)
         </p>
+
+            <p>
+                        @Html.Label("Ana sayfada Göster")
+                        @Html.CheckBoxFor(x=>x.IsShownMain)
+                    </p>
+
         @*<p>
             @Html.LabelFor(m=>m.Content)
             @Html.TextAreaFor(m=>m.Content, new { @class="textwidth50"})
