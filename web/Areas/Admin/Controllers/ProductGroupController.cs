@@ -61,6 +61,25 @@ namespace web.Areas.Admin.Controllers
             return View();
         }
 
+        public ActionResult Edit()
+        {
+            if (RouteData.Values["id"] != null)
+            {
+                int nid = Convert.ToInt32(RouteData.Values["id"]);
+                ProductGroup editnews = ProductManager.GetGroupById(nid);
+                return View(editnews);
+            }
+            else return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ProductGroup model)
+        {
+            ViewBag.ProcessMessage = ProductManager.EditProductGroupNew(model);
+            return View(model);
+        }
+
+
 
         public ActionResult EdtiGroup()
         {

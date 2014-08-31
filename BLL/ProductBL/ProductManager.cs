@@ -304,6 +304,31 @@ namespace BLL.ProductBL
 
         }
 
+        public static bool EditProductGroupNew(ProductGroup record)
+        {
+            using (MainContext db = new MainContext())
+            {
+                try
+                {
+                    ProductGroup editrecord = db.ProductGroup.Where(d => d.ProductGroupId == record.ProductGroupId && d.Deleted == false).SingleOrDefault();
+                    if (record != null)
+                    {
+                        editrecord.TimeUpdated = DateTime.Now;
+                        editrecord.GroupName = record.GroupName;
+                        db.SaveChanges();
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+
+        }
+
 
         public static bool EditProductGroup(ProductGroup record)
         {
