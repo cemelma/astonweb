@@ -2540,7 +2540,6 @@
     <Content Include="Content\Images\fligran\Fligran.jpg" />
     <Content Include="Content\Images\fligran\FligranThumb.jpg" />
     <Content Include="Content\Images\Front\error.png" />
-    <Content Include="Content\Images\Front\noimage.jpeg" />
     <Content Include="Content\Images\Front\success.png" />
     <Content Include="Content\Images\Google-Plus-icon.png" />
     <Content Include="Content\Images\gritter\gritter-light.png" />
