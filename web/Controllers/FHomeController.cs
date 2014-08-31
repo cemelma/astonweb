@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using DAL.Context;
 using DAL.Entities;
 using BLL.ServiceBL;
+using BLL.SubscriptionBL;
 
 namespace web.Controllers
 {
@@ -104,6 +105,12 @@ namespace web.Controllers
             else if (lang == "ar")  return Redirect("/ar/home");
             else return Redirect("/tr/anasayfa");
 
+        }
+
+        public JsonResult Subscription(string mail)
+        {
+            string proc = SubscriptionManager.AddSubscription(mail);
+            return Json(proc, JsonRequestBehavior.AllowGet);
         }
 
     }

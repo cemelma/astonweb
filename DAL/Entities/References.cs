@@ -32,5 +32,8 @@ namespace DAL.Entities
 
       
         public string Language { get; set; }
+
+        public bool IsShownMain { get; set; }
+
     }
 }

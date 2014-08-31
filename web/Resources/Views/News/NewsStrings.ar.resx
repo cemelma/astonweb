@@ -123,8 +123,14 @@
   <data name="breadcrumbtext" xml:space="preserve">
     <value>الأخبار</value>
   </data>
+  <data name="breadcrumbtextmachine" xml:space="preserve">
+    <value>الماكينات والمركبات مسارات</value>
+  </data>
   <data name="header" xml:space="preserve">
     <value>الأخبار</value>
+  </data>
+  <data name="headermachine" xml:space="preserve">
+    <value>الماكينات والمركبات مسارات</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>الأخبار</value>

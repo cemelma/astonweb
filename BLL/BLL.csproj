@@ -54,6 +54,7 @@
     <Compile Include="AccountBL\AccountManager.cs" />
     <Compile Include="Analytic\AnalyticManager.cs" />
     <Compile Include="ContactBL\ContactManager.cs" />
+    <Compile Include="SubscriptionBL\SubscriptionManager.cs" />
     <Compile Include="EstateBL\EstateManager.cs" />
     <Compile Include="OurTeamBL\OurTeamManager.cs" />
     <Compile Include="InstituionalBL\MainContext.cs" />

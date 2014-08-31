@@ -79,11 +79,29 @@ namespace NewsRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Makine ve Araç Parkuru.
+        /// </summary>
+        public static string breadcrumbtextmachine {
+            get {
+                return ResourceManager.GetString("breadcrumbtextmachine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HABERLER.
         /// </summary>
         public static string header {
             get {
                 return ResourceManager.GetString("header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MAKİNE VE ARAÇ PARKURU.
+        /// </summary>
+        public static string headermachine {
+            get {
+                return ResourceManager.GetString("headermachine", resourceCulture);
             }
         }
         

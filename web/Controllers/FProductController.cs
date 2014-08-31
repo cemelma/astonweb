@@ -121,6 +121,11 @@ namespace web.Controllers
 
         public ActionResult Prices()
         {
+            if (Session["userlogin"] == null)
+            {
+                return Redirect(@SharedRess.SharedStrings.login);
+                //RedirectToAction("UserLogin", "FProduct");
+            }
             ProductPriceModel model = new ProductPriceModel();
             if (RouteData.Values["id"] != null)
             {
