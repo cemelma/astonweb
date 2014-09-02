@@ -3223,6 +3223,7 @@
     <Content Include="Views\FGallery\Index.cshtml" />
     <Content Include="Views\FHome\Index.cshtml" />
     <Content Include="Views\FNews\Machine.cshtml" />
+    <Content Include="Views\Shared\Partial\_productsmenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

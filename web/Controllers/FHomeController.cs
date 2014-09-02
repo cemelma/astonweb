@@ -73,6 +73,19 @@ namespace web.Controllers
             return PartialView("Partial/_topmenu", grouplist);
         }
 
+        [ChildActionOnly]
+        public PartialViewResult GetProductsMenu()
+        {
+            VMProductGroupModel grouplist = new VMProductGroupModel();
+            grouplist.ProductGroup = ProductManager.GetProductGroupList(lang);
+
+            int[] ids = grouplist.ProductGroup.Select(x => x.ProductGroupId).ToArray();
+            grouplist.Products = ProductManager.GetProductList(ids);
+
+            ViewBag.Services = ServiceManager.GetServiceListForFront(lang);
+            return PartialView("Partial/_productsmenu", grouplist);
+        }
+
 
 
         public JsonResult GetImages()

@@ -27,23 +27,36 @@ namespace web.Controllers
          //   ViewBag.ProductGroup = ProductManager.GetProductGroupItem(pId);
             ViewData["referanslar"] = ReferenceManager.GetReferenceListForFront("tr");
             
-            
-            
             using(MainContext db = new MainContext())
             {
-                ProductFrontModel model = new ProductFrontModel();
-                model.product = ProductManager.GetProductById(pId);
-                int catId = model.product.ProductGroupId;
-                model.headers = db.ProductHeaders.FirstOrDefault(x=>x.CategoryId==catId);
-                model.ProductInfo = db.ProductInformation.Where(x => x.ProductId == pId).ToList();
+                var prodak = ProductManager.GetProductById(pId);
+                ViewData["prodak"] = prodak;
+                var prodakprds = ProductManager.GetProductByTopProductGroupId(prodak.ProductGroupId);
 
-                model.Colors = db.ProductColors.Where(x => x.ProductId == pId).ToList();
+                List<ProductFrontModel> productsmodel = new List<ProductFrontModel>();
 
-                ViewBag.ProductGroup = model.product.ProductGroup.GroupName;
-                ViewBag.Photos = PhotoManager.GetListForFront(11, pId);
+                foreach (var item in prodakprds)
+                {
+                    ProductFrontModel model = new ProductFrontModel();
+                    model.product = ProductManager.GetProductById(item.ProductId);
 
-                ViewBag.ProductInfo = db.ProductDetail.Where(x => x.ProductId == pId).ToList();
-                return View(model);
+                    int catId = model.product.ProductGroupId;
+                    model.headers = db.ProductHeaders.FirstOrDefault(x => x.CategoryId == catId);
+                    model.ProductInfo = db.ProductInformation.Where(x => x.ProductId == pId).ToList();
+
+                    model.Colors = db.ProductColors.Where(x => x.ProductId == pId).ToList();
+
+                    ViewBag.ProductGroup = model.product.ProductGroup.GroupName;
+                    //ViewBag.Photos = PhotoManager.GetListForFront(11, pId);
+
+
+                    model.photos = PhotoManager.GetListForFront(11, pId);
+                    //ViewBag.ProductInfo = db.ProductDetail.Where(x => x.ProductId == pId).ToList();
+                    
+                    productsmodel.Add(model);
+                }
+                
+                return View(productsmodel);
             }
                
 

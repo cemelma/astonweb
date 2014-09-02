@@ -166,23 +166,7 @@
 		<div class="product-menu">
 			<h1>@ProductRess.ProductStrings.urunler</h1>
 
-			<ul>
-				<li class="parent"><a href="#">ALTYAPI ÜRÜNLERİ</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-			</ul>
-
-			<ul>
-				<li class="parent"><a href="#">ÜSTYAPI ÜRÜNLERİ</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-				<li><a href="#"><span class="icon"></span>Alt Ürün</a></li>
-			</ul>
+            @{Html.RenderAction("GetProductsMenu", "FHome");}
 
 		</div> <!-- product-menu -->
 

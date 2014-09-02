@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="altyapiurunleri" xml:space="preserve">
+    <value>Infrastructure Products</value>
+  </data>
   <data name="copyright" xml:space="preserve">
     <value>© 2014 AS-TON. All rights reserved.</value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="txtsearch" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="ustyapiurunleri" xml:space="preserve">
+    <value>Superstructure Products</value>
   </data>
   <data name="weblink" xml:space="preserve">
     <value>Web Design and Software &lt;a href="http://www.wortec.net"&gt;WORTEC&lt;/a&gt;</value>
