@@ -23,9 +23,9 @@ ul li { font-size: 12px; line-height: 18px; color: #666; }
 .humanResources .nav-tabs>li>a { margin: 0; background-color: #f9f9f9 !important; font-size: 13px; color: #666 !important; border-right: 1px solid #dddddd; border-bottom: 1px solid #dddddd; background: url(../images/referenceListImg.png) no-repeat left center #f9f9f9 !important; font-weight: 800; }
 .humanResources .nav-tabs>li.lastChild>a { border-bottom: none; background: none; }
 .humanResources .nav-tabs>li.lastChild.active>a:hover { border-bottom: none }
-.sectionContent .nav-tabs { border-bottom: 1px solid #DDD; margin: 10px; }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { color: #FFF; background-color: #D84545; border: 0px solid #DDD; border-bottom-color: rgba(0, 0, 0, 0); cursor: default; padding: 11px 15px; }
-.nav-tabs>li>a { margin-right: 10px; background-color: #7C7C7C; color: #FFF; font-size: 13px; font-weight: 600; box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.18); }
+.sectionContent .nav-tabs { border-bottom: 1px solid #1a4f6f !important; margin: 10px 0; width: 100%;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { color: #1a4f6f; background-color: #fff; border: 1px solid #1a4f6f; border-bottom-color: rgba(0, 0, 0, 0); cursor: default; padding: 11px 15px; }
+.nav-tabs>li>a { color: #fff; background-color: #1a4f6f; border: 1px solid #1a4f6f; border-bottom-color: rgba(0, 0, 0, 0); cursor: pointer; padding: 11px 15px;    }
 .nav-tabs>li>a:hover { color: #fff; }
 .newsSlider a:hover { text-decoration: none }
 .newsSlider h5 { font-size: 13px; color: #d84545; font-weight: 600; }
@@ -72,7 +72,7 @@ ul li { font-size: 12px; line-height: 18px; color: #666; }
 .humanResources .col-md-3 h3 { font-size: 15px; color: #333; padding: 0 0 20px 15px; font-weight: 800; border-right: 1px solid #ddd; margin-bottom: 0px; border-bottom: 1px solid #ddd; }
 .humanResources .tab-content>.tab-pane h3 { font-size: 16px; color: #d84545; font-weight: 700; border-bottom: 1px dotted #de3131 }
 .humanResources .tab-content h4 { font-size: 13px; color: #333; font-weight: 700; }
-.tab-content>.tab-pane ul { margin-left: 15px; }
+.tab-content>.tab-pane ul { }
 .tab-content>.tab-pane ul li { font-size: 12px; }
 .referencePage .grey { background: #ececec; padding: 2px 0; margin: 15px 0; }
 .referencePage ul li { font-size: 12px; color: #666; line-height: 18px; margin: 5px 0; list-style: none; }
@@ -103,7 +103,7 @@ font-size: 16px;}
 .fiyatBilgi { padding: 10px 0; border-top: 1px solid #e0e0e0; margin-top: 13px; }
 .fiyatBilgi a { float: right; background: #6DA214; padding: 10px 15px; font-size: 13px; font-weight: bold; color: #fff; text-decoration: none; border-radius: 3px; }
 .fiyatBilgi a:hover { background: #537E0B; }
-.fiyatTablo { font-size: 12px; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; }
+.fiyatTablo { font-size: 12px; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; margin-bottom: 40px; }
 .fiyatTablo tr td { padding: 7px; border-bottom: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; }
 .fiyatTablo tr.fiyatTabloTitle td { font-weight: bold; color: #174f9b; font-size: 14PX; }
 .urunAd { font-size: 18px; font-weight: 800; line-height: 30px; color: #174f9b; }
@@ -164,3 +164,403 @@ color: #174f9b;margin-top:20px;}
 #quicklinks p{ font-size: 12px; color: #5d5d5d; line-height:18px;}
 #newsletter input[type="text"] { border: 1px solid #F0F0F0; width: 70%; height: 32px; float: left; outline: none; font-size: 13px; color: #777; text-indent: 10px; border-radius: 5px; }
 #newsletter input[type="button"] { background: rgba(0, 0, 0, 0) url(../images/search.png) center center no-repeat; border: none; width: 32px; height: 32px; float: left; margin-left: -34px; }
+
+/* editted by uralozden */
+
+.container-left{
+    float: left;
+    display: block;
+    width: 670px;
+    position: relative;
+}
+
+
+.container-left .slider{
+    background: url("../images/slide1.png") no-repeat;
+    height: 406px;
+}
+
+
+.container-left .slider .slide-content{
+    width: 660px;
+}
+
+.container-left .slider .slide-content img{
+    position: absolute;
+    display: block;
+}
+
+
+.container-left .slider .slide-content .caption{
+    float: right;
+    margin-top: 250px;
+    font-size: 26px;
+    font-family: 'Roboto', sans-serif;
+    width: 210px;
+    position: relative;
+    right: 0;
+
+}
+
+.container-left .news{
+    float: left;
+    display: block;
+    width: 390px;
+    padding-right:20px;
+    position: relative;
+    z-index: 9999;
+
+}
+
+.container-left .news h2{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    float: left;
+    display: block;
+    background: #e4292f;
+    padding: 10px;
+}
+
+.container-left .news .date{
+    background: #174f9b;
+    padding: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    float: left;
+    display: block;
+    margin: 10px;
+    overflow: hidden;
+    color: #fff;
+}
+.container-left .news .date p{
+    margin: 0;
+    padding: 0;
+}
+
+.container-left .news .news-list{
+    display: block;
+    overflow: hidden;
+}
+
+.container-left .news  p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+.container-left .news p b{
+    margin: 10px 0 0 0;
+    display: block;
+}
+
+.container-left .product-info{
+    padding: 0 20px;
+    display: block;
+}
+
+.container-left .product-info h2{
+    color: #e4292f;
+    font-size: 18px;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-left .product-info p{
+    color: #616161;
+    font-size: 12px;
+    display: block;
+    font-family: 'Roboto', sans-serif;   
+}
+
+
+.container-left .newsletter{
+    width: 240px;
+    float: left;
+}
+
+.container-left .newsletter h2{
+    color: #e4292f;
+    font-size: 18px;
+    display: block;
+    font-family: 'Roboto', sans-serif;    
+}
+
+.container-left .newsletter form{
+    position: relative;
+}
+
+.container-left .newsletter .submit-btn{
+    background: url("../images/mail_send_btn.jpg") no-repeat;
+    width: 26px;
+    height: 26px;
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 15px;   
+}
+
+.container-left .newsletter input{
+    background: #fff;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;    
+    padding: 8px 10px;
+    display: block;
+    width: 230px;
+}
+
+.container-left #kav{
+    position: absolute;
+    right: 0;
+    top: 370px;
+    z-index: 9999;
+
+}
+
+
+.container-left #kav a.activeSlide{
+    background: url("../images/aktiv.png") no-repeat;
+
+}
+.container-left #kav a{
+    background: url("../images/inaktiv.png") no-repeat;
+    width: 14px;
+    height: 14px;
+    display: block;
+    overflow: hidden;
+    margin: 4px;
+    text-indent:-9999em;
+    float: left;
+
+}
+
+.container-left #nav{
+    margin: 0 20px;
+}
+.container-left #nav a.activeSlide{
+    background: url("../images/aktiv.png") no-repeat;
+
+}
+.container-left #nav a{
+    background: url("../images/inaktiv.png") no-repeat;
+    width: 14px;
+    height: 14px;
+    display: block;
+    overflow: hidden;
+    margin: 4px;
+    text-indent:-9999em;
+    float: left;
+
+}
+
+
+
+
+
+
+
+.container-right{
+    float: right;
+    display: block;
+    width: 345px;
+    position: relative;
+
+} 
+
+.container-right .product-menu{
+    background: url("../images/blue.png") no-repeat;
+    background-position: left center;
+    width: 345px;
+    height: 345px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.container-right .product-menu h1{
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    margin:10px 0 0 70px;
+}
+
+.container-right .product-menu  ul{
+    margin: 10px 0 0 30px;
+
+}
+
+.container-right .product-menu ul li.parent a{
+    font-family: 'Roboto', sans-serif;
+    color:#174f9d;
+    font-size: 14px;
+}
+
+.container-right .product-menu ul li{
+    list-style-type: none;
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+}
+
+.container-right .product-menu ul li a{
+    font-family: 'Roboto', sans-serif;
+    color: #afafaf;
+    font-size: 12px;
+}
+
+.container-right .product-menu ul li a span.icon{
+    background: url("../images/arrow.png") no-repeat;
+    width: 5px;
+    height: 9px;
+    margin: 5px;
+    display: block;
+    float: left;
+}
+
+.container-right .references-list{
+
+}
+
+.container-right .references-list h2{
+    background: #efefef;
+    border-radius: 5px;
+    padding: 20px 20px 0 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;   
+    display: block;
+    overflow: hidden;
+    float: right;
+    width: 293px;
+}
+
+.container-right .references-list h2 .icon{
+    background: url("../images/arrow2.png") no-repeat;
+    width: 26px;
+    height: 27px;
+    float: left;
+    display: block;
+    margin: -7px 10px 10px 0; 
+}
+
+.clear{
+    clear: both;
+}
+
+.container-right .price-list-button{
+    margin: 10px 0;
+}
+
+
+.container-right .references-list ul li{
+    display: block;
+    overflow: hidden;
+    margin-left: 20px;
+}
+.container-right .references-list ul li a{
+    font-family: 'Roboto', sans-serif;
+    color: #afafaf;
+    font-size: 12px;
+}
+
+.container-right .references-list ul li a span.icon{
+    background: url("../images/dotted.png") no-repeat;
+    width: 8px;
+    height: 8px;
+    margin: 5px;
+    display: block;
+    float: left;
+}
+.container-right .references-list .all-btn{
+    color: #174f9b;
+    margin-left: 60px;
+    display: block;
+    float: left;
+}
+.container-right .references-list .all-btn .icon{
+    background: url("../images/all-references.png") no-repeat;
+    width: 17px;
+    height: 17px;
+    margin:1px 5px;
+    display: block;
+    float: left;
+}
+
+
+.exchange{
+    position: absolute;
+    left:40px;
+    top:-30px;
+}
+
+
+.exchange .exchange-slide{
+    width: 120px;
+    float: left;
+    display: block;
+}
+
+.exchange .dolar{
+    color: #e31e24;
+    margin-right: 10px;
+    display: block;
+    float: left;
+    width: 120px;
+
+}
+
+.exchange .dolar .icon{
+    background: url("../images/dolar.png") no-repeat;
+    width: 12px;
+    height: 21px;
+    margin:-2px 5px;
+    display: block;
+    float: left;    
+}
+
+
+
+.exchange .euro{
+    color: #e31e24;
+    margin-right: 10px;
+    display: block;
+    float: left;
+    width: 120px;
+
+}
+
+.exchange .euro .icon{
+    background: url("../images/euro.png") no-repeat;
+    width: 12px;
+    height: 21px;
+    margin:-2px 5px;
+    display: block;
+    float: left;    
+}
+
+.exchange .cloud{
+    color: #53a2e2;
+    display: block;
+    float: left;
+}
+
+.exchange .cloud .icon{
+    background: url("../images/cloud.jpg") no-repeat;
+    width: 41px;
+    height: 29px;
+    margin:-6px 5px;
+    display: block;
+    float: left; 
+}
+
+.flr{
+    float: right;
+    display: block;
+}
+
+.pageContent.active{
+    background: #efe4b0;
+    padding: 10px;
+}

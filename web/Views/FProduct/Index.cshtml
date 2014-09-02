@@ -21,15 +21,17 @@
 <div id="container" class="container">
     <div class="col-md-12 shadow section noPadding noMarginTop">
     <div class="col-md-12 sectionContent page newsPage">
+
+         <ul class="nav nav-tabs" role="tablist">
+            <li class=""><a href="#ust-yapi" >Alt Yapı Ürünleri</a></li>
+            <li><a href="#alt-yapi" >Üst Yapı Ürünleri</a></li>
+        </ul>
     @foreach (var proditem in Model)
     {
     
         <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@proditem.product.Name</h2>
         
-        <ul class="nav nav-tabs" role="tablist">
-            <li class=""><a href="#ust-yapi" role="tab" data-toggle="tab">Alt Yapı Ürünleri</a></li>
-            <li class="active"><a href="#alt-yapi" role="tab" data-toggle="tab">Üst Yapı Ürünleri</a></li>
-        </ul>
+       
         
  <div style="background-color:#fafafa">
       <div class="pageContent">@Html.Raw(proditem.product.Content)</div>
