@@ -32,6 +32,15 @@ namespace BLL.ReferenceBL
             }
         }
 
+        public static List<References> GetReferenceListForFrontAll(string language)
+        {
+            using (MainContext db = new MainContext())
+            {
+                var list = db.References.Where(d => d.Deleted == false && d.Language == language && d.Online == true).OrderBy(d => d.SortOrder).ToList();
+                return list;
+            }
+        }
+
         public static bool AddReference(References record)
         {
             using (MainContext db = new MainContext())

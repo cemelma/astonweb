@@ -31,7 +31,7 @@ namespace BLL.SubscriptionBL
                         sub.CreateTime = DateTime.Now;
                         db.Subscription.Add(sub);
                         db.SaveChanges();
-                        return "E-Posta aboneliğiniz gerçekleşmiştir,çıkmak için tekrar mailinizi girmelisiniz.";
+                        return "E-Posta aboneliğiniz gerçekleşmiştir, Aboneliğinizin iptali için tekrar mailinizi E-Posta aboneliğine girmelisiniz.";
                     }
                     else
                     {
