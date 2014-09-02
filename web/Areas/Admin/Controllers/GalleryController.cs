@@ -81,8 +81,11 @@ namespace web.Areas.Admin.Controllers
             
             if (Session["ModifiedImageId"] != null)
             {
-                newmodel.Path = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
+                string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// +Session["WorkingImageExtension"].ToString();
+                newmodel.Path = imagename + ".jpeg";
                 ImageHelperNew.DestroyImageCashAndSession(0, 0);
+
+                Helpers.ImageHelper.WaterMark(imagename, 100);
             }
             else
             {

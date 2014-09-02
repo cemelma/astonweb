@@ -40,14 +40,47 @@
 		    timeout: 0,
 		    pager: '#kav'
 		});
+
+
+
+        $('#btn_subscription').click(function () {
+            var mail = $('#txt_subscription').val();
+            var mailkontol = validateEmail(mail);
+            if (mailkontol == true) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'FHome/Subscription',
+                    data: "{mail: '" + mail + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    success: function (result) {
+                        alert(result);
+                        $('#txt_subscription').val('');
+                    },
+                    error: function () { }
+                });
+            }
+            else alert("Geçersiz Mail.");
+        });
+
+        //mail adres kontrolü
+        function validateEmail(email) {
+            var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+            if (filter.test(email)) return true; else return false;
+        }
+
+
     });
+
+    
+
 </script>
 </head>
 
 <body>
 <div id="header" class="container" >
 	<div class="col-md-12 noPadding">
-		<div class="col-md-3 noPadding"> <a href="index.html" class="logo"><img src="~/images/logo.png" border="0" /></a> </div>
+		<div class="col-md-3 noPadding"> <a href="/" class="logo"><img src="~/images/logo.png" border="0" /></a> </div>
 		<div class="col-md-9 noPadding">
 			<div class="col-md-12 col-md-pull-0 noPadding headerTop">
                 @if (Session["userlogin"] != null)
@@ -149,13 +182,12 @@
 
 		<div class="newsletter">
 			
-			<h2>@HomeRess.HomeStrings.eposta_aboneligi
-			</h2>
+			<h2>@HomeRess.HomeStrings.eposta_aboneligi</h2>
 
-			<form action="">
-				<input type="text" placeholder="@ContactRess.ContactStrings.email">
-				<a href="#" class="submit-btn"></a>
-			</form>
+			<div style="position:relative">
+				<input type="text" id="txt_subscription" placeholder="@ContactRess.ContactStrings.email">
+				<a href="javascript:void(0);" id="btn_subscription" class="submit-btn"></a>
+			</div>
 
 		</div> <!-- newsletter -->
 

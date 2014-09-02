@@ -136,6 +136,10 @@ namespace web.Areas.Admin.Helpers
             try
             {
                 string wpath = HttpContext.Current.Server.MapPath(url);
+                if (File.Exists(wpath))
+                {
+                    string ss = "var işte aq";
+                }
                 WebImage supermanImage = new WebImage(wpath);
                 //supermanImage.AddTextWatermark("Zeynel Yayla ©", "White", fontsize, "Regular", "Consolas", "Right", "Bottom", 70, 5);
                 string watermarkImageFilePath = HttpContext.Current.Server.MapPath("/Content/Images/fligran/Fligran.jpg");

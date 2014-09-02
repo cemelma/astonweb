@@ -22,6 +22,7 @@ namespace BLL.SearchBL
                 //var sectors = db.Sector.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
                 var news = db.News.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
                 var products = db.Product.Where(d => d.Online == true && d.Deleted == false && d.Language == lang).FullTextSearch(text);
+                var inst = db.Institutional.Where(d => d.Language == lang).FullTextSearch(text);
                 
                 var result = new List<Tuple<string, string>>();
                 string route, link = string.Empty;
@@ -42,6 +43,16 @@ namespace BLL.SearchBL
                     if (lang.Equals("tr")) route = "haberler"; else route = "news";
                     link = "/" + lang + "/" + route;
                     result.Add(Tuple.Create(item.Header, link));
+                }
+
+                foreach (var item in inst)
+                {
+                    if (lang.Equals("tr")) route = "kurumsal"; else route = "institutional";
+                    link = "/" + lang + "/" + route;
+                    string header="";
+                    if (lang.Equals("tr")) header = "Kurumsal";
+                    else header = "Institutional";
+                    result.Add(Tuple.Create(header, link));
                 }
 
                 //if (text.ToLower().Contains("kurumsal") || text.ToLower().Contains("kurumsal"))

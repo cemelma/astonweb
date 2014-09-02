@@ -123,8 +123,14 @@
   <data name="breadcrumbtext" xml:space="preserve">
     <value>News</value>
   </data>
+  <data name="breadcrumbtextmachine" xml:space="preserve">
+    <value>Machinery and Vehicle Trails</value>
+  </data>
   <data name="header" xml:space="preserve">
     <value>NEWS</value>
+  </data>
+  <data name="headermachine" xml:space="preserve">
+    <value>MACHINERY AND VEHICLE TRAILS</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>News</value>

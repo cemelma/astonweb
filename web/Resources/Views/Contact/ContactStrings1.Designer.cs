@@ -286,7 +286,7 @@ namespace ContactRess {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ofis.
+        ///   Looks up a localized string similar to Fabrika.
         /// </summary>
         public static string office {
             get {

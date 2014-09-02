@@ -26,7 +26,7 @@
         <div class="preview-container">
             @if (Convert.ToInt32(Session["_minwidth"]) > 1000)
             {
-                <img src="/Content/Images/Front/noimage.jpeg" width="288" height="162" id="imgNewImage" alt="Image" />
+                <img src="/Content/Images/Front/noimage.jpeg" width="500" height="281" id="imgNewImage" alt="Image" />
             }
             else
             { 
@@ -80,11 +80,11 @@
         
         if (parseInt(@Session["_minwidth"]) > 1000) {
             
-            $("#preview-pane").css("width","288");
-            $("#preview-pane").css("height","162");
-            $(".preview-container").css("width","288");
-            $(".preview-container").css("height","162");
-            $("#main-pane").css("height","190");
+            $("#preview-pane").css("width","500");
+            $("#preview-pane").css("height","281");
+            $(".preview-container").css("width","500");
+            $(".preview-container").css("height","281");
+            $("#main-pane").css("height","290");
         }else{
             $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
             $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
@@ -138,13 +138,13 @@
                             onSelect: setCoords,
                             //trueSize: [300, 225],
                             //aspectRatio: 1,
-                            minSize: [288, 162],
-                            maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],
+                            @*minSize: [500, 281],
+                            maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],*@
                             @*boxWidth: @TempData["minwidth"],*@
                             keySupport: false,
-                            boxWidth: 288,
-                            aspectRatio: 288 / 162, //keep aspect ratio
-                            setSelect: [0, 0, 288, 162]
+                            boxWidth: 500,
+                            aspectRatio: 500 / 281, //keep aspect ratio
+                            setSelect: [0, 0, 500, 281]
                         },function(){
                             // Use the API to get the real image size
                             var bounds = this.getBounds();
@@ -166,12 +166,12 @@
                             //trueSize: [300, 225],
                             //aspectRatio: 1,
                             //minSize: [@Session["_minwidth"], @Session["_minheight"]],
-                            maxSize: [@(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))],
+                            @*maxSize: [@(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))],*@
                             @*boxWidth: @TempData["minwidth"],*@
                             keySupport: false,
                             boxWidth: @(Convert.ToInt32(Session["_minwidth"])/2),
                             aspectRatio: parseInt(@Session["_minwidth"]) / parseInt(@Session["_minheight"]), //keep aspect ratio
-                            setSelect: [0, 0, @(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))]
+                            @*setSelect: [0, 0, @(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))]*@
                         },function(){
                             // Use the API to get the real image size
                             var bounds = this.getBounds();
@@ -189,10 +189,10 @@
 
                     if (parseInt(@Session["_minwidth"]) > 1000) {
             
-                        $("#preview-pane").css("width","288");
-                        $("#preview-pane").css("height","162");
-                        $(".preview-container").css("width","288");
-                        $(".preview-container").css("height","162");
+                        $("#preview-pane").css("width","500");
+                        $("#preview-pane").css("height","281");
+                        $(".preview-container").css("width","500");
+                        $(".preview-container").css("height","281");
                         $("#main-pane").css("height","190");
                     }else{
                         $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
