@@ -82,6 +82,7 @@ namespace web.Controllers
 
                 var prodakprdtip = db.ProductGroup.Where(d => d.TopProductId == prodak.TopProductGroupId && d.Language == lang && d.Deleted==false && d.Online==true).ToList();
                 ViewData["productgroups"] = prodakprdtip;
+                ViewBag.cid = cId;
                 return View(productsmodel);
             }
                

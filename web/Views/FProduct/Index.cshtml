@@ -5,7 +5,7 @@
     List<DAL.Entities.References> referanslar = ViewData["referanslar"] as List<DAL.Entities.References>;
 
     List<DAL.Entities.ProductGroup> pg = ViewData["productgroups"] as List<DAL.Entities.ProductGroup>;
-        
+    string colorcode = ViewBag.cId == 0 ? "#fafafa" : "";
 }
 <link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
 @section breadcrumb{
@@ -34,12 +34,13 @@
 
     @foreach (var proditem in Model)
     {
-    
-        <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@proditem.product.Name</h2>
+        <div class="item">
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@proditem.product.Name</h2>
         
        
-        
- <div style="background-color:#fafafa">
+        @{
+
+ <div style="background-color:@colorcode">
       <div class="pageContent">@Html.Raw(proditem.product.Content)</div>
 
 
@@ -57,23 +58,23 @@
 
         <div class="col-md-12 noPadding productsPhoto">
         
-        @if (!string.IsNullOrEmpty(proditem.product.Image1) && proditem.product.Image1 != "/Content/images/front/noimage.jpeg")
-        {
-            <div class="col-md-3">
+            @if (!string.IsNullOrEmpty(proditem.product.Image1) && proditem.product.Image1 != "/Content/images/front/noimage.jpeg")
+            {
+                <div class="col-md-3">
 
-                <a href="@proditem.product.Image1.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery2"><img src="@proditem.product.Image1"/></a>
+                    <a href="@proditem.product.Image1.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery2"><img src="@proditem.product.Image1"/></a>
 
-            </div>
-        }
-         @if (!string.IsNullOrEmpty(proditem.product.Image2) && proditem.product.Image2 != "/Content/images/front/noimage.jpeg")
-         {
-            <div class="col-md-3">
+                </div>
+            }
+             @if (!string.IsNullOrEmpty(proditem.product.Image2) && proditem.product.Image2 != "/Content/images/front/noimage.jpeg")
+             {
+                <div class="col-md-3">
 
-                <a href="@proditem.product.Image2.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery"><img src="@proditem.product.Image2"/></a>
-            </div>
-         }
+                    <a href="@proditem.product.Image2.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery"><img src="@proditem.product.Image2"/></a>
+                </div>
+             }
         
-        <div class="col-md-3"><a href="#" class="fiyatBilgi">@ProductRess.ProductStrings.fiyatbilgisi</a></div>  
+            <div class="col-md-3"><a href="#" class="fiyatBilgi">@ProductRess.ProductStrings.fiyatbilgisi</a></div>  
         </div>
 
         <div class="col-md-12 noPadding products ptable" style="margin-top:20px; display:none;">
@@ -279,7 +280,8 @@
         <hr  /><br /><br />
         </div>
          </div>
-}
+        </div>
+    }
     </div>
 
         
@@ -300,7 +302,8 @@
 
         $('a.fiyatBilgi').click(function (e) {
             e.preventDefault()
-            $('.ptable').css('display', 'block').fadeIn('slow');
+            $(this).parent().parent().parent().find('.ptable').css('display', 'block').fadeIn('slow');
+            //$('.ptable').css('display', 'block').fadeIn('slow');
         })
     });
 
