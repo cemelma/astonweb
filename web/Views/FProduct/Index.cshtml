@@ -3,7 +3,8 @@
     ViewBag.Title = (ViewData["prodak"] as DAL.Entities.Product).Name;
     Layout = "~/Views/Shared/frontlayout.cshtml";
     List<DAL.Entities.References> referanslar = ViewData["referanslar"] as List<DAL.Entities.References>;
-    
+
+    List<DAL.Entities.ProductGroup> pg = ViewData["productgroups"] as List<DAL.Entities.ProductGroup>;
         
 }
 <link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
@@ -23,9 +24,14 @@
     <div class="col-md-12 sectionContent page newsPage">
 
          <ul class="nav nav-tabs" role="tablist">
-            <li class=""><a href="#ust-yapi" >Alt Yapı Ürünleri</a></li>
-            <li><a href="#alt-yapi" >Üst Yapı Ürünleri</a></li>
+             @foreach (var item in pg)
+             {
+                 <li><a href="@SharedRess.SharedStrings.productcat/@item.ProductGroupId/@item.PageSlug" >@item.GroupName</a></li>
+             }
         </ul>
+
+        
+
     @foreach (var proditem in Model)
     {
     

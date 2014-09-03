@@ -204,13 +204,14 @@
 
 		<div class="clear"></div>
 
-         @*@if (Session["userlogin"] != null)
+         @if (Session["userlogin"] != null)
           { 
-             <a href="@SharedRess.SharedStrings.login" class="price-list-button flr"><img src="/images/money.png" alt=""></a>
-          }*@
-           
+             <a href="@SharedRess.SharedStrings.pricelist" class="price-list-button flr"><img src="@SharedRess.SharedStrings.fiyat_listesi_btn_img" alt=""></a>
+          }
+           else
+           {
              <a href="@SharedRess.SharedStrings.login" class="price-list-button flr"><img src="@SharedRess.SharedStrings.fiyat_listesi_btn_img" alt=""></a>
-          
+            }
         <div class="clear"></div>
 
 		<div class="references-list">

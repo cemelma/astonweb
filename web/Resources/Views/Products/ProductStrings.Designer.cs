@@ -268,6 +268,15 @@ namespace ProductRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giriş Yapın!.
+        /// </summary>
+        public static string logintitle {
+            get {
+                return ResourceManager.GetString("logintitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Şifre:.
         /// </summary>
         public static string lpass {

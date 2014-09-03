@@ -186,6 +186,9 @@
   <data name="loginmessagepass" xml:space="preserve">
     <value>Please check the entered passwords do not match ...</value>
   </data>
+  <data name="logintitle" xml:space="preserve">
+    <value>Login!</value>
+  </data>
   <data name="lpass" xml:space="preserve">
     <value>Password:</value>
   </data>

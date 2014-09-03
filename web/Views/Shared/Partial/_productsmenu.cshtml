@@ -4,7 +4,7 @@
     <li class="parent"><a href="#">@SharedRess.SharedStrings.altyapiurunleri</a></li>
     @foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == 3))
     {
-        <li><a href="@SharedRess.SharedStrings.productpricesmenulink/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
+        <li><a href="@SharedRess.SharedStrings.productcat/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
     }
 </ul>
 
@@ -12,6 +12,6 @@
     <li class="parent"><a href="#">@SharedRess.SharedStrings.ustyapiurunleri</a></li>
     @foreach (var item in Model.ProductGroup.Where(d => d.TopProductId == 12))
     {
-        <li><a href="@SharedRess.SharedStrings.productpricesmenulink/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
+        <li><a href="@SharedRess.SharedStrings.productcat/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>   
     }
 </ul>

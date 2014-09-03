@@ -856,6 +856,25 @@ namespace BLL.ProductBL
             }
         }
 
+        public static Product GetProductGroupbyId(int cid)
+        {
+            using (MainContext db = new MainContext())
+            {
+                try
+                {
+                    Product record = db.Product.Include("ProductGroup").Where(d => d.ProductGroupId == cid && d.Deleted == false).FirstOrDefault();
+                    if (record != null)
+                        return record;
+                    else
+                        return null;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
         public static List<Product> GetProductByTopProductGroupId(int nid)
         {
             using (MainContext db = new MainContext())

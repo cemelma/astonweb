@@ -189,6 +189,12 @@
   <data name="m_urunler_link" xml:space="preserve">
     <value>#</value>
   </data>
+  <data name="pricelist" xml:space="preserve">
+    <value>/en/pricelist</value>
+  </data>
+  <data name="productcat" xml:space="preserve">
+    <value>/en/category</value>
+  </data>
   <data name="productmenulink" xml:space="preserve">
     <value>/en/products</value>
   </data>

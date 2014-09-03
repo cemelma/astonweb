@@ -136,7 +136,7 @@
     <value>/tr/guvenlicikis</value>
   </data>
   <data name="logouttext" xml:space="preserve">
-    <value>Güveli Çıkış</value>
+    <value>Çıkış</value>
   </data>
   <data name="m_arama_link" xml:space="preserve">
     <value>/tr/arama</value>
@@ -188,6 +188,12 @@
   </data>
   <data name="m_urunler_link" xml:space="preserve">
     <value>#</value>
+  </data>
+  <data name="pricelist" xml:space="preserve">
+    <value>/tr/fiyatlar</value>
+  </data>
+  <data name="productcat" xml:space="preserve">
+    <value>/tr/kategori</value>
   </data>
   <data name="productmenulink" xml:space="preserve">
     <value>/tr/urunler</value>

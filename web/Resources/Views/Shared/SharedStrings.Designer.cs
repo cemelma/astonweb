@@ -115,7 +115,7 @@ namespace SharedRess {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Güveli Çıkış.
+        ///   Looks up a localized string similar to Çıkış.
         /// </summary>
         public static string logouttext {
             get {
@@ -273,6 +273,24 @@ namespace SharedRess {
         public static string m_urunler_link {
             get {
                 return ResourceManager.GetString("m_urunler_link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/fiyatlar.
+        /// </summary>
+        public static string pricelist {
+            get {
+                return ResourceManager.GetString("pricelist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/kategori.
+        /// </summary>
+        public static string productcat {
+            get {
+                return ResourceManager.GetString("productcat", resourceCulture);
             }
         }
         
