@@ -7,10 +7,10 @@
 @section breadcrumb{
     <div class="col-md-8 breadcrumb">
         <ul>
-                         <li><a href="@NewsRess.NewsStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
+            <li><a href="@NewsRess.NewsStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
 
             @*<li><a href="/fiyatlar/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>*@
-            <li><a href="#">@ViewBag.ProductGroup.GroupName</a> </li>            
+            <li><a href="#">@ViewBag.ProductGroup.GroupName</a> </li>
             <li>@ProductRess.ProductStrings.pricestitle </li>
         </ul>
     </div>
@@ -25,14 +25,25 @@
     <div class="col-md-12 shadow section noPadding">
         <div class="col-md-12 sectionContent page">
             <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@ProductRess.ProductStrings.fiyatlistesi</h2>
+            <ul class="nav nav-tabs">
+
+                @foreach (var item in Model.prodgroups.Where(d => d.TopProductId == 1))
+                {
+                    <li><a href="@SharedRess.SharedStrings.productpricesmenulink/@item.ProductGroupId/@item.PageSlug">@item.GroupName</a></li>
+                    
+                }
+           
+            </ul>
+
+
             @if (ViewBag.userloginemail == "")
             { 
-                @*<a href="/giris" class="print">
+@*<a href="/giris" class="print">
                     <img src="/content/images/print.png" border="0"></a>*@
             }
             else
             {
-                @*<a href="javascript:void(0);" class="print" onclick="PrintElem('.pageContent')">
+@*<a href="javascript:void(0);" class="print" onclick="PrintElem('.pageContent')">
                     <img src="/content/images/print.png" border="0"></a>*@
     
                 <script type="text/javascript">
@@ -65,7 +76,7 @@
             <div class="pageContent">
                 @foreach (var item in Model.Info)
                 {
-                    if(item.headers!=null && item.productsinfo!=null && item.productsinfo.Count()>0)
+                    if (item.headers != null && item.productsinfo != null && item.productsinfo.Count() > 0)
                     {
                     
                     <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">

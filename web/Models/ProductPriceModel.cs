@@ -9,6 +9,7 @@ namespace web.Models
     public class ProductPriceModel
     {
         public List<ProductPriceDetail> Info = new List<ProductPriceDetail>();
+        public List<ProductGroup> prodgroups { get; set; }
         
         //public List<Product> products { get; set; }
         //public List<ProductInformation> productsinfo { get; set; }

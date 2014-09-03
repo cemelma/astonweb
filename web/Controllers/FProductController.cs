@@ -19,6 +19,8 @@ namespace web.Controllers
 {
     public class FProductController : Controller
     {
+        string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
+
         public ActionResult Index(int id)
         {
             //web.Areas.Admin.Models.VMProductGroupModel grouplist = new web.Areas.Admin.Models.VMProductGroupModel();
@@ -150,11 +152,20 @@ namespace web.Controllers
                         detail.PageSlug = item.PageSlug;
                         detail.headers = productHeaders.FirstOrDefault(x => x.CategoryId == detail.CategoryId);
                         detail.productsinfo = procudtDetails.Where(x => x.ProductId == detail.ProductId).ToList();
-
                         model.Info.Add(detail);
                     }
 
-
+                    var grps = ProductManager.GetProductGroupListForFront(lang);
+                    model.prodgroups = new List<ProductGroup>();
+                    foreach (var item in grps)
+                    {
+                        ProductGroup pg = new ProductGroup();
+                        pg.GroupName = item.GroupName;
+                        pg.ProductGroupId = item.ProductGroupId;
+                        pg.PageSlug = item.PageSlug;
+                        pg.TopProductId = item.TopProductId;
+                        model.prodgroups.Add(pg);
+                    }
 
                     ViewBag.ProductGroup = ProductManager.GetProductGroupItem(pId);
 
