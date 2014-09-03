@@ -1,8 +1,9 @@
-﻿@model web.Models.ProductFrontModel
+﻿@model List<web.Models.ProductFrontModel>
 @{
-    ViewBag.Title = Model.product.Name;
+    ViewBag.Title = (ViewData["prodak"] as DAL.Entities.Product).Name;
     Layout = "~/Views/Shared/frontlayout.cshtml";
-    List < DAL.Entities.References > referanslar = ViewData["referanslar"] as List < DAL.Entities.References > ;
+    List<DAL.Entities.References> referanslar = ViewData["referanslar"] as List<DAL.Entities.References>;
+    
         
 }
 <link href="~/Content/Styles/jquery.fancybox.css" rel="stylesheet" />
@@ -20,10 +21,20 @@
 <div id="container" class="container">
     <div class="col-md-12 shadow section noPadding noMarginTop">
     <div class="col-md-12 sectionContent page newsPage">
-    
-        <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@Model.product.Name</h2>
 
-      <div class="pageContent">@Html.Raw(Model.product.Content)</div>
+         <ul class="nav nav-tabs" role="tablist">
+            <li class=""><a href="#ust-yapi" >Alt Yapı Ürünleri</a></li>
+            <li><a href="#alt-yapi" >Üst Yapı Ürünleri</a></li>
+        </ul>
+    @foreach (var proditem in Model)
+    {
+    
+        <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@proditem.product.Name</h2>
+        
+       
+        
+ <div style="background-color:#fafafa">
+      <div class="pageContent">@Html.Raw(proditem.product.Content)</div>
 
 
         <div class="col-md-12">
@@ -31,7 +42,7 @@
         </div>
 
       <div class="col-md-12 noPadding colors">
-            @foreach (var item in Model.Colors)
+            @foreach (var item in proditem.Colors)
             {                
                 <div class="col-md-1"><div style="background-color: @item.RenkKodu;padding: 13px;display: block;margin-top: 10px;"></div>@item.Adi</div>
             }
@@ -40,19 +51,19 @@
 
         <div class="col-md-12 noPadding productsPhoto">
         
-        @if (!string.IsNullOrEmpty(Model.product.Image1) && Model.product.Image1 != "/Content/images/front/noimage.jpeg")
+        @if (!string.IsNullOrEmpty(proditem.product.Image1) && proditem.product.Image1 != "/Content/images/front/noimage.jpeg")
         {
             <div class="col-md-3">
 
-                <a href="@Model.product.Image1.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery2"><img src="@Model.product.Image1"/></a>
+                <a href="@proditem.product.Image1.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery2"><img src="@proditem.product.Image1"/></a>
 
             </div>
         }
-         @if (!string.IsNullOrEmpty(Model.product.Image2) && Model.product.Image2 != "/Content/images/front/noimage.jpeg")
+         @if (!string.IsNullOrEmpty(proditem.product.Image2) && proditem.product.Image2 != "/Content/images/front/noimage.jpeg")
          {
             <div class="col-md-3">
 
-                <a href="@Model.product.Image2.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery"><img src="@Model.product.Image2"/></a>
+                <a href="@proditem.product.Image2.Replace("/userfiles/productthumb/", "/userfiles/productbig/")" class="fancybox" rel="gallery"><img src="@proditem.product.Image2"/></a>
             </div>
          }
         
@@ -64,105 +75,105 @@
           <table width="100%" cellspacing="0" cellpadding="0" class="fiyatTablo">
        
           <tr>
-            <td colspan="12" class="urunAd">@Model.product.Name</td>
+            <td colspan="12" class="urunAd">@proditem.product.Name</td>
           </tr>
-              @if(Model.headers!=null)
+              @if (proditem.headers != null)
               {
           <tr class="fiyatTabloTitle">
-            @if (!string.IsNullOrEmpty(@Model.headers.Header1))
+            @if (!string.IsNullOrEmpty(proditem.headers.Header1))
             {
                    
-                    <td>@Model.headers.Header1</td>
+                    <td>@proditem.headers.Header1</td>
                        
                    
             }
-                @if (!string.IsNullOrEmpty(@Model.headers.Header2))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header2))
                 {
                     
-                    <td>@Model.headers.Header2</td>
+                    <td>@proditem.headers.Header2</td>
                       
                    
                 }
 
-                @if (!string.IsNullOrEmpty(@Model.headers.Header3))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header3))
                 {
                    
-                    <td>@Model.headers.Header3</td>
+                    <td>@proditem.headers.Header3</td>
                        
                    
                 }
 
-                @if (!string.IsNullOrEmpty(@Model.headers.Header4))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header4))
                 {
                     
-                    <td>@Model.headers.Header4</td>
+                    <td>@proditem.headers.Header4</td>
                       
                     
                 }
 
-                @if (!string.IsNullOrEmpty(@Model.headers.Header5))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header5))
                 {
                    
-                    <td>@Model.headers.Header5</td>
+                    <td>@proditem.headers.Header5</td>
                      
                    
                 }
 
-                @if (!string.IsNullOrEmpty(@Model.headers.Header6))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header6))
                 {
                   
-                    <td>@Model.headers.Header6</td>
+                    <td>@proditem.headers.Header6</td>
                        
                     
                 }
 
-                @if (!string.IsNullOrEmpty(@Model.headers.Header7))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header7))
                 {
                
-                    <td>@Model.headers.Header7</td>
+                    <td>@proditem.headers.Header7</td>
                       
               
                 }
 
-                @if (!string.IsNullOrEmpty(@Model.headers.Header8))
+                @if (!string.IsNullOrEmpty(proditem.headers.Header8))
                 {
-                    <td>@Model.headers.Header8</td>
+                    <td>@proditem.headers.Header8</td>
                 }
 
-               @if (!string.IsNullOrEmpty(@Model.headers.Header9))
+               @if (!string.IsNullOrEmpty(proditem.headers.Header9))
                 {
-                    <td>@Model.headers.Header9</td>
+                    <td>@proditem.headers.Header9</td>
                 }
-              @if (!string.IsNullOrEmpty(@Model.headers.Header10))
+              @if (!string.IsNullOrEmpty(@proditem.headers.Header10))
                 {
-                    <td>@Model.headers.Header10</td>
+                    <td>@proditem.headers.Header10</td>
                 }
-              @if (!string.IsNullOrEmpty(@Model.headers.Header11))
+              @if (!string.IsNullOrEmpty(proditem.headers.Header11))
                 {
-                    <td>@Model.headers.Header11</td>
+                    <td>@proditem.headers.Header11</td>
                 }
-              @if (!string.IsNullOrEmpty(@Model.headers.Header12))
+              @if (!string.IsNullOrEmpty(proditem.headers.Header12))
                 {
-                    <td>@Model.headers.Header12</td>
+                    <td>@proditem.headers.Header12</td>
                 }
               
             </tr>
         }
        
-            @if (Model.ProductInfo != null)
+            @if (proditem.ProductInfo != null)
             {
-                foreach (var item in Model.ProductInfo)
+                foreach (var item in proditem.ProductInfo)
                 {
                <tr id="listItem_@item.ProductInformationId"  class="handle">
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header1))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header1))
                     {
                         //if (@item.Field1 != null)
                         //{
 <td>@item.Field1</td>
                         //}
                     }
-                    @if (!string.IsNullOrEmpty(Model.headers.Header2))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header2))
                     {
                         //if (@item.Field2 != null)
                         //{
@@ -170,7 +181,7 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header3))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header3))
                     {
 
                         //if (@item.Field3 != null)
@@ -179,7 +190,7 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header4))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header4))
                     {
                         //if (@item.Field4 != null)
                         //{
@@ -187,7 +198,7 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header5))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header5))
                     {
                         //if (@item.Field5 != null)
                         //{
@@ -195,7 +206,7 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header6))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header6))
                     {
                         //if (@item.Field6 != null)
                         //{
@@ -203,7 +214,7 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header7))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header7))
                     {
                         //if (@item.Field7 != null)
                         //{
@@ -211,7 +222,7 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header8))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header8))
                     {
                         //if (@item.Field8 != null)
                         //{
@@ -219,19 +230,19 @@
                         //}
                     }
 
-                    @if (!string.IsNullOrEmpty(Model.headers.Header9))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header9))
                     {
                         <td>@item.Field9</td>
                     }
-                    @if (!string.IsNullOrEmpty(Model.headers.Header10))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header10))
                     {
                         <td>@item.Field10</td>
                     }
-                    @if (!string.IsNullOrEmpty(Model.headers.Header11))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header11))
                     {
                         <td>@item.Field11</td>
                     }
-                    @if (!string.IsNullOrEmpty(Model.headers.Header12))
+                    @if (!string.IsNullOrEmpty(proditem.headers.Header12))
                     {
                         <td>@item.Field12</td>
                     }
@@ -249,15 +260,23 @@
         </div>      
 
       <div class="col-md-12 noPadding products">
-          @foreach (var item in ViewBag.Photos)
+          @foreach (var item in proditem.photos)
           {
               
-               <div class="col-md-3 "><a href="@item.Path" class="fancybox" rel="galleryi"><img src="@item.Thumbnail" style="width:210px;height:125px;"/></a></div>
+               <div class="col-md-3 "><a href="@item.Path" class="fancybox" rel="gallery@(proditem.product.ProductId)"><img src="@item.Thumbnail" style="width:210px;height:125px;"/></a></div>
              
           }
       </div>
-
+        
+        <div style="clear:both">
+            <br /><br />
+        <hr  /><br /><br />
+        </div>
+         </div>
+}
     </div>
+
+        
   </div>
 
     

@@ -1682,6 +1682,7 @@
     <Content Include="Areas\Admin\Content\images\link-arrow-hover.gif" />
     <Content Include="Areas\Admin\Content\images\link-arrow-regular.gif" />
     <Content Include="Areas\Admin\Content\images\logo-web.png" />
+    <Content Include="Areas\Admin\Content\images\logo.jpg" />
     <Content Include="Areas\Admin\Content\images\news.png" />
     <Content Include="Areas\Admin\Content\images\ortak.png" />
     <Content Include="Areas\Admin\Content\images\product.png" />
@@ -3230,6 +3231,7 @@
     <Content Include="Views\FGallery\Index.cshtml" />
     <Content Include="Views\FHome\Index.cshtml" />
     <Content Include="Views\FNews\Machine.cshtml" />
+    <Content Include="Views\Shared\Partial\_productsmenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

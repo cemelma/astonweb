@@ -17,7 +17,7 @@ namespace web.Controllers
 
         public ActionResult Index()
         {
-            var references = ReferenceManager.GetReferenceListForFront(lang);
+            var references = ReferenceManager.GetReferenceListForFrontAll(lang);
             //SubscribeModel obj = new SubscribeModel();
             //ContactWrapperModel m = new ContactWrapperModel(contact, obj);
             return View(references);
