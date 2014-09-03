@@ -25,13 +25,33 @@ namespace web.Controllers
         {
             //web.Areas.Admin.Models.VMProductGroupModel grouplist = new web.Areas.Admin.Models.VMProductGroupModel();
             //grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
-            int pId = Convert.ToInt32(RouteData.Values["id"]);
-         //   ViewBag.ProductGroup = ProductManager.GetProductGroupItem(pId);
-            ViewData["referanslar"] = ReferenceManager.GetReferenceListForFront("tr");
             
+         //   ViewBag.ProductGroup = ProductManager.GetProductGroupItem(pId);
+
+            int pId = 0;
+            int cId = 0;
+
+            if (RouteData.Values["id"] != null) pId = Convert.ToInt32(RouteData.Values["id"]);
+
+            if (RouteData.Values["cid"] != null) cId = Convert.ToInt32(RouteData.Values["cid"]);
+
+
+            ViewData["referanslar"] = ReferenceManager.GetReferenceListForFront(lang);
+
+
+            
+
             using(MainContext db = new MainContext())
             {
-                var prodak = ProductManager.GetProductById(pId);
+                Product prodak = new Product();
+
+                if (cId != 0)
+                {
+                    prodak = ProductManager.GetProductGroupbyId(cId);
+                }
+                else
+                    prodak = ProductManager.GetProductById(pId);
+
                 ViewData["prodak"] = prodak;
                 var prodakprds = ProductManager.GetProductByTopProductGroupId(prodak.ProductGroupId);
 
@@ -57,7 +77,12 @@ namespace web.Controllers
                     
                     productsmodel.Add(model);
                 }
-                
+
+
+
+                var prodakprdtip = db.ProductGroup.Where(d => d.TopProductId == prodak.TopProductGroupId && d.Language == lang && d.Deleted==false && d.Online==true).ToList();
+                ViewData["productgroups"] = prodakprdtip;
+                ViewBag.cid = cId;
                 return View(productsmodel);
             }
                
@@ -142,12 +167,17 @@ namespace web.Controllers
                 //RedirectToAction("UserLogin", "FProduct");
             }
             ProductPriceModel model = new ProductPriceModel();
-            if (RouteData.Values["id"] != null)
-            {
-                int pId = Convert.ToInt32(RouteData.Values["id"]);
+
+            int pId = 0;
 
                 using(MainContext db = new MainContext())
                 {
+
+                    if (RouteData.Values["id"] != null)
+                        pId = Convert.ToInt32(RouteData.Values["id"]);
+                    else
+                        pId = db.ProductGroup.Where(x => x.TopProductId == 1 && x.Deleted == false).OrderByDescending(d=>d.SortNumber).FirstOrDefault().ProductGroupId;
+
                     var groups = db.ProductGroup.Where(x => x.TopProductId == pId && x.Deleted==false).ToList();
                     int[] groupIds = groups.Select(x => x.ProductGroupId).ToArray();
 
@@ -189,19 +219,10 @@ namespace web.Controllers
 
                     return View(model);
                 }
-               
-
 
                 //List<ProductHeaders> headerlist = d
-
-
-
-
-
-              
-
                 //return View(ProductManager.GetProductListFront(pId).ToList());
-            }
+            
             return View();
         }
 

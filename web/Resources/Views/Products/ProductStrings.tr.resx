@@ -186,6 +186,9 @@
   <data name="loginmessagepass" xml:space="preserve">
     <value>Girilen şifreler uyuşmuyor lütfen kontrol ediniz...</value>
   </data>
+  <data name="logintitle" xml:space="preserve">
+    <value>Giriş Yapın!</value>
+  </data>
   <data name="lpass" xml:space="preserve">
     <value>Şifre:</value>
   </data>

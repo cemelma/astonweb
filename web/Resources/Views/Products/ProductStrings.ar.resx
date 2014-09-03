@@ -186,6 +186,9 @@
   <data name="loginmessagepass" xml:space="preserve">
     <value>يرجى التحقق من كلمات السر دخلت لا تتطابق ...</value>
   </data>
+  <data name="logintitle" xml:space="preserve">
+    <value>الرجاء تسجيل الدخول</value>
+  </data>
   <data name="lpass" xml:space="preserve">
     <value>كلمة المرور:</value>
   </data>

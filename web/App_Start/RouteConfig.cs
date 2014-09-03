@@ -53,10 +53,17 @@ namespace web
             routes.MapRoute("urunler_en", "en/products/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
             routes.MapRoute("urunler_ar", "ar/products/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
 
+            routes.MapRoute("categoriler_tr", "tr/kategori/{cid}/{pageslug}", new { action = "Index", Controller = "FProduct" });
+            routes.MapRoute("categoriler_en", "en/category/{cid}/{pageslug}", new { action = "Index", Controller = "FProduct" });
+            routes.MapRoute("categoriler_ar", "ar/category/{cid}/{pageslug}", new { action = "Index", Controller = "FProduct" });
+
             routes.MapRoute("fiyatlar_tr", "tr/fiyatlar/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
             routes.MapRoute("fiyatlar_en", "en/prices/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
             routes.MapRoute("fiyatlar_ar", "ar/prices/{id}/{pageslug}", new { action = "Prices", Controller = "FProduct" });
 
+            routes.MapRoute("fiyatlist_tr", "tr/fiyatlar", new { action = "Prices", Controller = "FProduct" });
+            routes.MapRoute("fiyatlist_en", "en/pricelist", new { action = "Prices", Controller = "FProduct" });
+            routes.MapRoute("fiyatlist_ar", "ar/pricelist", new { action = "Prices", Controller = "FProduct" });
 
             routes.MapRoute("giris_tr", "tr/giris", new { action = "UserLogin", Controller = "FProduct" });
             routes.MapRoute("giris_en", "en/login", new { action = "UserLogin", Controller = "FProduct" });
