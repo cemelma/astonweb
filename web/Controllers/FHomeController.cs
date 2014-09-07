@@ -98,8 +98,8 @@ namespace web.Controllers
             {
                 return double.Parse(x.ChildNodes[4].InnerText);
             };
-            ViewData["dolar"] =  String.Format("{0:0.00}", fnc(xdollar));
-            ViewData["euro"] = fnc(xeuro);
+            ViewData["dolar"] =  (fnc(xdollar)/10000);
+            ViewData["euro"] = (fnc(xeuro)/10000);
             //ViewData["sterling"] = fnc(xsterling);
         }
 
