@@ -2757,14 +2757,17 @@
     <Content Include="Images\border.png" />
     <Content Include="Images\bulletList.png" />
     <Content Include="Images\bx_loader.gif" />
+    <Content Include="Images\cim.png" />
     <Content Include="Images\cloud.jpg" />
     <Content Include="Images\controls.png" />
     <Content Include="Images\controlsColorbox.png" />
     <Content Include="Images\default.png" />
     <Content Include="Images\degertunali.jpg" />
+    <Content Include="Images\dolar.png" />
     <Content Include="Images\dotted.png" />
     <Content Include="Images\enticariHizmetler.png" />
     <Content Include="Images\error.png" />
+    <Content Include="Images\euro.png" />
     <Content Include="Images\fancybox_loading%402x.gif" />
     <Content Include="Images\fancybox_loading.gif" />
     <Content Include="Images\fancybox_overlay.png" />
@@ -2859,7 +2862,9 @@
     <Content Include="Images\showcase\slide_02.jpg" />
     <Content Include="Images\slide-mask.png" />
     <Content Include="Images\slide01.png" />
+    <Content Include="Images\slide1.jpg" />
     <Content Include="Images\slide1.png" />
+    <Content Include="Images\slide2.jpg" />
     <Content Include="Images\slide2.png" />
     <Content Include="Images\slide3.png" />
     <Content Include="Images\stratejivedanismanlik.jpg" />
@@ -3015,6 +3020,7 @@
     <Content Include="Areas\Admin\Views\Subscription\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Subscription\account_leftbar.cshtml" />
     <Content Include="Areas\Admin\Views\ProductGroup\Edit.cshtml" />
+    <Content Include="Images\.DS_Store" />
     <None Include="Properties\PublishProfiles\Aston.pubxml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />

@@ -48,7 +48,11 @@
         });
 
         $(".slide-content").css("z-index", '');
-
+        $(".exchange-slide").cycle({
+            fx: 'fade',
+            speed: 300,
+            timeout: 3000
+        });
 
         $('#btn_subscription').click(function () {
             var mail = $('#txt_subscription').val();
@@ -147,7 +151,6 @@
 		</div> <!-- slider -->
 
 		<div class="clear"></div>
-
 		<div class="news">
 			
 			<h2>@HomeRess.HomeStrings.bolum_haberler_baslik</h2>
