@@ -98,8 +98,8 @@ namespace web.Controllers
             {
                 return double.Parse(x.ChildNodes[4].InnerText);
             };
-            ViewData["dolar"] =  (fnc(xdollar)/10000);
-            ViewData["euro"] = (fnc(xeuro)/10000);
+            ViewData["dolar"] = lang == "tr" ? (fnc(xdollar) / 10000) : fnc(xdollar);
+            ViewData["euro"] = lang == "tr" ? (fnc(xeuro) / 10000) : fnc(xeuro);
             //ViewData["sterling"] = fnc(xsterling);
         }
 
