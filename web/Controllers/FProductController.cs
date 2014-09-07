@@ -76,15 +76,15 @@ namespace web.Controllers
 
                     int catId = model.product.ProductGroupId;
                     model.headers = db.ProductHeaders.FirstOrDefault(x => x.CategoryId == catId);
-                    model.ProductInfo = db.ProductInformation.Where(x => x.ProductId == pId).ToList();
+                    model.ProductInfo = db.ProductInformation.Where(x => x.ProductId == item.ProductId).ToList();
 
-                    model.Colors = db.ProductColors.Where(x => x.ProductId == pId).ToList();
+                    model.Colors = db.ProductColors.Where(x => x.ProductId == item.ProductId).ToList();
 
                     ViewBag.ProductGroup = model.product.ProductGroup.GroupName;
                     //ViewBag.Photos = PhotoManager.GetListForFront(11, pId);
 
 
-                    model.photos = PhotoManager.GetListForFront(11, pId);
+                    model.photos = PhotoManager.GetListForFront(11, item.ProductId);
                     //ViewBag.ProductInfo = db.ProductDetail.Where(x => x.ProductId == pId).ToList();
                     
                     productsmodel.Add(model);
