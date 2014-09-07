@@ -1,10 +1,21 @@
-﻿<div id="footer">
+﻿@model IEnumerable<DAL.Entities.ProductGroup>
+<div id="footer">
   <div class="container">
     <div class="col-md-9   noPadding noMarginTop"><ul class="nav nav-pills">
       <li><a href="@SharedRess.SharedStrings.m_kurumsal_link">@SharedRess.SharedStrings.m_kurumsal</a></li>
-      <li><a href="@SharedRess.SharedStrings.m_urunler_link">@SharedRess.SharedStrings.m_urunler</a></li>
+      @*<li><a href="@SharedRess.SharedStrings.m_urunler_link">@SharedRess.SharedStrings.m_urunler</a></li>*@
+      @*<li><a href="@SharedRess.SharedStrings.productcat/@ViewBag.ProductGroupId/@ViewBag.PageSlug" >@ViewBag.GroupName</a></li>*@
+      <li><a href="@SharedRess.SharedStrings.productcat/@Model.FirstOrDefault().ProductGroupId/@Model.FirstOrDefault().PageSlug" >@SharedRess.SharedStrings.m_urunler</a></li>
+
       <li><a href="@SharedRess.SharedStrings.m_haberler_link">@SharedRess.SharedStrings.m_haberler</a></li>
-      <li><a href="@SharedRess.SharedStrings.m_fiyatlistesi_link">@SharedRess.SharedStrings.m_fiyatlistesi</a></li>
+        @if (Session["userlogin"] != null)
+          { 
+            <li><a href="@SharedRess.SharedStrings.pricelist">@SharedRess.SharedStrings.m_fiyatlistesi</a></li>
+          }
+           else
+           {
+            <li><a href="@SharedRess.SharedStrings.login">@SharedRess.SharedStrings.m_fiyatlistesi</a></li>
+            }
       <li><a href="@SharedRess.SharedStrings.m_makine_link">@SharedRess.SharedStrings.m_makine</a></li>
       <li><a href="@SharedRess.SharedStrings.m_galeri_link">@SharedRess.SharedStrings.m_galeri</a></li>
       <li><a href="@SharedRess.SharedStrings.m_referans_link">@SharedRess.SharedStrings.m_referans</a></li>

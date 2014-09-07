@@ -17,6 +17,13 @@ namespace web.Controllers
         // GET: /FShared/
         string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
 
+
+        public PartialViewResult footernew()
+        {
+            var prgrps = ProductManager.GetProductGroupList(lang).Where(x => x.TopProductId == 1).Take(6);
+            return PartialView("Partial/_footernew", prgrps);
+        }
+
         public PartialViewResult topproducts()
         {
             var prodgroups = ProductManager.GetProductGroupListForFront(lang).Take(16);

@@ -94,7 +94,8 @@
      @RenderBody()
 </div>
 
-@Html.Partial("Partial/_footernew");
+@*@Html.Partial("Partial/_footernew")*@;
+@{Html.RenderAction("footernew", "FShared");}
 @Html.Raw(BLL.AccountBL.AnalyticManager.GetAnalytic().Code)
 </body>
 </html>
