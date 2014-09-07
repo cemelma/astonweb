@@ -81,11 +81,13 @@
 
     <div class="col-md-12 shadow section noPadding noMarginTop">
         <div class="col-md-12 sectionContent page contactPage">
-
-            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contactform" }))
-            {
                 
-                <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@ContactRess.ContactStrings.contact</h2>
+
+           @* @using (Html.BeginForm("Index", "FContact", FormMethod.Post, new { id = "contactform" }))
+            {
+                *@
+            <form id="contactform" action="@SharedRess.SharedStrings.m_iletisim_link" method="post">
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@ContactRess.ContactStrings.contact</h2>
                 <div class="col-md-6 noPadding">
                     <h3>@ContactRess.ContactStrings.contactform</h3>
                     <div class="col-md-6">
@@ -124,8 +126,8 @@
                         <input type="submit" class="btn btn-warning" value="@ContactRess.ContactStrings.btngonder" />
                     </div>
                 </div>
-            }
-
+            @*}*@
+                </form>
             <div class="col-md-5 col-md-offset-1 noPadding">
                 <h3>@ContactRess.ContactStrings.contact</h3>
                 <div class="col-md-12 noPadding">
