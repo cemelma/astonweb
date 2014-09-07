@@ -2857,6 +2857,7 @@
     <Content Include="Images\serviceImage.jpg" />
     <Content Include="Images\showcase\slide_01.jpg" />
     <Content Include="Images\showcase\slide_02.jpg" />
+    <Content Include="Images\slide-mask.png" />
     <Content Include="Images\slide01.png" />
     <Content Include="Images\slide1.png" />
     <Content Include="Images\slide2.png" />

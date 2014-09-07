@@ -209,7 +209,8 @@ color: #174f9b;margin-top:20px;}
     padding-right:20px;
     position: relative;
     z-index: 9999;
-
+    font-family:Trebuchet MS,arial,helvetica;
+    font-weight: bolder;
 }
 
 .container-left .news h2{
@@ -563,4 +564,13 @@ color: #174f9b;margin-top:20px;}
 .pageContent.active{
     background: #efe4b0;
     padding: 10px;
+}
+
+.slider-mask{
+    background: url("../images/slide-mask.png") no-repeat;
+    position: absolute;
+    width: 697px;
+    height: 900px;
+    display: block;
+    z-index: 9999;
 }
