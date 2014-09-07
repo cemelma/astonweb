@@ -3020,7 +3020,6 @@
     <Content Include="Areas\Admin\Views\Subscription\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Subscription\account_leftbar.cshtml" />
     <Content Include="Areas\Admin\Views\ProductGroup\Edit.cshtml" />
-    <Content Include="Images\.DS_Store" />
     <None Include="Properties\PublishProfiles\Aston.pubxml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
