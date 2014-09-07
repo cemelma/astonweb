@@ -1,7 +1,9 @@
 /* CSS Document */
-body { background: #ffffff; /* Old browsers */ /* IE9 SVG, needs conditional override of 'filter' to 'none' */ background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjVmNWY1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #f5f5f5 100%); /* FF3.6+ */ background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5)); /* Chrome,Safari4+ */ background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%, #f5f5f5 100%); /* Chrome10+,Safari5.1+ */ background: -o-radial-gradient(center, ellipse cover, #ffffff 0%, #f5f5f5 100%); /* Opera 12+ */ background: -ms-radial-gradient(center, ellipse cover, #ffffff 0%, #f5f5f5 100%); /* IE10+ */ background: radial-gradient(ellipse at center, #ffffff 0%, #f5f5f5 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+body {
+    background: #f5f5f5; /* Old browsers */ /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    ); /* IE6-8 fallback on horizontal gradient */
 }
-ul li { font-size: 12px; line-height: 18px; color: #666; }
+ul li { font-size: 12px; line-height: 18px; color: #666;z-index:99999999; }
 #header { margin: 0 auto; background: #fff; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; margin-bottom: 20px; box-shadow: 0 0 10px #eee; }
 .headerTop { margin: 13px 0 5px 0; }
 .shadow { -moz-box-shadow: 0 0 5px #ccc; -webkit-box-shadow: 0 0 5px #ccc; box-shadow: 0 0 5px #ccc }
@@ -199,8 +201,14 @@ color: #174f9b;margin-top:20px;}
     width: 210px;
     position: relative;
     right: 0;
+      z-index: 99999; 
 
 }
+    .container-left .slider .slide-content .caption p {
+        z-index: 99999;
+        position: absolute;
+        display: block;
+    }
 
 .container-left .news{
     float: left;
@@ -337,6 +345,7 @@ color: #174f9b;margin-top:20px;}
 
 .container-left #nav{
     margin: 0 20px;
+    z-index: 99999; 
 }
 .container-left #nav a.activeSlide{
     background: url("../images/aktiv.png") no-repeat;
@@ -376,6 +385,7 @@ color: #174f9b;margin-top:20px;}
     display: block;
     position: relative;
     overflow: hidden;
+     z-index: 99999; 
 }
 
 
@@ -489,8 +499,87 @@ color: #174f9b;margin-top:20px;}
 }
 
 
+.exchange{
+    position: absolute;
+    left:40px;
+    top:-30px;
+}
+
+
+.exchange .exchange-slide{
+    width: 120px;
+    float: left;
+    display: block;
+}
+
+.exchange .dolar{
+    color: #e31e24;
+    margin-right: 10px;
+    display: block;
+    float: left;
+    width: 120px;
+
+}
+
+.exchange .dolar .icon{
+    background: url("../images/dolar.png") no-repeat;
+    width: 12px;
+    height: 21px;
+    margin:-2px 5px;
+    display: block;
+    float: left;    
+}
+
+
+
+.exchange .euro{
+    color: #e31e24;
+    margin-right: 10px;
+    display: block;
+    float: left;
+    width: 120px;
+
+}
+
+.exchange .euro .icon{
+    background: url("../images/euro.png") no-repeat;
+    width: 12px;
+    height: 21px;
+    margin:-2px 5px;
+    display: block;
+    float: left;    
+}
+
+.exchange .cloud{
+    color: #53a2e2;
+    display: block;
+    float: left;
+}
+
+.exchange .cloud .icon{
+    background: url("../images/cloud.jpg") no-repeat;
+    width: 41px;
+    height: 29px;
+    margin:-6px 5px;
+    display: block;
+    float: left; 
+}
 
 .flr{
     float: right;
     display: block;
+}
+
+.pageContent.active{
+    background: #efe4b0;
+    padding: 10px;
+}
+
+.slider-mask{
+    background: url("../images/slide-mask.png") no-repeat;
+    position: absolute;
+    width: 697px;
+    height: 900px;
+    display: block;
+    z-index: 9999;
 }

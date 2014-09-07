@@ -41,6 +41,13 @@
 		    pager: '#kav'
 		});
 
+        $("#kav a").live('click', function () {
+
+            $(".slide-content").css("z-index", '');
+
+        });
+
+        $(".slide-content").css("z-index", '');
 
 
         $('#btn_subscription').click(function () {
@@ -108,6 +115,8 @@
 	
 	<div class="container-left">
 		
+        <div class="slider-mask"></div>
+
 		<div class="slider">
 			
             @*<div class="slide-content">
@@ -119,7 +128,7 @@
 
             @foreach (var item in Model.photos)
             {   
-                 <div class="slide-content" style="z-index:0 !important">
+                 <div class="slide-content">
 				
 				    <img src="@item.Path" style="width:697px;height:666px;" alt="">
 
@@ -184,8 +193,8 @@
 			
 			<h2>@HomeRess.HomeStrings.eposta_aboneligi</h2>
 
-			<div style="position:relative">
-				<input type="text" id="txt_subscription" placeholder="@ContactRess.ContactStrings.email">
+			<div style="position:relative;z-index: 99999999;">
+				<input type="text" id="txt_subscription" placeholder="@ContactRess.ContactStrings.email" style="z-index:9999">
 				<a href="javascript:void(0);" id="btn_subscription" class="submit-btn"></a>
 			</div>
 
