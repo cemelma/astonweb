@@ -259,7 +259,7 @@ namespace SharedRess {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ürünler/Hizmetler.
+        ///   Looks up a localized string similar to Ürünler.
         /// </summary>
         public static string m_urunler {
             get {

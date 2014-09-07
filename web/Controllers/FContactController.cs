@@ -118,7 +118,7 @@ namespace web.Controllers
                     client.Credentials = new NetworkCredential(mset.ServerMail, mset.Password);
                     
                     var mail = new MailMessage();
-                    mail.From = new MailAddress(mset.ServerMail,"Zeynel Yayla");
+                    mail.From = new MailAddress(mset.ServerMail,"Aston");
                     //mail.Attachments.Add(new Attachment(@"C:\Sonuc.pptx"));
                     foreach (var item in msend)
                         mail.To.Add(item.MailAddress);
