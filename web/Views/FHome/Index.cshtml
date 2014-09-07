@@ -48,7 +48,11 @@
         });
 
         $(".slide-content").css("z-index", '');
-
+        $(".exchange-slide").cycle({
+            fx: 'fade',
+            speed: 300,
+            timeout: 3000
+        });
 
         $('#btn_subscription').click(function () {
             var mail = $('#txt_subscription').val();
@@ -110,7 +114,6 @@
 
 		</div>
 	</div>
-        <div style="background-color: #FFFFFF; width: 160px;"><iframe scrolling="no" width="160" height="218" frameborder="NO" name="doviz" src="http://www.e-yasamrehberi.com/gadget/dovizKuru/merkez_bankasi_doviz_kurlari.aspx"></iframe></div>
 </div>
 <div id="container" class="container" style="overflow: hidden;">
 	
