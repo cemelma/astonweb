@@ -39,7 +39,7 @@
                           <ul class="dropdown-menu">
                             @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == itemsub.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
                             {
-                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug#@prd.ProductId" class="dropdown-toggle">@prd.Name</a></li>
                             }
                         </ul>
                     }
@@ -59,7 +59,7 @@
                           <ul class="dropdown-menu">
                             @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).OrderBy(d => d.SortNumber))
                             {
-                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug#@prd.ProductId" class="dropdown-toggle">@prd.Name</a></li>
                             }
                         </ul>
                     }
@@ -94,7 +94,7 @@ else
                           <ul class="dropdown-menu">
                             @foreach (var prd in Model.Products.Where(d => d.ProductGroupId == item.ProductGroupId && d.Online == true).OrderBy(d=>d.SortNumber))
                             {
-                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug" class="dropdown-toggle">@prd.Name</a></li>
+                                <li><a href="@SharedRess.SharedStrings.productmenulink/@prd.ProductId/@prd.PageSlug#@prd.ProductId" class="dropdown-toggle">@prd.Name</a></li>
                             }
                         </ul>
                     }

@@ -21,7 +21,7 @@ namespace web.Controllers
     {
         string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString();
 
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
             //web.Areas.Admin.Models.VMProductGroupModel grouplist = new web.Areas.Admin.Models.VMProductGroupModel();
             //grouplist.ProductGroup = ProductManager.GetProductGroupList("tr");
@@ -53,7 +53,19 @@ namespace web.Controllers
                     prodak = ProductManager.GetProductById(pId);
 
                 ViewData["prodak"] = prodak;
-                var prodakprds = ProductManager.GetProductByTopProductGroupId(prodak.ProductGroupId);
+
+                List<Product> prodakprds;
+
+                if (prodak == null)
+                {
+                    prodakprds = ProductManager.GetProductByTopProductGroupId(cId);
+                    ViewData["prodak"] = new Product { Name = SharedRess.SharedStrings.m_urunler };
+                }
+                else
+                {
+                    prodakprds = ProductManager.GetProductByTopProductGroupId(prodak.TopProductGroupId);
+                }
+
 
                 List<ProductFrontModel> productsmodel = new List<ProductFrontModel>();
 
@@ -80,7 +92,7 @@ namespace web.Controllers
 
 
 
-                var prodakprdtip = db.ProductGroup.Where(d => d.TopProductId == prodak.TopProductGroupId && d.Language == lang && d.Deleted==false && d.Online==true).ToList();
+                var prodakprdtip = db.ProductGroup.Where(d => d.TopProductId == 1 && d.Language == lang && d.Deleted==false && d.Online==true).ToList();
                 ViewData["productgroups"] = prodakprdtip;
                 ViewBag.cid = cId;
                 return View(productsmodel);

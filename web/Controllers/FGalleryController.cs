@@ -16,7 +16,7 @@ namespace web.Controllers
         {
             using (MainContext db = new MainContext())
             {
-                var list = db.Photo.Where(d => d.CategoryId == (int)PhotoTypes.Gallery && d.Language == lang).ToList();
+                var list = db.Photo.Where(d => d.CategoryId == (int)PhotoTypes.Gallery && d.Language == lang).OrderBy(d=>d.SortOrder).ToList();
                 return View(list);
             }
         }

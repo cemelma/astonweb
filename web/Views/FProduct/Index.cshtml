@@ -13,7 +13,7 @@
         <ul>
             <li><a href="@InstitutionalRess.InstitutionalStrings.breadcrumbmainurl">@InstitutionalRess.InstitutionalStrings.breadcrumbmaintext</a></li>
             @*<li><a href="/urunler/@ViewBag.ProductGroup.ProductGroupId/@ViewBag.ProductGroup.PageSlug">@ViewBag.ProductGroup.GroupName</a> </li>*@
-              <li><a href="#">@ViewBag.ProductGroup</a></li>
+              @*<li><a href="#">@ViewBag.ProductGroup</a></li>*@
             <li>@ProductRess.ProductStrings.breadcrumb </li>
         </ul>
     </div>
@@ -30,12 +30,10 @@
              }
         </ul>
 
-        
-
     @foreach (var proditem in Model)
     {
         <div class="item">
-            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i>@proditem.product.Name</h2>
+            <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i><a style="color: #e31e24; text-decoration:none" name="@proditem.product.ProductId">@proditem.product.Name</a></h2>
         
        
         

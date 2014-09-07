@@ -881,7 +881,7 @@ namespace BLL.ProductBL
             {
                 try
                 {
-                    List<Product> record = db.Product.Include("ProductGroup").Where(d => d.ProductGroupId == nid && d.Deleted == false).ToList();
+                    List<Product> record = db.Product.Include("ProductGroup").Where(d => d.TopProductGroupId == nid && d.Deleted == false).ToList();
                     if (record != null)
                         return record;
                     else
