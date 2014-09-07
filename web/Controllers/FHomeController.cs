@@ -14,6 +14,8 @@ using DAL.Context;
 using DAL.Entities;
 using BLL.ServiceBL;
 using BLL.SubscriptionBL;
+using System.Xml;
+using System;
 
 namespace web.Controllers
 {
@@ -67,12 +69,40 @@ namespace web.Controllers
             int[] ids = grouplist.ProductGroup.Select(x => x.ProductGroupId).ToArray();
             grouplist.Products = ProductManager.GetProductList(ids);
 
-
-          
+            Kur();
 
             ViewBag.Services = ServiceManager.GetServiceListForFront(lang);
             return PartialView("Partial/_topmenu", grouplist);
         }
+
+        public void Kur()
+        {
+            XmlTextReader oku = new XmlTextReader("http://www.tcmb.gov.tr/kurlar/today.xml");
+            XmlDocument dok = new XmlDocument();
+            dok.Load(oku);
+            XmlNode xdollar = dok.SelectSingleNode("/Tarih_Date/Currency[CurrencyName='US DOLLAR']");
+            XmlNode xeuro = dok.SelectSingleNode("/Tarih_Date/Currency[CurrencyName='EURO']");
+            XmlNode xsterling = dok.SelectSingleNode("/Tarih_Date/Currency[CurrencyName='POUND STERLING']");
+
+            double dolar = double.Parse(xdollar.ChildNodes[4].InnerText);
+            double euro = double.Parse(xeuro.ChildNodes[4].InnerText);
+            double sterling = double.Parse(xsterling.ChildNodes[4].InnerText);
+
+            ViewData["dolar"] = dolar;
+            ViewData["euro"] = euro;
+            ViewData["sterling"] = sterling;
+
+            //ya da
+
+            Func<XmlNode, double> fnc = delegate(XmlNode x)
+            {
+                return double.Parse(x.ChildNodes[4].InnerText);
+            };
+            ViewData["dolar"] =  String.Format("{0:0.00}", fnc(xdollar));
+            ViewData["euro"] = fnc(xeuro);
+            //ViewData["sterling"] = fnc(xsterling);
+        }
+
 
         [ChildActionOnly]
         public PartialViewResult GetProductsMenu()
