@@ -142,19 +142,19 @@
     <value>SEND</value>
   </data>
   <data name="center" xml:space="preserve">
-    <value>Center</value>
+    <value>Headquarters</value>
   </data>
   <data name="choosedepartment" xml:space="preserve">
-    <value>Choose Department</value>
+    <value>Department Selection</value>
   </data>
   <data name="city" xml:space="preserve">
     <value>City</value>
   </data>
   <data name="contact" xml:space="preserve">
-    <value>Contact Details</value>
+    <value>Contact Information</value>
   </data>
   <data name="contactform" xml:space="preserve">
-    <value>Contact Form</value>
+    <value>Communication Form</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
@@ -211,12 +211,12 @@
     <value>Security Code</value>
   </data>
   <data name="send" xml:space="preserve">
-    <value>Send</value>
+    <value>Submit</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>Subject</value>
   </data>
   <data name="titlle" xml:space="preserve">
-    <value>Contact</value>
+    <value>Communication</value>
   </data>
 </root>

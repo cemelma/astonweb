@@ -121,7 +121,7 @@
     <value>رقم الحساب</value>
   </data>
   <data name="address" xml:space="preserve">
-    <value>عنوان</value>
+    <value>العنـوان</value>
   </data>
   <data name="bank" xml:space="preserve">
     <value>البنك</value>
@@ -142,19 +142,19 @@
     <value>إرسال</value>
   </data>
   <data name="center" xml:space="preserve">
-    <value>المكتب الرئيسي</value>
+    <value>المركز</value>
   </data>
   <data name="choosedepartment" xml:space="preserve">
-    <value>وزارة اختر</value>
+    <value>اختيار القـسم</value>
   </data>
   <data name="city" xml:space="preserve">
-    <value>المدينة</value>
+    <value>المــدينــة</value>
   </data>
   <data name="contact" xml:space="preserve">
     <value>معلومات الاتصال</value>
   </data>
   <data name="contactform" xml:space="preserve">
-    <value>نموذج الاتصال</value>
+    <value>استمارة الاتصال</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>البريد الإلكتروني</value>
@@ -169,7 +169,7 @@
     <value>آخر</value>
   </data>
   <data name="messagecontent" xml:space="preserve">
-    <value>محتوى الرسالة</value>
+    <value>مضمون الرسالة</value>
   </data>
   <data name="messagenotsent" xml:space="preserve">
     <value>لم يتم تسليم رسالتك الآن. من فضلك قل لنا خطأك.</value>
@@ -193,13 +193,13 @@
     <value>تم تسليم الرسالة بنجاح.</value>
   </data>
   <data name="office" xml:space="preserve">
-    <value>مصنع</value>
+    <value>المصنــع</value>
   </data>
   <data name="pazarlama" xml:space="preserve">
     <value>التسويق</value>
   </data>
   <data name="phone" xml:space="preserve">
-    <value>الهاتف</value>
+    <value>الهــاتف</value>
   </data>
   <data name="requiredfiled" xml:space="preserve">
     <value>* هل الحقول المطلوبة.</value>
@@ -208,10 +208,10 @@
     <value>مبيعات</value>
   </data>
   <data name="securitycode" xml:space="preserve">
-    <value>كود الأمن</value>
+    <value>رمـز الامــان</value>
   </data>
   <data name="send" xml:space="preserve">
-    <value>إرسال</value>
+    <value>ارسل</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>عنوان</value>

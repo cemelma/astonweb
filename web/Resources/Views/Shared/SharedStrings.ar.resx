@@ -121,7 +121,7 @@
     <value>منتجات البنية التحتية</value>
   </data>
   <data name="copyright" xml:space="preserve">
-    <value>© 2014 AS-TON. جميع الحقوق محفوظة.</value>
+    <value>© 2014 AS-TON. جمــيع الحقوق محفوظــة</value>
   </data>
   <data name="fiyat_listesi_btn_img" xml:space="preserve">
     <value>/images/money-ar.png</value>
@@ -142,19 +142,19 @@
     <value>/ar/search</value>
   </data>
   <data name="m_fiyatlistesi" xml:space="preserve">
-    <value>قائمة الأسعار</value>
+    <value>قائمة الاسعار</value>
   </data>
   <data name="m_fiyatlistesi_link" xml:space="preserve">
     <value>#</value>
   </data>
   <data name="m_galeri" xml:space="preserve">
-    <value>معرض</value>
+    <value>المعرض</value>
   </data>
   <data name="m_galeri_link" xml:space="preserve">
     <value>/ar/gallery</value>
   </data>
   <data name="m_haberler" xml:space="preserve">
-    <value>الأخبار</value>
+    <value>الاخبار</value>
   </data>
   <data name="m_haberler_link" xml:space="preserve">
     <value>/ar/news</value>
@@ -166,19 +166,19 @@
     <value>/ar/contact</value>
   </data>
   <data name="m_kurumsal" xml:space="preserve">
-    <value>الشركات</value>
+    <value>مؤسساتية</value>
   </data>
   <data name="m_kurumsal_link" xml:space="preserve">
     <value>/ar/institutional</value>
   </data>
   <data name="m_makine" xml:space="preserve">
-    <value>الماكينات والمركبات مسارات</value>
+    <value>قــائمة المكائن والاليــات</value>
   </data>
   <data name="m_makine_link" xml:space="preserve">
     <value>/ar/machinery-and-vehicle-trails</value>
   </data>
   <data name="m_referans" xml:space="preserve">
-    <value>المراجع</value>
+    <value>الشركات المتعاملة معنا</value>
   </data>
   <data name="m_referans_link" xml:space="preserve">
     <value>/ar/referance</value>
@@ -202,7 +202,7 @@
     <value>/ar/prices</value>
   </data>
   <data name="tum_referanslar_icin_tiklayin" xml:space="preserve">
-    <value>انقر هنا لعرض جميع المراجع</value>
+    <value>انقر هنــا لمشاهـدة كــافة الشركات المتعاملة معنـا</value>
   </data>
   <data name="txtsearch" xml:space="preserve">
     <value>البحث</value>

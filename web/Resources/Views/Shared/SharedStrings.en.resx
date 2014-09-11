@@ -121,7 +121,7 @@
     <value>Infrastructure Products</value>
   </data>
   <data name="copyright" xml:space="preserve">
-    <value>© 2014 AS-TON. All rights reserved.</value>
+    <value>© 2014 AS-TON. All rights are reserved</value>
   </data>
   <data name="fiyat_listesi_btn_img" xml:space="preserve">
     <value>/images/money-en.png</value>
@@ -166,19 +166,19 @@
     <value>/en/contact</value>
   </data>
   <data name="m_kurumsal" xml:space="preserve">
-    <value>Institutional</value>
+    <value>Corporate</value>
   </data>
   <data name="m_kurumsal_link" xml:space="preserve">
     <value>/en/institutional</value>
   </data>
   <data name="m_makine" xml:space="preserve">
-    <value>Machinery and Vehicle Trails</value>
+    <value>Machineries and Vehicles</value>
   </data>
   <data name="m_makine_link" xml:space="preserve">
     <value>/en/machinery-and-vehicle-trails</value>
   </data>
   <data name="m_referans" xml:space="preserve">
-    <value>Referance</value>
+    <value>References</value>
   </data>
   <data name="m_referans_link" xml:space="preserve">
     <value>/en/referance</value>
