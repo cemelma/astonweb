@@ -190,6 +190,7 @@ color: #174f9b;margin-top:20px;}
 .container-left .slider .slide-content img{
     position: absolute;
     display: block;
+     height: 410px !important;  
 }
 
 
@@ -374,7 +375,7 @@ color: #174f9b;margin-top:20px;}
     display: block;
     width: 345px;
     position: relative;
-
+    z-index:999;
 } 
 
 .container-right .product-menu{
@@ -581,5 +582,5 @@ color: #174f9b;margin-top:20px;}
     width: 697px;
     height: 900px;
     display: block;
-    z-index: 9999;
+    z-index: 999;
 }
