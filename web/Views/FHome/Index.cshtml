@@ -96,10 +96,10 @@
 		<div class="col-md-3 noPadding"> <a href="/" class="logo"><img src="~/images/logo.png" border="0" /></a> </div>
 		<div class="col-md-9 noPadding">
 			<div class="col-md-12 col-md-pull-0 noPadding headerTop">
-                @if (Session["userlogin"] != null)
+               @* @if (Session["userlogin"] != null)
           { 
               <span style="float: right;position: absolute;right: 441px;top: 4px;"><a href="@SharedRess.SharedStrings.logout">@SharedRess.SharedStrings.logouttext</a></span>
-          }
+          }*@
 				          @{ Html.RenderAction("_search", "FSearch"); }
 
                  <ul class="nav nav-pills topMenu">
