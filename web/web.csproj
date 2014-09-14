@@ -1782,6 +1782,7 @@
     <Content Include="Areas\Admin\Content\scripts\plugins\autoNumeric.js" />
     <Content Include="Areas\Admin\Content\scripts\plugins\blockui.js" />
     <Content Include="Areas\Admin\Content\scripts\plugins\colpick.js" />
+    <Content Include="Areas\Admin\Content\scripts\plugins\jquery.zweatherfeed.tr2.js" />
     <Content Include="Areas\Admin\Content\scripts\plugins\easyUI\changelog.txt" />
     <Content Include="Areas\Admin\Content\scripts\plugins\easyUI\demo\accordion\actions.html" />
     <Content Include="Areas\Admin\Content\scripts\plugins\easyUI\demo\accordion\ajax.html" />

@@ -1,5 +1,10 @@
 ﻿@model web.Models.VMProductGroupModel
- 
+<script src="~/Areas/Admin/Content/scripts/plugins/jquery.zweatherfeed.tr2.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#weather').weatherfeed(['TUXX0014']);
+    });
+</script> 
 @*<script type="text/javascript">
     $(document).ready(function () {
         var dolar = '@ViewData["dolar"]';
@@ -21,7 +26,7 @@
 
 					</div>  <!-- exchange-slide -->
 
-					<a href="#" class="cloud"><span class="icon"></span>İstanbul 34 <sup>o</sup>C </a>
+					<a href="#" class="cloud"><span class="icon"></span>İstanbul <span id="weather"></span> <sup>o</sup>C </a>
 					
 				</div> <!-- exchange -->
 
