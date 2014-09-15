@@ -123,6 +123,9 @@
   <data name="breadcrumblogin" xml:space="preserve">
     <value>Giriş</value>
   </data>
+  <data name="entry" xml:space="preserve">
+    <value>Giriş Yapın</value>
+  </data>
   <data name="fiyatbilgisi" xml:space="preserve">
     <value>Fiyat Bilgisi İçin Tıklayınız</value>
   </data>

@@ -123,6 +123,9 @@
   <data name="breadcrumblogin" xml:space="preserve">
     <value>تسجيل الدخول</value>
   </data>
+  <data name="entry" xml:space="preserve">
+    <value>الرجاء تسجيل الدخول</value>
+  </data>
   <data name="fiyatbilgisi" xml:space="preserve">
     <value>اضغط هنا للتسعير معلومات</value>
   </data>

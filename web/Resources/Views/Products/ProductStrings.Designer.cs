@@ -79,6 +79,15 @@ namespace ProductRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giriş Yapın.
+        /// </summary>
+        public static string entry {
+            get {
+                return ResourceManager.GetString("entry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fiyat Bilgisi İçin Tıklayınız.
         /// </summary>
         public static string fiyatbilgisi {

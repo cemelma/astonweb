@@ -129,6 +129,9 @@
   <data name="galeri" xml:space="preserve">
     <value>Galeri</value>
   </data>
+  <data name="istanbul" xml:space="preserve">
+    <value>İstanbul</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>/tr/giris</value>
   </data>
