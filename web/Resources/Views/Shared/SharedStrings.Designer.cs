@@ -97,6 +97,15 @@ namespace SharedRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İstanbul.
+        /// </summary>
+        public static string istanbul {
+            get {
+                return ResourceManager.GetString("istanbul", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /tr/giris.
         /// </summary>
         public static string login {

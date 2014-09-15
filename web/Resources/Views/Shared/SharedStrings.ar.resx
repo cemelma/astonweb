@@ -129,6 +129,9 @@
   <data name="galeri" xml:space="preserve">
     <value>معرض</value>
   </data>
+  <data name="istanbul" xml:space="preserve">
+    <value>اسطنبول</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>/ar/login</value>
   </data>
