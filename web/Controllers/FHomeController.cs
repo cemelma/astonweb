@@ -114,6 +114,23 @@ namespace web.Controllers
             grouplist.Products = ProductManager.GetProductList(ids);
 
             ViewBag.Services = ServiceManager.GetServiceListForFront(lang);
+
+            using (MainContext db = new MainContext())
+            {
+                if (lang == "tr")
+                {
+                    grouplist.ProductGroup = grouplist.ProductGroup.Where(x => x.Deleted == false && x.TopProductId == 3 || x.TopProductId == 12).OrderBy(d => d.SortNumber).ToList();
+                }
+                else if (lang == "en")
+                {
+                    grouplist.ProductGroup = grouplist.ProductGroup.Where(x => x.Deleted == false && x.TopProductId == 35 || x.TopProductId == 36).OrderBy(d => d.SortNumber).ToList();
+                }
+                else if (lang == "ar")
+                {
+                    grouplist.ProductGroup = grouplist.ProductGroup.Where(x => x.Deleted == false && x.TopProductId == 76 || x.TopProductId == 77).OrderBy(d => d.SortNumber).ToList();
+                }
+            }
+
             return PartialView("Partial/_productsmenu", grouplist);
         }
 
