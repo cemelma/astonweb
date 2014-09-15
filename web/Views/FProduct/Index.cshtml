@@ -29,9 +29,18 @@
                  <li><a href="@SharedRess.SharedStrings.productcat/@item.ProductGroupId/@item.PageSlug" >@item.GroupName</a></li>
              }
         </ul>
-
+        @{ int catid = -1; }
     @foreach (var proditem in Model)
     {
+        if (catid != proditem.product.ProductGroup.ProductGroupId)
+        {
+            <h1><a name="@proditem.product.ProductGroup.PageSlug">@proditem.product.ProductGroup.GroupName</a></h1>
+        }
+
+        {
+            catid = proditem.product.ProductGroup.ProductGroupId;
+        }
+        
         <div class="item">
             <h2 class="pageTitle"><i class="fa fa-angle-double-right"></i><a style="color: #e31e24; text-decoration:none" name="@proditem.product.ProductId">@proditem.product.Name</a></h2>
         
