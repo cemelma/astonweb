@@ -95,6 +95,7 @@ namespace web.Controllers
                 var prodakprdtip = db.ProductGroup.Where(d => d.TopProductId == 1 && d.Language == lang && d.Deleted==false && d.Online==true).ToList();
                 ViewData["productgroups"] = prodakprdtip;
                 ViewBag.cid = cId;
+                ViewBag.id = pId;
                 return View(productsmodel);
             }
                
@@ -252,7 +253,13 @@ namespace web.Controllers
                 if (ProductManager.GetLoginControl(user.Login.Email, user.Login.Password))
                 {
                     Session["userlogin"] = user.Login.Email;
-                    return RedirectToAction("Index", "FHome");
+                    using (MainContext db = new MainContext())
+                    {
+                        var list = db.ProductGroup.Where(d => d.Online == true && d.TopProductId == 1 && d.Deleted == false && d.Language == lang).OrderBy(d => d.SortNumber).FirstOrDefault();
+
+                        return Redirect(@SharedRess.SharedStrings.productpricesmenulink + "/" + list.ProductGroupId + "/" + list.PageSlug);
+                    }
+                    //return RedirectToAction("Index", "FHome");
                 }
                 else TempData["login"] = "false";
             }
@@ -267,7 +274,13 @@ namespace web.Controllers
                             if (ProductManager.AddUser(user.NewUser))
                             {
                                 Session["userlogin"] = user.NewUser.Email;
-                                return RedirectToAction("Index", "FHome");
+                                
+                                using (MainContext db = new MainContext())
+                                {
+                                    var list = db.ProductGroup.Where(d => d.Online == true && d.TopProductId == 1 && d.Deleted == false && d.Language == lang).OrderBy(d => d.SortNumber).FirstOrDefault();
+                                    
+                                    return Redirect(@SharedRess.SharedStrings.productpricesmenulink + "/" + list.ProductGroupId + "/" + list.PageSlug);
+                                }
                             }
                             else TempData["usernew"] = "false";
                         }

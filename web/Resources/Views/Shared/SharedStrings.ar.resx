@@ -190,10 +190,10 @@
     <value>#</value>
   </data>
   <data name="pricelist" xml:space="preserve">
-    <value>/en/pricelist</value>
+    <value>/ar/pricelist</value>
   </data>
   <data name="productcat" xml:space="preserve">
-    <value>/en/category</value>
+    <value>/ar/category</value>
   </data>
   <data name="productmenulink" xml:space="preserve">
     <value>/ar/products</value>
