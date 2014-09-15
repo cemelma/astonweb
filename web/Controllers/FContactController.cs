@@ -85,7 +85,7 @@ namespace web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string namesurname, string email, string phone, string city, string subject, string body,string captcha)
+        public ActionResult Index(string namesurname, string email, string phone, string city, string subject, string body, string captcha, string departman)
         {
             try
             {
@@ -127,6 +127,7 @@ namespace web.Controllers
                     mail.Body = "<h3>Gönderen:" + namesurname + " - " + email + "</h3>" +
                         "<b>Tel: </b>" + phone + 
                         "<br><b>Şehir: </b>" + city +
+                        "<br><b>Departman: </b>" + departman +
                         "<br><h3>Mesaj:</h3><p>" + body + "</p>";
                     //ServicePointManager.ServerCertificateValidationCallback = delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
                     if (mail.To.Count > 0) client.Send(mail);
