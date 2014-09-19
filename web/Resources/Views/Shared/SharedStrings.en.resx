@@ -123,6 +123,12 @@
   <data name="copyright" xml:space="preserve">
     <value>© 2014 AS-TON. All rights are reserved</value>
   </data>
+  <data name="dolar" xml:space="preserve">
+    <value>USD:</value>
+  </data>
+  <data name="euro" xml:space="preserve">
+    <value>EURO:</value>
+  </data>
   <data name="fiyat_listesi_btn_img" xml:space="preserve">
     <value>/images/money-en.png</value>
   </data>
@@ -131,6 +137,12 @@
   </data>
   <data name="istanbul" xml:space="preserve">
     <value>Istanbul</value>
+  </data>
+  <data name="kaliteimg" xml:space="preserve">
+    <value>/images/kalite_en.png</value>
+  </data>
+  <data name="kalitelink" xml:space="preserve">
+    <value>/en/quality</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>/en/login</value>

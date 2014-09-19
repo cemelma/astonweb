@@ -117,100 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="breadcrumb" xml:space="preserve">
-    <value>Products</value>
+  <data name="breadcrumbmainurl" xml:space="preserve">
+    <value>Homepage</value>
   </data>
-  <data name="breadcrumblogin" xml:space="preserve">
-    <value>Login</value>
+  <data name="breadcrumbtext" xml:space="preserve">
+    <value>Quality Certifications</value>
   </data>
-  <data name="entry" xml:space="preserve">
-    <value>Login</value>
+  <data name="breadcrumbtextmachine" xml:space="preserve">
+    <value>Quality Certifications</value>
   </data>
-  <data name="fiyatbilgisi" xml:space="preserve">
-    <value>Technical Data and Pricing Information</value>
+  <data name="header" xml:space="preserve">
+    <value>QUALITY CERTIFICATIONS</value>
   </data>
-  <data name="fiyatlistesi" xml:space="preserve">
-    <value>PRICE LIST</value>
+  <data name="headermachine" xml:space="preserve">
+    <value>QUALITY CERTIFICATIONS</value>
   </data>
-  <data name="fiyatlistesiniindir" xml:space="preserve">
-    <value>Download Price List</value>
+  <data name="title" xml:space="preserve">
+    <value>Quality Certifications</value>
   </data>
-  <data name="laddress" xml:space="preserve">
-    <value>Address:</value>
-  </data>
-  <data name="lbtn" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="lcep" xml:space="preserve">
-    <value>Mobile Phone:</value>
-  </data>
-  <data name="lcompany" xml:space="preserve">
-    <value>Company:</value>
-  </data>
-  <data name="lfax" xml:space="preserve">
-    <value>Fax:</value>
-  </data>
-  <data name="lmail" xml:space="preserve">
-    <value>E-Mail Address:</value>
-  </data>
-  <data name="lname" xml:space="preserve">
-    <value>Full Name</value>
-  </data>
-  <data name="lnbtn" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="lnmail" xml:space="preserve">
-    <value>E-Mail</value>
-  </data>
-  <data name="lnpass" xml:space="preserve">
-    <value>Password:</value>
-  </data>
-  <data name="lnrpass" xml:space="preserve">
-    <value>Re-password</value>
-  </data>
-  <data name="login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="loginmessageerror" xml:space="preserve">
-    <value>Please fill in the required fields Please complete and accurate.</value>
-  </data>
-  <data name="loginmessagemsg" xml:space="preserve">
-    <value>E-mail address / password is incorrect, please check.</value>
-  </data>
-  <data name="loginmessagenew" xml:space="preserve">
-    <value>Sorry, Date Transaction not completed. Please contact your authorized.</value>
-  </data>
-  <data name="loginmessagenotmail" xml:space="preserve">
-    <value>This email address is already registered.</value>
-  </data>
-  <data name="loginmessagenotnull" xml:space="preserve">
-    <value>Please check your data, enter the missing data.</value>
-  </data>
-  <data name="loginmessagepass" xml:space="preserve">
-    <value>Please check the entered passwords do not match ...</value>
-  </data>
-  <data name="logintitle" xml:space="preserve">
-    <value>Login!</value>
-  </data>
-  <data name="lpass" xml:space="preserve">
-    <value>Password:</value>
-  </data>
-  <data name="ltel" xml:space="preserve">
-    <value>Phone:</value>
-  </data>
-  <data name="pricestitle" xml:space="preserve">
-    <value>Prices</value>
-  </data>
-  <data name="register" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="urunfotograflari" xml:space="preserve">
-    <value>Products Pictures</value>
-  </data>
-  <data name="urunler" xml:space="preserve">
-    <value>Products</value>
-  </data>
-  <data name="urunrenkleri" xml:space="preserve">
-    <value>Products Color</value>
+  <data name="titlemachine" xml:space="preserve">
+    <value>QUALITY CERTIFICATIONS</value>
   </data>
 </root>

@@ -190,7 +190,7 @@
 		</div> <!-- news -->
 
 		<div class="product-info">
-			<h2>@HomeRess.HomeStrings.urunler_hakkinda <br/> @HomeRess.HomeStrings.bilgi_ve_siparis</h2>
+			<h2>@Html.Raw(HomeRess.HomeStrings.urunler_hakkinda)</h2>
 			<p>@HomeRess.HomeStrings.nolu_hattan_ulasabilirsiniz</p>
 		</div> <!-- product-info -->
 
@@ -218,14 +218,16 @@
 
 		<div class="clear"></div>
 
-         @if (Session["userlogin"] != null)
+         @*@if (Session["userlogin"] != null)
           { 
              <a href="@SharedRess.SharedStrings.pricelist" class="price-list-button flr"><img src="@SharedRess.SharedStrings.fiyat_listesi_btn_img" alt=""></a>
           }
            else
            {
              <a href="@SharedRess.SharedStrings.login" class="price-list-button flr"><img src="@SharedRess.SharedStrings.fiyat_listesi_btn_img" alt=""></a>
-            }
+            }*@
+             <a href="@SharedRess.SharedStrings.kalitelink" class="price-list-button flr"><img src="@SharedRess.SharedStrings.kaliteimg" alt=""></a>
+
         <div class="clear"></div>
 
 		<div class="references-list">

@@ -226,6 +226,7 @@
     <Compile Include="Areas\Admin\Models\ProductAddModel.cs" />
     <Compile Include="Areas\Admin\Models\PropertyModel.cs" />
     <Compile Include="Areas\Admin\Models\VMProductGroupModel.cs" />
+    <Compile Include="Controllers\FQualityController.cs" />
     <Compile Include="Controllers\FGalleryController.cs" />
     <Compile Include="Controllers\FProductController.cs" />
     <Compile Include="Controllers\FEstatesController.cs" />
@@ -322,6 +323,26 @@
     </Compile>
     <Compile Include="Resources\Views\Contact\ContactStrings.tr.Designer.cs">
       <DependentUpon>ContactStrings.tr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Quality\QualityStrings.ar.Designer.cs">
+      <DependentUpon>QualityStrings.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Quality\QualityStrings.Designer.cs">
+      <DependentUpon>QualityStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Quality\QualityStrings.en.Designer.cs">
+      <DependentUpon>QualityStrings.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Quality\QualityStrings.tr.Designer.cs">
+      <DependentUpon>QualityStrings.tr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -2781,6 +2802,9 @@
     <Content Include="Images\home.png" />
     <Content Include="Images\ikitelli.jpg" />
     <Content Include="Images\inaktiv.png" />
+    <Content Include="Images\kalite_ar.png" />
+    <Content Include="Images\kalite_en.png" />
+    <Content Include="Images\kalite_tr.png" />
     <Content Include="Images\leasing.jpg" />
     <Content Include="Images\linkedin.png" />
     <Content Include="Images\listStyle.jpg" />
@@ -3239,6 +3263,7 @@
     <Content Include="Views\FHome\Index.cshtml" />
     <Content Include="Views\FNews\Machine.cshtml" />
     <Content Include="Views\Shared\Partial\_productsmenu.cshtml" />
+    <Content Include="Views\FQuality\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3334,6 +3359,26 @@
       <LastGenOutput>ContactStrings.tr.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ContactRess</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Quality\QualityStrings.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>QualityStrings.ar.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Quality\QualityStrings.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>QualityStrings.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Quality\QualityStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>QualityStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsRess</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Quality\QualityStrings.tr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>QualityStrings.tr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsRess</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Estate\EstatesStrings.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

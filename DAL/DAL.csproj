@@ -57,6 +57,7 @@
     <Compile Include="Entities\AdminUser.cs" />
     <Compile Include="Entities\Analytic.cs" />
     <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Entities\Quality.cs" />
     <Compile Include="Entities\Subscription.cs" />
     <Compile Include="Entities\HumanResourceCv.cs" />
     <Compile Include="Entities\ProductColors.cs" />

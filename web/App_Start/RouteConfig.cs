@@ -44,6 +44,10 @@ namespace web
             routes.MapRoute("news_en", "en/news", new { action = "Index", Controller = "FNews" });
             routes.MapRoute("news_ar", "ar/news", new { action = "Index", Controller = "FNews" });
 
+            routes.MapRoute("quality_tr", "tr/kalite-belgeleri", new { action = "Index", Controller = "FQuality" });
+            routes.MapRoute("quality_en", "en/quality", new { action = "Index", Controller = "FQuality" });
+            routes.MapRoute("quality_ar", "ar/quality", new { action = "Index", Controller = "FQuality" });
+
             //routes.MapRoute("news_tr", "tr/haberler", new { action = "Index", Controller = "FNews" });
             //routes.MapRoute("news_en", "en/news", new { action = "Index", Controller = "FNews" });
             //routes.MapRoute("news_ar", "ar/news", new { action = "Index", Controller = "FNews" });

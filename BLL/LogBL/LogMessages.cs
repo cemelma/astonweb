@@ -91,6 +91,13 @@ namespace BLL.LogBL
         public static string NewsDeleted = "Haber Silindi";
         public static string NewsNotDeleted = "Haber Silinemedi";
 
+        public static string QualityAdded = "Yeni Kalite Belgesi Eklendi";
+        public static string QualityNotAdded = "Yeni Kalite Belgesi Eklenemedi";
+        public static string QualityEdited = "Kalite Belgesi Düzenlendi";
+        public static string QualityNotEdited = "Kalite Belgesi Düzenlendi";
+        public static string QualityDeleted = "Kalite Belgesi Silindi";
+        public static string QualityNotDeleted = "Kalite Belgesi Silinemedi";
+
         public static string UserAdded = "Yeni Kullanıcı Eklendi";
         public static string UserNotAdded = "Yeni Kullanıcı Eklenemedi";
         public static string UserEdited = "Kullanıcı Düzenlendi";

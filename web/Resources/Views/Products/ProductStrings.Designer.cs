@@ -88,7 +88,7 @@ namespace ProductRess {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fiyat Bilgisi İçin Tıklayınız.
+        ///   Looks up a localized string similar to Teknik Bilgiler ve Fiyat Bilgisi.
         /// </summary>
         public static string fiyatbilgisi {
             get {

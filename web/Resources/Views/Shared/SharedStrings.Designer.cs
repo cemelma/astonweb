@@ -79,6 +79,24 @@ namespace SharedRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to USD:.
+        /// </summary>
+        public static string dolar {
+            get {
+                return ResourceManager.GetString("dolar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EURO:.
+        /// </summary>
+        public static string euro {
+            get {
+                return ResourceManager.GetString("euro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /images/money.png.
         /// </summary>
         public static string fiyat_listesi_btn_img {
@@ -102,6 +120,24 @@ namespace SharedRess {
         public static string istanbul {
             get {
                 return ResourceManager.GetString("istanbul", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /images/kalite_tr.png.
+        /// </summary>
+        public static string kaliteimg {
+            get {
+                return ResourceManager.GetString("kaliteimg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/kalite-belgeleri.
+        /// </summary>
+        public static string kalitelink {
+            get {
+                return ResourceManager.GetString("kalitelink", resourceCulture);
             }
         }
         

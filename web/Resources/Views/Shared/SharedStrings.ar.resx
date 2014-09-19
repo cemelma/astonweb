@@ -123,6 +123,12 @@
   <data name="copyright" xml:space="preserve">
     <value>© 2014 AS-TON. جمــيع الحقوق محفوظــة</value>
   </data>
+  <data name="dolar" xml:space="preserve">
+    <value>دولار امريكي $</value>
+  </data>
+  <data name="euro" xml:space="preserve">
+    <value>يورو €</value>
+  </data>
   <data name="fiyat_listesi_btn_img" xml:space="preserve">
     <value>/images/money-ar.png</value>
   </data>
@@ -131,6 +137,12 @@
   </data>
   <data name="istanbul" xml:space="preserve">
     <value>اسطنبول</value>
+  </data>
+  <data name="kaliteimg" xml:space="preserve">
+    <value>/images/kalite_ar.png</value>
+  </data>
+  <data name="kalitelink" xml:space="preserve">
+    <value>/ar/quality</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>/ar/login</value>
@@ -181,13 +193,13 @@
     <value>/ar/machinery-and-vehicle-trails</value>
   </data>
   <data name="m_referans" xml:space="preserve">
-    <value>الشركات المتعاملة معنا</value>
+    <value>الشركات المتعاملة معنـا</value>
   </data>
   <data name="m_referans_link" xml:space="preserve">
     <value>/ar/referance</value>
   </data>
   <data name="m_urunler" xml:space="preserve">
-    <value>المنتجات / الخدمات</value>
+    <value>المنتجات</value>
   </data>
   <data name="m_urunler_link" xml:space="preserve">
     <value>#</value>

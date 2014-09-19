@@ -63,10 +63,14 @@
       <div class="pageContent">@Html.Raw(proditem.product.Content)</div>
 
 
-        <div class="col-md-12">
+       
+
+
+     @if(proditem.product.ProductGroup.TopProductId != 3 && proditem.product.ProductGroup.TopProductId != 35 && proditem.product.ProductGroup.TopProductId != 76)
+     { 
+          <div class="col-md-12">
             <h3><i class="fa fa-arrow-circle-right"></i>@ProductRess.ProductStrings.urunrenkleri</h3>
         </div>
-
       <div class="col-md-12 noPadding colors">
             @foreach (var item in proditem.Colors)
             {                
@@ -74,7 +78,7 @@
             }
         </div>
 
-
+     }
         <div class="col-md-12 noPadding productsPhoto">
         
             @if (!string.IsNullOrEmpty(proditem.product.Image1) && proditem.product.Image1 != "/Content/images/front/noimage.jpeg")
@@ -93,7 +97,7 @@
                 </div>
              }
         
-            <div class="col-md-3"><a href="#" class="fiyatBilgi">@ProductRess.ProductStrings.fiyatbilgisi</a></div>  
+            <div class="col-md-5"><a href="#" class="fiyatBilgi">@ProductRess.ProductStrings.fiyatbilgisi</a></div>  
         </div>
 
         <div class="col-md-12 noPadding products ptable" style="margin-top:20px; display:none;">
