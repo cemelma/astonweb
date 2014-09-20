@@ -13,7 +13,7 @@
         <label id="lblMethodError" style="display: none"></label>
         <br />
 
-        <div id="main-pane" style="margin-top: 35px;">
+        <div id="main-pane" style="margin-top: 35px;height: 100%;">
             <img src="" id="imgUploadedImage" alt="Uploaded Image" />
         </div>
     </div>
@@ -89,7 +89,8 @@
             $(".preview-container").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
             $(".preview-container").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
             $("#main-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
-            $("#main-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");    
+            //$("#main-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");    
+
         }
         
         var jcrop_api,
@@ -137,7 +138,7 @@
                             //trueSize: [300, 225],
                             //aspectRatio: 1,
                             //minSize: [280, 87.5],
-                            maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],
+                            //maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],
                             @*boxWidth: @TempData["minwidth"],*@
                             keySupport: false,
                             boxWidth: 280,
@@ -164,7 +165,7 @@
                             //trueSize: [300, 225],
                             //aspectRatio: 1,
                             //minSize: [@Session["_minwidth"], @Session["_minheight"]],
-                            maxSize: [@(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))],
+                            //maxSize: [@(Convert.ToInt32(Session["_minwidth"])), @(Convert.ToInt32(Session["_minheight"]))],
                             @*boxWidth: @TempData["minwidth"],*@
                             keySupport: false,
                             boxWidth: @(Convert.ToInt32(Session["_minwidth"])/2),
@@ -198,7 +199,7 @@
                         $(".preview-container").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
                         $(".preview-container").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
                         $("#main-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
-                        $("#main-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");    
+                        //$("#main-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");    
                     }
 
                 }
@@ -270,7 +271,7 @@
                     $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight2"])/2)");
                     $(".preview-container").css("width","@(Convert.ToInt32(Session["_minwidth2"])/2)");
                     $(".preview-container").css("height","@(Convert.ToInt32(Session["_minheight2"])/2)");
-                    $("#main-pane").css("height","500");    
+                    //$("#main-pane").css("height","500");    
                 },
                 error: function (xhr, status, error) {
                     // Show the error
