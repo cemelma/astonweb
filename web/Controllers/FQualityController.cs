@@ -20,7 +20,7 @@ namespace web.Controllers
         public ActionResult Index()
         {
 
-            var news = QualityManager.GetQualityListForFront(lang,false);
+            var news = QualityManager.GetQualityListForFront(lang);
             //var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News, lang);
        //     var photos = PhotoManager.GetListForFront((int)web.Areas.Admin.Helpers.PhotoType.News);
        //     NewsWrapperModel m = new NewsWrapperModel(news, photos);

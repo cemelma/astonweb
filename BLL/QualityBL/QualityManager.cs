@@ -31,11 +31,11 @@ namespace BLL.QualityBL
             }
         }
 
-        public static List<Quality> GetQualityListForFront(string language, bool ismachine)
+        public static List<Quality> GetQualityListForFront(string language)
         {
             using (MainContext db = new MainContext())
             {
-                var Quality_list = db.Quality.Where(d => d.Deleted == false && d.Language == language && d.Online == true && d.ShowInMenu==true && d.IsMachine==ismachine).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
+                var Quality_list = db.Quality.Where(d => d.Deleted == false && d.Language == language && d.Online == true).OrderByDescending(d => d.TimeCreated).OrderBy(d => d.SortOrder).ToList();
                 return Quality_list;
             }
         }

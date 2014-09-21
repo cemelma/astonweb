@@ -185,6 +185,7 @@
     <Compile Include="Areas\Admin\Controllers\AnalyticController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QualityController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubscriptionController.cs" />
     <Compile Include="Areas\Admin\Controllers\MachineController.cs" />
     <Compile Include="Areas\Admin\Controllers\DistrictController.cs" />
@@ -2629,6 +2630,7 @@
     <Content Include="Content\Images\userfiles\news\standart.gif" />
     <Content Include="Content\Images\userfiles\productbig\standart.gif" />
     <Content Include="Content\Images\userfiles\productthumb\standart.gif" />
+    <Content Include="Content\Images\userfiles\quality\standart.gif" />
     <Content Include="Content\Images\userfiles\servicebig\standart.gif" />
     <Content Include="Content\Images\userfiles\servicethumb\standart.gif" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
@@ -3045,6 +3047,10 @@
     <Content Include="Areas\Admin\Views\Subscription\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Subscription\account_leftbar.cshtml" />
     <Content Include="Areas\Admin\Views\ProductGroup\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Quality\AddQuality.cshtml" />
+    <Content Include="Areas\Admin\Views\Quality\EditQuality.cshtml" />
+    <Content Include="Areas\Admin\Views\Quality\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Quality\news_leftbar.cshtml" />
     <None Include="Properties\PublishProfiles\Aston.pubxml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
