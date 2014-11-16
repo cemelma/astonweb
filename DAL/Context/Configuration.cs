@@ -12,7 +12,7 @@ namespace DAL.Context
     {
         public Configration()
         {
-            AutomaticMigrationsEnabled = false; // production'da false yapılacak...
+            AutomaticMigrationsEnabled = true; // production'da false yapılacak...
             AutomaticMigrationDataLossAllowed = false;
         }
 

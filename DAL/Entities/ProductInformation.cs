@@ -25,6 +25,7 @@ namespace DAL.Entities
         public string Field10 { get; set; }
         public string Field11 { get; set; }
         public string Field12 { get; set; }
+        public string TeknikResim { get; set; }
 
      
     }

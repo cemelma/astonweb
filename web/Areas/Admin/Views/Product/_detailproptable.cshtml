@@ -99,6 +99,13 @@
     </p>
     }
     
+    <fieldset>
+        <legend>Fotoğraf</legend>
+        <div id="uploadPartial">
+            @Html.Partial("~/Areas/Admin/Views/Shared/_imageUploadAndCropGallery.cshtml")
+        </div>
+    </fieldset>
+    
     <p>
         <input type="button" value="Temizle" id="btnclear" />
         <input type="button" value="Kaydet" id="btnsaveProp" />

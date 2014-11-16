@@ -49,7 +49,7 @@ namespace web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2, HttpPostedFileBase teknikresim, string ddl_group)
+        public ActionResult AddProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2, string ddl_group)
         {
             var languages = LanguageManager.GetLanguages();
             var list = new SelectList(languages, "Culture", "Language", model.Product.Language);
@@ -62,22 +62,22 @@ namespace web.Areas.Admin.Controllers
                 model.Product.ProductGroupId = Convert.ToInt32(ddl_group);
 
                 model.Product.TopProductGroupId = GetTopCategoryId(Convert.ToInt32(ddl_group));
-                if (teknikresim != null)
-                {
-                    Random random = new Random();
-                    int rand = random.Next(1000, 99999999);
-                    string path = Utility.SetPagePlug(model.Product.Name) + "_" + rand + Path.GetFileNameWithoutExtension(teknikresim.FileName);
-                    teknikresim.SaveAs(Server.MapPath("/Content/images/userfiles/productbig/") + path);
-                    new ImageHelper(210, 125).SaveThumbnail(teknikresim, "/Content/images/userfiles/productthumb/", path);
-                    model.Product.TeknikResim = "/Content/images/userfiles/productthumb/" + path + ".jpeg"; ;
+                //if (teknikresim != null)
+                //{
+                //    Random random = new Random();
+                //    int rand = random.Next(1000, 99999999);
+                //    string path = Utility.SetPagePlug(model.Product.Name) + "_" + rand + Path.GetFileNameWithoutExtension(teknikresim.FileName);
+                //    teknikresim.SaveAs(Server.MapPath("/Content/images/userfiles/productbig/") + path);
+                //    new ImageHelper(210, 125).SaveThumbnail(teknikresim, "/Content/images/userfiles/productthumb/", path);
+                //    model.Product.TeknikResim = "/Content/images/userfiles/productthumb/" + path + ".jpeg"; ;
 
-                    Helpers.ImageHelper.WaterMark("/Content/images/userfiles/productbig/" + path, 100);
-                    Helpers.ImageHelper.WaterMarkThumb("/Content/images/userfiles/productthumb/" + path);
-                }
-                else
-                {
-                    model.Product.TeknikResim = "/Content/images/front/noimage.jpeg";
-                }
+                //    Helpers.ImageHelper.WaterMark("/Content/images/userfiles/productbig/" + path, 100);
+                //    Helpers.ImageHelper.WaterMarkThumb("/Content/images/userfiles/productthumb/" + path);
+                //}
+                //else
+                //{
+                //    model.Product.TeknikResim = "/Content/images/front/noimage.jpeg";
+                //}
                 if (prd1 != null)
                 {
                     Random random = new Random();
@@ -235,25 +235,25 @@ namespace web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2, HttpPostedFileBase teknikresim, int hdProductId)
+        public ActionResult EditProduct(ProductAddModel model, IEnumerable<HttpPostedFileBase> attachments, HttpPostedFileBase prd1, HttpPostedFileBase prd2, int hdProductId)
         {
             try
             {
                 model.Product.PageSlug = Utility.SetPagePlug(model.Product.Name);
                 model.Product.ProductId = hdProductId;
 
-                if (teknikresim != null)
-                {
-                    Random random = new Random();
-                    int rand = random.Next(1000, 99999999);
-                    string path = Utility.SetPagePlug(model.Product.Name) + "_" + rand + Path.GetFileNameWithoutExtension(teknikresim.FileName);
-                    teknikresim.SaveAs(Server.MapPath("/Content/images/userfiles/productbig/") + path);
-                    new ImageHelper(1024, 768).SaveThumbnail(teknikresim, "/Content/images/userfiles/productthumb/", path);
-                    model.Product.TeknikResim = "/Content/images/userfiles/productthumb/" + path + ".jpeg"; ;
+                //if (teknikresim != null)
+                //{
+                //    Random random = new Random();
+                //    int rand = random.Next(1000, 99999999);
+                //    string path = Utility.SetPagePlug(model.Product.Name) + "_" + rand + Path.GetFileNameWithoutExtension(teknikresim.FileName);
+                //    teknikresim.SaveAs(Server.MapPath("/Content/images/userfiles/productbig/") + path);
+                //    new ImageHelper(1024, 768).SaveThumbnail(teknikresim, "/Content/images/userfiles/productthumb/", path);
+                //    model.Product.TeknikResim = "/Content/images/userfiles/productthumb/" + path + ".jpeg"; ;
 
-                    Helpers.ImageHelper.WaterMark("/Content/images/userfiles/productbig/" + path, 100);
-                    Helpers.ImageHelper.WaterMarkThumb("/Content/images/userfiles/productthumb/" + path);
-                }
+                //    Helpers.ImageHelper.WaterMark("/Content/images/userfiles/productbig/" + path, 100);
+                //    Helpers.ImageHelper.WaterMarkThumb("/Content/images/userfiles/productthumb/" + path);
+                //}
 
                 if (prd1 != null)
                 {
@@ -402,6 +402,16 @@ namespace web.Areas.Admin.Controllers
                 if (input11 != "undefined") pinfo.Field11 = input11;
                 if (input12 != "undefined") pinfo.Field12 = input12;
 
+                if (Session["ModifiedImageId"] != null)
+                {
+                    pinfo.TeknikResim = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
+                    ImageHelperNew.DestroyImageCashAndSession(0, 0);
+                }
+                else
+                {
+                    pinfo.TeknikResim = "/Content/images/front/noimage.jpeg";
+                }
+
                 pinfo.ProductId = Convert.ToInt32(prid);
 
                 db.ProductInformation.Add(pinfo);
@@ -437,6 +447,8 @@ namespace web.Areas.Admin.Controllers
         {
             using (MainContext db = new MainContext())
             {
+                ImageHelperNew.DestroyImageCashAndSession(1024, 768);
+
                 PropertyModel model = new PropertyModel();
                 model.header = db.ProductHeaders.FirstOrDefault(x => x.CategoryId == cid);
                 model.ProductInfo = db.ProductInformation.Where(x => x.ProductId == id).ToList();
