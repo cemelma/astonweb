@@ -7,6 +7,7 @@ namespace web.Helpers.Enums
 {
     public enum PhotoTypes
     {
-        Gallery = 98
+        Gallery = 98,
+        Catalog = 99
     }
 }

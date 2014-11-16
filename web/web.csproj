@@ -185,6 +185,7 @@
     <Compile Include="Areas\Admin\Controllers\AnalyticController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\QualityController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubscriptionController.cs" />
     <Compile Include="Areas\Admin\Controllers\MachineController.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Areas\Admin\Models\ProductAddModel.cs" />
     <Compile Include="Areas\Admin\Models\PropertyModel.cs" />
     <Compile Include="Areas\Admin\Models\VMProductGroupModel.cs" />
+    <Compile Include="Controllers\FCatalogController.cs" />
     <Compile Include="Controllers\FQualityController.cs" />
     <Compile Include="Controllers\FGalleryController.cs" />
     <Compile Include="Controllers\FProductController.cs" />
@@ -1730,6 +1732,9 @@
     <Content Include="Areas\Admin\Content\scripts\pagescripts\certificate\Certificatelist.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\banner\addbanner.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\banner\bannerlist.js" />
+    <Content Include="Areas\Admin\Content\scripts\pagescripts\catalog\addimage.js" />
+    <Content Include="Areas\Admin\Content\scripts\pagescripts\catalog\gallerygroup.js" />
+    <Content Include="Areas\Admin\Content\scripts\pagescripts\catalog\gallerylist.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\estate\addestate.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\estate\editestate.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\estate\estatelist.js" />
@@ -2913,6 +2918,19 @@
     <Content Include="img\maden.jpg" />
     <Content Include="img\news\news01.jpg" />
     <Content Include="img\oil-gas.jpg" />
+    <Content Include="img\pages\1-large.jpg" />
+    <Content Include="img\pages\1-thumb.jpg" />
+    <Content Include="img\pages\1.jpg" />
+    <Content Include="img\pages\12-large.jpg" />
+    <Content Include="img\pages\12-thumb.jpg" />
+    <Content Include="img\pages\12.jpg" />
+    <Content Include="img\pages\2-large.jpg" />
+    <Content Include="img\pages\2-thumb.jpg" />
+    <Content Include="img\pages\2.jpg" />
+    <Content Include="img\pages\3-large.jpg" />
+    <Content Include="img\pages\3-thumb.jpg" />
+    <Content Include="img\pages\3.jpg" />
+    <Content Include="img\pages\preview.jpg" />
     <Content Include="img\reference\next.png" />
     <Content Include="img\reference\prev.png" />
     <Content Include="img\reference\referansdetay_01.jpg" />
@@ -3051,6 +3069,9 @@
     <Content Include="Areas\Admin\Views\Quality\EditQuality.cshtml" />
     <Content Include="Areas\Admin\Views\Quality\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Quality\news_leftbar.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalog\AddImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalog\gallery_leftbar.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalog\CatalogList.cshtml" />
     <None Include="Properties\PublishProfiles\Aston.pubxml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
@@ -3119,6 +3140,12 @@
     <Content Include="js\sliderCustom.js" />
     <Content Include="js\sliderCustom_en.js" />
     <Content Include="js\supersized.3.2.7.min.js" />
+    <Content Include="Scripts\catalog\basic.css" />
+    <Content Include="Scripts\pics\arrows.png" />
+    <Content Include="Scripts\pics\loader.gif" />
+    <Content Include="Scripts\pics\zoom-icons-editable.png" />
+    <Content Include="Scripts\pics\zoom-icons.png" />
+    <Content Include="Scripts\pics\zoom.png" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
@@ -3143,6 +3170,14 @@
     <Content Include="Uploadify\uploadify.swf" />
     <Content Include="userfiles\images\join-us.jpg" />
     <Content Include="userfiles\_thumbs\Images\join-us.jpg" />
+    <Content Include="Scripts\catalog\hash.js" />
+    <Content Include="Scripts\catalog\jquery.min.1.7.js" />
+    <Content Include="Scripts\catalog\magazine.css" />
+    <Content Include="Scripts\catalog\magazine.js" />
+    <Content Include="Scripts\catalog\modernizr.2.5.3.min.js" />
+    <Content Include="Scripts\catalog\turn.html4.min.js" />
+    <Content Include="Scripts\catalog\turn.js" />
+    <Content Include="Scripts\catalog\zoom.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3270,6 +3305,7 @@
     <Content Include="Views\FNews\Machine.cshtml" />
     <Content Include="Views\Shared\Partial\_productsmenu.cshtml" />
     <Content Include="Views\FQuality\Index.cshtml" />
+    <Content Include="Views\FCatalog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
