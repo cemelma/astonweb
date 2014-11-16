@@ -142,6 +142,24 @@ namespace SharedRess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /images/katalog_tr.png.
+        /// </summary>
+        public static string katalogimg {
+            get {
+                return ResourceManager.GetString("katalogimg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /tr/dijital-katalog.
+        /// </summary>
+        public static string kataloglink {
+            get {
+                return ResourceManager.GetString("kataloglink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /tr/giris.
         /// </summary>
         public static string login {

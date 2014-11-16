@@ -52,6 +52,9 @@ namespace web
             //routes.MapRoute("news_en", "en/news", new { action = "Index", Controller = "FNews" });
             //routes.MapRoute("news_ar", "ar/news", new { action = "Index", Controller = "FNews" });
 
+            routes.MapRoute("catalog_tr", "tr/dijital-katalog", new { action = "Index", Controller = "FCatalog" });
+            routes.MapRoute("catalog_en", "en/digital-catalog", new { action = "Index", Controller = "FCatalog" });
+            routes.MapRoute("catalog_ar", "ar/digital-catalog", new { action = "Index", Controller = "FCatalog" });
 
             routes.MapRoute("urunler_tr", "tr/urunler/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });
             routes.MapRoute("urunler_en", "en/products/{id}/{pageslug}", new { action = "Index", Controller = "FProduct" });

@@ -308,6 +308,14 @@ namespace web.Areas.Admin
             context.MapRoute("productgroupedit", "yonetim/urungrupduzenle/{id}", new { action = "Edit", Controller = "ProductGroup" });
 
 
+            //KATALOG
+            //context.MapRoute("gallerygroupx", "yonetim/galeriler", new { action = "Index", Controller = "Gallery" });
+            //context.MapRoute("gallerygroups_defaultx", "yonetim/galerigruplari", new { action = "Index", Controller = "GalleryGroup" });
+            context.MapRoute("catalog", "yonetim/kataloggruplari/{lang}", new { action = "Index", Controller = "CatalogGroup" });
+            context.MapRoute("catalogadd", "yonetim/katalogresimekle", new { action = "AddImage", Controller = "Catalog" });
+            context.MapRoute("catlist", "yonetim/katalogresimleri", new { action = "CatalogList", Controller = "Catalog" });
+            context.MapRoute("catlist2", "yonetim/katalogresimleri/{lang}", new { action = "CatalogList", Controller = "Catalog" });
+
             context.MapRoute(
                 "Admin_defaultx",
                 "Admin/{controller}/{action}/{id}",

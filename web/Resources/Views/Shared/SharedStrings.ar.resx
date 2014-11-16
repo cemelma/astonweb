@@ -144,6 +144,12 @@
   <data name="kalitelink" xml:space="preserve">
     <value>/ar/quality</value>
   </data>
+  <data name="katalogimg" xml:space="preserve">
+    <value>/images/katalog_ar.png</value>
+  </data>
+  <data name="kataloglink" xml:space="preserve">
+    <value>/ar/digital-catalog</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>/ar/login</value>
   </data>
