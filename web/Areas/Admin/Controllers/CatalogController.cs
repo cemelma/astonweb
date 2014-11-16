@@ -34,7 +34,7 @@ namespace web.Areas.Admin.Controllers
 
         public ActionResult AddImage()
         {
-            ImageHelperNew.DestroyImageCashAndSession(768, 1024);
+            ImageHelperNew.DestroyImageCashAndSession(1536, 2048);
             var languages = LanguageManager.GetLanguages();
             var list = new SelectList(languages, "Culture", "Language");
             ViewBag.LanguageList = list;

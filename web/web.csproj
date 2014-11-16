@@ -1727,6 +1727,7 @@
     <Content Include="Areas\Admin\Content\scripts\pagescripts\account\login.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\bank\banklist.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\banner\main.js" />
+    <Content Include="Areas\Admin\Content\scripts\pagescripts\catalog\main.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\contact\contact.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\certificate\addCertificate.js" />
     <Content Include="Areas\Admin\Content\scripts\pagescripts\certificate\Certificatelist.js" />
@@ -3072,6 +3073,7 @@
     <Content Include="Areas\Admin\Views\Catalog\AddImage.cshtml" />
     <Content Include="Areas\Admin\Views\Catalog\gallery_leftbar.cshtml" />
     <Content Include="Areas\Admin\Views\Catalog\CatalogList.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_imageUploadAndCropCatalog.cshtml" />
     <None Include="Properties\PublishProfiles\Aston.pubxml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />
