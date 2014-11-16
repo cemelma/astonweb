@@ -22,6 +22,7 @@ namespace DAL.Entities
         public string Content { get; set; }
         public string Image1 { get; set; }
         public string Image2 { get; set; }
+        public string TeknikResim { get; set; }
         public int TopProductGroupId { get; set; }     
         public bool Deleted { get; set; }
         public bool Online { get; set; }

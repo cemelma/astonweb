@@ -699,6 +699,23 @@ namespace BLL.ProductBL
                             record.Image1 = data.Image1;
                         }
 
+                        if (!string.IsNullOrEmpty(data.TeknikResim) && data.Image1 != "/Content/images/front/noimage.jpeg")
+                        {
+                            //string filePath = HttpContext.Current.Server.MapPath(record.TeknikResim.Replace("/userfiles/productthumb/", "/userfiles/productbig/"));
+                            //if (System.IO.File.Exists(filePath))
+                            //{
+                            //    System.IO.File.Delete(filePath);
+                            //}
+
+                            //string filePatht = HttpContext.Current.Server.MapPath(record.TeknikResim);
+                            //if (System.IO.File.Exists(filePatht))
+                            //{
+                            //    System.IO.File.Delete(filePatht);
+                            //}
+
+                            record.TeknikResim = data.TeknikResim;
+                        }
+
                         if (!string.IsNullOrEmpty(data.Image2) && data.Image2 != "/Content/images/front/noimage.jpeg")
                        {
                            string filePath = HttpContext.Current.Server.MapPath(record.Image2.Replace("/userfiles/productthumb/", "/userfiles/productbig/"));
