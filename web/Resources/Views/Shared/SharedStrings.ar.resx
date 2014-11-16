@@ -124,10 +124,10 @@
     <value>© 2014 AS-TON. جمــيع الحقوق محفوظــة</value>
   </data>
   <data name="dolar" xml:space="preserve">
-    <value>دولار امريكي $</value>
+    <value />
   </data>
   <data name="euro" xml:space="preserve">
-    <value>يورو €</value>
+    <value />
   </data>
   <data name="fiyat_listesi_btn_img" xml:space="preserve">
     <value>/images/money-ar.png</value>

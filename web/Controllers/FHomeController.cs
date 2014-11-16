@@ -84,23 +84,44 @@ namespace web.Controllers
             XmlNode xeuro = dok.SelectSingleNode("/Tarih_Date/Currency[CurrencyName='EURO']");
             XmlNode xsterling = dok.SelectSingleNode("/Tarih_Date/Currency[CurrencyName='POUND STERLING']");
 
+
+            var ddolar = xdollar.ChildNodes[4].InnerText;
+            var eeuro = xeuro.ChildNodes[4].InnerText;
+
             double dolar = double.Parse(xdollar.ChildNodes[4].InnerText);
             double euro = double.Parse(xeuro.ChildNodes[4].InnerText);
             double sterling = double.Parse(xsterling.ChildNodes[4].InnerText);
 
-            ViewData["dolar"] = dolar;
-            ViewData["euro"] = euro;
-            ViewData["sterling"] = sterling;
-
-            //ya da
-
-            Func<XmlNode, double> fnc = delegate(XmlNode x)
+            string eu =eeuro.ToString();
+            string dl =ddolar.ToString();
+            if (eeuro.Length > 6)
             {
-                return double.Parse(x.ChildNodes[4].InnerText);
-            };
-            ViewData["dolar"] = lang == "tr" ? (fnc(xdollar) / 10000) : fnc(xdollar);
-            ViewData["euro"] = lang == "tr" ? (fnc(xeuro) / 10000) : fnc(xeuro);
-            //ViewData["sterling"] = fnc(xsterling);
+                eu = eeuro.Substring(0, 6);
+            }
+
+            if (ddolar.Length > 6)
+                dl = ddolar.Substring(0, 6);
+
+            while (eu.Length < 6)
+            {
+                eu = eu + "0";
+            }
+
+            while (dl.Length < 6)
+            {
+                dl = dl + "0";
+            }
+
+            ViewData["dolar"] = dl;
+            ViewData["euro"] = eu;
+
+            //Func<XmlNode, double> fnc = delegate(XmlNode x)
+            //{
+            //    return double.Parse(x.ChildNodes[4].InnerText);
+            //};
+            //ViewData["dolar"] = lang == "tr" ? (fnc(xdollar) / 10000) : fnc(xdollar);
+            //ViewData["euro"] = lang == "tr" ? (fnc(xeuro) / 10000) : fnc(xeuro);
+            ////ViewData["sterling"] = fnc(xsterling);
         }
 
 
