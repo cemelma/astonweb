@@ -75,7 +75,6 @@
     var x = 0, y = 0, w = 0, h = 0;
     var imageHandler = '@Url.Content("~/ImageHandler.ashx?id=")';
     $(function () {
-        
         if (parseInt(@Session["_minwidth"]) > 100) {
             
             $("#preview-pane").css("width","280");
@@ -132,7 +131,7 @@
                     $("#pnlUploadedImage").show();
                     $("#imgUploadedImage").attr("src", imageHandler + response.Id);
                     $("#btnResimGuncelle").css("display","none");
-                    if (parseInt(@Session["_minwidth"]) > 1000) {
+                    if (parseInt(@Session["_minwidth"]) > 100) {
                         $('#imgUploadedImage').Jcrop({
                             onChange: setCoords,
                             onSelect: setCoords,

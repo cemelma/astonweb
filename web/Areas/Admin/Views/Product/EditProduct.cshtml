@@ -190,6 +190,7 @@
 
     <script  type="text/javascript">
         $(document).ready(function () {
+
             var value = "@Model.Product.ProductGroupId";
             if (value != null && value != "")
                 $("#" + "@Model.Product.ProductGroupId").prop("checked", true);
@@ -261,3 +262,7 @@
 }
 
 
+<style>
+    fieldset { min-height:480px !important;
+    }
+</style>
