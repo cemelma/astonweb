@@ -160,7 +160,7 @@ namespace HomeRess {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0126 123 12 42 no&apos;lu hattan ulaşabilirsiniz..
+        ///   Looks up a localized string similar to +90 (216) 311 68 15 no&apos;lu hattan ulaşabilirsiniz..
         /// </summary>
         public static string nolu_hattan_ulasabilirsiniz {
             get {
