@@ -24,7 +24,7 @@
         <div class="preview-container">
             @if (Convert.ToInt32(Session["_minwidth"]) > 1000)
             {
-                <img src="/Content/Images/Front/noimage.jpeg" width="128" height="170" id="imgNewImage" alt="Image" />
+                <img src="/Content/Images/Front/noimage.jpeg" width="256" height="340" id="imgNewImage" alt="Image" />
             }
             else
             { 
@@ -78,11 +78,11 @@
         
         if (parseInt(@Session["_minwidth"]) > 1000) {
             
-            $("#preview-pane").css("width","128");
-            $("#preview-pane").css("height","170");
-            $(".preview-container").css("width","128");
-            $(".preview-container").css("height","170");
-            $("#main-pane").css("height","190");
+            $("#preview-pane").css("width","256");
+            $("#preview-pane").css("height","340");
+            $(".preview-container").css("width","256");
+            $(".preview-container").css("height","340");
+            $("#main-pane").css("height","350");
         }else{
             $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
             $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
@@ -140,9 +140,9 @@
                             maxSize: [@Session["_minwidth"] + "00", @Session["_minheight"] + "00"],
                             @*boxWidth: @TempData["minwidth"],*@
                             keySupport: false,
-                            boxWidth: 128,
+                            boxWidth: 256,
                             aspectRatio: 768 / 1024, //keep aspect ratio
-                            //setSelect: [0, 0, 280, 87.5]
+                            setSelect: [0, 0, 256, 340]
                         },function(){
                             // Use the API to get the real image size
                             var bounds = this.getBounds();
@@ -187,11 +187,11 @@
 
                     if (parseInt(@Session["_minwidth"]) > 1000) {
             
-                        $("#preview-pane").css("width","128");
-                        $("#preview-pane").css("height","170");
-                        $(".preview-container").css("width","128");
-                        $(".preview-container").css("height","170");
-                        $("#main-pane").css("height","190");
+                        $("#preview-pane").css("width","256");
+                        $("#preview-pane").css("height","340");
+                        $(".preview-container").css("width","256");
+                        $(".preview-container").css("height","340");
+                        $("#main-pane").css("height","350");
                     }else{
                         $("#preview-pane").css("width","@(Convert.ToInt32(Session["_minwidth"])/2)");
                          $("#preview-pane").css("height","@(Convert.ToInt32(Session["_minheight"])/2)");
