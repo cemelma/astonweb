@@ -383,8 +383,24 @@ namespace web.Areas.Admin.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult Upload()
+        {
+            for (int i = 0; i < Request.Files.Count; i++)
+            {
+                HttpPostedFileBase file = Request.Files[i]; //Uploaded file
+                //Use the following properties to get file's name, size and MIMEType
+                int fileSize = file.ContentLength;
+                string fileName = file.FileName;
+                string mimeType = file.ContentType;
+                System.IO.Stream fileContent = file.InputStream;
+                //To save file, use SaveAs method
+                file.SaveAs(Server.MapPath("~/Content/Images/userfiles/") + fileName); //File will be saved in application root
+            }
+            return Json("Uploaded " + Request.Files.Count + " files");
+        }
 
-        public PartialViewResult SaveProductDetail(string prid, string catid, string input1, string input2, string input3, string input4, string input5, string input6, string input7, string input8, string input9, string input10, string input11, string input12)
+        public PartialViewResult SaveProductDetail(string teknikresim, string prid, string catid, string input1, string input2, string input3, string input4, string input5, string input6, string input7, string input8, string input9, string input10, string input11, string input12)
         {
             using (MainContext db = new MainContext())
             {
@@ -402,16 +418,16 @@ namespace web.Areas.Admin.Controllers
                 if (input11 != "undefined") pinfo.Field11 = input11;
                 if (input12 != "undefined") pinfo.Field12 = input12;
 
-                if (Session["ModifiedImageId"] != null)
-                {
-                    pinfo.TeknikResim = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
-                    ImageHelperNew.DestroyImageCashAndSession(0, 0);
-                }
-                else
-                {
-                    pinfo.TeknikResim = "/Content/images/front/noimage.jpeg";
-                }
-
+                //if (Session["ModifiedImageId"] != null)
+                //{
+                //    pinfo.TeknikResim = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
+                //    ImageHelperNew.DestroyImageCashAndSession(0, 0);
+                //}
+                //else
+                //{
+                //    pinfo.TeknikResim = "/Content/images/front/noimage.jpeg";
+                //}
+                pinfo.TeknikResim = "/Content/images/userfiles/" + teknikresim;
                 pinfo.ProductId = Convert.ToInt32(prid);
 
                 db.ProductInformation.Add(pinfo);

@@ -102,7 +102,8 @@
     <fieldset>
         <legend>Fotoğraf</legend>
         <div id="uploadPartial" style="min-height:200px;">
-            @Html.Partial("~/Areas/Admin/Views/Shared/_imageUploadAndCropGallery.cshtml")
+            @*@Html.Partial("~/Areas/Admin/Views/Shared/_imageUploadAndCropGallery.cshtml")*@
+            <input type="file" name="teknikresim" id="teknikresim" />
         </div>
     </fieldset>
     
@@ -311,7 +312,7 @@
         $("#inputtext1").focus();
 
     });
-    $("#btnsaveProp").click(function () {
+    $("#btnsaveProp").unbind().bind("click", function () {
         var prid = $("#prId").val();
         var catid = $("#catId").val();
         var input1 = $("#inputtext1").val();
@@ -329,28 +330,33 @@
 
         //        alert(input1 + ";" + input2 + ";" + input3 + ";" + input4 + ";" + input5 + ";" + input6 + ";" + input7 + ";" + input8);
 
-        $.ajax({
-            type: 'POST',
-            url: '/Product/SaveProductDetail',
-            data: '{prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '",input9:"' + input9 + '",input10:"' + input10 + '",input11:"' + input11 + '",input12:"' + input12 + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: 'html',
-            success: function (result) {
-                $.unblockUI();
-                $("#resultTable").html(result);
-
-                //$("#ProductSubGroupId").empty().append($("<option></option>").val("").html("Ürün Alt Grubunu Seçiniz..."));
-                //$("#g1").css("display", "block");
-                //$.each(result, function (i, item) {
-                //    $("#ProductSubGroupId").append($("<option></option>").val(item.Value).html(item.Text));
-                //});
-                //$("#ProductSubGroupId").removeAttr("disabled");
-                //$("#imgloader2").css("display", "none");
-            },
-            error: function () {
-                $.unblockUI();
+        var formdataDP = new FormData();
+        var fileInputDP = document.getElementById('teknikresim');
+        if (fileInputDP.files.length > 0) {
+            for (i = 0; i < fileInputDP.files.length; i++) {
+                formdataDP.append(fileInputDP.files[i].name, fileInputDP.files[i]);
             }
-        });
+            var xhr1 = new XMLHttpRequest();
+            xhr1.open('POST', '/Product/Upload');
+            xhr1.send(formdataDP);
+            xhr1.onreadystatechange = function () {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Product/SaveProductDetail',
+                    data: '{ teknikresim: "' + fileInputDP.files[0].name + '", prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '",input9:"' + input9 + '",input10:"' + input10 + '",input11:"' + input11 + '",input12:"' + input12 + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'html',
+                    success: function (result) {
+                        $.unblockUI();
+                        $("#resultTable").html(result);
+                    },
+                    error: function () {
+                        $.unblockUI();
+                    }
+                });
+            }
+        }
 
 
     });
