@@ -2647,6 +2647,7 @@
     <Content Include="Content\Images\referenceListImg.png" />
     <Content Include="Content\Images\search.png" />
     <Content Include="Content\Images\Twitter-icon.png" />
+    <Content Include="Content\Images\userfiles\empty.jpg" />
     <Content Include="Content\Images\userfiles\humanresources\standart.gif" />
     <Content Include="Content\Images\userfiles\news\standart.gif" />
     <Content Include="Content\Images\userfiles\productbig\standart.gif" />
