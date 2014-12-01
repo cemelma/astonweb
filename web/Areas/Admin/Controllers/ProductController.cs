@@ -390,6 +390,9 @@ namespace web.Areas.Admin.Controllers
             {
                 HttpPostedFileBase file = Request.Files[i]; //Uploaded file
                 //Use the following properties to get file's name, size and MIMEType
+                Random random = new Random();
+                int rand = random.Next(1000, 99999999);
+
                 int fileSize = file.ContentLength;
                 string fileName = file.FileName;
                 string mimeType = file.ContentType;

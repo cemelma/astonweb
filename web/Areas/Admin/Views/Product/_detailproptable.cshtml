@@ -101,7 +101,7 @@
     
     <fieldset>
         <legend>Fotoğraf</legend>
-        <div id="uploadPartial" style="min-height:200px;">
+        <div id="uploadPartial" style="">
             <input type="file" name="teknikresim" id="teknikresim" />
         </div>
     </fieldset>
@@ -328,35 +328,37 @@
         var input12 = $("#inputtext12").val();
 
         //        alert(input1 + ";" + input2 + ";" + input3 + ";" + input4 + ";" + input5 + ";" + input6 + ";" + input7 + ";" + input8);
-
+        var nname = "";
         var formdataDP = new FormData();
         var fileInputDP = document.getElementById('teknikresim');
         if (fileInputDP.files.length > 0) {
+            nname = fileInputDP.files[0].name;
             for (i = 0; i < fileInputDP.files.length; i++) {
                 formdataDP.append(fileInputDP.files[i].name, fileInputDP.files[i]);
             }
             var xhr1 = new XMLHttpRequest();
             xhr1.open('POST', '/Product/Upload');
             xhr1.send(formdataDP);
-            xhr1.onreadystatechange = function () {
+            //xhr1.onreadystatechange = function () {
 
-                $.ajax({
-                    type: 'POST',
-                    url: '/Product/SaveProductDetail',
-                    data: '{ teknikresim: "' + fileInputDP.files[0].name + '", prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '",input9:"' + input9 + '",input10:"' + input10 + '",input11:"' + input11 + '",input12:"' + input12 + '"}',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: 'html',
-                    success: function (result) {
-                        $.unblockUI();
-                        $("#resultTable").html(result);
-                    },
-                    error: function () {
-                        $.unblockUI();
-                    }
-                });
-            }
+            //}
         }
+        else nname = "empty.jpg";
 
+        $.ajax({
+            type: 'POST',
+            url: '/Product/SaveProductDetail',
+            data: '{ teknikresim: "' + nname + '", prId:"' + prid + '",catid:"' + catid + '",input1:"' + input1 + '",input2:"' + input2 + '",input3:"' + input3 + '",input4:"' + input4 + '",input5:"' + input5 + '",input6:"' + input6 + '",input7:"' + input7 + '",input8:"' + input8 + '",input9:"' + input9 + '",input10:"' + input10 + '",input11:"' + input11 + '",input12:"' + input12 + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'html',
+            success: function (result) {
+                $.unblockUI();
+                $("#resultTable").html(result);
+            },
+            error: function () {
+                $.unblockUI();
+            }
+        });
 
     });
 
