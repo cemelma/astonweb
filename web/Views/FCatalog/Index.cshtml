@@ -82,16 +82,32 @@
                 <!-- BEGIN deep linking -->
                 <section id="fb5-deeplinking">
                     <ul>
-                        <li data-address="page1" data-page="1"></li>
-                        <li data-address="page2-3" data-page="2"></li>
-                        <li data-address="page2-3" data-page="3"></li>
-                        <li data-address="page4-5" data-page="4"></li>
-                        <li data-address="page4-5" data-page="5"></li>
-                        <li data-address="page6-7" data-page="6"></li>
-                        <li data-address="page6-7" data-page="7"></li>
-                        <li data-address="page8-9" data-page="8"></li>
-                        <li data-address="page8-9" data-page="9"></li>
-                        <li data-address="end" data-page="10"></li>
+                         @{ int ex = 1; } 
+                        @foreach (var item in Model)
+                        {
+                            if (ex == 1)
+                            {
+                                <li data-address="page@(ex)" data-page="@(ex)"></li>
+                            }
+                            else if (ex != Model.Count())
+                            {
+                                <li data-address="page@(ex)-@(ex+1)" data-page="@(ex)"></li>                                
+                            }
+                            else
+                            {
+                                <li data-address="end" data-page="@(ex)"></li>
+                            }
+
+                            ex++;
+                            @*<li data-address="page2-3" data-page="3"></li>
+                            <li data-address="page4-5" data-page="4"></li>
+                            <li data-address="page4-5" data-page="5"></li>
+                            <li data-address="page6-7" data-page="6"></li>
+                            <li data-address="page6-7" data-page="7"></li>
+                            <li data-address="page8-9" data-page="8"></li>
+                            <li data-address="page8-9" data-page="9"></li>
+                            <li data-address="end" data-page="10"></li>*@
+                        }
                     </ul>
                 </section>
                 <!-- END deep linking -->
