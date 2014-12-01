@@ -11,6 +11,8 @@ using System.Web.Script.Serialization;
 using BLL.PhotoBL;
 using DAL.Entities;
 using BLL.Catalog;
+using System.IO;
+using web.Areas.Admin.Helpers;
 
 namespace web.Areas.Admin.Controllers
 {
@@ -72,27 +74,40 @@ namespace web.Areas.Admin.Controllers
             return id;
         }
         [HttpPost]
-        public ActionResult AddImage(Photo newmodel, HttpPostedFileBase uploadfile, string language, string Title)
+        public ActionResult AddImage(Photo newmodel, HttpPostedFileBase fileUpload, string language, string Title)
         {
             var languages = LanguageManager.GetLanguages();
             var list = new SelectList(languages, "Culture", "Language");
             ViewBag.LanguageList = list;
 
             Photo p = new Photo();
-            
-            if (Session["ModifiedImageId"] != null)
-            {
-                string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// +Session["WorkingImageExtension"].ToString();
-                newmodel.Path = imagename + ".jpeg";
-                ImageHelperNew.DestroyImageCashAndSession(0, 0);
 
-                Helpers.ImageHelper.WaterMark(imagename, 100);
+            if (fileUpload != null)
+            {
+                Random random = new Random();
+                int rand = random.Next(1000, 99999999);
+                string path = rand + Path.GetFileName(fileUpload.FileName);
+                fileUpload.SaveAs(Server.MapPath("~/Content/images/userfiles/news/") + path);
+                newmodel.Path = "/Content/images/userfiles/news/" + path;
             }
             else
             {
-                return View();
                 newmodel.Path = "/Content/images/front/noimage.jpeg";
             }
+
+            //if (Session["ModifiedImageId"] != null)
+            //{
+            //    string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// +Session["WorkingImageExtension"].ToString();
+            //    newmodel.Path = imagename + ".jpeg";
+            //    ImageHelperNew.DestroyImageCashAndSession(0, 0);
+
+            //    Helpers.ImageHelper.WaterMark(imagename, 100);
+            //}
+            //else
+            //{
+            //    return View();
+            //    newmodel.Path = "/Content/images/front/noimage.jpeg";
+            //}
 
             p.CategoryId = (int)PhotoTypes.Catalog;
             p.Title = Title;
