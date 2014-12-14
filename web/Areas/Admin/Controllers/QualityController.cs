@@ -33,7 +33,7 @@ namespace web.Areas.Admin.Controllers
             var languages = LanguageManager.GetLanguages();
             var list = new SelectList(languages, "Culture", "Language");
             ViewBag.LanguageList = list;
-            ImageHelperNew.DestroyImageCashAndSession(600, 338);
+            //ImageHelperNew.DestroyImageCashAndSession(600, 338);
             return View();
         }
 
@@ -41,21 +41,33 @@ namespace web.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult AddQuality(IEnumerable<HttpPostedFileBase> attachments, Quality Qualitymodel, HttpPostedFileBase uploadfile, string txtdate, string Language)
         {
-           
             if (ModelState.IsValid)
             {
-                if (Session["ModifiedImageId"] != null)
+                if (uploadfile != null)
                 {
-                    string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// + Session["WorkingImageExtension"].ToString();
-                    Qualitymodel.NewsImage = imagename + ".jpeg";
-                    ImageHelperNew.DestroyImageCashAndSession(0,0);
-
-                    Helpers.ImageHelper.WaterMark(imagename, 100);
+                    Random random = new Random();
+                    int rand = random.Next(1000, 99999999);
+                    string path = rand + Path.GetFileName(uploadfile.FileName);
+                    uploadfile.SaveAs(Server.MapPath("~/Content/images/userfiles/news/") + path);
+                    Qualitymodel.NewsImage = "/Content/images/userfiles/news/" + path;
                 }
                 else
                 {
                     Qualitymodel.NewsImage = "/Content/images/front/noimage.jpeg";
                 }
+
+                //if (Session["ModifiedImageId"] != null)
+                //{
+                //    string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// + Session["WorkingImageExtension"].ToString();
+                //    Qualitymodel.NewsImage = imagename + ".jpeg";
+                //    ImageHelperNew.DestroyImageCashAndSession(0,0);
+
+                //    Helpers.ImageHelper.WaterMark(imagename, 100);
+                //}
+                //else
+                //{
+                //    Qualitymodel.NewsImage = "/Content/images/front/noimage.jpeg";
+                //}
 
                 Qualitymodel.Language = Language;
                 Qualitymodel.TypeId = 0;
@@ -120,7 +132,7 @@ namespace web.Areas.Admin.Controllers
                 bool isnumber=int.TryParse(RouteData.Values["id"].ToString(),out nid);
                 if (isnumber)
                 {
-                    ImageHelperNew.DestroyImageCashAndSession(600, 338);
+                    //ImageHelperNew.DestroyImageCashAndSession(600, 338);
                     Quality editQuality = QualityManager.GetQualityById(nid);
                     var languages = LanguageManager.GetLanguages();
                     var list = new SelectList(languages, "Culture", "Language");
@@ -157,14 +169,24 @@ namespace web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 
-                if (Session["ModifiedImageId"] != null)
-                {
-                    string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// +Session["WorkingImageExtension"].ToString();
-                    Qualitymodel.NewsImage = imagename + ".jpeg";
-                    ImageHelperNew.DestroyImageCashAndSession(0, 0);
+                //if (Session["ModifiedImageId"] != null)
+                //{
+                //    string imagename = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString();// +Session["WorkingImageExtension"].ToString();
+                //    Qualitymodel.NewsImage = imagename + ".jpeg";
+                //    ImageHelperNew.DestroyImageCashAndSession(0, 0);
 
-                    Helpers.ImageHelper.WaterMark(imagename,100);
+                //    Helpers.ImageHelper.WaterMark(imagename,100);
+                //}
+
+                if (uploadfile != null)
+                {
+                    Random random = new Random();
+                    int rand = random.Next(1000, 99999999);
+                    string path = rand + Path.GetFileName(uploadfile.FileName);
+                    uploadfile.SaveAs(Server.MapPath("~/Content/images/userfiles/news/") + path);
+                    Qualitymodel.NewsImage = "/Content/images/userfiles/news/" + path;
                 }
+
               
                 Qualitymodel.PageSlug = Utility.SetPagePlug(Qualitymodel.Header);
                 Qualitymodel.TimeCreated = Utility.ControlDateTime(txtdate);

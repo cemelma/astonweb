@@ -44,7 +44,7 @@ namespace web.Areas.Admin.Controllers
             {
                 if (Session["ModifiedImageId"] != null)
                 {
-                    newmodel.Path = "/Content/images/userfiles/productthumb/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
+                    newmodel.Path = "/Content/images/userfiles/news/" + Session["ModifiedImageId"].ToString() + Session["WorkingImageExtension"].ToString();
                     ImageHelperNew.DestroyImageCashAndSession(0, 0);
                 }
                 else
