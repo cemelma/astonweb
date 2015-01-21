@@ -3090,6 +3090,7 @@
     <Content Include="Areas\Admin\Views\Catalog\gallery_leftbar.cshtml" />
     <Content Include="Areas\Admin\Views\Catalog\CatalogList.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_imageUploadAndCropCatalog.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_ProductGroupDropDownaddsub.cshtml" />
     <None Include="Properties\PublishProfiles\Aston.pubxml" />
     <None Include="Properties\PublishProfiles\deneme.pubxml" />
     <None Include="Properties\PublishProfiles\deneysan.pubxml" />

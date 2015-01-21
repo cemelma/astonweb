@@ -1,5 +1,8 @@
 ﻿@model web.Areas.Admin.Models.VMProductGroupModel
-@{DAL.Entities.ProductGroup temp = new DAL.Entities.ProductGroup();}
+@{
+    DAL.Entities.ProductGroup temp = new DAL.Entities.ProductGroup();
+}
+
 
 @if(Model.SelectedProductGroup!=null)
 {
@@ -9,14 +12,13 @@
         {         
             <text> <option value="@item.ProductGroupId"  style="background-color: rgb(240, 225, 225); color: #BB7979;">@item.GroupName</option> </text>
                 {
-                    temp = Model.SelectedProductGroup;
-                    Model.SelectedProductGroup = item;
+                    temp = item;
                     Html.RenderPartial("_ProductGroupDropDownadd", Model);
-                    Model.SelectedProductGroup = temp;
                 }
         }
         else
         {
+            @{temp = null};
             <text> <option value="@item.ProductGroupId"   >--- @item.GroupName</option> </text>
         }
      }
